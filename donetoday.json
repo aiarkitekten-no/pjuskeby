@@ -110,6 +110,28 @@
         "README.md"
       ],
       "impact": "Komplett oversikt over Fase 0 og neste steg"
+    },
+    {
+      "timestamp": "2025-10-16T12:43:47.464Z",
+      "phase": "1",
+      "actor": "copilot",
+      "action": "normalized people.json",
+      "why": "added id, slug, street_id, timestamps, status fields",
+      "files": [
+        "content/data/people.normalized.json"
+      ],
+      "impact": "2 personer normalisert, 23 feil"
+    },
+    {
+      "timestamp": "2025-10-16T12:46:45.759Z",
+      "phase": "1",
+      "actor": "copilot",
+      "action": "normalized people.json",
+      "why": "added id, slug, street_id, timestamps, status fields",
+      "files": [
+        "content/data/people.normalized.json"
+      ],
+      "impact": "25 personer normalisert, 0 feil, 23 warnings"
     }
   ]
 }

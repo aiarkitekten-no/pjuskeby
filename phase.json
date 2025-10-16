@@ -1,7 +1,7 @@
 {
-  "current_phase": "0",
-  "phase_name": "Guardrails-boot",
-  "started": "2025-10-16T12:00:00Z",
+  "current_phase": "1",
+  "phase_name": "Datafundament & normalisering",
+  "started": "2025-10-16T12:30:00Z",
   "status": "in_progress",
   "goals": [
     "Opprette koblinger.json som single source of truth",
