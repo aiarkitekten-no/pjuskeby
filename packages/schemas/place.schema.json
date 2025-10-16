@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pjuskeby.org/schemas/place.schema.json",
+  "title": "Place",
+  "description": "Et sted i Pjuskeby",
+  "type": "object",
+  "required": ["id", "slug", "name", "category", "created_at", "updated_at", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": ["residential", "commercial", "public", "nature", "historic", "fictional"]
+    },
+    "description": {
+      "type": ["string", "null"]
+    },
+    "street_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "Referanse til street.id hvis stedet ligger på en gate"
+    },
+    "geo": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Point"]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive", "archived"]
+    }
+  }
+}

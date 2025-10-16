@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Milly Wiggleflap",
+    "bio": "Believes clouds are just lazy sheep",
+    "street": "Noodleknob Crescent",
+    "age": 78,
+    "hobbies": ["collecting left socks", "tickling dandelions"],
+    "workplace": "The Pudding Forecast Centre"
+  },
+  {
+    "name": "Boris Blundercheek",
+    "bio": "Claims he invented accidental walking",
+    "street": "Snortle Street",
+    "age": 63,
+    "hobbies": ["falling off beanbags", "misreading cereal boxes"],
+    "workplace": "The Institute of Oops"
+  },
+  {
+    "name": "Franny Featherknees",
+    "bio": "Talks to chairs before sitting down",
+    "street": "Gobblewobble Lane",
+    "age": 42,
+    "hobbies": ["singing lullabies to soup", "competitive blinking"],
+    "workplace": "Sleepytime Sandwich Co."
+  },
+  {
+    "name": "Nigel Noodlefork",
+    "bio": "Still confused by how spoons work",
+    "street": "Crumpet Quay",
+    "age": 54,
+    "hobbies": ["inventing square bubbles", "knitting wind"],
+    "workplace": "Department of Silly Implements"
+  },
+  {
+    "name": "Dotty McFlap",
+    "bio": "Replaced all her light bulbs with glitter",
+    "street": "Twinkletoes Alley",
+    "age": 69,
+    "hobbies": ["synchronised yawning", "training carrots"],
+    "workplace": "The Very Curious Café"
+  },
+  {
+    "name": "Waldo Picklethump",
+    "bio": "Collects noises no one else hears",
+    "street": "Soggy Biscuit Boulevard",
+    "age": 58,
+    "hobbies": ["jar whispering", "shadow spotting"],
+    "workplace": "Echo & Co. Acoustic Consulting"
+  },
+  {
+    "name": "Tina Tumbletwig",
+    "bio": "Wears 8 watches, all set to nap time",
+    "street": "Muddleberry Road",
+    "age": 47,
+    "hobbies": ["napping competitively", "sorting clouds by mood"],
+    "workplace": "Time for Tea Therapy"
+  },
+  {
+    "name": "Percy Snootwhistle",
+    "bio": "Says ‘sorry’ to bananas before peeling",
+    "street": "Whifflewharf Drive",
+    "age": 66,
+    "hobbies": ["invisible flute concerts", "butterfly tax consulting"],
+    "workplace": "The Slightly Odd Bank"
+  },
+  {
+    "name": "Lola Fizzletwig",
+    "bio": "Owns 37 hats, none functional",
+    "street": "Gigglegum Grove",
+    "age": 38,
+    "hobbies": ["hat juggling", "birdwatching with sunglasses at night"],
+    "workplace": "Wiggle & Sons Millinery"
+  },
+  {
+    "name": "Eustace Jumblebottom",
+    "bio": "Replaces bad memories with biscuits",
+    "street": "Cranklecorn Lane",
+    "age": 83,
+    "hobbies": ["blanket whispering", "retired kazoo performance"],
+    "workplace": "Mayor of His Own Sofa"
+  },
+  {
+    "name": "Nora Bumblebash",
+    "bio": "Genuinely believes fish can feel embarrassment",
+    "street": "Wobblewaddle Way",
+    "age": 59,
+    "hobbies": ["underwater poetry", "hosting silent tea parties"],
+    "workplace": "The Aquarium of Forgotten Feelings"
+  },
+  {
+    "name": "Gary Tiddlestack",
+    "bio": "Runs a snail taxi service for fun",
+    "street": "Mosswiggle Avenue",
+    "age": 50,
+    "hobbies": ["miniature traffic control", "cheering at sunsets"],
+    "workplace": "SnailSpeed Logistics"
+  },
+  {
+    "name": "Hilda Spranklepuff",
+    "bio": "Talks only in rhymes on Thursdays",
+    "street": "Merryflop Crescent",
+    "age": 61,
+    "hobbies": ["rhyme-spinning", "cake dramatics"],
+    "workplace": "Pjuskeby Poetry Laundrette"
+  },
+  {
+    "name": "Oswald Crankwhistle",
+    "bio": "Spins conspiracy theories about jam",
+    "street": "Pickleloop Path",
+    "age": 67,
+    "hobbies": ["jam decoding", "paranoid gardening"],
+    "workplace": "The Secret Raspberry Society"
+  },
+  {
+    "name": "Trixie Wobblethorpe",
+    "bio": "Invented invisible soup spoons, to mixed reviews",
+    "street": "Snickerknob Hill",
+    "age": 46,
+    "hobbies": ["guessing the time incorrectly", "left-handed shadow puppets"],
+    "workplace": "Invisible Utensils Ltd."
+  },
+  {
+    "name": "Franklin Gloop",
+    "bio": "Might be made of pudding. Jury’s out.",
+    "street": "Squishmallow Road",
+    "age": 75,
+    "hobbies": ["boiling milk at moonrise", "puddle inspection"],
+    "workplace": "Weatherproof Pudding Labs"
+  },
+  {
+    "name": "Beatrix Fafflebloom",
+    "bio": "Teaches yoga to emotionally complex dogs",
+    "street": "Snoreberry Lane",
+    "age": 44,
+    "hobbies": ["tail-reading", "downward dog debates"],
+    "workplace": "Canine Contemplation Studio"
+  },
+  {
+    "name": "Clive Flumpington",
+    "bio": "Knows the secret name of every lamppost",
+    "street": "Noodlebutt Terrace",
+    "age": 70,
+    "hobbies": ["streetlamp serenades", "crumpet topography"],
+    "workplace": "The Illuminated Bureau of Naming Things"
+  },
+  {
+    "name": "Edna Snortwig",
+    "bio": "Burps in Morse code (accidentally)",
+    "street": "Wigglefang Alley",
+    "age": 62,
+    "hobbies": ["unintentional messaging", "pickle juggling"],
+    "workplace": "Museum of Accidental Communication"
+  },
+  {
+    "name": "Benny Tootletoe",
+    "bio": "Local legend in the field of loud socks",
+    "street": "Fizzletrunk Lane",
+    "age": 39,
+    "hobbies": ["sock debates", "tap dancing to silence"],
+    "workplace": "Institute for Fashion Ambiguity"
+  },
+  {
+    "name": "Vera Scrumbleshine",
+    "bio": "Cleans invisible messes obsessively",
+    "street": "Spongleberry Court",
+    "age": 53,
+    "hobbies": ["dustless sweeping", "philosophical mopping"],
+    "workplace": "The Spotless Nothing Co."
+  },
+  {
+    "name": "Horace Blibb",
+    "bio": "Licks stamps for the thrill",
+    "street": "Licketyloop Drive",
+    "age": 48,
+    "hobbies": ["competitive licking", "collecting unposted postcards"],
+    "workplace": "Pjuskeby Postal & Peculiarities"
+  },
+  {
+    "name": "Winifred Drizzlebottom",
+    "bio": "Makes weather predictions using cheese",
+    "street": "Meltedbrie Boulevard",
+    "age": 68,
+    "hobbies": ["storm-sniffing", "cheese alchemy"],
+    "workplace": "Wheystation Forecasting"
+  },
+  {
+    "name": "Reginald Plonksnort",
+    "bio": "Thinks in jazz and sneezes in waltz",
+    "street": "Syncopation Lane",
+    "age": 60,
+    "hobbies": ["cough harmonics", "musical sneezing"],
+    "workplace": "Symphony of Unintentional Sound"
+  },
+  {
+    "name": "Daisy Fizzlefrump",
+    "bio": "Refuses to believe that spoons aren’t tiny boats",
+    "street": "Teacup Bay Avenue",
+    "age": 36,
+    "hobbies": ["regatta with cutlery", "singing to toast"],
+    "workplace": "Department of Alternative Nautics"
+  }
+]

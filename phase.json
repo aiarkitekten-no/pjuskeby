@@ -1,0 +1,36 @@
+{
+  "current_phase": "0",
+  "phase_name": "Guardrails-boot",
+  "started": "2025-10-16T12:00:00Z",
+  "status": "in_progress",
+  "goals": [
+    "Opprette koblinger.json som single source of truth",
+    "Sette opp AI-learned/ katalog med alle påkrevde filer",
+    "Etablere phase.json og donetoday.json",
+    "Lage Guardrails-kommentarer template",
+    "Opprette .env for DB-credentials",
+    "Sette opp pre-commit hooks for placeholder-blokkering",
+    "Lage validerings-scripts for koblinger og schemas",
+    "Dokumentere 'Slett alle data'-mekanisme"
+  ],
+  "done_means_done": [
+    "koblinger.json finnes og beskriver alle moduler komplett",
+    "AI-learned/ katalog har alle 6 påkrevde filer (fungerer, feil, usikkert, godekilder, antimønstre, beslutninger)",
+    "phase.json og donetoday.json er opprettet og i bruk",
+    "Pre-commit hooks stanser commits med forbudte strenger",
+    "CI validerer schemas, koblinger og relasjoner",
+    "Guardrails-kommentar template er dokumentert",
+    ".env er opprettet med riktige credentials og sikret",
+    "Slett-alt-mekanisme er definert og dokumentert"
+  ],
+  "guardrails": [
+    "Ingen kode kjøres før koblinger.json er komplett",
+    "Alle scripts må logge til donetoday.json",
+    "Pre-commit må blokkere: TODO, FIXME, placeholder, coming soon, lorem, mock, dummy, tbd, her kommer",
+    "CI må validere: schemas, koblinger.json konsistens, relasjoner",
+    "Alle nye filer må ha Guardrails-kommentar på toppen"
+  ],
+  "blocked_by": [],
+  "next_phase": "1",
+  "next_phase_name": "Datafundament & normalisering"
+}

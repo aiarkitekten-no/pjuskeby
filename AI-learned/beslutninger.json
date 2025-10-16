@@ -1,0 +1,93 @@
+{
+  "description": "Arkitektoniske beslutninger og hvorfor vi valgte som vi gjorde",
+  "updated": "2025-10-16T12:00:00Z",
+  "decisions": [
+    {
+      "id": 1,
+      "date": "2025-10-16",
+      "topic": "koblinger.json som single source of truth",
+      "decision": "Alle moduler, relasjoner og guardrails defineres i én JSON-fil",
+      "alternatives_considered": [
+        "Spredt dokumentasjon",
+        "TypeScript interfaces",
+        "Separate konfig-filer per modul"
+      ],
+      "why_chosen": "Gir én kilde til sannhet som både mennesker og CI kan validere mot. Hindrer at Copilot tar snarveier.",
+      "trade_offs": "Krever disiplin å holde oppdatert, men det veies opp av kontroll"
+    },
+    {
+      "id": 2,
+      "date": "2025-10-16",
+      "topic": "AI genererer kun drafts",
+      "decision": "AI kan aldri publisere direkte, kun lage utkast i content/drafts/",
+      "alternatives_considered": [
+        "Full automatisering med kvalitetssjekk",
+        "Menneske skriver alt manuelt"
+      ],
+      "why_chosen": "Balanserer effektivitet med kvalitetskontroll. AI er produktiv, men menneske har siste ord.",
+      "trade_offs": "Krever manuell godkjenning, men sikrer kvalitet og merkevare"
+    },
+    {
+      "id": 3,
+      "date": "2025-10-16",
+      "topic": "MariaDB for dynamikk, JSON for baseline",
+      "decision": "Baseline data (personer, steder) i JSON, dynamisk data (kommentarer, donasjoner) i DB",
+      "alternatives_considered": [
+        "Alt i DB",
+        "Alt i flat files"
+      ],
+      "why_chosen": "JSON er git-vennlig og menneskelesbart for statisk innhold. DB for dynamikk som krever transaksjonalitet.",
+      "trade_offs": "Hybrid-arkitektur, men spiller på styrkene til hver"
+    },
+    {
+      "id": 4,
+      "date": "2025-10-16",
+      "topic": "Pre-commit hooks blokkerer placeholders",
+      "decision": "Automatisk blokkering av TODO, FIXME, mock, etc.",
+      "alternatives_considered": [
+        "Manuell code review",
+        "CI-varsel uten blokkering"
+      ],
+      "why_chosen": "Fail fast. Hindrer at uferdige ting sneaker seg inn.",
+      "trade_offs": "Kan føles rigid, men sikrer disiplin"
+    },
+    {
+      "id": 5,
+      "date": "2025-10-16",
+      "topic": "donetoday.json append-only log",
+      "decision": "All mutasjoner logges i append-only JSON-log",
+      "alternatives_considered": [
+        "Strukturert logging i DB",
+        "Standard logfiler"
+      ],
+      "why_chosen": "JSON er lett å parse, git-vennlig, og append-only gir audit trail",
+      "trade_offs": "Kan bli stor fil, men kan roteres daglig"
+    },
+    {
+      "id": 6,
+      "date": "2025-10-16",
+      "topic": "Astro for frontend",
+      "decision": "Astro med MDX og statisk generering",
+      "alternatives_considered": [
+        "Next.js",
+        "SvelteKit",
+        "Eleventy"
+      ],
+      "why_chosen": "Content-first, minimal JS, PWA-vennlig, MDX-støtte",
+      "trade_offs": "Mindre ecosystem enn Next.js, men bedre ytelse for vår use case"
+    },
+    {
+      "id": 7,
+      "date": "2025-10-16",
+      "topic": "MapLibre over Mapbox",
+      "decision": "MapLibre GL for kart",
+      "alternatives_considered": [
+        "Mapbox GL JS",
+        "Leaflet",
+        "Google Maps"
+      ],
+      "why_chosen": "Open source, ingen vendor lock-in, kompatibel med Mapbox styles",
+      "trade_offs": "Færre ferdiglagde features enn Mapbox, men vi kontrollerer alt"
+    }
+  ]
+}

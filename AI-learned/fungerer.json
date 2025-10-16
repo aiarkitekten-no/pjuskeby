@@ -1,0 +1,44 @@
+{
+  "description": "Ting som fungerer i Pjuskeby-prosjektet. Oppdateres kontinuerlig.",
+  "updated": "2025-10-16T12:00:00Z",
+  "items": [
+    {
+      "id": 1,
+      "category": "struktur",
+      "what": "Baseline JSON-filer i httpdocs/json/",
+      "why": "Inneholder faktisk data fra prosjektet, ikke mock",
+      "files": [
+        "httpdocs/json/people.json",
+        "httpdocs/json/placespjuskeby.json",
+        "httpdocs/json/streets.json",
+        "httpdocs/json/businesses.json",
+        "httpdocs/json/aroundtown.json",
+        "httpdocs/json/lakes.json",
+        "httpdocs/json/oneliners.json",
+        "httpdocs/json/endings.json",
+        "httpdocs/json/endings_full.json"
+      ],
+      "confidence": 1.0
+    },
+    {
+      "id": 2,
+      "category": "arkitektur",
+      "what": "koblinger.json som single source of truth",
+      "why": "Definerer alle relasjoner og avhengigheter eksplisitt",
+      "files": [
+        "httpdocs/koblinger.json"
+      ],
+      "confidence": 1.0
+    },
+    {
+      "id": 3,
+      "category": "sikkerhet",
+      "what": ".env for DB-credentials",
+      "why": "Unngår hardkodede hemmeligheter",
+      "files": [
+        ".env"
+      ],
+      "confidence": 1.0
+    }
+  ]
+}

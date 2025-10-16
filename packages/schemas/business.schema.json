@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pjuskeby.org/schemas/business.schema.json",
+  "title": "Business",
+  "description": "En bedrift i Pjuskeby",
+  "type": "object",
+  "required": ["id", "slug", "name", "street_id", "created_at", "updated_at", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": ["string", "null"],
+      "description": "Type bedrift (butikk, kafé, etc.)"
+    },
+    "description": {
+      "type": ["string", "null"]
+    },
+    "street_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Referanse til street.id (required)"
+    },
+    "street_address": {
+      "type": ["string", "null"]
+    },
+    "owner_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "Referanse til person.id (eier)"
+    },
+    "employees": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "description": "Referanser til person.id"
+    },
+    "geo": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Point"]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive", "archived"]
+    }
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "name": "MooMambo Farm",
+    "description": "A dance-heavy dairy farm with cows trained in synchronized mooing.",
+    "conflicts": "Locked in eternal dispute with Hiccup Hill over cow jazz rights.",
+    "distance_from_center_km": 8
+  },
+  {
+    "name": "Snortville Chapel",
+    "description": "Tiny wooden church where the bellringer accidentally honks instead of ringing.",
+    "conflicts": "Priest and bell committee fight over how many honks is too many.",
+    "distance_from_center_km": 12
+  },
+  {
+    "name": "Scooter Ridge Hamlet",
+    "description": "A winding village for scooter fanatics and helmet fashionistas.",
+    "conflicts": "Fierce debate over who owns the only downhill zigzag.",
+    "distance_from_center_km": 5
+  },
+  {
+    "name": "Wooligans’ Farm",
+    "description": "Known for sheep pranks and late-night baa concerts.",
+    "conflicts": "Accused of hay theft by Nervy Nettle Ranch.",
+    "distance_from_center_km": 15
+  },
+  {
+    "name": "EchoRuin Cathedral",
+    "description": "Crumbling ruins where ghosts practice theatre and shout ‘WHERE’S THE PASTOR?’",
+    "conflicts": "Ghost hunters argue over echo rights and late-night tours.",
+    "distance_from_center_km": 20
+  },
+  {
+    "name": "Snickerstream Camping",
+    "description": "A giggle-powered riverside campsite with unpredictable frogs.",
+    "conflicts": "Campers argue over best hammock angles for maximum laughter.",
+    "distance_from_center_km": 7
+  },
+  {
+    "name": "Clowncross Junction",
+    "description": "Town built around a roundabout painted with clown faces.",
+    "conflicts": "Traffic guards dispute who gets to wear the honk hat.",
+    "distance_from_center_km": 10
+  },
+  {
+    "name": "Mouthwhistle Forest Reserve",
+    "description": "Forest where birds whistle awkward compliments at hikers.",
+    "conflicts": "Bird watchers argue about who misidentified the Snortbeak.",
+    "distance_from_center_km": 18
+  },
+  {
+    "name": "Chatterhog Farm",
+    "description": "Pigs wear microphones and never shut up.",
+    "conflicts": "Farmer’s wife vs. the pig union: who gets to speak during dinner?",
+    "distance_from_center_km": 9
+  },
+  {
+    "name": "Bouncy Bridge",
+    "description": "Old wooden bridge that bounces like jelly when walked on.",
+    "conflicts": "Road officials vs. local pranksters on ‘bounce control’.",
+    "distance_from_center_km": 6
+  },
+  {
+    "name": "Quibble Dam",
+    "description": "A lake dam that reflects your face and your poor decisions.",
+    "conflicts": "Fishermen argue over who caught the most emotionally unstable trout.",
+    "distance_from_center_km": 14
+  },
+  {
+    "name": "Rambling Rock Village",
+    "description": "Stone cottages where rocks are sorted by tone and sass.",
+    "conflicts": "Neighbors argue about the loudest pebble.",
+    "distance_from_center_km": 11
+  },
+  {
+    "name": "Frizzletop Lodge",
+    "description": "Cabins for people who can’t stop bouncing their knees.",
+    "conflicts": "Chef and guests disagree on proper ‘wiggle etiquette’ at dinner.",
+    "distance_from_center_km": 25
+  },
+  {
+    "name": "Tadpole Town",
+    "description": "Houses on stilts shaped like confused tadpoles.",
+    "conflicts": "Locals fight over who breeds the most charming amphibians.",
+    "distance_from_center_km": 4
+  },
+  {
+    "name": "Backwards Barnstead",
+    "description": "All tools face the wrong way, on purpose.",
+    "conflicts": "Two founding families argue over who started the backward revolution.",
+    "distance_from_center_km": 17
+  },
+  {
+    "name": "Shinewave Chapel",
+    "description": "Glass church where sunsets cause minor hallucinations.",
+    "conflicts": "Bishops vs. glass polishers on who gets to sparkle more.",
+    "distance_from_center_km": 13
+  },
+  {
+    "name": "Boingville Wetlands",
+    "description": "Mossy marshland that bounces. Nobody knows why. It just does.",
+    "conflicts": "Scientists vs. the village knitting club over naming rights.",
+    "distance_from_center_km": 19
+  },
+  {
+    "name": "Cackle Nest Farm",
+    "description": "Chickens gossip non-stop. Eggs may contain rumors.",
+    "conflicts": "Farmhands argue over who teaches the hens stand-up comedy.",
+    "distance_from_center_km": 3
+  },
+  {
+    "name": "Crunchchapel",
+    "description": "Small chapel with crushing acoustics and louder blessings.",
+    "conflicts": "Priest and choir clash over mic settings every Sunday.",
+    "distance_from_center_km": 16
+  },
+  {
+    "name": "Mumblefield Ski Slope",
+    "description": "Ski hill where everyone mumbles advice as they crash.",
+    "conflicts": "Ski school vs. lift operators on the number of snack breaks.",
+    "distance_from_center_km": 2
+  },
+  {
+    "name": "Gossip Gully Farm",
+    "description": "Where beetles know your business before you do.",
+    "conflicts": "Bug watchers and berry pickers clash over rumor regulation.",
+    "distance_from_center_km": 21
+  },
+  {
+    "name": "Crumplefjord Fishery",
+    "description": "Fishermen dry their fish by folding them into origami.",
+    "conflicts": "Ongoing dispute over who caught the crunchiest cod.",
+    "distance_from_center_km": 24
+  },
+  {
+    "name": "Snortville Market Grounds",
+    "description": "Once a mine, now a market with odd smells and louder customers.",
+    "conflicts": "Miners vs. mango vendors on stall location fairness.",
+    "distance_from_center_km": 30
+  },
+  {
+    "name": "Gigglewheel Watermill",
+    "description": "The river makes giggly noises as it spins the mill.",
+    "conflicts": "Miller vs. environmentalists over ‘snicker runoff levels’.",
+    "distance_from_center_km": 28
+  },
+  {
+    "name": "Snufflepig Training Grounds",
+    "description": "Farm where pigs are trained for nonsense agility drills.",
+    "conflicts": "Trainer disputes over whose pig did the best triple snort.",
+    "distance_from_center_km": 27
+  }
+]

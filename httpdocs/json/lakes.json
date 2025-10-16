@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Gigglepond",
+    "description": "A pond that giggles every time a duck lands.",
+    "known_for": "laugh-splash competitions",
+    "creature_1": "frogs",
+    "creature_2": "eavesdropping turtles"
+  },
+  {
+    "name": "Rumblelake",
+    "description": "Waves slap the shore like they’ve got opinions.",
+    "known_for": "grumpy regattas",
+    "creature_1": "geese",
+    "creature_2": "complaining fish"
+  },
+  {
+    "name": "Whisperwater",
+    "description": "The lake murmurs secrets to your toes at night.",
+    "known_for": "silent kayak gossip tours",
+    "creature_1": "trout",
+    "creature_2": "conspiratorial otters"
+  },
+  {
+    "name": "Klucklepool",
+    "description": "Sounds like a chicken clucking underwater.",
+    "known_for": "aquatic improv comedy",
+    "creature_1": "beavers",
+    "creature_2": "confused moorhens"
+  },
+  {
+    "name": "Babbleriver",
+    "description": "Can’t shut up. Has opinions about everything.",
+    "known_for": "talkative canoe races",
+    "creature_1": "salmon",
+    "creature_2": "gossiping dragonflies"
+  },
+  {
+    "name": "Snortfjord",
+    "description": "Blows bubbles when no one’s looking.",
+    "known_for": "competitive bubble-snorting",
+    "creature_1": "herring",
+    "creature_2": "snickering seals"
+  },
+  {
+    "name": "Drizzlepond",
+    "description": "Always looks like it’s about to rain, but never does.",
+    "known_for": "melancholy paper boat races",
+    "creature_1": "ducks",
+    "creature_2": "emotional newts"
+  },
+  {
+    "name": "Twistyriver",
+    "description": "Flows in squiggles and spiral loops.",
+    "known_for": "confused fish marathons",
+    "creature_1": "eels",
+    "creature_2": "synchronised snails"
+  },
+  {
+    "name": "Flaplagoon",
+    "description": "Everything slaps louder here: fish, water, pride.",
+    "known_for": "competitive puddle fights",
+    "creature_1": "mudskippers",
+    "creature_2": "angry ducks"
+  },
+  {
+    "name": "Twitchlake",
+    "description": "Ripples for no reason. Makes people suspicious.",
+    "known_for": "accidental deep thoughts",
+    "creature_1": "trout",
+    "creature_2": "nervous frogs"
+  },
+  {
+    "name": "Glimmerpond",
+    "description": "Reflects your face, but slightly more confused.",
+    "known_for": "mirror therapy sessions",
+    "creature_1": "mayflies",
+    "creature_2": "self-aware minnows"
+  },
+  {
+    "name": "Hiccup Creek",
+    "description": "Water hiccups upstream. Nobody knows why.",
+    "known_for": "hiccup-powered kayaks",
+    "creature_1": "frogs",
+    "creature_2": "tiny hiccuping fish"
+  },
+  {
+    "name": "Plopstream",
+    "description": "Perfect for dramatic ‘plop’ entrances and exits.",
+    "known_for": "water ballet with unexpected endings",
+    "creature_1": "splashy carp",
+    "creature_2": "overdramatic toads"
+  },
+  {
+    "name": "The Murmurlock",
+    "description": "A dark lake that hums lullabies to no one.",
+    "known_for": "haunted picnic spots",
+    "creature_1": "whispering eels",
+    "creature_2": "lost boots"
+  },
+  {
+    "name": "Splishfjord",
+    "description": "A narrow bay where everything sounds wetter.",
+    "known_for": "competitive cannonball contests",
+    "creature_1": "smug otters",
+    "creature_2": "laughing herrings"
+  },
+  {
+    "name": "Echo Marsh",
+    "description": "Your thoughts echo back in sarcastic tone.",
+    "known_for": "existential fishing retreats",
+    "creature_1": "repeating frogs",
+    "creature_2": "echo-sensitive ducks"
+  },
+  {
+    "name": "Crinkle Bay",
+    "description": "Waves fold like bed sheets. Smells faintly of socks.",
+    "known_for": "origami boat racing",
+    "creature_1": "crabs",
+    "creature_2": "damp paper fish"
+  },
+  {
+    "name": "Hushstream",
+    "description": "So quiet it makes your brain louder.",
+    "known_for": "silent splash meditation",
+    "creature_1": "whisperbugs",
+    "creature_2": "stealth salmon"
+  },
+  {
+    "name": "Bouncepond",
+    "description": "Pebbles bounce back when thrown. It’s personal.",
+    "known_for": "rock negotiation contests",
+    "creature_1": "vengeful tadpoles",
+    "creature_2": "airborne minnows"
+  },
+  {
+    "name": "Gurglecreek",
+    "description": "Like a baby laughing in soup form.",
+    "known_for": "bedtime kayak drifting",
+    "creature_1": "gurglefish",
+    "creature_2": "tiny wet dreams"
+  },
+  {
+    "name": "Titterlagoon",
+    "description": "You can’t go five minutes without giggling.",
+    "known_for": "comedy paddleboard yoga",
+    "creature_1": "snickering geese",
+    "creature_2": "ticklish otters"
+  },
+  {
+    "name": "Flickerflow",
+    "description": "Water flickers like a confused GIF.",
+    "known_for": "waterlight disco nights",
+    "creature_1": "disco plankton",
+    "creature_2": "blinking clams"
+  },
+  {
+    "name": "Mosswhisper Tarn",
+    "description": "Small lake surrounded by shy moss that gossips when wet.",
+    "known_for": "soggy secrets and damp scandal",
+    "creature_1": "salamanders",
+    "creature_2": "insecure beetles"
+  },
+  {
+    "name": "Dribbleloch",
+    "description": "Technically a lake. Emotionally a sneeze.",
+    "known_for": "seasonal dribbling tournaments",
+    "creature_1": "stuttering fish",
+    "creature_2": "runny-nosed frogs"
+  },
+  {
+    "name": "Sprinklefen",
+    "description": "No one knows where the water comes from. Or goes.",
+    "known_for": "vanishing splash races",
+    "creature_1": "invisible eels",
+    "creature_2": "mystery frogs"
+  }
+]

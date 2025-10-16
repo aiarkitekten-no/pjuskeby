@@ -1,0 +1,39 @@
+{
+  "name": "pjuskeby",
+  "version": "1.0.0",
+  "description": "Pjuskeby - Interaktiv historiefortelling med AI, kart og podcast",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "validate:koblinger": "tsx scripts/validate-koblinger.ts",
+    "validate:placeholders": "tsx scripts/lint-no-placeholder.ts",
+    "validate:all": "npm run validate:koblinger && npm run validate:placeholders",
+    "wipe:dry-run": "tsx scripts/wipe-dynamic-data.ts --dry-run",
+    "prepare": "husky install || true"
+  },
+  "dependencies": {
+    "astro": "^4.0.0",
+    "@astrojs/mdx": "^2.0.0",
+    "@astrojs/node": "^7.0.0",
+    "fastify": "^4.25.0",
+    "@fastify/helmet": "^11.1.0",
+    "@fastify/cors": "^8.5.0",
+    "drizzle-orm": "^0.29.0",
+    "mysql2": "^3.7.0",
+    "zod": "^3.22.0",
+    "dotenv": "^16.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "glob": "^10.3.0",
+    "husky": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

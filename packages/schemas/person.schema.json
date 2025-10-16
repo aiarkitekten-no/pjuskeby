@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pjuskeby.org/schemas/person.schema.json",
+  "title": "Person",
+  "description": "En person i Pjuskeby",
+  "type": "object",
+  "required": ["id", "slug", "name", "street_id", "created_at", "updated_at", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unik UUID for personen"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "URL-safe slug"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Fullt navn"
+    },
+    "age": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 150,
+      "description": "Alder i år"
+    },
+    "occupation": {
+      "type": ["string", "null"],
+      "description": "Yrke/beskjeftigelse"
+    },
+    "street_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Referanse til street.id (required relation)"
+    },
+    "street_address": {
+      "type": ["string", "null"],
+      "description": "Gateadresse (f.eks. 'Skogsveien 12')"
+    },
+    "workplace_type": {
+      "type": ["string", "null"],
+      "enum": [null, "organization", "business"],
+      "description": "Type arbeidsplass"
+    },
+    "workplace_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "Referanse til organization.id eller business.id"
+    },
+    "traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Karaktertrekk"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "person_id"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["spouse", "sibling", "parent", "child", "friend", "colleague", "neighbor", "rival"]
+          },
+          "person_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bio": {
+      "type": ["string", "null"],
+      "description": "Kort biografi"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive", "archived"],
+      "description": "Status for personen"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "description": "Forbudte mønstre og anti-patterns som Copilot må unngå",
+  "updated": "2025-10-16T12:00:00Z",
+  "patterns": [
+    {
+      "id": 1,
+      "pattern": "Mock data generering",
+      "why": "Vi har ekte baseline-data, aldri oppfinn nye personer/steder",
+      "examples": [
+        "const mockPerson = { name: 'Test Person', ... }",
+        "const dummyData = [...]",
+        "// TODO: Replace with real data"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": 2,
+      "pattern": "Hardkodede hemmeligheter",
+      "why": "Alle credentials må være i .env",
+      "examples": [
+        "const dbPassword = 'Klokken!12!?!'",
+        "mysql://root:pass@localhost"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": 3,
+      "pattern": "Direkte publisering av AI-generert innhold",
+      "why": "Alt AI-generert må godkjennes manuelt først",
+      "examples": [
+        "fs.writeFileSync('content/published/story.mdx', ...)",
+        "publish(aiGeneratedContent)"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": 4,
+      "pattern": "Placeholders i produksjonskode",
+      "why": "Ingen TODO, FIXME, coming soon, etc.",
+      "examples": [
+        "// TODO: implement this",
+        "// FIXME: broken",
+        "// Coming soon",
+        "Lorem ipsum",
+        "her kommer det mer"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": 5,
+      "pattern": "Ukontrollert sletting av baseline-data",
+      "why": "httpdocs/json/* er kildegrunnlag og må aldri slettes automatisk",
+      "examples": [
+        "rm -rf httpdocs/json/*",
+        "fs.unlinkSync('httpdocs/json/people.json')"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": 6,
+      "pattern": "Mutasjoner uten logging",
+      "why": "Alle endringer må logges i donetoday.json",
+      "examples": [
+        "db.insert(...) // uten log",
+        "fs.writeFileSync(...) // uten log"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": 7,
+      "pattern": "Uvaliderte relasjoner",
+      "why": "Alle foreign keys må sjekkes mot koblinger.json",
+      "examples": [
+        "person.street_id = randomId() // ikke validert",
+        "event.place_id = null // brudd på required"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": 8,
+      "pattern": "Kommentarer uten moderasjon",
+      "why": "status må være 'pending' som default",
+      "examples": [
+        "INSERT INTO comments (..., status='approved')",
+        "comment.status = 'approved' // uten moderator-sjekk"
+      ],
+      "severity": "high"
+    }
+  ]
+}

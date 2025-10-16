@@ -1,0 +1,43 @@
+{
+  "description": "Pålitelige kilder for AI-generering og beslutninger",
+  "updated": "2025-10-16T12:00:00Z",
+  "sources": [
+    {
+      "id": 1,
+      "type": "data",
+      "name": "Baseline JSON-filer",
+      "path": "httpdocs/json/",
+      "confidence": 1.0,
+      "use_for": [
+        "personer",
+        "steder",
+        "gater",
+        "bedrifter",
+        "innsjøer"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "config",
+      "name": "koblinger.json",
+      "path": "httpdocs/koblinger.json",
+      "confidence": 1.0,
+      "use_for": [
+        "relasjoner",
+        "moduldefinisjoner",
+        "guardrails"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "documentation",
+      "name": "Schemas",
+      "path": "packages/schemas/",
+      "confidence": 1.0,
+      "use_for": [
+        "datavalidering",
+        "typedefinisjoner"
+      ]
+    }
+  ]
+}

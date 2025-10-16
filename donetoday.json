@@ -1,0 +1,115 @@
+{
+  "description": "Append-only audit log av alle endringer i Pjuskeby-prosjektet",
+  "entries": [
+    {
+      "timestamp": "2025-10-16T12:00:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created koblinger.json",
+      "why": "Single source of truth for alle moduler, relasjoner og guardrails",
+      "files": [
+        "httpdocs/koblinger.json"
+      ],
+      "impact": "Etablerer fundament for alle videre faser"
+    },
+    {
+      "timestamp": "2025-10-16T12:01:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created AI-learned/ katalog med 6 filer",
+      "why": "Kontinuerlig læring og anti-pattern-tracking",
+      "files": [
+        "AI-learned/fungerer.json",
+        "AI-learned/feil.json",
+        "AI-learned/usikkert.json",
+        "AI-learned/godekilder.json",
+        "AI-learned/antimønstre.json",
+        "AI-learned/beslutninger.json"
+      ],
+      "impact": "Sikrer at Copilot lærer av suksess og feil"
+    },
+    {
+      "timestamp": "2025-10-16T12:02:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created phase.json og donetoday.json",
+      "why": "Sporing av gjeldende fase og audit trail",
+      "files": [
+        "phase.json",
+        "donetoday.json"
+      ],
+      "impact": "Gir full sporbarhet av endringer"
+    },
+    {
+      "timestamp": "2025-10-16T12:03:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created .env og .gitignore",
+      "why": "Sikker lagring av credentials og exclude av sensitive filer",
+      "files": [
+        ".env",
+        ".gitignore"
+      ],
+      "impact": "Sikrer at hemmeligheter ikke committes"
+    },
+    {
+      "timestamp": "2025-10-16T12:04:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created docs/GUARDRAILS.md",
+      "why": "Komplett dokumentasjon av guardrails og best practices",
+      "files": [
+        "docs/GUARDRAILS.md"
+      ],
+      "impact": "Alle regler er dokumentert og søkbare"
+    },
+    {
+      "timestamp": "2025-10-16T12:05:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created validation scripts",
+      "why": "Automatisk validering av koblinger og placeholders",
+      "files": [
+        "scripts/validate-koblinger.ts",
+        "scripts/lint-no-placeholder.ts",
+        "scripts/pre-commit.sh",
+        "scripts/lib/log-action.ts"
+      ],
+      "impact": "Pre-commit hooks kan nå blokkere ugyldige commits"
+    },
+    {
+      "timestamp": "2025-10-16T12:06:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created wipe-dynamic-data script",
+      "why": "Slett-alt-mekanisme med dobbel-bekreftelse",
+      "files": [
+        "scripts/wipe-dynamic-data.ts"
+      ],
+      "impact": "Sikker sletting av dynamiske data uten å røre baseline"
+    },
+    {
+      "timestamp": "2025-10-16T12:07:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created package.json og tsconfig.json",
+      "why": "Node.js dependencies og TypeScript konfigurasjon",
+      "files": [
+        "package.json",
+        "tsconfig.json"
+      ],
+      "impact": "Prosjektet kan nå installere dependencies og kjøre scripts"
+    },
+    {
+      "timestamp": "2025-10-16T12:08:00Z",
+      "phase": "0",
+      "actor": "copilot",
+      "action": "created README.md",
+      "why": "Installasjonsinstruksjoner og fase-status",
+      "files": [
+        "README.md"
+      ],
+      "impact": "Komplett oversikt over Fase 0 og neste steg"
+    }
+  ]
+}
