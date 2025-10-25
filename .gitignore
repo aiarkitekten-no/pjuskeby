@@ -7,4 +7,17 @@ httpdocs.backup/
 meilisearch
 *.log
 .env
+.env.*
 .DS_Store
+
+# Secrets and sensitive files
+.netrc
+.netrc~
+.ssh/
+*.pem
+*.key
+server/docs/openapi.yaml
+
+# API keys in scripts
+scripts/generate-boris-image.mjs
+scripts/*-image.mjs

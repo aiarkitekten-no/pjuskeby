@@ -13,38 +13,48 @@ if [ -z "$SLUG" ]; then
 fi
 
 PUBLIC_DIR="/var/www/vhosts/pjuskeby.org/public/assets/agatha/story"
-WRAPPER="/var/www/vhosts/pjuskeby.org/scripts/sudo-wrapper.sh"
+HTTPDOCS_DIR="/var/www/vhosts/pjuskeby.org/httpdocs/assets/agatha/story"
 
-# Create directory if it doesn't exist
-mkdir -p "$PUBLIC_DIR" 2>/dev/null || sudo mkdir -p "$PUBLIC_DIR"
+# Create directories if they don't exist
+mkdir -p "$PUBLIC_DIR" 2>/dev/null || true
+mkdir -p "$HTTPDOCS_DIR" 2>/dev/null || true
 
 echo "📦 Copying story images for: $SLUG"
 
-# Copy featured image
+# Copy featured image to BOTH public and httpdocs
 if [ -f "/tmp/${SLUG}-featured.png" ]; then
-  sudo "$WRAPPER" copy-image "/tmp/${SLUG}-featured.png" "$PUBLIC_DIR/${SLUG}-featured.png"
-  echo "✓ Copied featured image"
+  cp "/tmp/${SLUG}-featured.png" "$PUBLIC_DIR/${SLUG}-featured.png"
+  cp "/tmp/${SLUG}-featured.png" "$HTTPDOCS_DIR/${SLUG}-featured.png"
+  chmod 644 "$PUBLIC_DIR/${SLUG}-featured.png" 2>/dev/null || true
+  chmod 644 "$HTTPDOCS_DIR/${SLUG}-featured.png" 2>/dev/null || true
+  echo "✓ Copied featured image to public/ and httpdocs/"
 else
   echo "⚠️  Featured image not found: /tmp/${SLUG}-featured.png"
 fi
 
-# Copy first inline image
+# Copy first inline image to BOTH public and httpdocs
 if [ -f "/tmp/${SLUG}-inline1.png" ]; then
-  sudo "$WRAPPER" copy-image "/tmp/${SLUG}-inline1.png" "$PUBLIC_DIR/${SLUG}-inline1.png"
-  echo "✓ Copied inline1 image"
+  cp "/tmp/${SLUG}-inline1.png" "$PUBLIC_DIR/${SLUG}-inline1.png"
+  cp "/tmp/${SLUG}-inline1.png" "$HTTPDOCS_DIR/${SLUG}-inline1.png"
+  chmod 644 "$PUBLIC_DIR/${SLUG}-inline1.png" 2>/dev/null || true
+  chmod 644 "$HTTPDOCS_DIR/${SLUG}-inline1.png" 2>/dev/null || true
+  echo "✓ Copied inline1 image to public/ and httpdocs/"
 else
   echo "⚠️  Inline1 image not found: /tmp/${SLUG}-inline1.png"
 fi
 
-# Copy second inline image
+# Copy second inline image to BOTH public and httpdocs
 if [ -f "/tmp/${SLUG}-inline2.png" ]; then
-  sudo "$WRAPPER" copy-image "/tmp/${SLUG}-inline2.png" "$PUBLIC_DIR/${SLUG}-inline2.png"
-  echo "✓ Copied inline2 image"
+  cp "/tmp/${SLUG}-inline2.png" "$PUBLIC_DIR/${SLUG}-inline2.png"
+  cp "/tmp/${SLUG}-inline2.png" "$HTTPDOCS_DIR/${SLUG}-inline2.png"
+  chmod 644 "$PUBLIC_DIR/${SLUG}-inline2.png" 2>/dev/null || true
+  chmod 644 "$HTTPDOCS_DIR/${SLUG}-inline2.png" 2>/dev/null || true
+  echo "✓ Copied inline2 image to public/ and httpdocs/"
 else
   echo "⚠️  Inline2 image not found: /tmp/${SLUG}-inline2.png"
 fi
 
-echo "✅ Images copied to public directory!"
-echo "📍 Location: $PUBLIC_DIR/"
-echo "ℹ️  Note: Run 'npm run build && cp -r dist/* httpdocs/' to deploy to production"
-ls -lh "$PUBLIC_DIR/${SLUG}"-*.png 2>/dev/null | awk '{print "  "$9" ("$5")"}'
+echo "✅ Images copied to public/ and httpdocs/ directories!"
+echo "📍 Public: $PUBLIC_DIR/"
+echo "📍 Production: $HTTPDOCS_DIR/"
+ls -lh "$HTTPDOCS_DIR/${SLUG}"-*.png 2>/dev/null | awk '{print "  "$9" ("$5")"}'
