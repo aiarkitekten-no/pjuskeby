@@ -27,6 +27,7 @@ if [ -f "/tmp/${SLUG}-featured.png" ]; then
   cp "/tmp/${SLUG}-featured.png" "$HTTPDOCS_DIR/${SLUG}-featured.png"
   chmod 644 "$PUBLIC_DIR/${SLUG}-featured.png" 2>/dev/null || true
   chmod 644 "$HTTPDOCS_DIR/${SLUG}-featured.png" 2>/dev/null || true
+  chown pjuskebysverden:psacln "$HTTPDOCS_DIR/${SLUG}-featured.png" 2>/dev/null || true
   echo "✓ Copied featured image to public/ and httpdocs/"
 else
   echo "⚠️  Featured image not found: /tmp/${SLUG}-featured.png"
@@ -38,6 +39,7 @@ if [ -f "/tmp/${SLUG}-inline1.png" ]; then
   cp "/tmp/${SLUG}-inline1.png" "$HTTPDOCS_DIR/${SLUG}-inline1.png"
   chmod 644 "$PUBLIC_DIR/${SLUG}-inline1.png" 2>/dev/null || true
   chmod 644 "$HTTPDOCS_DIR/${SLUG}-inline1.png" 2>/dev/null || true
+  chown pjuskebysverden:psacln "$HTTPDOCS_DIR/${SLUG}-inline1.png" 2>/dev/null || true
   echo "✓ Copied inline1 image to public/ and httpdocs/"
 else
   echo "⚠️  Inline1 image not found: /tmp/${SLUG}-inline1.png"
@@ -49,6 +51,7 @@ if [ -f "/tmp/${SLUG}-inline2.png" ]; then
   cp "/tmp/${SLUG}-inline2.png" "$HTTPDOCS_DIR/${SLUG}-inline2.png"
   chmod 644 "$PUBLIC_DIR/${SLUG}-inline2.png" 2>/dev/null || true
   chmod 644 "$HTTPDOCS_DIR/${SLUG}-inline2.png" 2>/dev/null || true
+  chown pjuskebysverden:psacln "$HTTPDOCS_DIR/${SLUG}-inline2.png" 2>/dev/null || true
   echo "✓ Copied inline2 image to public/ and httpdocs/"
 else
   echo "⚠️  Inline2 image not found: /tmp/${SLUG}-inline2.png"

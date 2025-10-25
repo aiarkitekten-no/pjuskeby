@@ -135,9 +135,14 @@ echo "✓ Illustrations generated to /tmp/"
 echo ""
 
 # Step 3: Copy images to public
-echo "📦 Step 3/7: Copying images to public directory..."
-echo "   (Using sudo wrapper for safe permissions)"
+echo "📦 Step 3/7: Copying images to public and httpdocs..."
+echo "   (Using copy script with proper permissions)"
 sh scripts/copy-story-images.sh "$SLUG"
+
+# Fix ownership on httpdocs images (must be pjuskebysverden:psacln for nginx)
+echo "   Setting correct ownership on httpdocs images..."
+chown pjuskebysverden:psacln "httpdocs/assets/agatha/story/${SLUG}"-*.png 2>/dev/null || \
+  echo "   ⚠️  Could not change ownership (may need sudo)"
 
 echo ""
 echo "✓ Images copied and permissions set"
