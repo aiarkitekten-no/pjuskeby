@@ -1,70 +1,10 @@
-# Pjuskeby .gitignore
-
-# Environment variables (KRITISK - aldri commit)
-.env
-.env.local
-.env.*.local
-
-# Dependencies
 node_modules/
-.pnpm-store/
-
-# Build output
 dist/
 .astro/
-.output/
-
-# Logs
-logs/
+.vscode-server/
+.npm/
+httpdocs.backup/
+meilisearch
 *.log
-npm-debug.log*
-
-# OS
+.env
 .DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Dynamiske data (genereres av scripts)
-content/data/*.normalized.json
-content/indexed/*.ndjson
-content/geo/*.geojson
-content/drafts/
-
-# Cache
-.cache/
-*.cache
-
-# Temp
-tmp/
-temp/
-
-# Database dumps
-*.sql
-*.sqlite
-
-# Test coverage
-coverage/
-
-# PWA
-public/sw.js
-public/workbox-*.js
-
-# Generated sitemaps og feeds
-public/sitemap*.xml
-public/feed/
-
-# OG images (genereres)
-public/og-images/
-
-# IKKE ignorer (viktige filer):
-# !httpdocs/json/*.json (baseline data)
-# !AI-learned/*.json (læring)
-# !koblinger.json (single source of truth)
-# !phase.json
-# !donetoday.json
-.netrc~
