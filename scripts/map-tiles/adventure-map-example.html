@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pjuskeby Adventure Map</title>
+    <link rel="stylesheet" href="adventure-map-styles.css">
+    <link href="https://unpkg.com/maplibre-gl@4.6.0/dist/maplibre-gl.css" rel="stylesheet">
+    <script src="https://unpkg.com/maplibre-gl@4.6.0/dist/maplibre-gl.js"></script>
+</head>
+<body>
+    <div id="map" class="adventure-map-container"></div>
+    
+    <div class="adventure-legend">
+        <h3>🗺️ Pjuskeby Kart</h3>
+        <div class="legend-item">
+            <div class="legend-icon entity-person">👤</div>
+            <span>Personer</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-icon entity-place">📍</div>
+            <span>Steder</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-icon entity-business">🏪</div>
+            <span>Bedrifter</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-icon entity-lake">🏞️</div>
+            <span>Sjøer</span>
+        </div>
+    </div>
+
+    <script>
+        // Load adventure map configuration
+        fetch('adventure-map-config.json')
+            .then(response => response.json())
+            .then(config => {
+                const map = new maplibregl.Map({
+                    container: 'map',
+                    style: config,
+                    center: config.center,
+                    zoom: config.zoom
+                });
+                
+                map.on('load', () => {
+                    console.log('🎨 Adventure map loaded!');
+                    // Add entity layers here
+                });
+            })
+            .catch(error => {
+                console.error('Failed to load adventure map:', error);
+                document.getElementById('map').innerHTML = 
+                    '<div class="map-loading">❌ Failed to load adventure map</div>';
+            });
+    </script>
+</body>
+</html>

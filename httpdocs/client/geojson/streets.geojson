@@ -1,0 +1,3067 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "street-1",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.71413436615355,
+            59.45841964871322
+          ],
+          [
+            10.714142070851,
+            59.45788971482101
+          ],
+          [
+            10.714150786296324,
+            59.45736080247274
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-1",
+        "slug": "winding-oak-lane",
+        "name": "Winding Oak Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Milly Wiggleflap",
+          "Skitter Pebble Beach"
+        ],
+        "length_km": "0.12",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-2",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.714150786296324,
+            59.45736080247274
+          ],
+          [
+            10.71418181537476,
+            59.45729989579918
+          ],
+          [
+            10.714212767071931,
+            59.45723910101351
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-2",
+        "slug": "cozy-oak-road",
+        "name": "Cozy Oak Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Skitter Pebble Beach",
+          "Babblespray Falls"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-3",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.71413436615355,
+            59.45841964871322
+          ],
+          [
+            10.713491981264687,
+            59.458665172434195
+          ],
+          [
+            10.712849699041861,
+            59.4589117810217
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-3",
+        "slug": "hidden-oak-street",
+        "name": "Hidden Oak Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Milly Wiggleflap",
+          "Myrtle’s Suspicious Soup"
+        ],
+        "length_km": "0.15",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-4",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.712849699041861,
+            59.4589117810217
+          ],
+          [
+            10.712762988065734,
+            59.459411013251085
+          ],
+          [
+            10.71267352924824,
+            59.45991119705927
+          ],
+          [
+            10.712586418999162,
+            59.46041086849833
+          ],
+          [
+            10.71249899722052,
+            59.46090932099808
+          ],
+          [
+            10.71241094380666,
+            59.46140991838577
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-4",
+        "slug": "peaceful-oak-path",
+        "name": "Peaceful Oak Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Myrtle’s Suspicious Soup",
+          "Splashypaint Falls"
+        ],
+        "length_km": "0.28",
+        "complexity": "medium",
+        "points": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-5",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.715036256219387,
+            59.45281712348751
+          ],
+          [
+            10.714898302940176,
+            59.45355347131356
+          ],
+          [
+            10.714760633515628,
+            59.454292515665394
+          ],
+          [
+            10.71462581258776,
+            59.45503013292033
+          ],
+          [
+            10.714486539944957,
+            59.45576454613129
+          ],
+          [
+            10.714349015476888,
+            59.45650094868609
+          ],
+          [
+            10.714212767071931,
+            59.45723910101351
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-5",
+        "slug": "charming-oak-way",
+        "name": "Charming Oak Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Sunny Shimmy Shore",
+          "Babblespray Falls"
+        ],
+        "length_km": "0.50",
+        "complexity": "medium",
+        "points": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-6",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.715036256219387,
+            59.45281712348751
+          ],
+          [
+            10.7155187752586,
+            59.45264294560413
+          ],
+          [
+            10.715999948408808,
+            59.45246665131846
+          ],
+          [
+            10.716481189871612,
+            59.45229260083906
+          ],
+          [
+            10.716963051934389,
+            59.45211773268356
+          ],
+          [
+            10.717445437197703,
+            59.45194179309202
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-6",
+        "slug": "quiet-oak-drive",
+        "name": "Quiet Oak Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Sunny Shimmy Shore",
+          "Boingy Beach"
+        ],
+        "length_km": "0.28",
+        "complexity": "medium",
+        "points": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-7",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.717447538426299,
+            59.45193384097234
+          ],
+          [
+            10.717446484608866,
+            59.45193781607398
+          ],
+          [
+            10.717445437197703,
+            59.45194179309202
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-7",
+        "slug": "scenic-oak-crescent",
+        "name": "Scenic Oak Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Sardine Pier",
+          "Boingy Beach"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-8",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718150625993946,
+            59.4504029279436
+          ],
+          [
+            10.717798745279591,
+            59.451168209784434
+          ],
+          [
+            10.717447538426299,
+            59.45193384097234
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-8",
+        "slug": "pleasant-oak-close",
+        "name": "Pleasant Oak Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Franny Featherknees",
+          "Sardine Pier"
+        ],
+        "length_km": "0.19",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-9",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718150625993946,
+            59.4504029279436
+          ],
+          [
+            10.718223451621784,
+            59.45036187826863
+          ],
+          [
+            10.718296248772837,
+            59.45032080951995
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-9",
+        "slug": "winding-pine-lane",
+        "name": "Winding Pine Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Franny Featherknees",
+          "Pants & Philosophy"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-10",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718296248772837,
+            59.45032080951995
+          ],
+          [
+            10.718588492456757,
+            59.450638513795454
+          ],
+          [
+            10.71888040530191,
+            59.45095538591469
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-10",
+        "slug": "cozy-pine-road",
+        "name": "Cozy Pine Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Pants & Philosophy",
+          "Tinkle & Snort Plumbing"
+        ],
+        "length_km": "0.10",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-11",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.71908713796594,
+            59.451103238433504
+          ],
+          [
+            10.718983860609281,
+            59.45102921359797
+          ],
+          [
+            10.71888040530191,
+            59.45095538591469
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-11",
+        "slug": "hidden-pine-street",
+        "name": "Hidden Pine Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Krumplehorn Mechanics",
+          "Tinkle & Snort Plumbing"
+        ],
+        "length_km": "0.03",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-12",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719205751697347,
+            59.4510352023007
+          ],
+          [
+            10.719146408466946,
+            59.45106924883509
+          ],
+          [
+            10.71908713796594,
+            59.451103238433504
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-12",
+        "slug": "peaceful-pine-path",
+        "name": "Peaceful Pine Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Edna Snortwig",
+          "Krumplehorn Mechanics"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-13",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719205751697347,
+            59.4510352023007
+          ],
+          [
+            10.719227203713727,
+            59.45103591299136
+          ],
+          [
+            10.719248642592856,
+            59.451036608141735
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-13",
+        "slug": "charming-pine-way",
+        "name": "Charming Pine Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Edna Snortwig",
+          "Professor Quibble’s Hatorium"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-14",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719248642592856,
+            59.451036608141735
+          ],
+          [
+            10.719254806201684,
+            59.4510652395472
+          ],
+          [
+            10.719260986995323,
+            59.451093866573196
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-14",
+        "slug": "quiet-pine-drive",
+        "name": "Quiet Pine Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Professor Quibble’s Hatorium",
+          "Giggle Hillock"
+        ],
+        "length_km": "0.01",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-15",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719248642592856,
+            59.451036608141735
+          ],
+          [
+            10.719323590280531,
+            59.45100664437938
+          ],
+          [
+            10.719398626865232,
+            59.45097683448254
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-15",
+        "slug": "scenic-pine-crescent",
+        "name": "Scenic Pine Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Professor Quibble’s Hatorium",
+          "Tumble Bluff"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-16",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719420973779188,
+            59.45116081586828
+          ],
+          [
+            10.719341066818286,
+            59.451127283470505
+          ],
+          [
+            10.719260986995323,
+            59.451093866573196
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-16",
+        "slug": "pleasant-pine-close",
+        "name": "Pleasant Pine Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Eustace Jumblebottom",
+          "Giggle Hillock"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-17",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719420973779188,
+            59.45116081586828
+          ],
+          [
+            10.719427408510153,
+            59.45119278500912
+          ],
+          [
+            10.719433785469684,
+            59.45122469869094
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-17",
+        "slug": "winding-birch-lane",
+        "name": "Winding Birch Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Eustace Jumblebottom",
+          "Whisper Swamp"
+        ],
+        "length_km": "0.01",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-18",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719296329091542,
+            59.45127332797301
+          ],
+          [
+            10.719365101927648,
+            59.45124907846676
+          ],
+          [
+            10.719433785469684,
+            59.45122469869094
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-18",
+        "slug": "cozy-birch-road",
+        "name": "Cozy Birch Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Waffle Oracle",
+          "Whisper Swamp"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-19",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719398626865232,
+            59.45097683448254
+          ],
+          [
+            10.71950435704806,
+            59.45081985284526
+          ],
+          [
+            10.719610144969094,
+            59.45066273945412
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-19",
+        "slug": "hidden-birch-street",
+        "name": "Hidden Birch Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Tumble Bluff",
+          "Creaky Corner"
+        ],
+        "length_km": "0.04",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-20",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719848763496424,
+            59.450513555059224
+          ],
+          [
+            10.719729326446283,
+            59.45058814610384
+          ],
+          [
+            10.719610144969094,
+            59.45066273945412
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-20",
+        "slug": "peaceful-birch-path",
+        "name": "Peaceful Birch Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Beatrix Fafflebloom",
+          "Creaky Corner"
+        ],
+        "length_km": "0.03",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-21",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719999029934684,
+            59.45025357847451
+          ],
+          [
+            10.719923845092154,
+            59.45038358994137
+          ],
+          [
+            10.719848763496424,
+            59.450513555059224
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-21",
+        "slug": "charming-birch-way",
+        "name": "Charming Birch Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Hilda Spranklepuff",
+          "Beatrix Fafflebloom"
+        ],
+        "length_km": "0.03",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-22",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.720130798345949,
+            59.45017743349165
+          ],
+          [
+            10.720064873508546,
+            59.45021556764958
+          ],
+          [
+            10.719999029934684,
+            59.45025357847451
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-22",
+        "slug": "quiet-birch-drive",
+        "name": "Quiet Birch Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Nora Bumblebash",
+          "Hilda Spranklepuff"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-23",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.719848763496424,
+            59.450513555059224
+          ],
+          [
+            10.720005034953113,
+            59.45052943210243
+          ],
+          [
+            10.720161569730651,
+            59.45054544972392
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-23",
+        "slug": "scenic-birch-crescent",
+        "name": "Scenic Birch Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Beatrix Fafflebloom",
+          "Clive Flumpington"
+        ],
+        "length_km": "0.03",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-24",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.720130798345949,
+            59.45017743349165
+          ],
+          [
+            10.719968290357187,
+            59.44996655357839
+          ],
+          [
+            10.71980537873617,
+            59.44975538827359
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-24",
+        "slug": "pleasant-birch-close",
+        "name": "Pleasant Birch Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Nora Bumblebash",
+          "Trixie Wobblethorpe"
+        ],
+        "length_km": "0.06",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-25",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.71980537873617,
+            59.44975538827359
+          ],
+          [
+            10.720158916938733,
+            59.44962216251981
+          ],
+          [
+            10.720511820002134,
+            59.44948950955188
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-25",
+        "slug": "winding-stone-lane",
+        "name": "Winding Stone Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Trixie Wobblethorpe",
+          "Jiggle Dock"
+        ],
+        "length_km": "0.08",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-26",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718715787028662,
+            59.449552873040304
+          ],
+          [
+            10.718505978678555,
+            59.44993701724243
+          ],
+          [
+            10.718296248772837,
+            59.45032080951995
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-26",
+        "slug": "cozy-stone-road",
+        "name": "Cozy Stone Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Waldo Picklethump",
+          "Pants & Philosophy"
+        ],
+        "length_km": "0.10",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-27",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718715787028662,
+            59.449552873040304
+          ],
+          [
+            10.71875916350215,
+            59.449549133771356
+          ],
+          [
+            10.7188025453256,
+            59.449545452239555
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-27",
+        "slug": "hidden-stone-street",
+        "name": "Hidden Stone Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Waldo Picklethump",
+          "Winifred Drizzlebottom"
+        ],
+        "length_km": "0.01",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-28",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718715787028662,
+            59.449552873040304
+          ],
+          [
+            10.718704605393663,
+            59.44946255502061
+          ],
+          [
+            10.718693339384277,
+            59.449372111289264
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-28",
+        "slug": "peaceful-stone-path",
+        "name": "Peaceful Stone Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Waldo Picklethump",
+          "Crankle & Bop"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-29",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718693339384277,
+            59.449372111289264
+          ],
+          [
+            10.718682166991005,
+            59.44935940215325
+          ],
+          [
+            10.718670997903489,
+            59.44934670363121
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-29",
+        "slug": "charming-stone-way",
+        "name": "Charming Stone Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Crankle & Bop",
+          "Whisker Bazaar"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-30",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.718639832461564,
+            59.449015611441574
+          ],
+          [
+            10.718655380518413,
+            59.44918099519019
+          ],
+          [
+            10.718670997903489,
+            59.44934670363121
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-30",
+        "slug": "quiet-stone-drive",
+        "name": "Quiet Stone Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Blubber & Crumb",
+          "Whisker Bazaar"
+        ],
+        "length_km": "0.04",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-31",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72056905740611,
+            59.451486791900514
+          ],
+          [
+            10.720365493948455,
+            59.45101603867772
+          ],
+          [
+            10.720161569730651,
+            59.45054544972392
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-31",
+        "slug": "scenic-stone-crescent",
+        "name": "Scenic Stone Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Lola Fizzletwig",
+          "Clive Flumpington"
+        ],
+        "length_km": "0.11",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-32",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72056905740611,
+            59.451486791900514
+          ],
+          [
+            10.720587756027319,
+            59.45156314422807
+          ],
+          [
+            10.720606502199438,
+            59.45163958150105
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-32",
+        "slug": "pleasant-stone-close",
+        "name": "Pleasant Stone Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Lola Fizzletwig",
+          "Gary Tiddlestack"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-33",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.717028476005646,
+            59.44904291180404
+          ],
+          [
+            10.717833449023052,
+            59.449029258662165
+          ],
+          [
+            10.718639832461564,
+            59.449015611441574
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-33",
+        "slug": "winding-brook-lane",
+        "name": "Winding Brook Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Percy Snootwhistle",
+          "Blubber & Crumb"
+        ],
+        "length_km": "0.18",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-34",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.717028476005646,
+            59.44904291180404
+          ],
+          [
+            10.716965242784134,
+            59.44895054534501
+          ],
+          [
+            10.71690223014169,
+            59.448858393195266
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-34",
+        "slug": "cozy-brook-road",
+        "name": "Cozy Brook Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Percy Snootwhistle",
+          "Oswald Crankwhistle"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-35",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.717028476005646,
+            59.44904291180404
+          ],
+          [
+            10.716543368791076,
+            59.449403133987886
+          ],
+          [
+            10.716058261133544,
+            59.449763226129306
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-35",
+        "slug": "hidden-brook-street",
+        "name": "Hidden Brook Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Percy Snootwhistle",
+          "Franklin Gloop"
+        ],
+        "length_km": "0.13",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-36",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.71690223014169,
+            59.448858393195266
+          ],
+          [
+            10.716073131292031,
+            59.448307852477605
+          ],
+          [
+            10.715243780020744,
+            59.44775587538899
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-36",
+        "slug": "peaceful-brook-path",
+        "name": "Peaceful Brook Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Oswald Crankwhistle",
+          "The Department of Lost Echoes"
+        ],
+        "length_km": "0.22",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-37",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.715243780020744,
+            59.44775587538899
+          ],
+          [
+            10.715240052173382,
+            59.44775136450725
+          ],
+          [
+            10.71523632704565,
+            59.44774686197507
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-37",
+        "slug": "charming-brook-way",
+        "name": "Charming Brook Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Department of Lost Echoes",
+          "Oopsie's Fine Dining"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-38",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723237223556517,
+            59.448735022558104
+          ],
+          [
+            10.722691377659642,
+            59.44888534616545
+          ],
+          [
+            10.72214811642264,
+            59.449036126547675
+          ],
+          [
+            10.72160235711533,
+            59.449187974142866
+          ],
+          [
+            10.721056971310807,
+            59.449337749502206
+          ],
+          [
+            10.720511820002134,
+            59.44948950955188
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-38",
+        "slug": "quiet-brook-drive",
+        "name": "Quiet Brook Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Bumblebelly Ink",
+          "Jiggle Dock"
+        ],
+        "length_km": "0.31",
+        "complexity": "medium",
+        "points": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-39",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.720606502199438,
+            59.45163958150105
+          ],
+          [
+            10.720718718683335,
+            59.45224070247505
+          ],
+          [
+            10.720829725150137,
+            59.45283960809076
+          ],
+          [
+            10.720943525668597,
+            59.45343961766171
+          ],
+          [
+            10.721054901877563,
+            59.45403994828473
+          ],
+          [
+            10.72116816997462,
+            59.454641664216304
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-39",
+        "slug": "scenic-brook-crescent",
+        "name": "Scenic Brook Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Gary Tiddlestack",
+          "Daisy Fizzlefrump"
+        ],
+        "length_km": "0.34",
+        "complexity": "medium",
+        "points": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-40",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.71523632704565,
+            59.44774686197507
+          ],
+          [
+            10.714504991436055,
+            59.44781512899067
+          ],
+          [
+            10.713771464349106,
+            59.44788391935092
+          ],
+          [
+            10.713036229375735,
+            59.447949615156304
+          ],
+          [
+            10.712304842187265,
+            59.44802033964319
+          ],
+          [
+            10.711572738599232,
+            59.44808532519766
+          ],
+          [
+            10.710838450941678,
+            59.44815506069842
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-40",
+        "slug": "pleasant-brook-close",
+        "name": "Pleasant Brook Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Oopsie's Fine Dining",
+          "Bumpity Pass"
+        ],
+        "length_km": "0.49",
+        "complexity": "medium",
+        "points": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-41",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.710759138296995,
+            59.44821338487404
+          ],
+          [
+            10.710798780120527,
+            59.44818424069651
+          ],
+          [
+            10.710838450941678,
+            59.44815506069842
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-41",
+        "slug": "winding-hill-lane",
+        "name": "Winding Hill Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Chatter Valley",
+          "Bumpity Pass"
+        ],
+        "length_km": "0.01",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-42",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.710759138296995,
+            59.44821338487404
+          ],
+          [
+            10.710879853166851,
+            59.44860643940047
+          ],
+          [
+            10.711,
+            59.449
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-42",
+        "slug": "cozy-hill-road",
+        "name": "Cozy Hill Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Chatter Valley",
+          "Confuzzle Crossroads"
+        ],
+        "length_km": "0.09",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-43",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72116816997462,
+            59.454641664216304
+          ],
+          [
+            10.721446846008961,
+            59.455209727387256
+          ],
+          [
+            10.7217262601536,
+            59.455780191823834
+          ],
+          [
+            10.72200435539005,
+            59.456352481147036
+          ],
+          [
+            10.722282121714908,
+            59.45691825811948
+          ],
+          [
+            10.722559154217793,
+            59.45749128187941
+          ],
+          [
+            10.72283818676496,
+            59.45806048411891
+          ],
+          [
+            10.723113771913779,
+            59.458628762048875
+          ],
+          [
+            10.723392946924465,
+            59.45919745256338
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-43",
+        "slug": "hidden-hill-street",
+        "name": "Hidden Hill Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Daisy Fizzlefrump",
+          "Fizzletuft Spa & Screaming"
+        ],
+        "length_km": "0.56",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-44",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723392946924465,
+            59.45919745256338
+          ],
+          [
+            10.72339465609032,
+            59.45919773603638
+          ],
+          [
+            10.723396364292912,
+            59.45919801887814
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-44",
+        "slug": "peaceful-hill-path",
+        "name": "Peaceful Hill Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Fizzletuft Spa & Screaming",
+          "Paddle Lagoon"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-45",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72339909830618,
+            59.45919703706594
+          ],
+          [
+            10.723397731190003,
+            59.459197528944394
+          ],
+          [
+            10.723396364292912,
+            59.45919801887814
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-45",
+        "slug": "charming-hill-way",
+        "name": "Charming Hill Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Twirlybean Coffee & Chaos",
+          "Paddle Lagoon"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-46",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72339909830618,
+            59.45919703706594
+          ],
+          [
+            10.723400596186982,
+            59.45919610443275
+          ],
+          [
+            10.723402091127712,
+            59.459195173128
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-46",
+        "slug": "quiet-hill-drive",
+        "name": "Quiet Hill Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Twirlybean Coffee & Chaos",
+          "Spinnyfield"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-47",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723388209999557,
+            59.4592
+          ],
+          [
+            10.72339057797438,
+            59.45919872886629
+          ],
+          [
+            10.723392946924465,
+            59.45919745256338
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-47",
+        "slug": "scenic-hill-crescent",
+        "name": "Scenic Hill Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Dotty McFlap",
+          "Fizzletuft Spa & Screaming"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-48",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723388209999557,
+            59.4592
+          ],
+          [
+            10.723389382409684,
+            59.459201706799675
+          ],
+          [
+            10.723390553815598,
+            59.45920341178199
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-48",
+        "slug": "pleasant-hill-close",
+        "name": "Pleasant Hill Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Dotty McFlap",
+          "Teacup Engineering Ltd."
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-49",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723390553815598,
+            59.45920341178199
+          ],
+          [
+            10.723390708014964,
+            59.45920419501447
+          ],
+          [
+            10.72339086159501,
+            59.4592049795799
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-49",
+        "slug": "winding-grove-lane",
+        "name": "Winding Grove Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Teacup Engineering Ltd.",
+          "Snickerwood"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-50",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723406602552428,
+            59.4592
+          ],
+          [
+            10.72340434711362,
+            59.459197585665336
+          ],
+          [
+            10.723402091127712,
+            59.459195173128
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-50",
+        "slug": "cozy-grove-road",
+        "name": "Cozy Grove Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Sock Exchange",
+          "Spinnyfield"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-51",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723407757320416,
+            59.4592
+          ],
+          [
+            10.723407179411224,
+            59.45919999978839
+          ],
+          [
+            10.723406602552428,
+            59.4592
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-51",
+        "slug": "hidden-grove-street",
+        "name": "Hidden Grove Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Nigel Noodlefork",
+          "The Sock Exchange"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-52",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723407757320416,
+            59.4592
+          ],
+          [
+            10.723407897159172,
+            59.45919999992631
+          ],
+          [
+            10.723408037208058,
+            59.4592
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-52",
+        "slug": "peaceful-grove-path",
+        "name": "Peaceful Grove Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Nigel Noodlefork",
+          "Makeout Mountain"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-53",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723406602552428,
+            59.4592
+          ],
+          [
+            10.723406775423175,
+            59.45920326462766
+          ],
+          [
+            10.723406948478353,
+            59.4592065348372
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-53",
+        "slug": "charming-grove-way",
+        "name": "Charming Grove Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Sock Exchange",
+          "Granny's Sneezing Powder Emporium"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-54",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723406948478353,
+            59.4592065348372
+          ],
+          [
+            10.72340453081803,
+            59.45920570478264
+          ],
+          [
+            10.723402111230392,
+            59.45920487327427
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-54",
+        "slug": "quiet-grove-drive",
+        "name": "Quiet Grove Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Granny's Sneezing Powder Emporium",
+          "Ruckus Ridge"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-55",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723398523810829,
+            59.45920485070551
+          ],
+          [
+            10.7234003190431,
+            59.459204860896264
+          ],
+          [
+            10.723402111230392,
+            59.45920487327427
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-55",
+        "slug": "scenic-grove-crescent",
+        "name": "Scenic Grove Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Sir Poke-a-Lot's Petting Zoo",
+          "Ruckus Ridge"
+        ],
+        "length_km": "0.00",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-56",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723408037208058,
+            59.4592
+          ],
+          [
+            10.724007084682851,
+            59.45919972803244
+          ],
+          [
+            10.72460381019078,
+            59.45919873856438
+          ],
+          [
+            10.725204617624046,
+            59.45919999233301
+          ],
+          [
+            10.725802466867568,
+            59.45919993339412
+          ],
+          [
+            10.726401079426955,
+            59.459199635551364
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-56",
+        "slug": "pleasant-grove-close",
+        "name": "Pleasant Grove Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Makeout Mountain",
+          "Debate Dunes"
+        ],
+        "length_km": "0.33",
+        "complexity": "medium",
+        "points": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-57",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72252537522884,
+            59.462729742992046
+          ],
+          [
+            10.722699324882056,
+            59.46202628949139
+          ],
+          [
+            10.722870981293648,
+            59.461319569410925
+          ],
+          [
+            10.723043081934938,
+            59.4606131697723
+          ],
+          [
+            10.723219097724087,
+            59.45990971413791
+          ],
+          [
+            10.72339086159501,
+            59.4592049795799
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-57",
+        "slug": "winding-meadow-lane",
+        "name": "Winding Meadow Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Snailmail Speedways",
+          "Snickerwood"
+        ],
+        "length_km": "0.40",
+        "complexity": "medium",
+        "points": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-58",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.723388209999557,
+            59.4592
+          ],
+          [
+            10.722725222417834,
+            59.45932288254498
+          ],
+          [
+            10.722062349539293,
+            59.45944602518109
+          ],
+          [
+            10.721395276779063,
+            59.45956897339609
+          ],
+          [
+            10.720733923648206,
+            59.45969103478317
+          ],
+          [
+            10.720067766877754,
+            59.45981479194485
+          ],
+          [
+            10.719405018885887,
+            59.45993740211265
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-58",
+        "slug": "cozy-meadow-road",
+        "name": "Cozy Meadow Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Dotty McFlap",
+          "Sparkle Knoll"
+        ],
+        "length_km": "0.45",
+        "complexity": "medium",
+        "points": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-59",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.726341778068583,
+            59.4546646922974
+          ],
+          [
+            10.726351470361223,
+            59.455419131097976
+          ],
+          [
+            10.726362178799926,
+            59.45617657889602
+          ],
+          [
+            10.726369600520155,
+            59.45693047427476
+          ],
+          [
+            10.72638077391566,
+            59.457686437689674
+          ],
+          [
+            10.726390827942804,
+            59.45844288846486
+          ],
+          [
+            10.726401079426955,
+            59.459199635551364
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-59",
+        "slug": "hidden-meadow-street",
+        "name": "Hidden Meadow Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Flap & Wiggle Theatre",
+          "Debate Dunes"
+        ],
+        "length_km": "0.50",
+        "complexity": "medium",
+        "points": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-60",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.726341778068583,
+            59.4546646922974
+          ],
+          [
+            10.726898886971188,
+            59.454642053933114
+          ],
+          [
+            10.7274563155023,
+            59.454617107348284
+          ],
+          [
+            10.728011481578374,
+            59.45459302600436
+          ],
+          [
+            10.728568735115394,
+            59.45457024897683
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-60",
+        "slug": "peaceful-meadow-path",
+        "name": "Peaceful Meadow Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Flap & Wiggle Theatre",
+          "Tanglebrush Shortcut"
+        ],
+        "length_km": "0.25",
+        "complexity": "medium",
+        "points": 5
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-61",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72705252935399,
+            59.465018992988306
+          ],
+          [
+            10.726487369254285,
+            59.46473079393287
+          ],
+          [
+            10.725919163938102,
+            59.46444707706084
+          ],
+          [
+            10.725353190722394,
+            59.46416109331828
+          ],
+          [
+            10.724787627700566,
+            59.46387586298137
+          ],
+          [
+            10.724221699587588,
+            59.46358827082358
+          ],
+          [
+            10.723656206996717,
+            59.46330324372564
+          ],
+          [
+            10.723089776678691,
+            59.46301576955505
+          ],
+          [
+            10.72252537522884,
+            59.462729742992046
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-61",
+        "slug": "charming-meadow-way",
+        "name": "Charming Meadow Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Tina Tumbletwig",
+          "Snailmail Speedways"
+        ],
+        "length_km": "0.56",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-62",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.708492024019376,
+            59.456127042727196
+          ],
+          [
+            10.70903433070557,
+            59.45647342561412
+          ],
+          [
+            10.70957985228546,
+            59.45682483201082
+          ],
+          [
+            10.710127714798254,
+            59.457169213468184
+          ],
+          [
+            10.71067123745546,
+            59.45751984712002
+          ],
+          [
+            10.711217923178923,
+            59.45786574987181
+          ],
+          [
+            10.711762682173612,
+            59.458213615015424
+          ],
+          [
+            10.71230418873722,
+            59.45856458497657
+          ],
+          [
+            10.712849699041861,
+            59.4589117810217
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-62",
+        "slug": "quiet-meadow-drive",
+        "name": "Quiet Meadow Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "The Toad Bakery",
+          "Myrtle’s Suspicious Soup"
+        ],
+        "length_km": "0.57",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-63",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.70843445657788,
+            59.455931496548885
+          ],
+          [
+            10.708463151480807,
+            59.45602919752853
+          ],
+          [
+            10.708492024019376,
+            59.456127042727196
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-63",
+        "slug": "scenic-meadow-crescent",
+        "name": "Scenic Meadow Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Benny Tootletoe",
+          "The Toad Bakery"
+        ],
+        "length_km": "0.02",
+        "complexity": "simple",
+        "points": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-64",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.705404177462771,
+            59.44703806562609
+          ],
+          [
+            10.706073807684099,
+            59.44718567277858
+          ],
+          [
+            10.706740616734269,
+            59.44733452718655
+          ],
+          [
+            10.707413137393962,
+            59.44748123208564
+          ],
+          [
+            10.708083010496226,
+            59.447626620420365
+          ],
+          [
+            10.708753001514529,
+            59.4477720349914
+          ],
+          [
+            10.709419364004061,
+            59.44792001565282
+          ],
+          [
+            10.710087641954795,
+            59.44806610382371
+          ],
+          [
+            10.710759138296995,
+            59.44821338487404
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-64",
+        "slug": "pleasant-meadow-close",
+        "name": "Pleasant Meadow Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Reginald Plonksnort",
+          "Chatter Valley"
+        ],
+        "length_km": "0.61",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-65",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.734055698969952,
+            59.46606469308494
+          ],
+          [
+            10.733180917797343,
+            59.4659333125742
+          ],
+          [
+            10.732306500199417,
+            59.46580168895584
+          ],
+          [
+            10.731427428496492,
+            59.46567296533058
+          ],
+          [
+            10.730555655331145,
+            59.46554032767279
+          ],
+          [
+            10.729677135911226,
+            59.4654100204923
+          ],
+          [
+            10.728804649056006,
+            59.465282823554496
+          ],
+          [
+            10.727929235804988,
+            59.46515099547921
+          ],
+          [
+            10.72705252935399,
+            59.465018992988306
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-65",
+        "slug": "winding-oak-lane",
+        "name": "Winding Oak Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Boris Blundercheek",
+          "Tina Tumbletwig"
+        ],
+        "length_km": "0.79",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-66",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72252537522884,
+            59.462729742992046
+          ],
+          [
+            10.72232733536923,
+            59.46370600299866
+          ],
+          [
+            10.722124692914377,
+            59.464677880719854
+          ],
+          [
+            10.721921834937996,
+            59.46565148775953
+          ],
+          [
+            10.721721445803956,
+            59.466627268551015
+          ],
+          [
+            10.72152645108761,
+            59.46760452710476
+          ],
+          [
+            10.721323629949307,
+            59.46857146546059
+          ],
+          [
+            10.721122428670203,
+            59.469549851552735
+          ],
+          [
+            10.720923248130552,
+            59.47052317008443
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-66",
+        "slug": "cozy-oak-road",
+        "name": "Cozy Oak Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Snailmail Speedways",
+          "Sillyman’s Corner"
+        ],
+        "length_km": "0.88",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-67",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72096298114679,
+            59.4777008864293
+          ],
+          [
+            10.720961084150522,
+            59.47680171049504
+          ],
+          [
+            10.720951508224202,
+            59.475908239449694
+          ],
+          [
+            10.720951218219156,
+            59.47500591286054
+          ],
+          [
+            10.720944461023032,
+            59.474108842619415
+          ],
+          [
+            10.7209365970341,
+            59.47321569804022
+          ],
+          [
+            10.720936721265819,
+            59.47231739701679
+          ],
+          [
+            10.720928052609322,
+            59.4714217072641
+          ],
+          [
+            10.720923248130552,
+            59.47052317008443
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-67",
+        "slug": "hidden-oak-street",
+        "name": "Hidden Oak Street",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Vera Scrumbleshine",
+          "Sillyman’s Corner"
+        ],
+        "length_km": "0.80",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-68",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.72096298114679,
+            59.4777008864293
+          ],
+          [
+            10.720071049410713,
+            59.47768798331017
+          ],
+          [
+            10.719186483571297,
+            59.477672529949764
+          ],
+          [
+            10.718296407550504,
+            59.47765570308866
+          ],
+          [
+            10.71740206348963,
+            59.477639244601065
+          ],
+          [
+            10.716517127384789,
+            59.477629099937346
+          ],
+          [
+            10.71562943475553,
+            59.47761303810932
+          ],
+          [
+            10.71473501977295,
+            59.47759995295509
+          ],
+          [
+            10.713847409399113,
+            59.47758343314354
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-68",
+        "slug": "peaceful-oak-path",
+        "name": "Peaceful Oak Path",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Vera Scrumbleshine",
+          "Thinky Bay"
+        ],
+        "length_km": "0.79",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-69",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.734055698969952,
+            59.46606469308494
+          ],
+          [
+            10.734194938895032,
+            59.46709022477359
+          ],
+          [
+            10.734341289582675,
+            59.468119967496804
+          ],
+          [
+            10.734479809223455,
+            59.469152192828155
+          ],
+          [
+            10.734627986947103,
+            59.470182022380534
+          ],
+          [
+            10.734765427630798,
+            59.47120886850006
+          ],
+          [
+            10.734913209040592,
+            59.47223219675654
+          ],
+          [
+            10.735056749868079,
+            59.47326388266097
+          ],
+          [
+            10.73519698606237,
+            59.474291992220344
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-69",
+        "slug": "charming-oak-way",
+        "name": "Charming Oak Way",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Boris Blundercheek",
+          "Moody Gnome Studios"
+        ],
+        "length_km": "0.92",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-70",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.741560818556875,
+            59.47456315529415
+          ],
+          [
+            10.74076819369884,
+            59.47453241825013
+          ],
+          [
+            10.73996967657747,
+            59.47449799857038
+          ],
+          [
+            10.739172394477997,
+            59.47446204728971
+          ],
+          [
+            10.738377330179267,
+            59.47442795057507
+          ],
+          [
+            10.737585398553803,
+            59.474391422369344
+          ],
+          [
+            10.736791086514165,
+            59.474358821584616
+          ],
+          [
+            10.735995261520939,
+            59.47432867660787
+          ],
+          [
+            10.73519698606237,
+            59.474291992220344
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-70",
+        "slug": "quiet-oak-drive",
+        "name": "Quiet Oak Drive",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Horace Blibb",
+          "Moody Gnome Studios"
+        ],
+        "length_km": "0.71",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-71",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.741560818556875,
+            59.47456315529415
+          ],
+          [
+            10.741368339017871,
+            59.47527802219186
+          ],
+          [
+            10.741179918542452,
+            59.47599484743015
+          ],
+          [
+            10.74099032628423,
+            59.47671189191454
+          ],
+          [
+            10.74079679884257,
+            59.477426241723194
+          ],
+          [
+            10.740606287681858,
+            59.47814268468872
+          ],
+          [
+            10.740415668135844,
+            59.478857789782694
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-71",
+        "slug": "scenic-oak-crescent",
+        "name": "Scenic Oak Crescent",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Horace Blibb",
+          "Chair Whisperers Inc."
+        ],
+        "length_km": "0.49",
+        "complexity": "medium",
+        "points": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-72",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.73519698606237,
+            59.474291992220344
+          ],
+          [
+            10.73460326241204,
+            59.47481858666727
+          ],
+          [
+            10.734006553715213,
+            59.475354044794955
+          ],
+          [
+            10.733411104745109,
+            59.4758776417098
+          ],
+          [
+            10.732815841177715,
+            59.47641240359076
+          ],
+          [
+            10.732215414801782,
+            59.476939379042015
+          ],
+          [
+            10.73162466328797,
+            59.47747079389223
+          ],
+          [
+            10.731028095047671,
+            59.47800201717436
+          ],
+          [
+            10.730430483291048,
+            59.478528467161155
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-72",
+        "slug": "pleasant-oak-close",
+        "name": "Pleasant Oak Close",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Moody Gnome Studios",
+          "The Slightly Haunted Hardware Store"
+        ],
+        "length_km": "0.71",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-73",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.705250334861967,
+            59.46660456952695
+          ],
+          [
+            10.706146597713337,
+            59.46595569200317
+          ],
+          [
+            10.707042477723663,
+            59.46530640813368
+          ],
+          [
+            10.707934869872052,
+            59.464660269378655
+          ],
+          [
+            10.708827406318138,
+            59.46401151684103
+          ],
+          [
+            10.709727216376452,
+            59.463353491043904
+          ],
+          [
+            10.710622304833622,
+            59.462710672631125
+          ],
+          [
+            10.711517778221454,
+            59.46205550637702
+          ],
+          [
+            10.71241094380666,
+            59.46140991838577
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-73",
+        "slug": "winding-pine-lane",
+        "name": "Winding Pine Lane",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Rattle Hill",
+          "Splashypaint Falls"
+        ],
+        "length_km": "0.98",
+        "complexity": "complex",
+        "points": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "street-74",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.688312124573294,
+            59.47149847709332
+          ],
+          [
+            10.690429912795118,
+            59.47087874289946
+          ],
+          [
+            10.692547270955894,
+            59.47026876700459
+          ],
+          [
+            10.694668087787749,
+            59.46965804772807
+          ],
+          [
+            10.696782340310387,
+            59.46904668449242
+          ],
+          [
+            10.69890411559793,
+            59.46844162395678
+          ],
+          [
+            10.701014228660622,
+            59.46782804928423
+          ],
+          [
+            10.703131872944487,
+            59.46721153135564
+          ],
+          [
+            10.705250334861967,
+            59.46660456952695
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-74",
+        "slug": "cozy-pine-road",
+        "name": "Cozy Pine Road",
+        "type": "street",
+        "status": "published",
+        "connects": [
+          "Lumpy’s Cloud Storage",
+          "Rattle Hill"
+        ],
+        "length_km": "1.96",
+        "complexity": "complex",
+        "points": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "monitoring": {
+    "health_checks": {
+      "interval": "1m",
+      "endpoints": [
+        "http://localhost:4100/health",
+        "http://localhost:4100/api/health/db"
+      ]
+    },
+    "performance_metrics": {
+      "response_time_threshold": "500ms",
+      "error_rate_threshold": "1%",
+      "memory_threshold": "80%",
+      "cpu_threshold": "85%"
+    },
+    "alerts": {
+      "slack_webhook": "https://hooks.slack.com/YOUR_WEBHOOK",
+      "email": "admin@pjuskeby.org"
+    }
+  },
+  "backup_schedule": {
+    "database": "0 2 * * *",
+    "files": "0 3 * * *",
+    "retention_days": 30
+  }
+}

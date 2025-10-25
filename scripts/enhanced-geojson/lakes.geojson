@@ -1,0 +1,765 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": true,
+    "generatedAt": "2025-10-21T07:23:27.097Z",
+    "totalFeatures": 26,
+    "source": "Pjuskeby database lakes table"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "beff00ac-26c9-4608-903d-7b3279d2eafe",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.736269790002938,
+          59.94312529870954
+        ]
+      },
+      "properties": {
+        "id": "beff00ac-26c9-4608-903d-7b3279d2eafe",
+        "slug": "babbleriver",
+        "name": "Babbleriver",
+        "type": "lake",
+        "category": "water",
+        "description": "Can’t shut up. Has opinions about everything.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "9505afbc-9788-4e60-8011-7647e8207e3b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.739760030571254,
+          59.91451632023996
+        ]
+      },
+      "properties": {
+        "id": "9505afbc-9788-4e60-8011-7647e8207e3b",
+        "slug": "bouncepond",
+        "name": "Bouncepond",
+        "type": "lake",
+        "category": "water",
+        "description": "Pebbles bounce back when thrown. It’s personal.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6e1ba17b-06ec-4435-8941-232322f9f43d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.760348747165557,
+          59.91888202243277
+        ]
+      },
+      "properties": {
+        "id": "6e1ba17b-06ec-4435-8941-232322f9f43d",
+        "slug": "crinkle-bay",
+        "name": "Crinkle Bay",
+        "type": "lake",
+        "category": "water",
+        "description": "Waves fold like bed sheets. Smells faintly of socks.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "10336904-44b8-4fc7-97a9-ed8e7fde047e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7633526614915,
+          59.92500858429095
+        ]
+      },
+      "properties": {
+        "id": "10336904-44b8-4fc7-97a9-ed8e7fde047e",
+        "slug": "dribbleloch",
+        "name": "Dribbleloch",
+        "type": "lake",
+        "category": "water",
+        "description": "Technically a lake. Emotionally a sneeze.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "06dcf4e2-b2ce-464e-9410-765553649473",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.738852142671659,
+          59.902849231568894
+        ]
+      },
+      "properties": {
+        "id": "06dcf4e2-b2ce-464e-9410-765553649473",
+        "slug": "drizzlepond",
+        "name": "Drizzlepond",
+        "type": "lake",
+        "category": "water",
+        "description": "Always looks like it’s about to rain, but never does.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "f216dcf8-8779-480c-bc13-4cb3120329c1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.724457240806297,
+          59.955498902369264
+        ]
+      },
+      "properties": {
+        "id": "f216dcf8-8779-480c-bc13-4cb3120329c1",
+        "slug": "echo-marsh",
+        "name": "Echo Marsh",
+        "type": "lake",
+        "category": "water",
+        "description": "Your thoughts echo back in sarcastic tone.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0a81bf2d-490c-4008-a5d7-b6d16748c67e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.712543550598248,
+          59.92914125190319
+        ]
+      },
+      "properties": {
+        "id": "0a81bf2d-490c-4008-a5d7-b6d16748c67e",
+        "slug": "flaplagoon",
+        "name": "Flaplagoon",
+        "type": "lake",
+        "category": "water",
+        "description": "Everything slaps louder here: fish, water, pride.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4d9a1501-4f40-4f9c-a70d-da181dfa9d19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.743816281150211,
+          59.89591167882866
+        ]
+      },
+      "properties": {
+        "id": "4d9a1501-4f40-4f9c-a70d-da181dfa9d19",
+        "slug": "flickerflow",
+        "name": "Flickerflow",
+        "type": "lake",
+        "category": "water",
+        "description": "Water flickers like a confused GIF.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6efa587b-a47c-4cf0-99d1-3dbbaea114b6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.713238262074842,
+          59.93887866754037
+        ]
+      },
+      "properties": {
+        "id": "6efa587b-a47c-4cf0-99d1-3dbbaea114b6",
+        "slug": "gigglepond",
+        "name": "Gigglepond",
+        "type": "lake",
+        "category": "water",
+        "description": "A pond that giggles every time a duck lands.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "146a0bb4-b0a9-4d20-859e-1a476ca1bec6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.688412861306482,
+          59.884103958429826
+        ]
+      },
+      "properties": {
+        "id": "146a0bb4-b0a9-4d20-859e-1a476ca1bec6",
+        "slug": "glimmerpond",
+        "name": "Glimmerpond",
+        "type": "lake",
+        "category": "water",
+        "description": "Reflects your face, but slightly more confused.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00dbd2e4-367f-4c5f-90f1-d5cd053e6c63",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.684042836254578,
+          59.890482724708455
+        ]
+      },
+      "properties": {
+        "id": "00dbd2e4-367f-4c5f-90f1-d5cd053e6c63",
+        "slug": "gurglecreek",
+        "name": "Gurglecreek",
+        "type": "lake",
+        "category": "water",
+        "description": "Like a baby laughing in soup form.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "1a99074b-c61a-403d-9fb7-e4a6773f5a38",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.718596177645079,
+          59.94340904624894
+        ]
+      },
+      "properties": {
+        "id": "1a99074b-c61a-403d-9fb7-e4a6773f5a38",
+        "slug": "hiccup-creek",
+        "name": "Hiccup Creek",
+        "type": "lake",
+        "category": "water",
+        "description": "Water hiccups upstream. Nobody knows why.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4c54922c-42bc-49b8-91d2-a33d39938e9b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.700949773176745,
+          59.9532527189846
+        ]
+      },
+      "properties": {
+        "id": "4c54922c-42bc-49b8-91d2-a33d39938e9b",
+        "slug": "hushstream",
+        "name": "Hushstream",
+        "type": "lake",
+        "category": "water",
+        "description": "So quiet it makes your brain louder.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2e96cb52-7be5-48de-be71-14a471a9f382",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.737830642094876,
+          59.88385345095074
+        ]
+      },
+      "properties": {
+        "id": "2e96cb52-7be5-48de-be71-14a471a9f382",
+        "slug": "klucklepool",
+        "name": "Klucklepool",
+        "type": "lake",
+        "category": "water",
+        "description": "Sounds like a chicken clucking underwater.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2244444d-a21b-43e7-a1d9-33695092d5bf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.743967568173954,
+          59.942424035638325
+        ]
+      },
+      "properties": {
+        "id": "2244444d-a21b-43e7-a1d9-33695092d5bf",
+        "slug": "lake",
+        "name": "Lake",
+        "type": "lake",
+        "category": "water",
+        "description": "A pristine lake in the Pjuskeby region.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "1ebf9899-8720-458e-8972-802c6c869b20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.764260153808737,
+          59.91585444499881
+        ]
+      },
+      "properties": {
+        "id": "1ebf9899-8720-458e-8972-802c6c869b20",
+        "slug": "mosswhisper-tarn",
+        "name": "Mosswhisper Tarn",
+        "type": "lake",
+        "category": "water",
+        "description": "Small lake surrounded by shy moss that gossips when wet.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "49d05059-2270-4ec4-ad9d-a2573e39a514",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.702108177275784,
+          59.892716473397456
+        ]
+      },
+      "properties": {
+        "id": "49d05059-2270-4ec4-ad9d-a2573e39a514",
+        "slug": "plopstream",
+        "name": "Plopstream",
+        "type": "lake",
+        "category": "water",
+        "description": "Perfect for dramatic ‘plop’ entrances and exits.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "22e0a690-e8cb-4bbb-a3ec-7b5d99abb363",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.674068793322423,
+          59.929650842110306
+        ]
+      },
+      "properties": {
+        "id": "22e0a690-e8cb-4bbb-a3ec-7b5d99abb363",
+        "slug": "rumblelake",
+        "name": "Rumblelake",
+        "type": "lake",
+        "category": "water",
+        "description": "Waves slap the shore like they’ve got opinions.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "618881ed-e0e1-4ce6-ae2d-267e040af975",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.676805294982229,
+          59.90604909703679
+        ]
+      },
+      "properties": {
+        "id": "618881ed-e0e1-4ce6-ae2d-267e040af975",
+        "slug": "snortfjord",
+        "name": "Snortfjord",
+        "type": "lake",
+        "category": "water",
+        "description": "Blows bubbles when no one’s looking.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "60cd50a4-a11d-4fc8-9a36-7d602138e9e0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.714063901809569,
+          59.871592185517734
+        ]
+      },
+      "properties": {
+        "id": "60cd50a4-a11d-4fc8-9a36-7d602138e9e0",
+        "slug": "splishfjord",
+        "name": "Splishfjord",
+        "type": "lake",
+        "category": "water",
+        "description": "A narrow bay where everything sounds wetter.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "d98350a6-2d9d-4ebc-8fae-094998bf6f68",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.742701496643225,
+          59.86597246122713
+        ]
+      },
+      "properties": {
+        "id": "d98350a6-2d9d-4ebc-8fae-094998bf6f68",
+        "slug": "sprinklefen",
+        "name": "Sprinklefen",
+        "type": "lake",
+        "category": "water",
+        "description": "No one knows where the water comes from. Or goes.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "3a9ba075-9ccf-4ff2-9549-dc0f5b05f7d6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.680552877984221,
+          59.91397289108838
+        ]
+      },
+      "properties": {
+        "id": "3a9ba075-9ccf-4ff2-9549-dc0f5b05f7d6",
+        "slug": "the-murmurlock",
+        "name": "The Murmurlock",
+        "type": "lake",
+        "category": "water",
+        "description": "A dark lake that hums lullabies to no one.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c2c18875-8ddc-4e36-bcbb-2b591611cba5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723204632557023,
+          59.882369324242696
+        ]
+      },
+      "properties": {
+        "id": "c2c18875-8ddc-4e36-bcbb-2b591611cba5",
+        "slug": "titterlagoon",
+        "name": "Titterlagoon",
+        "type": "lake",
+        "category": "water",
+        "description": "You can’t go five minutes without giggling.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "1271e740-d5e3-4089-8a56-e444da7d8d2d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.76364389356009,
+          59.90898965205353
+        ]
+      },
+      "properties": {
+        "id": "1271e740-d5e3-4089-8a56-e444da7d8d2d",
+        "slug": "twistyriver",
+        "name": "Twistyriver",
+        "type": "lake",
+        "category": "water",
+        "description": "Flows in squiggles and spiral loops.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cddb83a0-b55e-4373-817d-db6f7e828ec3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.701468465670716,
+          59.8979031852529
+        ]
+      },
+      "properties": {
+        "id": "cddb83a0-b55e-4373-817d-db6f7e828ec3",
+        "slug": "twitchlake",
+        "name": "Twitchlake",
+        "type": "lake",
+        "category": "water",
+        "description": "Ripples for no reason. Makes people suspicious.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "f6766246-4fa4-4556-872f-51b04e741275",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.73147394857724,
+          59.88590054139997
+        ]
+      },
+      "properties": {
+        "id": "f6766246-4fa4-4556-872f-51b04e741275",
+        "slug": "whisperwater",
+        "name": "Whisperwater",
+        "type": "lake",
+        "category": "water",
+        "description": "The lake murmurs secrets to your toes at night.",
+        "status": "active",
+        "isWaterArea": true,
+        "areaKm2": null,
+        "depthM": null,
+        "waterType": "freshwater",
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🏞️"
+        }
+      }
+    }
+  ]
+}

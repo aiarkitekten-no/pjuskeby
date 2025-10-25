@@ -1,6 +1,6 @@
 {
   "description": "Ting som fungerer i Pjuskeby-prosjektet. Oppdateres kontinuerlig.",
-  "updated": "2025-10-16T12:00:00Z",
+  "updated": "2025-10-17T06:45:00Z",
   "items": [
     {
       "id": 1,
@@ -38,6 +38,51 @@
       "files": [
         ".env"
       ],
+      "confidence": 1.0
+    },
+    {
+      "id": 4,
+      "category": "backend",
+      "what": "Fastify API server on port 4100",
+      "why": "Successfully created 6 database tables, 7 working endpoints with CORS and Turnstile integration",
+      "files": [
+        "server/index.ts",
+        "server/app.ts",
+        "server/db/schema.ts",
+        "server/routes/comments.ts",
+        "server/routes/today.ts",
+        "server/routes/kofi.ts"
+      ],
+      "endpoints": [
+        "POST /api/comments",
+        "GET /api/comments?postSlug={slug}",
+        "PATCH /api/comments/:id/moderate",
+        "GET /api/today",
+        "POST /api/kofi/webhook",
+        "GET /api/supporters",
+        "GET /health"
+      ],
+      "verified": "2025-10-17T06:42:57Z",
+      "confidence": 1.0
+    },
+    {
+      "id": 5,
+      "category": "database",
+      "what": "MariaDB migrations with Drizzle ORM",
+      "why": "6 tables successfully created with proper indexes and relationships",
+      "files": [
+        "server/db/migrate.ts",
+        "server/db/schema.ts"
+      ],
+      "tables": [
+        "comments",
+        "moderation_log",
+        "rate_limits",
+        "donations",
+        "supporters",
+        "user_prefs"
+      ],
+      "verified": "2025-10-17T06:39:00Z",
       "confidence": 1.0
     }
   ]

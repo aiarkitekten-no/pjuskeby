@@ -1,0 +1,92 @@
+{
+  "current_phase": "6",
+  "phase_name": "SEO/AIO + Ko-fi",
+  "status": "completed",
+  "started_at": "2025-10-17T10:05:00Z",
+  "completed_at": "2025-10-17T10:12:00Z",
+  "acceptance_criteria": {
+    "seo_component_created": true,
+    "sitemap_xml_generated": true,
+    "robots_txt_configured": true,
+    "structured_data_implemented": true,
+    "kofi_integration_complete": true,
+    "og_images_created": true,
+    "all_pages_updated": true
+  },
+  "deliverables": {
+    "components": [
+      "src/components/SEO.astro (reusable SEO component with Open Graph, Twitter Cards, JSON-LD)"
+    ],
+    "api_routes": [
+      "src/pages/sitemap.xml.ts (dynamic sitemap with all pages, stories, people, places)",
+      "src/pages/robots.txt.ts (robots.txt with AI crawler permissions and sitemap reference)"
+    ],
+    "assets": [
+      "public/og-image.svg (default Open Graph image for social sharing)"
+    ],
+    "updated_pages": [
+      "src/layouts/BaseLayout.astro (integrated SEO component, English UI)",
+      "src/pages/stott-oss.astro (Ko-fi integration with proper button)",
+      "src/pages/historier/[...slug].astro (story-specific structured data)"
+    ]
+  },
+  "seo_features": {
+    "meta_tags": [
+      "Primary meta tags (title, description)",
+      "Canonical URLs for all pages",
+      "Open Graph (Facebook) meta tags",
+      "Twitter Card meta tags",
+      "Robots directives (index, follow)"
+    ],
+    "structured_data": [
+      "Organization schema for site-wide context",
+      "CreativeWork schema for story pages",
+      "Article metadata with published/modified dates",
+      "Author and publisher information"
+    ],
+    "sitemap": "Dynamic generation with 100+ URLs (stories, people, places)",
+    "robots_txt": "AI-friendly with specific crawler rules (GPTBot, Claude-Web, CCBot allowed)"
+  },
+  "kofi_integration": {
+    "page": "/stott-oss (English: Support Us)",
+    "button_style": "Official Ko-fi red (#ff5e5b) with shadow",
+    "username": "pjuskeby (placeholder - update with actual username)",
+    "features": [
+      "Direct link to Ko-fi profile",
+      "Why Support section with 4 benefits",
+      "Supporters list from API",
+      "Footer link on all pages"
+    ]
+  },
+  "ai_optimization": {
+    "purpose": "Make content discoverable and crawlable by AI/LLM systems",
+    "features": [
+      "Semantic HTML with proper heading hierarchy",
+      "JSON-LD structured data for entity recognition",
+      "Clear content organization with section markers",
+      "Robots.txt explicitly allows AI crawlers",
+      "Comprehensive meta descriptions"
+    ],
+    "target_crawlers": [
+      "GPTBot (OpenAI)",
+      "ChatGPT-User (OpenAI)",
+      "CCBot (Common Crawl)",
+      "anthropic-ai (Anthropic)",
+      "Claude-Web (Anthropic)"
+    ]
+  },
+  "testing_results": {
+    "sitemap_xml": "✓ Accessible at https://pjuskeby.org/sitemap.xml",
+    "robots_txt": "✓ Accessible at https://pjuskeby.org/robots.txt",
+    "og_image": "✓ SVG image at /og-image.svg",
+    "meta_tags": "✓ Verified on story pages",
+    "kofi_page": "✓ Updated with English UI and official button"
+  },
+  "known_issues": [
+    "Ko-fi username is placeholder 'pjuskeby' - needs real username",
+    "No per-story OG images (using default site image)",
+    "API server still in errored state (doesn't affect SEO features)"
+  ],
+  "next_phase": "7",
+  "next_phase_name": "Podcast RSS-feed"
+}

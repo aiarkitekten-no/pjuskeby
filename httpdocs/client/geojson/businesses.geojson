@@ -1,0 +1,490 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "294dafd1-acc7-4697-ba1b-10e00bac8288",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.718639832461564,
+          59.449015611441574
+        ]
+      },
+      "properties": {
+        "id": "294dafd1-acc7-4697-ba1b-10e00bac8288",
+        "slug": "blubber-crumb",
+        "name": "Blubber & Crumb",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "98d67ab1-abc2-4f23-8f4a-f47983497335",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723406602552428,
+          59.4592
+        ]
+      },
+      "properties": {
+        "id": "98d67ab1-abc2-4f23-8f4a-f47983497335",
+        "slug": "the-sock-exchange",
+        "name": "The Sock Exchange",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4c9203f9-f486-4c5a-9727-69539d5f16d4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.71908713796594,
+          59.451103238433504
+        ]
+      },
+      "properties": {
+        "id": "4c9203f9-f486-4c5a-9727-69539d5f16d4",
+        "slug": "krumplehorn-mechanics",
+        "name": "Krumplehorn Mechanics",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Naturmagi-veien"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "abdb1b06-6716-46b4-8e4b-8e04cfd79ab4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.719296329091542,
+          59.45127332797301
+        ]
+      },
+      "properties": {
+        "id": "abdb1b06-6716-46b4-8e4b-8e04cfd79ab4",
+        "slug": "waffle-oracle",
+        "name": "Waffle Oracle",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Naturmagi-veien"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "66876611-58ee-4c6f-b55b-f2b5047980e8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.73519698606237,
+          59.474291992220344
+        ]
+      },
+      "properties": {
+        "id": "66876611-58ee-4c6f-b55b-f2b5047980e8",
+        "slug": "moody-gnome-studios",
+        "name": "Moody Gnome Studios",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "40d3e316-acab-46f1-9758-8225a4be484e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.718693339384277,
+          59.449372111289264
+        ]
+      },
+      "properties": {
+        "id": "40d3e316-acab-46f1-9758-8225a4be484e",
+        "slug": "crankle-bop",
+        "name": "Crankle & Bop",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Havfrugata"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "676f2035-a230-4bff-98ef-a719a6194d2c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723406948478353,
+          59.4592065348372
+        ]
+      },
+      "properties": {
+        "id": "676f2035-a230-4bff-98ef-a719a6194d2c",
+        "slug": "granny-s-sneezing-powder-emporium",
+        "name": "Granny's Sneezing Powder Emporium",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "5fa688b6-3132-4710-84b0-394e2a4ea151",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.708492024019376,
+          59.456127042727196
+        ]
+      },
+      "properties": {
+        "id": "5fa688b6-3132-4710-84b0-394e2a4ea151",
+        "slug": "the-toad-bakery",
+        "name": "The Toad Bakery",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Krystallbekken"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "8bff65a0-6d12-4f06-bcd8-523eb699971b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.740415668135844,
+          59.478857789782694
+        ]
+      },
+      "properties": {
+        "id": "8bff65a0-6d12-4f06-bcd8-523eb699971b",
+        "slug": "chair-whisperers-inc",
+        "name": "Chair Whisperers Inc.",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "f88bb872-99a6-44de-a033-f13fe191250b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723237223556517,
+          59.448735022558104
+        ]
+      },
+      "properties": {
+        "id": "f88bb872-99a6-44de-a033-f13fe191250b",
+        "slug": "bumblebelly-ink",
+        "name": "Bumblebelly Ink",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "002e80d0-f2ed-4b3e-aa09-57c5c2336719",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723398523810829,
+          59.45920485070551
+        ]
+      },
+      "properties": {
+        "id": "002e80d0-f2ed-4b3e-aa09-57c5c2336719",
+        "slug": "sir-poke-a-lot-s-petting-zoo",
+        "name": "Sir Poke-a-Lot's Petting Zoo",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cbec01b1-94d6-4256-9bb2-dad6f8896244",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.726341778068583,
+          59.4546646922974
+        ]
+      },
+      "properties": {
+        "id": "cbec01b1-94d6-4256-9bb2-dad6f8896244",
+        "slug": "the-flap-wiggle-theatre",
+        "name": "The Flap & Wiggle Theatre",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Blomsterdalsgate"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "7bb450f9-6b70-45de-ad00-1e0151cdbea9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723390553815598,
+          59.45920341178199
+        ]
+      },
+      "properties": {
+        "id": "7bb450f9-6b70-45de-ad00-1e0151cdbea9",
+        "slug": "teacup-engineering-ltd",
+        "name": "Teacup Engineering Ltd.",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b885056e-f37e-4984-a248-84cd8c47118a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.712849699041861,
+          59.4589117810217
+        ]
+      },
+      "properties": {
+        "id": "b885056e-f37e-4984-a248-84cd8c47118a",
+        "slug": "myrtle-s-suspicious-soup",
+        "name": "Myrtle’s Suspicious Soup",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "abf55521-0a8a-4805-af3b-99f917e6dd54",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.718296248772837,
+          59.45032080951995
+        ]
+      },
+      "properties": {
+        "id": "abf55521-0a8a-4805-af3b-99f917e6dd54",
+        "slug": "pants-philosophy",
+        "name": "Pants & Philosophy",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0b80bdbc-6257-4797-abc6-c0e899dd9bd9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.715243780020744,
+          59.44775587538899
+        ]
+      },
+      "properties": {
+        "id": "0b80bdbc-6257-4797-abc6-c0e899dd9bd9",
+        "slug": "the-department-of-lost-echoes",
+        "name": "The Department of Lost Echoes",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Regenbueveien"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "a160a6b9-f150-4a0f-8c0b-0325c338237b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.718670997903489,
+          59.44934670363121
+        ]
+      },
+      "properties": {
+        "id": "a160a6b9-f150-4a0f-8c0b-0325c338237b",
+        "slug": "whisker-bazaar",
+        "name": "Whisker Bazaar",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Havfrugata"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bd013d99-0e54-466b-b008-dc9aaf093989",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.71888040530191,
+          59.45095538591469
+        ]
+      },
+      "properties": {
+        "id": "bd013d99-0e54-466b-b008-dc9aaf093989",
+        "slug": "tinkle-snort-plumbing",
+        "name": "Tinkle & Snort Plumbing",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Skogstjerneveien"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "f5c59809-d76c-46c7-aa4c-f27e25fdcab5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.688312124573294,
+          59.47149847709332
+        ]
+      },
+      "properties": {
+        "id": "f5c59809-d76c-46c7-aa4c-f27e25fdcab5",
+        "slug": "lumpy-s-cloud-storage",
+        "name": "Lumpy’s Cloud Storage",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "1c706ae5-f9af-42db-b10e-f18ca98773d0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.71523632704565,
+          59.44774686197507
+        ]
+      },
+      "properties": {
+        "id": "1c706ae5-f9af-42db-b10e-f18ca98773d0",
+        "slug": "oopsie-s-fine-dining",
+        "name": "Oopsie's Fine Dining",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Regenbueveien"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "855788a1-c9a4-466d-972c-b4650353232c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.719248642592856,
+          59.451036608141735
+        ]
+      },
+      "properties": {
+        "id": "855788a1-c9a4-466d-972c-b4650353232c",
+        "slug": "professor-quibble-s-hatorium",
+        "name": "Professor Quibble’s Hatorium",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active",
+        "street": "Naturmagi-veien"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f26f213-cc52-4107-b870-a5f0326f08a4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.723392946924465,
+          59.45919745256338
+        ]
+      },
+      "properties": {
+        "id": "6f26f213-cc52-4107-b870-a5f0326f08a4",
+        "slug": "fizzletuft-spa-screaming",
+        "name": "Fizzletuft Spa & Screaming",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b6820045-f011-4886-ab20-a6d5e9760d75",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.730430483291048,
+          59.478528467161155
+        ]
+      },
+      "properties": {
+        "id": "b6820045-f011-4886-ab20-a6d5e9760d75",
+        "slug": "the-slightly-haunted-hardware-store",
+        "name": "The Slightly Haunted Hardware Store",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0bbf9344-8761-408d-a820-f2517b6b6d5a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.72252537522884,
+          59.462729742992046
+        ]
+      },
+      "properties": {
+        "id": "0bbf9344-8761-408d-a820-f2517b6b6d5a",
+        "slug": "snailmail-speedways",
+        "name": "Snailmail Speedways",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "64b158ad-6820-454d-ab10-78bfe6f2c448",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.72339909830618,
+          59.45919703706594
+        ]
+      },
+      "properties": {
+        "id": "64b158ad-6820-454d-ab10-78bfe6f2c448",
+        "slug": "twirlybean-coffee-chaos",
+        "name": "Twirlybean Coffee & Chaos",
+        "type": "business",
+        "street_id": "b4bfa5d5-0acb-423b-9f0a-ea57fcd06f45",
+        "status": "active"
+      }
+    }
+  ]
+}

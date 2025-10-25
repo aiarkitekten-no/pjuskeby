@@ -1,0 +1,105 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "evt-001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6578, 59.4344]
+      },
+      "properties": {
+        "id": "evt-001",
+        "slug": "weekly-awkward-dance",
+        "name": "Weekly Awkward Dance",
+        "type": "event",
+        "category": "recurring",
+        "description": "Every Tuesday, residents gather at the town square for mandatory awkward dancing.",
+        "date": "2025-10-22T19:00:00Z",
+        "organizer": "Pjuskeby Municipal Dance Committee",
+        "status": "recurring",
+        "attendance": "mandatory-optional"
+      }
+    },
+    {
+      "type": "Feature", 
+      "id": "evt-002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6612, 59.4389]
+      },
+      "properties": {
+        "id": "evt-002",
+        "slug": "lost-cat-parade",
+        "name": "Lost Cat Parade",
+        "type": "event", 
+        "category": "special",
+        "description": "Annual parade where everyone pretends to look for cats that were never actually lost.",
+        "date": "2025-11-15T14:00:00Z",
+        "organizer": "Agatha Splint",
+        "status": "planned",
+        "attendance": "voluntary-with-guilt"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "evt-003", 
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6545, 59.4312]
+      },
+      "properties": {
+        "id": "evt-003",
+        "slug": "existential-crisis-workshop",
+        "name": "Existential Crisis Workshop",
+        "type": "event",
+        "category": "educational",
+        "description": "Monthly workshop on how to have meaningful existential crises in a supportive environment.",
+        "date": "2025-10-30T10:00:00Z", 
+        "organizer": "Dr. Melancholy Andersson",
+        "status": "ongoing",
+        "attendance": "therapeutic"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "evt-004",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6634, 59.4356]
+      },
+      "properties": {
+        "id": "evt-004",
+        "slug": "backwards-day-celebration",
+        "name": "Backwards Day Celebration", 
+        "type": "event",
+        "category": "absurd",
+        "description": "A day where everything is done backwards, including walking, talking, and wearing clothes.",
+        "date": "2025-12-01T12:00:00Z",
+        "organizer": "Pjuskeby Department of Contrary Motion",
+        "status": "anticipated",
+        "attendance": "confusing"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "evt-005",
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [10.6523, 59.4378]
+      },
+      "properties": {
+        "id": "evt-005",
+        "slug": "invisible-art-exhibition",
+        "name": "Invisible Art Exhibition",
+        "type": "event",
+        "category": "cultural",
+        "description": "A prestigious exhibition featuring the finest invisible artworks by local invisible artists.",
+        "date": "2025-11-08T16:00:00Z",
+        "organizer": "Pjuskeby Museum of Intangible Arts",
+        "status": "invisible",
+        "attendance": "questionable"
+      }
+    }
+  ]
+}

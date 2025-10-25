@@ -1,0 +1,34 @@
+{
+  "id": "abe41232-b17e-40da-a446-2f7e5d07bd9a",
+  "slug": "hilda-spranklepuff",
+  "name": "Hilda Spranklepuff",
+  "age": 61,
+  "birthdate": "1964-08-03",
+  "gender": "female",
+  "occupation": "Pjuskeby Poetry Laundrette",
+  "workplace": {
+    "name": "Pjuskeby Poetry Laundrette",
+    "slug": "unknown",
+    "role": "Pjuskeby Poetry Laundrette"
+  },
+  "address": {
+    "street": "Unknown Street",
+    "number": "1",
+    "full": "Unknown Street, Pjuskeby"
+  },
+  "favorites": {
+    "places": []
+  },
+  "traits": [
+    "rhyme-spinning",
+    "cake dramatics"
+  ],
+  "bio_short": "**The Pjuskeby Poetry Laundrette** Hilda Spranklepuff never meant to find herself in the esteemed position of Manageress of the Pjuskeby Poetry Laundrette, but as fate would have it, she slipped on a metaphorical banana peel of destiny. At age 48, with a pocket full of run-on sentences and a head full of half-baked haikus, Hilda was lured into the laundrette by the seductive hum of the spin cycle. It was here she discovered a most surprising secret: poetry that had gone missing from people's minds tended to appear in the lint filter of the industrial Whirlpool 2000. The laundrette wasn't...",
+  "bio_full": "**The Pjuskeby Poetry Laundrette**\n\nHilda Spranklepuff never meant to find herself in the esteemed position of Manageress of the Pjuskeby Poetry Laundrette, but as fate would have it, she slipped on a metaphorical banana peel of destiny. At age 48, with a pocket full of run-on sentences and a head full of half-baked haikus, Hilda was lured into the laundrette by the seductive hum of the spin cycle. It was here she discovered a most surprising secret: poetry that had gone missing from people's minds tended to appear in the lint filter of the industrial Whirlpool 2000.\n\nThe laundrette wasn't a typical one, mind you. It was an abode where forgotten sonnets and haikus would find their way into the suds, emerging with the clothes, cleaner and more succinct. Hilda introduced rhyme-cleaning—a service where customers could wash their worries and vowels away. She even offered a 'Stanza Spin' for those particularly knotted narratives. On Thursdays, a peculiar magic took over: every drumbeat of the machines translated into couplets, and suddenly even lost socks spoke in verse. Hilda herself could only speak in rhymes on such days, a quirk she embraced wholeheartedly since it occurred naturally every week without fail.\n\n**The Cake Dramatics Society**\n\nHilda is also an honorary member of Pjuskeby's Cake Dramatics Society—a little-known assembly of passionate patissières and pastry enthusiasts who believe every cake has a story to tell. Hilda's specialty is her 'Ode to Chocolate Cake,' a towering confection adorned with marzipan actors frozen mid-monologue. Each layer represents a different act, with sugar-coated soliloquies and buttercream conflicts playing out upon its delicious stage.\n\nHer pièce de résistance was the \"The Tragedy of Blueberry Scone,\" a tear-jerking tale told entirely via edible flowers and tears of blueberry jam. It once moved an entire audience to a crumbly emotional mess during the annual Pjuskeby Dessert Drama Festival.\n\n**The Rhyme-Spinning Ritual**\n\nHilda’s daily ritual is as eccentric as it is predictable. Every morning at 5:37 AM sharp, she takes a leisurely saunter to the Versemarch Woods armed with a feathered quill and a small, battered notebook she affectionately calls “Rhymefinder General.” Cars honk in poetic meter as she crosses the street, and birds trill iambic pentameter in her wake.\n\nOnce in the woods, she sits beneath the oldest oak tree, affectionately known as the Sage of Quercus, and whispers rhymes into the morning mist. By 6:41 AM, precisely when the sun kisses the trees, the forest returns her whispers with a leafy sonnet, leaves rustling with each line. It is a known fact in Pjuskeby that the trees have memory, a quality Hilda attributes to the rare Nordic sap called 'poesisar.'\n\n**What Hilda Loves**\n\nHilda loves the smell of books that have never been opened, imagining the words inside eager to escape into the world. She adores the feel of rain on her fingertips, which she describes as poetry falling from the sky, just waiting to be caught. The apple tart aroma of the Pjuskeby library is her perfume of choice, as it combines knowledge and sweetness in a single breath.\n\nShe finds joy in sneaky rhymes—those that hide in conversation unexpectedly—and in the curious wigs of the Pjuskeby wig shop, which she claims have their own tired stories to tell. Her heart beats fondly for an old wind-up gramophone, known affectionately as 'Sir Spin-a-Lot,' which plays only vinyl records recorded by the misfit songbirds of Urskog.\n\n**What Hilda Hates**\n\nHilda harbors a deep dislike for the predictability of rhyming dictionaries, which she feels drain the life from genuine verse. She cringes at forced rhymes in otherwise beautiful poems, comparing their discord to a belligerent bumblebee that insists on buzzing backward. Uninspired grey skies, she says, are the epitome of unwritten stanzas, and she’s known to scold them as if coaxing them to color their prose.\n\nShe cannot abide by cakes that are “just cakes” without narrative or emotional sway, and her disdain for such unoriginal desserts has been compared to the suppressed sigh of a deflating soufflé.\n\n**Beyond the Horizon**\n\nFor her future dreams and legacy, Hilda hopes to pen an epic poem of Pjuskeby itself—an anthology of its quirks, its dreams, and its whispered secrets caught in the seams of life. She envisions a narrative tapestry that covers the town in a warm quilt stitched from every rhyme she has ever penned or discovered.\n\nHilda dreams of crafting a series of edible literary masterpieces that can be both read and eaten, believing that words and morsels can nourish the soul in unique, harmonious ways. Her plans include a ‘Memoirs of Marzipan,’ and a ‘Lyrical Lemon Meringue’ that will recite poems upon slicing.\n\nWhen Hilda Spranklepuff finally hangs up her apron and unplugs the rhyme-wringing washers, she hopes Pjuskeby will remember her as the woman who saw the poetry in the ordinary and made it extraordinary—who found stanzas in the baskets of life and turned spin cycles into symphonies. For now, she remains a custodian of couplets, a keeper of cakes, and a beloved part of the whimsical symphony that is Pjuskeby.",
+  "personality": {
+    "traits": [
+      "rhyme-spinning",
+      "cake dramatics"
+    ]
+  }
+}

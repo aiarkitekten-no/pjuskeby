@@ -1,0 +1,43 @@
+{
+  "id": "4c9203f9-f486-4c5a-9727-69539d5f16d4",
+  "slug": "krumplehorn-mechanics",
+  "name": "Krumplehorn Mechanics",
+  "type": "business",
+  "address": "Unknown location",
+  "category": "Shop",
+  "description_short": "A unique business in Pjuskeby",
+  "description_full": "**[The Establishment]**\n\nNestled in a cloud of moss and mystery, Krumplehorn Mechanics is a place that appears and disappears with the same whimsical unpredictability as a reindeer’s sneeze in the dead of winter. While its address remains a secret whispered only amongst the wind-blown oaks of Pjuskeby, those in the know say it’s found by following the sound of an accordion-playing hedgehog.\n\nFounded in 1982 by Nils Krumplehorn, a mechanical savant who once turned a simple pocket watch into a device capable of predicting the mood of Tuesday afternoons, Krumplehorn Mechanics specializes in the repair and rejuvenation of all things peculiar and forgotten. Nils believed that every object deserved a second chance to be something entirely different, and thus, the shop was born—a sanctuary for the abandoned and the absurd.\n\n**[The Shop Interior]**\n\nUpon crossing the threshold, time itself seems to take a moment to catch its breath. The shop is a labyrinth of gleaming brass gears and tick-tocking curiosities, with shelves that spiral like the dreams of a particularly artistic snail. The air hums softly, resonating with the gentle heartbeat of winding clocks, each showcasing the precision and unpredictability of Nils’s touch.\n\nIn one corner, a grandfather clock whispers the secrets of fog, while a mechanical violin plays melodies composed by the wistful notes of forgotten lunch breaks. The walls are adorned with maps of places that only exist if you believe in them strongly enough, and every customer is encouraged to leave behind a button, a trinket, or a well-loved shoe in exchange for luck and a story.\n\n**[Signature Products/Services]**\n\nKrumplehorn Mechanics is renowned for its transformative customizations. One can bring in an old toaster and leave with a bread-browning device capable of hosting philosophical debates at breakfast. Prices vary, not by size or complexity, but by the item’s willingness to embrace change. Repairs and modifications typically range from 42 Norwegian krone for an enthusiastic item, to a marvelous 117 for the stubbornly resistant ones.\n\nSignature offerings include the “Melancholy-Uplift Umbrella,” perfect for rainy days when clouds feel introspective, and the “Perpetually Lost Penny,” guaranteed to reappear only when it’s most needed. There's also a special service known as “Echo-Enhancement,” where Nils tunes the echoes of forgotten voices lingering in vintage teapots.\n\n**[The Clientele]**\n\nThe shop draws a diverse crowd of patrons, from eccentric professors of forgotten knowledge to pixie dust merchants and the odd dairy farmer with a penchant for peculiar. Rumor has it that a flock of bookish ravens stop by every fortnight to deliberate over their collective nest-building projects, often trading feathers for mechanical feathers that never molt.\n\nLocal children adore Krumplehorn Mechanics, frequently bartering their pockets’ oddities for a glimpse of the mysterious clockwork dragon that occasionally purrs beneath the floorboards. Many villagers view a trip to Krumplehorn as a delightful adventure—one that rarely goes according to plan but always yields tales worth repeating.\n\n**[Business Philosophy]**\n\n“If it’s broken, make it wondrous,” the unofficial motto declares. At Krumplehorn Mechanics, the essence lies not in fixing, but in the creation of potential. Each object is seen as a story waiting to be retold, its past merely the prologue to an opus of possibilities. Nils encourages customers to embrace imperfection, trusting that the quirks of character imbue life into both people and things.\n\nIn the blink of a clock’s eye, an item might transform three times over, and Krumplehorn’s unorthodox practices ensure that every visit is unique. Transactions are completed with a riddle or a limerick, and customers are offered a cup of “Possibility Tea” to sip while they wait—its ingredients a secret alchemy known only to Nils.\n\n**[Local Reputation]**\n\nKrumplehorn Mechanics is a cherished enigma in the tapestry of Pjuskeby. It's the kind of establishment spoken of with fond bewilderment over evening suppers and around bonfire gatherings. Some locals swear that it holds the power to mend a broken heart, while others claim it’s just a clever mirage concocted by woodland spirits with a flair for the dramatic.\n\nElders recount tales of items given new life that went on to perform feats of wonderment, like the ironing board that delved into stand-up comedy or the sewing kit that stitched the happiest quilt in Norway. These stories have only added to the allure and mystique of Krumplehorn, ensuring that, while its locus may be untraceable, its influence is as tangible as the northern lights themselves.\n\nCONTACT_INFO=Leave a note under the third red mushroom on Oddknock Path\nOPENING_HOURS=Mon-Fri: When rooster crows twice backwards|Weekends: If you can find us|Tuesdays: Closed for existential contemplation\nSTATISTICS=Mysterious Occurrences:99|Mechanical Owls Repaired:14|Giggles Per Hour:22|Unexplained Phenomena:312\nFUN_FACTS=Once visited by a troll who wanted a new hat|WiFi password is JustKeepCranking|Walls hum at 3:17 PM daily|Nils can juggle octopuses with finesse|Teapots occasionally brew coffee unprovoked",
+  "specialties": [],
+  "established": "Unknown",
+  "contact_info": "Leave a note under the third red mushroom on Oddknock Path",
+  "opening_hours": [
+    "Mon-Fri: When rooster crows twice backwards",
+    "Weekends: If you can find us",
+    "Tuesdays: Closed for existential contemplation"
+  ],
+  "statistics": [
+    {
+      "label": "Mysterious Occurrences",
+      "value": "99"
+    },
+    {
+      "label": "Mechanical Owls Repaired",
+      "value": "14"
+    },
+    {
+      "label": "Giggles Per Hour",
+      "value": "22"
+    },
+    {
+      "label": "Unexplained Phenomena",
+      "value": "312"
+    }
+  ],
+  "fun_facts": [
+    "Once visited by a troll who wanted a new hat",
+    "WiFi password is JustKeepCranking",
+    "Walls hum at 3:17 PM daily",
+    "Nils can juggle octopuses with finesse",
+    "Teapots occasionally brew coffee unprovoked"
+  ]
+}

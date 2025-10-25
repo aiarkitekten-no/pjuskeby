@@ -1,0 +1,57 @@
+---
+/* Pjuskeby Guardrails:
+   - Ingen placeholders. Ingen ubrukte exports.
+   - Følg koblinger.json for datakilder og relasjoner.
+   - All skriving til DB/FS logges i donetoday.json.
+   - Ved AI-generering: aldri publiser direkte; legg i drafts/.
+   - Ved valideringsfeil: returner 422, ikke "tøm felt".
+*/
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+const placesData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/places.normalized.json'), 'utf-8')
+);
+
+const categories: Record<string, string> = {
+  'cafe': '☕ Café',
+  'park': '🌳 Park',
+  'landmark': '🏛️ Landmark',
+  'fictional': '✨ Fictional',
+  'shop': '🛍️ Shop',
+  'other': '📍 Other'
+};
+---
+
+<BaseLayout title="Places" description="Explore the places in Pjuskeby">
+  <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Places in Pjuskeby</h1>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+    {placesData.map((place: any) => (
+      <a href={`/steder/${place.slug}`} style="text-decoration: none; color: inherit;">
+        <article style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: transform 0.2s; cursor: pointer; height: 100%;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <h2 style="color: #10b981; margin: 0;">{place.name}</h2>
+          </div>
+          <p style="background: #d1fae5; color: #065f46; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem;">
+            {categories[place.category] || place.category}
+          </p>
+          {place.description && (
+            <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">
+              {place.description.slice(0, 120)}{place.description.length > 120 ? '...' : ''}
+            </p>
+          )}
+        </article>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+</style>

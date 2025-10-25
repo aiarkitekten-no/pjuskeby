@@ -1,0 +1,39 @@
+{
+  "id": "76f36cba-7ff2-456a-a748-995987bf155a",
+  "slug": "boris-blundercheek",
+  "name": "Boris Blundercheek",
+  "age": 63,
+  "birthdate": "1962-03-15",
+  "occupation": "Chief Mishap Coordinator",
+  "workplace": {
+    "name": "The Institute of Oops",
+    "slug": "the-institute-of-oops",
+    "role": "Director of Accidental Discoveries & Floor Familiarization"
+  },
+  "address": {
+    "street": "Wobblekollen Lane",
+    "number": "17B",
+    "full": "17B Wobblekollen Lane, Pjuskeby"
+  },
+  "favorites": {
+    "places": []
+  },
+  "traits": [
+    "falling off beanbags",
+    "misreading cereal boxes",
+    "accidental discoveries",
+    "furniture impact assessment",
+    "creative bruise collection"
+  ],
+  "bio_short": "Director at The Institute of Oops, where professional stumbling meets scientific inquiry. Best known for his Accidental Walking Theory and a filing cabinet dedicated to 'Interesting Bruises.'",
+  "bio_full": "**The Institute of Oops**\n\nBoris Blundercheek holds the distinguished position of Chief Mishap Coordinator at The Institute of Oops, a research facility dedicated to studying accidents, near-misses, and what Boris calls \"unplanned kinetic events.\" His corner office is strategically positioned next to the building's most frequently-tripped-over carpet ridge, which he considers prime research territory.\n\n**The Accidental Walking Theory**\n\nBoris's groundbreaking work centers on his Accidental Walking Theory, which proposes that humans aren't actually meant to walk upright at all. According to Boris, the prevalence of stubbed toes, tripped shoelaces, and mysterious bruises proves that bipedal locomotion is fundamentally flawed. He's currently seventeen years into a longitudinal study documenting every time he bumps into furniture, with detailed notes on angle of approach, level of surprise, and quality of resulting \"oof\" sound.\n\n**The Beanbag Collection**\n\nHis laboratory features an impressive collection of beanbag chairs in various states of deflation, each one labeled with the date and manner of falling. Boris has fallen off beanbags 143 times in the past year alone, a record he's quite proud of. He insists each incident provides valuable data about center of gravity, momentum, and what he calls \"the philosophical implications of soft furniture.\"\n\n**Misreading Cereal Boxes**\n\nEvery morning, Boris performs what he considers his most important ritual: misreading his cereal box. He's convinced that the first misread word of the day sets the tone for upcoming accidents. Last Tuesday's \"Crispy Oats\" became \"Crisis Boats,\" which he interpreted as a warning about the puddle near the coffee machine. He was right—he slipped in it twice before lunch.\n\n**What Boris Loves**\n\n- The satisfying *thunk* sound when walking into glass doors\n- Documenting the exact trajectory of spilled coffee\n- Furniture with unexpectedly sharp corners\n- The philosophical question: \"If a person trips in the forest and no one sees it, did they really stumble?\"\n- Finding new and creative places to acquire bruises\n\n**What Boris Hates**\n\n- Smooth floors (\"too predictable\")\n- Non-slip surfaces (\"removes the element of surprise\")\n- People who walk in straight lines\n- Furniture that stays in the same place (\"lacks spontaneity\")\n\n**Relationships & Daily Life**\n\nBoris lives alone at 17B Wobblekollen Lane, in an apartment he describes as \"an obstacle course of opportunity.\" His neighbors have learned to identify him by the regular sounds of \"oof,\" \"ow,\" and \"well, that's interesting\" emanating through the walls. He maintains a detailed journal of every mishap, currently on volume 47, titled \"Chronicles of the Chronically Clumsy.\"\n\nAt work, he's known for arriving each morning with a new bruise and an enthusiastic explanation of its origin story. His colleagues have stopped asking \"Are you okay?\" and now simply greet him with \"What was it this time?\" His most recent achievement was walking into the same filing cabinet three times in one day, from three different angles, which he considers a triumph of consistency.\n\nBoris Blundercheek represents everything wonderful about Pjuskeby: a place where even professional falling down is treated as a legitimate research pursuit, and where every stumble is just another data point in the great experiment of existence.",
+  "personality": {
+    "traits": [
+      "perpetually bruised",
+      "enthusiastically clumsy", 
+      "scientifically minded about accidents",
+      "cheerfully disaster-prone",
+      "philosophically unbothered by mishaps"
+    ]
+  }
+}

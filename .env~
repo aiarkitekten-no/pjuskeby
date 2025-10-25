@@ -1,0 +1,33 @@
+# Pjuskeby Environment Variables
+# ADVARSEL: Denne filen må ALDRI committes til git
+# Eier: root:psacln, Permissions: 640
+# Plesk nginx: Blokker tilgang til .env i Additional directives
+
+# Database (MariaDB)
+DB_HOST=localhost
+DB_NAME=Terje_Pjusken
+DB_USER=Terje_Pjusken
+DB_PASS=Klokken!12!?!
+
+# Timezone
+TZ=Europe/Oslo
+
+# Environment
+NODE_ENV=production
+
+# API (Port 4100 er verifisert ledig på serveren)
+API_PORT=4100
+API_HOST=localhost
+
+# Security
+SESSION_SECRET=__GENERATE_32_BYTE_RANDOM_STRING__
+TURNSTILE_SECRET_KEY=__ADD_CLOUDFLARE_TURNSTILE_KEY__
+
+# Optional integrations (legg til når relevant)
+# KOFI_WEBHOOK_SECRET=
+# AKISMET_API_KEY=
+# PLAUSIBLE_DOMAIN=pjuskeby.org
+
+# AI (legg til når AI-motor implementeres)
+# OPENAI_API_KEY=
+# ANTHROPIC_API_KEY=

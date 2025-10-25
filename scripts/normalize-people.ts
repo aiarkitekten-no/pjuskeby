@@ -52,7 +52,7 @@ function extractOccupation(workplace: string): string | null {
 }
 
 async function loadStreets(): Promise<Map<string, { id: string; slug: string; name: string }>> {
-  const streetsPath = join(PROJECT_ROOT, 'httpdocs/json/streets.json');
+  const streetsPath = join(PROJECT_ROOT, 'content/data/streets.json');
   const streets = JSON.parse(await readFile(streetsPath, 'utf-8')) as string[];
   
   const streetMap = new Map<string, { id: string; slug: string; name: string }>();
@@ -73,7 +73,7 @@ async function normalizePeople() {
   
   // Load baseline
   const peopleBaseline = JSON.parse(
-    await readFile(join(PROJECT_ROOT, 'httpdocs/json/people.json'), 'utf-8')
+    await readFile(join(PROJECT_ROOT, 'content/data/people.json'), 'utf-8')
   ) as BaselinePerson[];
   
   // Load streets for mapping
@@ -113,7 +113,7 @@ async function normalizePeople() {
         name: person.street
       };
       streetMap.set(person.street.toLowerCase(), street);
-      warnings.push(`Person "${person.name}": created temp street "${person.street}" (needs review)`);
+      warnings.push(`Person "${person.name}": street "${person.street}" not found in streets.json (orphan ID: ${tempId}, needs review)`);
     }
     
     normalized.push({

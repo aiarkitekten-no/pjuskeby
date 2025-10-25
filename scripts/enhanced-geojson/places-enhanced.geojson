@@ -1,0 +1,633 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "enhanced": true,
+    "waterDetection": true,
+    "generatedAt": "2025-10-21T07:21:58.692Z",
+    "totalFeatures": 25,
+    "waterAreas": 8,
+    "coordinateWarnings": 6
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "a2f14a67-ed24-446a-a81e-38a37b3938c4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.62394209910029,
+          59.458215930179506
+        ]
+      },
+      "properties": {
+        "id": "a2f14a67-ed24-446a-a81e-38a37b3938c4",
+        "slug": "makeout-mountain",
+        "name": "Makeout Mountain",
+        "type": "place",
+        "category": "fictional",
+        "description": "Couples climb it to smooch against the cliff face and forget what embarrassment is.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false,
+        "coordinateWarning": "This entity appears to be placed in a water area",
+        "suggestedCoordinates": [
+          10.633547889190261,
+          59.50339433716155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "751e6bb1-70b0-43db-90aa-726111fb6917",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.663324868055836,
+          59.41800848645103
+        ]
+      },
+      "properties": {
+        "id": "751e6bb1-70b0-43db-90aa-726111fb6917",
+        "slug": "sardine-pier",
+        "name": "Sardine Pier",
+        "type": "place",
+        "category": "fictional",
+        "description": "Where the sea splashes, the fish slap, and arguments over ‘who caught what’ echo forever.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "083fbd91-26b0-43e8-8297-d6a1cf50974e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.658620409399113,
+          59.46281143314354
+        ]
+      },
+      "properties": {
+        "id": "083fbd91-26b0-43e8-8297-d6a1cf50974e",
+        "slug": "thinky-bay",
+        "name": "Thinky Bay",
+        "type": "place",
+        "category": "fictional",
+        "description": "Ideal for deep thoughts like ‘Do marshmallows dream?’ while gulls offer unsolicited opinions.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "73e38851-2012-4611-83b5-3cb01baec6e7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.67390540181653,
+          59.430293088415105
+        ]
+      },
+      "properties": {
+        "id": "73e38851-2012-4611-83b5-3cb01baec6e7",
+        "slug": "the-sunny-shimmy-shore",
+        "name": "The Sunny Shimmy Shore",
+        "type": "place",
+        "category": "fictional",
+        "description": "Locals sunbathe until their eyebrows melt and break into spontaneous sand dancing.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "730b2f60-1728-46f3-b987-e7373988e5ca",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.694018730735953,
+          59.4362026883763
+        ]
+      },
+      "properties": {
+        "id": "730b2f60-1728-46f3-b987-e7373988e5ca",
+        "slug": "skitter-pebble-beach",
+        "name": "Skitter Pebble Beach",
+        "type": "place",
+        "category": "fictional",
+        "description": "A chaotic splash zone where skipping stones leads to personal growth and wet socks.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dd80ac87-b822-4e24-ae0a-44621c0d61be",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.665948249919227,
+          59.431542127261224
+        ]
+      },
+      "properties": {
+        "id": "dd80ac87-b822-4e24-ae0a-44621c0d61be",
+        "slug": "chatter-valley",
+        "name": "Chatter Valley",
+        "type": "place",
+        "category": "fictional",
+        "description": "Non-stop conversation since 1832. No one remembers the first sentence—or the last.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "9baceab6-2923-40ec-a814-c6dbba3f6fab",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.650023334861967,
+          59.45183256952695
+        ]
+      },
+      "properties": {
+        "id": "9baceab6-2923-40ec-a814-c6dbba3f6fab",
+        "slug": "rattle-hill",
+        "name": "Rattle Hill",
+        "type": "place",
+        "category": "fictional",
+        "description": "Steep slope used for sledding and scream therapy. Helmets optional. Regrets guaranteed.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false,
+        "coordinateWarning": "This entity appears to be placed in a water area",
+        "suggestedCoordinates": [
+          10.657021001375771,
+          59.497649312574254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "78fcb9b0-da3c-458c-ace5-2c4d49037fcd",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.65718394380666,
+          59.44663791838577
+        ]
+      },
+      "properties": {
+        "id": "78fcb9b0-da3c-458c-ace5-2c4d49037fcd",
+        "slug": "splashypaint-falls",
+        "name": "Splashypaint Falls",
+        "type": "place",
+        "category": "fictional",
+        "description": "Tiny waterfall, big splash fights. Most visitors leave wetter than intended—and slightly tie-dyed.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4fac7496-a165-4437-9c71-2b06f295808b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.624171954617172,
+          59.462500876874046
+        ]
+      },
+      "properties": {
+        "id": "4fac7496-a165-4437-9c71-2b06f295808b",
+        "slug": "confuzzle-crossroads",
+        "name": "Confuzzle Crossroads",
+        "type": "place",
+        "category": "fictional",
+        "description": "No one goes the right way. Not even the signs. Excellent for unplanned adventures.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false,
+        "coordinateWarning": "This entity appears to be placed in a water area",
+        "suggestedCoordinates": [
+          10.633754759155455,
+          59.50725078918664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0f3fe171-305a-4d43-bca5-d80a5cc6dd81",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.643602304189283,
+          59.45191927688144
+        ]
+      },
+      "properties": {
+        "id": "0f3fe171-305a-4d43-bca5-d80a5cc6dd81",
+        "slug": "ruckus-ridge",
+        "name": "Ruckus Ridge",
+        "type": "place",
+        "category": "fictional",
+        "description": "Perfect hilltop for chaotic picnics, ice cream rocket launches, and interpretive yelling.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false,
+        "coordinateWarning": "This entity appears to be placed in a water area",
+        "suggestedCoordinates": [
+          10.651242073770355,
+          59.4977273491933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "44a47a23-b671-4bb8-8520-6ececa457ce0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.682249952471139,
+          59.40459334089905
+        ]
+      },
+      "properties": {
+        "id": "44a47a23-b671-4bb8-8520-6ececa457ce0",
+        "slug": "giggle-hillock",
+        "name": "Giggle Hillock",
+        "type": "place",
+        "category": "fictional",
+        "description": "Come for the view, stay for the mysterious giggling moss. And the tingly ankles.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "a1d6e44c-69a4-4453-8126-f06aeb759f7f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.63204698723379,
+          59.42970183035941
+        ]
+      },
+      "properties": {
+        "id": "a1d6e44c-69a4-4453-8126-f06aeb759f7f",
+        "slug": "tumble-bluff",
+        "name": "Tumble Bluff",
+        "type": "place",
+        "category": "fictional",
+        "description": "A scenic cliff ideal for mattress parachuting and questionable decisions. Bring snacks.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b8f15687-bdb5-48da-8227-fd951d6b8d71",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.625619551207157,
+          59.4349315275688
+        ]
+      },
+      "properties": {
+        "id": "b8f15687-bdb5-48da-8227-fd951d6b8d71",
+        "slug": "boingy-beach",
+        "name": "Boingy Beach",
+        "type": "place",
+        "category": "fictional",
+        "description": "Surf’s never up, but inflatable boat ballet is always in session.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c198fbb0-beed-4c32-a5fb-5ac24591967c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.629289970666234,
+          59.43153626503803
+        ]
+      },
+      "properties": {
+        "id": "c198fbb0-beed-4c32-a5fb-5ac24591967c",
+        "slug": "creaky-corner",
+        "name": "Creaky Corner",
+        "type": "place",
+        "category": "fictional",
+        "description": "The oldest gate in town, creaks so much it counts as a horror podcast.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c216c1c5-5d32-40b2-9332-6ce363a7bba2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.648681292442392,
+          59.4637520492729
+        ]
+      },
+      "properties": {
+        "id": "c216c1c5-5d32-40b2-9332-6ce363a7bba2",
+        "slug": "snickerwood",
+        "name": "Snickerwood",
+        "type": "place",
+        "category": "fictional",
+        "description": "A tiny forest filled with laughter pollen and absurdly unhelpful owls.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false,
+        "coordinateWarning": "This entity appears to be placed in a water area",
+        "suggestedCoordinates": [
+          10.655813163198152,
+          59.508376844345605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cc3f7dd2-1a4a-4553-899b-359ae81c9ecb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.618975972081056,
+          59.438133974277974
+        ]
+      },
+      "properties": {
+        "id": "cc3f7dd2-1a4a-4553-899b-359ae81c9ecb",
+        "slug": "paddle-lagoon",
+        "name": "Paddle Lagoon",
+        "type": "place",
+        "category": "fictional",
+        "description": "Rent a pedal boat and chat your way in a lazy circle. Purpose discouraged.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "acea2ca5-6ece-406f-9bed-0311223c6708",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.65170890958476,
+          59.41013974118758
+        ]
+      },
+      "properties": {
+        "id": "acea2ca5-6ece-406f-9bed-0311223c6708",
+        "slug": "debate-dunes",
+        "name": "Debate Dunes",
+        "type": "place",
+        "category": "fictional",
+        "description": "The eternal question: Does pizza need sausage? The shouting never ends.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2ea44865-058a-4dbd-a363-c1113205586e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.62775881479714,
+          59.42748485315739
+        ]
+      },
+      "properties": {
+        "id": "2ea44865-058a-4dbd-a363-c1113205586e",
+        "slug": "tanglebrush-shortcut",
+        "name": "Tanglebrush Shortcut",
+        "type": "place",
+        "category": "fictional",
+        "description": "Spoiler: it’s never actually a shortcut. But you might find someone’s lost uncle.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "53eab569-a119-45ac-8399-6b4a56337115",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.692519882709057,
+          59.42185676596991
+        ]
+      },
+      "properties": {
+        "id": "53eab569-a119-45ac-8399-6b4a56337115",
+        "slug": "jiggle-dock",
+        "name": "Jiggle Dock",
+        "type": "place",
+        "category": "fictional",
+        "description": "Wooden pier for synchronized bellyflops and dramatic splash-offs.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ecfe230d-1515-47ae-9ef2-2681f4530ab1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.624505338361885,
+          59.43902330436476
+        ]
+      },
+      "properties": {
+        "id": "ecfe230d-1515-47ae-9ef2-2681f4530ab1",
+        "slug": "whisper-swamp",
+        "name": "Whisper Swamp",
+        "type": "place",
+        "category": "fictional",
+        "description": "Where ants ignore you but whisper rumors to your shoes. No one knows why.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "99edfb09-d4dc-4df0-9452-6aed086a4537",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.693940637003523,
+          59.43747257360818
+        ]
+      },
+      "properties": {
+        "id": "99edfb09-d4dc-4df0-9452-6aed086a4537",
+        "slug": "bumpity-pass",
+        "name": "Bumpity Pass",
+        "type": "place",
+        "category": "fictional",
+        "description": "Narrow path where everyone’s legally required to nudge each other gently.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "36a6d1c4-eb06-483e-8f32-26573af3dea7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.655084803761568,
+          59.418501680102
+        ]
+      },
+      "properties": {
+        "id": "36a6d1c4-eb06-483e-8f32-26573af3dea7",
+        "slug": "spinnyfield",
+        "name": "Spinnyfield",
+        "type": "place",
+        "category": "fictional",
+        "description": "Open meadow for free-range dancing and standing on one leg until accepted.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "9ea7d07e-e85e-400b-ad48-b363421da45c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.628785607216454,
+          59.432410175765284
+        ]
+      },
+      "properties": {
+        "id": "9ea7d07e-e85e-400b-ad48-b363421da45c",
+        "slug": "babblespray-falls",
+        "name": "Babblespray Falls",
+        "type": "place",
+        "category": "fictional",
+        "description": "A waterfall that sounds like it's trying to tell you something. Possibly gossip.",
+        "status": "active",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "7ef2c133-0056-4efe-8145-a525c343b384",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.664178018885886,
+          59.44516540211265
+        ]
+      },
+      "properties": {
+        "id": "7ef2c133-0056-4efe-8145-a525c343b384",
+        "slug": "sparkle-knoll",
+        "name": "Sparkle Knoll",
+        "type": "place",
+        "category": "fictional",
+        "description": "Best sunset point in town. Also prime location for dramatic monologues and nose whistles.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "e4ef2679-14ce-4834-88e3-2942a4a89112",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.665696248130551,
+          59.455751170084426
+        ]
+      },
+      "properties": {
+        "id": "e4ef2679-14ce-4834-88e3-2942a4a89112",
+        "slug": "sillyman-s-corner",
+        "name": "Sillyman’s Corner",
+        "type": "place",
+        "category": "fictional",
+        "description": "Legend says the best lie wins a cake. No one’s ever seen the cake.",
+        "status": "active",
+        "isWaterArea": false,
+        "waterDetected": false,
+        "coordinateWarning": "This entity appears to be placed in a water area",
+        "suggestedCoordinates": [
+          10.671126623317496,
+          59.50117605307598
+        ]
+      }
+    }
+  ]
+}

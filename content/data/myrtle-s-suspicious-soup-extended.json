@@ -1,0 +1,44 @@
+{
+  "id": "b885056e-f37e-4984-a248-84cd8c47118a",
+  "slug": "myrtle-s-suspicious-soup",
+  "name": "Myrtle’s Suspicious Soup",
+  "type": "business",
+  "address": "Unknown location",
+  "category": "Shop",
+  "description_short": "A unique business in Pjuskeby",
+  "description_full": "**[The Establishment]**\n\nMyrtle’s Suspicious Soup is as elusive as the northern lights on a cloudy night, but those who find it swear they're temporarily gifted with antlers of enlightenment. Nestled somewhere between a curiously imbalanced birch tree and a patch of particularly philosophical mushrooms, this establishment offers soups of inexplicable origin and questionable consistency. Founded by the enigmatic Myrtle Klompenklinker, who one day emerged from the mist with nothing but a cauldron bubbling with secrets, the shop has no known address. Locals suggest that it appears when needed, much like inspiration, or a good sneeze.\n\nRumor has it that Myrtle’s cooking journey began when a wandering Finnish wizard mistook her home for a portal to the soup dimension. Instead of sending him on his way, Myrtle decided to learn the art of broth and brew, taking lessons from enchanted ladles and meltwater spirits until her soups could almost speak for themselves. Today, she serves bowls that question your very reality and encourage existential reflection with every sip.\n\n**[The Shop Interior]**\n\nShould you stumble upon Myrtle’s Suspicious Soup, you’ll enter a space that defies conventional architecture. The walls shimmer in a soft hue of lavender and oaken whispers, and the floorboards creak a melody reminiscent of whale songs. Shelves are lined with jars of ingredients labeled in an ancient script decipherable only by those who can hum the tune of the northern winds.\n\nTables are scattered like thoughts in a dream, each guarded by mismatched chairs that occasionally shuffle around when no one's looking. A single chandelier hangs from the ceiling, made entirely of spoon handles—a tribute to Myrtle’s first utensil. The atmosphere is thick with the scent of thyme and possibility, a place where customers frequently find soup spoons in their pockets long after they've left.\n\n**[Signature Products/Services]**\n\nMyrtle’s signature concoction is the Soup of Dubious Intent, priced reasonably at the cost of a long-forgotten memory or a particularly odd smile. This soup is known to reveal hidden talents, induce spontaneous rhyme, and on one occasion, caused a customer to float several inches above their chair for a good half an hour. Other offerings include the Beguiling Bouillabaisse, rumored to untangle knotted thoughts, and the Puzzling Potage, which is said to show fragments of alternate worlds within its depths.\n\nFor the adventurous palate, Myrtle occasionally creates bespoke soups based on the peculiarities of her visitors, priced at a whispered secret and a wink.\n\n**[The Clientele]**\n\nThe patrons of Myrtle’s Suspicious Soup are as varied and unpredictable as Pjuskeby's weather. Artists seeking inspiration, philosophers chasing the tails of their own thoughts, and lost souls searching for the taste of home all find their way here. Detours are common, as are overly talkative clouds, making the clientele an eclectic mix of both locals and travelers who stumble into myths seeking answers in edible form.\n\nChildren often dart in and out, giggling as they leave with bowls of the Mischief Stew, while ancient crones sip their Subtle Chowder, discussing the intricacies of time with a passing hedgehog.\n\n**[Business Philosophy]**\n\nMyrtle's approach to business is as twisted and delightful as a labyrinth. She believes that soup should not just be nourishment, but an experience that tickles the imagination and challenges perceptions. Her ladles scoop not just broth but also possibilities, scooping stories into each bowl. Myrtle insists that every soup should contain a dash of wonder and a sprinkle of mystery, turning the mundane into a magical concoction.\n\nHer establishment has no fixed prices; instead, customers are encouraged to pay with items of personal value, creating an exchange system that's as unpredictable as a cat in a room full of rocking chairs.\n\n**[Local Reputation]**\n\nIn Pjuskeby, Myrtle’s Suspicious Soup is known as the place where reality and whimsy collide over a bowl of something deeply curious. Townspeople whisper tales of its appearance, claiming sightings at the edge of the forest near the third star on the left. It's said that no one leaves Myrtle’s establishment unchanged, with subtle transformations often reported—an added sparkle to the eyes, a newfound talent for juggling, or an ability to understand the language of seagulls.\n\nSome skeptics claim they've never found it at all, convinced it's a collective fever dream of those with overactive imaginations. Yet, local lore insists that on certain nights, when the moon is full and the air is thick with expectation, Myrtle’s doors open wide to receive those daring enough to enter.\n\nBUSINESS_KEYWORDS=soup, mysterious ingredients, culinary magic, mind-bending flavors, whimsical dining\nCONTACT_INFO=Send a letter by carrier pigeon addressed to \"The Soup Seeking Heart\"\nOPENING_HOURS=Mon-Sun: When the fog lifts|Thursdays: Only when it rains clockwise|Saturdays: By full moon invitation only\nSTATISTICS=Bowls of Wonder Served:21742|Levitation Incidents:53|Sponge Cake Debates:32|Unsolved Mysteries:106\nFUN_FACTS=Once served soup to a ghost named Gertrude|Has a soup that sings lullabies|On Tuesdays, it becomes invisible|Walls occasionally dispense sage advice|Once hosted a spoon ballet",
+  "specialties": [],
+  "established": "Unknown",
+  "business_keywords": "soup, mysterious ingredients, culinary magic, mind-bending flavors, whimsical dining",
+  "contact_info": "Send a letter by carrier pigeon addressed to \"The Soup Seeking Heart\"",
+  "opening_hours": [
+    "Mon-Sun: When the fog lifts",
+    "Thursdays: Only when it rains clockwise",
+    "Saturdays: By full moon invitation only"
+  ],
+  "statistics": [
+    {
+      "label": "Bowls of Wonder Served",
+      "value": "21742"
+    },
+    {
+      "label": "Levitation Incidents",
+      "value": "53"
+    },
+    {
+      "label": "Sponge Cake Debates",
+      "value": "32"
+    },
+    {
+      "label": "Unsolved Mysteries",
+      "value": "106"
+    }
+  ],
+  "fun_facts": [
+    "Once served soup to a ghost named Gertrude",
+    "Has a soup that sings lullabies",
+    "On Tuesdays, it becomes invisible",
+    "Walls occasionally dispense sage advice",
+    "Once hosted a spoon ballet"
+  ]
+}

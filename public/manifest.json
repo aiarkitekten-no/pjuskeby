@@ -1,0 +1,16 @@
+{
+  "name": "Pjuskeby",
+  "short_name": "Pjuskeby",
+  "description": "Interactive storytelling with living characters and places",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

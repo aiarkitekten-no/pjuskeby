@@ -1,0 +1,244 @@
+---
+/**
+ * GUARDRAILS CHECKPOINT v3.0 - UBRYTELIG
+ * EntityBacklinks Component
+ * Displays "Last included in: [Story Link]" on entity profile pages
+ */
+
+interface Props {
+  entityType: 'person' | 'place' | 'business' | 'street';
+  entityId: string;
+  entityName: string;
+  limit?: number;
+}
+
+const { entityType, entityId, entityName, limit = 5 } = Astro.props;
+
+// Fetch backlinks for this entity
+let backlinks: any[] = [];
+let latestMention: any = null;
+let stats: any = null;
+let error: string | null = null;
+
+try {
+  // In a real implementation, these would call the actual API
+  // For now, we'll simulate the data structure
+  const apiBase = 'http://localhost:4100'; // This should come from environment
+  
+  // Fetch latest mention
+  const latestResponse = await fetch(`${apiBase}/api/entities/${entityType}/${entityId}/latest-mention`);
+  if (latestResponse.ok) {
+    const latestData = await latestResponse.json();
+    latestMention = latestData.latestMention;
+  }
+
+  // Fetch recent backlinks
+  const backlinksResponse = await fetch(`${apiBase}/api/entities/${entityType}/${entityId}/backlinks?limit=${limit}`);
+  if (backlinksResponse.ok) {
+    const backlinksData = await backlinksResponse.json();
+    backlinks = backlinksData.backlinks || [];
+  }
+
+  // Fetch stats
+  const statsResponse = await fetch(`${apiBase}/api/entities/${entityType}/${entityId}/stats`);
+  if (statsResponse.ok) {
+    const statsData = await statsResponse.json();
+    stats = statsData.stats;
+  }
+} catch (err) {
+  console.warn('Could not fetch entity backlinks:', err);
+  error = 'Could not load story references';
+}
+---
+
+<div class="entity-backlinks">
+  {error ? (
+    <div class="error-message">
+      <p>⚠️ {error}</p>
+    </div>
+  ) : (
+    <>
+      {/* Latest Mention */}
+      {latestMention && (
+        <div class="latest-mention">
+          <h3>📚 Sist omtalt i:</h3>
+          <div class="mention-card">
+            <a href={`/historier/${latestMention.storySlug}`} class="story-link">
+              <strong>{latestMention.storyTitle}</strong>
+            </a>
+            <time datetime={latestMention.publishedAt}>
+              {new Date(latestMention.publishedAt).toLocaleDateString('no')}
+            </time>
+            {latestMention.mentionContext && (
+              <blockquote class="mention-context">
+                "{latestMention.mentionContext}"
+              </blockquote>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Mention Statistics */}
+      {stats && stats.totalMentions > 0 && (
+        <div class="mention-stats">
+          <h4>📊 Historikk:</h4>
+          <ul>
+            <li><strong>{stats.totalMentions}</strong> {stats.totalMentions === 1 ? 'omtale' : 'omtaler'}</li>
+            {stats.firstMentionedAt && (
+              <li>Første gang: {new Date(stats.firstMentionedAt).toLocaleDateString('no')}</li>
+            )}
+            {stats.avgConfidence > 0 && (
+              <li>Pålitelighet: {Math.round(stats.avgConfidence * 100)}%</li>
+            )}
+          </ul>
+        </div>
+      )}
+
+      {/* Recent Backlinks */}
+      {backlinks.length > 1 && (
+        <div class="backlinks-list">
+          <h4>🔗 Andre historier:</h4>
+          <ul>
+            {backlinks.slice(1).map((backlink: any) => (
+              <li key={backlink.storyId}>
+                <a href={`/historier/${backlink.storySlug}`}>
+                  {backlink.storyTitle}
+                </a>
+                <time datetime={backlink.publishedAt}>
+                  ({new Date(backlink.publishedAt).toLocaleDateString('no')})
+                </time>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* No mentions message */}
+      {!latestMention && (!stats || stats.totalMentions === 0) && (
+        <div class="no-mentions">
+          <p>🤔 <em>{entityName}</em> har ikke blitt omtalt i noen historier ennå.</p>
+        </div>
+      )}
+    </>
+  )}
+</div>
+
+<style>
+  .entity-backlinks {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .latest-mention h3 {
+    color: #495057;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  .mention-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .story-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+
+  .story-link:hover {
+    text-decoration: underline;
+  }
+
+  .mention-card time {
+    display: block;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .mention-context {
+    background: #f8f9fa;
+    border-left: 3px solid #007bff;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0 0 0;
+    font-style: italic;
+    color: #495057;
+  }
+
+  .mention-stats h4,
+  .backlinks-list h4 {
+    color: #495057;
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .mention-stats ul,
+  .backlinks-list ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .mention-stats li {
+    margin-bottom: 0.25rem;
+    color: #495057;
+  }
+
+  .backlinks-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .backlinks-list time {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+
+  .no-mentions {
+    text-align: center;
+    color: #6c757d;
+    padding: 1rem;
+  }
+
+  .error-message {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .entity-backlinks {
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .mention-card {
+      padding: 0.75rem;
+    }
+
+    .story-link {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Add client-side functionality for lazy loading or real-time updates
+  document.addEventListener('DOMContentLoaded', () => {
+    const entityBacklinks = document.querySelector('.entity-backlinks');
+    if (entityBacklinks) {
+      // Could add refresh functionality, real-time updates, etc.
+      console.log('Entity backlinks component loaded');
+    }
+  });
+</script>

@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "phase": "Profile Enhancement System",
+  "name": "PEOPLEMAKER - Complete Entity Profile Enhancement",
+  "created": "2025-10-25",
+  "purpose": "Explicit step-by-step guide for enhancing profiles of Personer, Bedrifter, Gater, and Steder",
+  "language": "English + Norwegian",
+  
+  "critical_learnings": {
+    "biography_visibility_issue": {
+      "problem": "Boris Blundercheek extended profile created but biography not visible on website",
+      "root_cause": "Extended JSON file was corrupted - each line duplicated, file started with {{ instead of {",
+      "tool_failure": "create_file tool formatted JSON incorrectly, causing parse errors",
+      "solution": "Manually created clean JSON file using cat > /tmp/file.json with heredoc, validated with jq",
+      "verification": "jq '.bio_full' file.json | wc -w to count words, jq '.' to validate syntax"
+    },
+    
+    "image_404_mystery": {
+      "problem": "Boris portrait generated and copied to httpdocs/assets/agatha/person/ but returned HTTP 404",
+      "wrong_assumptions": [
+        "File permissions issue (they were correct)",
+        "File too large (4.1MB vs others 1.7MB, but size wasn't the issue)",
+        "PM2 restart needed (tried, didn't help)",
+        "Cache issue (not the problem)"
+      ],
+      "root_cause": "Image was added AFTER npm run build, so it didn't exist in dist/client/assets/agatha/person/",
+      "astro_ssr_architecture": "Astro SSR serves static assets from dist/client/, NOT from httpdocs/ directly",
+      "solution_steps": [
+        "1. Copy image to public/assets/agatha/person/",
+        "2. Copy image to dist/client/assets/agatha/person/ (CRITICAL!)",
+        "3. Copy image to httpdocs/assets/agatha/person/",
+        "4. pm2 restart pjuskeby-web"
+      ],
+      "verification": "curl -sI https://pjuskeby.org/assets/agatha/person/SLUG.png | head -1 must return HTTP/2 200"
+    },
+    
+    "extended_profile_location": {
+      "correct_path": "/var/www/vhosts/pjuskeby.org/content/data/{slug}-extended.json",
+      "NOT_in_httpdocs": "Extended profiles are NOT in httpdocs/, they're in content/data/",
+      "read_by_ssr": "Astro SSR reads from process.cwd()/content/data/ at runtime",
+      "pm2_cwd": "/var/www/vhosts/pjuskeby.org (verified with pm2 info pjuskeby-web)"
+    }
+  },
+  
+  "entity_types": {
+    "person": {
+      "url_pattern": "https://pjuskeby.org/personer/{slug}",
+      "extended_profile_location": "content/data/{slug}-extended.json",
+      "image_location": "public/assets/agatha/person/{slug}.png",
+      "database_table": "people",
+      "required_fields": {
+        "id": "UUID from database",
+        "slug": "URL-friendly identifier",
+        "name": "Full name",
+        "age": "Integer",
+        "birthdate": "YYYY-MM-DD format",
+        "occupation": "Job title or role",
+        "workplace": {
+          "name": "Business name",
+          "slug": "business-slug",
+          "role": "Detailed job title"
+        },
+        "address": {
+          "street": "Street name",
+          "number": "Street number",
+          "full": "Complete address string"
+        },
+        "favorites": {
+          "places": "Array of {name, slug, reason}"
+        },
+        "traits": "Array of hobby/interest strings",
+        "bio_short": "One-sentence description (80-120 words)",
+        "bio_full": "Extended biography (800-1200 words, see Milly Wiggleflap for style)",
+        "personality": {
+          "traits": "Array of personality descriptors"
+        }
+      },
+      "bio_full_format": {
+        "structure": "Multiple sections separated by \\n\\n",
+        "section_headers": "**Header Text** (bold, becomes h3 on page)",
+        "bullet_lists": "Lines starting with '- ' become bullet points",
+        "word_count_target": "971 words (Milly Wiggleflap standard)",
+        "tone": "Whimsical, absurd, deeply observant, tenderly eccentric",
+        "sections_example": [
+          "**The Workplace** - Introduction to their role",
+          "**The Theory/Hobby** - Their quirky passion",
+          "**The Collection** - What they collect/document",
+          "**Daily Ritual** - Their strange routine",
+          "**What [Name] Loves** - Bullet list of loves",
+          "**What [Name] Hates** - Bullet list of dislikes",
+          "**Relationships & Daily Life** - How they interact with Pjuskeby"
+        ]
+      },
+      "image_requirements": {
+        "size": "1024x1024 PNG",
+        "style": "Hyper-realistic portrait, vintage hand-tinted photograph aesthetic",
+        "required_elements": [
+          "Agatha Splint signature in elegant handwriting bottom-right corner",
+          "Small hand-drawn Stickman character somewhere in frame",
+          "Warm Nordic daylight",
+          "Visible paint strokes and textural imperfections",
+          "Character-appropriate props/elements"
+        ],
+        "runware_model": "runware:100@1 (SDXL Base - photorealistic)",
+        "api_endpoint": "https://api.runware.ai/v1",
+        "api_key": "gE5ASqormxPzAbpLPBGOPZ6ftToGFVp3"
+      }
+    },
+    
+    "business": {
+      "url_pattern": "https://pjuskeby.org/bedrifter/{slug}",
+      "extended_profile_location": "content/data/{slug}-extended.json",
+      "image_location": "public/assets/agatha/business/{slug}.png",
+      "database_table": "businesses",
+      "notes": "Similar structure to person, adjust fields for business context"
+    },
+    
+    "place": {
+      "url_pattern": "https://pjuskeby.org/steder/{slug}",
+      "extended_profile_location": "content/data/{slug}-extended.json",
+      "image_location": "public/assets/agatha/place/{slug}.png",
+      "database_table": "places",
+      "notes": "Focus on location history, significance, visitor experiences"
+    },
+    
+    "street": {
+      "url_pattern": "https://pjuskeby.org/gater/{slug}",
+      "extended_profile_location": "content/data/{slug}-extended.json",
+      "image_location": "public/assets/agatha/street/{slug}.png",
+      "database_table": "streets",
+      "notes": "Street history, notable residents, architectural features"
+    }
+  },
+  
+  "complete_workflow": {
+    "step_1_fetch_existing_data": {
+      "description": "Get current entity data from database or normalized JSON",
+      "files_to_check": [
+        "content/data/people.normalized.json (for personer)",
+        "content/data/businesses.normalized.json (for bedrifter)",
+        "content/data/placespjuskeby.normalized.json (for steder)",
+        "content/data/streets.normalized.json (for gater)"
+      ],
+      "extract": "id, slug, name, age, occupation, current bio, etc."
+    },
+    
+    "step_2_generate_extended_biography": {
+      "description": "Use AI to generate extended bio matching Milly Wiggleflap style",
+      "reference_file": "content/data/milly-wiggleflap-extended.json",
+      "word_count": "800-1200 words",
+      "style_guide": "Whimsical, absurd, deeply observant, scientifically unorthodox",
+      "output_format": "JSON with bio_full field containing \\n\\n separated sections",
+      "validation": "jq -r '.bio_full' SLUG-extended.json | wc -w should return ~1000"
+    },
+    
+    "step_3_create_extended_json": {
+      "location": "content/data/{slug}-extended.json",
+      "method": "Use cat > /tmp/SLUG-extended.json with heredoc, then cp to content/data/",
+      "do_not_use": "create_file tool (has JSON formatting bugs)",
+      "validation_required": "jq '.' SLUG-extended.json must parse without errors",
+      "ownership": "Must be pjuskebysverden:psacln"
+    },
+    
+    "step_4_generate_portrait": {
+      "tool": "Runware API",
+      "script_location": "scripts/generate-{entity}-image.mjs",
+      "reference_script": "scripts/generate-milly-image.mjs (working example)",
+      "output_url": "API returns imageURL in result.data[0].imageURL",
+      "download_to": "/tmp/{slug}.png",
+      "critical_step": "Download image with curl -o /tmp/{slug}.png 'URL'"
+    },
+    
+    "step_5_deploy_image": {
+      "order_matters": "MUST deploy in this exact order",
+      "step_5a_public": {
+        "description": "Copy to public/ (source for builds)",
+        "command": "cp /tmp/{slug}.png public/assets/agatha/{type}/{slug}.png",
+        "ownership": "chown pjuskebysverden:psacln"
+      },
+      "step_5b_dist_client": {
+        "description": "Copy to dist/client/ (CRITICAL - Astro SSR serves from here)",
+        "command": "cp /tmp/{slug}.png dist/client/assets/agatha/{type}/{slug}.png",
+        "why_critical": "Images added after build won't be in dist/client/, causing 404",
+        "ownership": "chown pjuskebysverden:psacln"
+      },
+      "step_5c_httpdocs": {
+        "description": "Copy to httpdocs/ (final deployment)",
+        "command": "rsync -a dist/client/assets/agatha/{type}/{slug}.png httpdocs/assets/agatha/{type}/",
+        "use_rsync_not_cp": "rsync handles symlinks correctly"
+      }
+    },
+    
+    "step_6_restart_pm2": {
+      "command": "pm2 restart pjuskeby-web",
+      "wait_time": "3 seconds for server to stabilize",
+      "verification": "curl -sI https://pjuskeby.org/assets/agatha/{type}/{slug}.png | head -1",
+      "expected": "HTTP/2 200"
+    },
+    
+    "step_7_verify_profile": {
+      "biography_check": "curl -s https://pjuskeby.org/{type-plural}/{slug} | grep -q 'The Full Story of'",
+      "image_check": "curl -sI https://pjuskeby.org/assets/agatha/{type}/{slug}.png",
+      "extended_data_loaded": "Check page source for bio_full content rendering",
+      "all_sections_present": "Verify **Section Headers** render as <strong> blocks"
+    }
+  },
+  
+  "file_paths_reference": {
+    "source_code": {
+      "person_page_template": "src/pages/personer/[slug].astro",
+      "business_page_template": "src/pages/bedrifter/[slug].astro",
+      "place_page_template": "src/pages/steder/[slug].astro",
+      "street_page_template": "src/pages/gater/[slug].astro"
+    },
+    "data_files": {
+      "extended_profiles": "content/data/{slug}-extended.json",
+      "normalized_data": "content/data/{entity-type}.normalized.json",
+      "geojson_data": "geojson/{entity-type}.geojson"
+    },
+    "images": {
+      "source": "public/assets/agatha/{type}/{slug}.png",
+      "build_output": "dist/client/assets/agatha/{type}/{slug}.png",
+      "deployment": "httpdocs/assets/agatha/{type}/{slug}.png",
+      "web_url": "https://pjuskeby.org/assets/agatha/{type}/{slug}.png"
+    },
+    "scripts": {
+      "automation_master": "scripts/enhance-profile.sh",
+      "image_generators": "scripts/generate-{entity}-image.mjs",
+      "database_updaters": "scripts/update-{entity}-profile.ts"
+    }
+  },
+  
+  "common_errors_and_fixes": {
+    "error_1_json_parse_error": {
+      "symptoms": "jq: parse error: Expected separator between values at line X",
+      "cause": "Corrupted JSON file, often from create_file tool duplicating content",
+      "fix": "Recreate file manually with cat > /tmp/file.json and heredoc",
+      "prevention": "Always validate with jq '.' file.json after creation"
+    },
+    
+    "error_2_image_404": {
+      "symptoms": "File exists in httpdocs/ but returns HTTP 404",
+      "cause": "Image not in dist/client/assets/ (added after build)",
+      "fix": "cp image to dist/client/assets/agatha/{type}/, then pm2 restart",
+      "prevention": "Always deploy to dist/client/ in step 5b"
+    },
+    
+    "error_3_biography_not_showing": {
+      "symptoms": "Page loads but no 'The Full Story' section",
+      "causes": [
+        "Extended JSON file doesn't exist",
+        "Extended JSON has parse errors",
+        "bio_full field is empty or null",
+        "PM2 not restarted after adding extended JSON"
+      ],
+      "fix_steps": [
+        "1. Verify file exists: ls content/data/{slug}-extended.json",
+        "2. Validate JSON: jq '.' content/data/{slug}-extended.json",
+        "3. Check bio_full: jq -r '.bio_full' content/data/{slug}-extended.json | wc -w",
+        "4. Restart PM2: pm2 restart pjuskeby-web",
+        "5. Verify: curl -s https://pjuskeby.org/{type}/{slug} | grep 'The Full Story'"
+      ]
+    },
+    
+    "error_4_permission_denied": {
+      "symptoms": "cp: cannot create regular file: Permission denied",
+      "cause": "dist/ directory owned by root from previous build",
+      "fix": "sudo chown -R pjuskebysverden:psacln dist/",
+      "when_running_as_root": "No issue, script can write directly"
+    }
+  },
+  
+  "quality_standards": {
+    "biography_quality": {
+      "word_count": "800-1200 words (Milly: 971 words, Boris: 513 words was TOO SHORT)",
+      "tone": "Match Milly Wiggleflap's whimsical absurdity",
+      "structure": "Multiple sections with **Headers**, bullet lists, narrative paragraphs",
+      "content_depth": "Include daily rituals, collections, theories, loves/hates, relationships"
+    },
+    
+    "image_quality": {
+      "resolution": "1024x1024 PNG",
+      "file_size": "1.5-4.5MB typical",
+      "style_consistency": "Vintage hand-tinted photograph aesthetic",
+      "agatha_elements": "Signature, Stickman character, Nordic light"
+    },
+    
+    "deployment_completeness": {
+      "all_three_locations": "public/, dist/client/, httpdocs/",
+      "correct_ownership": "pjuskebysverden:psacln",
+      "http_200_verification": "curl -sI must return 200 for image",
+      "page_rendering": "Biography sections render with proper formatting"
+    }
+  },
+  
+  "automation_script_requirements": {
+    "script_name": "scripts/enhance-profile.sh",
+    "must_run_as_root": "To handle all sudo operations automatically",
+    "flags_required": {
+      "--url": "Entity URL (e.g., https://pjuskeby.org/personer/boris-blundercheek)",
+      "--dry-run": "Show what would be done without making changes",
+      "--help": "Display usage information"
+    },
+    "auto_detect": "Extract slug and entity type from URL automatically",
+    "no_manual_steps": "Script must complete 100% without user intervention",
+    "verification_built_in": "Script must verify each step succeeded before proceeding",
+    "rollback_on_error": "If any step fails, clean up partial changes"
+  },
+  
+  "success_criteria": {
+    "extended_json_created": "File exists and parses correctly with jq",
+    "biography_rendered": "Page shows 'The Full Story of {Name}' section with 800+ words",
+    "image_accessible": "curl returns HTTP/2 200 for image URL",
+    "image_displays": "Page loads portrait without onerror fallback",
+    "pm2_stable": "pm2 list shows pjuskeby-web online after restart",
+    "no_manual_intervention": "Entire process automated from single command"
+  }
+}

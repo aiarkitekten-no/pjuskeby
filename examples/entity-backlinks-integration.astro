@@ -1,0 +1,252 @@
+---
+/**
+ * EXAMPLE: How to integrate EntityBacklinks component into existing entity pages
+ * This shows the integration pattern for all entity types
+ */
+
+// Example for person profile page (src/pages/personer/[id].astro)
+---
+
+import Layout from '../../layouts/Layout.astro';
+import EntityBacklinks from '../../components/EntityBacklinks.astro';
+
+// Get person data from props or API
+const { id } = Astro.params;
+const person = await getPersonById(id); // Your existing function
+
+---
+
+<Layout title={`${person.name} - Pjuskeby`}>
+  <main>
+    <h1>{person.name}</h1>
+    
+    <!-- Existing person information -->
+    <div class="person-info">
+      <p>{person.description}</p>
+      {person.age && <p>Alder: {person.age}</p>}
+      {person.occupation && <p>Yrke: {person.occupation}</p>}
+    </div>
+
+    <!-- NEW: Add entity backlinks component -->
+    <EntityBacklinks 
+      entityType="person" 
+      entityId={person.id} 
+      entityName={person.name} 
+      limit={10} 
+    />
+    
+    <!-- Rest of existing content -->
+  </main>
+</Layout>
+
+---
+
+// Example for place profile page (src/pages/steder/[id].astro)
+---
+
+import Layout from '../../layouts/Layout.astro';
+import EntityBacklinks from '../../components/EntityBacklinks.astro';
+
+const { id } = Astro.params;
+const place = await getPlaceById(id); // Your existing function
+
+---
+
+<Layout title={`${place.name} - Pjuskeby Steder`}>
+  <main>
+    <h1>{place.name}</h1>
+    
+    <!-- Existing place information -->
+    <div class="place-info">
+      <p>{place.description}</p>
+      {place.category && <p>Kategori: {place.category}</p>}
+      {place.coordinates && (
+        <p>Koordinater: {place.coordinates.lat}, {place.coordinates.lng}</p>
+      )}
+    </div>
+
+    <!-- NEW: Add entity backlinks component -->
+    <EntityBacklinks 
+      entityType="place" 
+      entityId={place.id} 
+      entityName={place.name} 
+    />
+    
+  </main>
+</Layout>
+
+---
+
+// Example for business profile page (src/pages/bedrifter/[id].astro)
+---
+
+import Layout from '../../layouts/Layout.astro';
+import EntityBacklinks from '../../components/EntityBacklinks.astro';
+
+const { id } = Astro.params;
+const business = await getBusinessById(id); // Your existing function
+
+---
+
+<Layout title={`${business.name} - Pjuskeby Bedrifter`}>
+  <main>
+    <h1>{business.name}</h1>
+    
+    <!-- Existing business information -->
+    <div class="business-info">
+      <p>{business.description}</p>
+      {business.category && <p>Kategori: {business.category}</p>}
+      {business.address && <p>Adresse: {business.address}</p>}
+      {business.website && (
+        <p><a href={business.website}>Besøk hjemmeside</a></p>
+      )}
+    </div>
+
+    <!-- NEW: Add entity backlinks component -->
+    <EntityBacklinks 
+      entityType="business" 
+      entityId={business.id} 
+      entityName={business.name} 
+    />
+    
+  </main>
+</Layout>
+
+---
+
+// Example for street profile page (src/pages/gater/[id].astro)
+---
+
+import Layout from '../../layouts/Layout.astro';
+import EntityBacklinks from '../../components/EntityBacklinks.astro';
+
+const { id } = Astro.params;
+const street = await getStreetById(id); // Your existing function
+
+---
+
+<Layout title={`${street.name} - Pjuskeby Gater`}>
+  <main>
+    <h1>{street.name}</h1>
+    
+    <!-- Existing street information -->
+    <div class="street-info">
+      <p>{street.description}</p>
+      {street.length && <p>Lengde: {street.length} meter</p>}
+      {street.namedAfter && <p>Oppkalt etter: {street.namedAfter}</p>}
+    </div>
+
+    <!-- NEW: Add entity backlinks component -->
+    <EntityBacklinks 
+      entityType="street" 
+      entityId={street.id} 
+      entityName={street.name} 
+    />
+    
+  </main>
+</Layout>
+
+---
+
+// Example of API integration in story publication workflow
+// (server/routes/stories.ts or similar)
+---
+
+import { storyWorkflowManager } from '../utils/story-workflow-hooks.js';
+
+// In your story publication endpoint
+fastify.post('/api/stories/:id/publish', async (request, reply) => {
+  const { id } = request.params;
+  const story = await getStoryById(id);
+  
+  // Your existing publication logic
+  await updateStoryStatus(id, 'published');
+  
+  // NEW: Trigger cross-reference processing
+  await storyWorkflowManager.triggerStoryPublished(id, {
+    content: story.content,
+    title: story.title,
+    status: 'published'
+  });
+  
+  return { success: true, message: 'Story published and cross-references updated' };
+});
+
+---
+
+// Example of manual API usage in admin panel
+// (src/pages/admin/cross-references.astro)
+---
+
+<Layout title="Admin - Cross References">
+  <main>
+    <h1>Cross-Reference Administration</h1>
+    
+    <section>
+      <h2>Rebuild All Cross-References</h2>
+      <button id="rebuild-btn">Rebuild All</button>
+      <div id="rebuild-status"></div>
+    </section>
+    
+    <section>
+      <h2>Entity Lookup</h2>
+      <input type="text" id="entity-id" placeholder="Entity ID">
+      <select id="entity-type">
+        <option value="person">Person</option>
+        <option value="place">Place</option>
+        <option value="business">Business</option>
+        <option value="street">Street</option>
+      </select>
+      <button id="lookup-btn">Lookup</button>
+      <div id="lookup-results"></div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.getElementById('rebuild-btn').addEventListener('click', async () => {
+    const status = document.getElementById('rebuild-status');
+    status.textContent = 'Rebuilding...';
+    
+    try {
+      const response = await fetch('/api/admin/rebuild-cross-references', {
+        method: 'POST'
+      });
+      const result = await response.json();
+      
+      if (result.success) {
+        status.textContent = '✅ Rebuild completed successfully';
+      } else {
+        status.textContent = '❌ Rebuild failed: ' + result.error;
+      }
+    } catch (error) {
+      status.textContent = '❌ Error: ' + error.message;
+    }
+  });
+  
+  document.getElementById('lookup-btn').addEventListener('click', async () => {
+    const entityId = document.getElementById('entity-id').value;
+    const entityType = document.getElementById('entity-type').value;
+    const results = document.getElementById('lookup-results');
+    
+    try {
+      const response = await fetch(`/api/entities/${entityType}/${entityId}/backlinks`);
+      const data = await response.json();
+      
+      if (data.success) {
+        results.innerHTML = `
+          <h3>Backlinks for ${entityType} ${entityId}:</h3>
+          <ul>
+            ${data.backlinks.map(link => 
+              `<li><a href="/historier/${link.storySlug}">${link.storyTitle}</a> (${link.publishedAt})</li>`
+            ).join('')}
+          </ul>
+        `;
+      } else {
+        results.textContent = 'Error: ' + data.error;
+      }
+    } catch (error) {
+      results.textContent = 'Error: ' + error.message;
+    }
+  });
+</script>

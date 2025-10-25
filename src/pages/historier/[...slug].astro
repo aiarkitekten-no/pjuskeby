@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AgathaIllustration from '../../components/AgathaIllustration.astro';
+
+const { slug } = Astro.params;
+const stories = await getCollection('stories');
+const story = stories.find((s) => s.slug === slug);
+
+if (!story) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await story.render();
+
+const storyTypeLabels = {
+  'agatha-diary': 'Agatha\'s Diary',
+  'rumor': 'Town Rumors',
+  'event': 'Events'
+};
+
+// Check for Agatha Splint illustrations
+const hasIllustrations = story.data.hasIllustrations !== false; // Default to true for backward compatibility
+const featuredImage = story.data.featuredImage || (hasIllustrations ? `/assets/agatha/story/${slug}-featured.png` : null);
+const inline1Image = `/assets/agatha/story/${slug}-inline1.png`;  // Always set for testing
+const inline2Image = `/assets/agatha/story/${slug}-inline2.png`;  // Always set for testing
+console.log('[DEBUG] Story:', slug, 'hasIllustrations:', hasIllustrations, 'inline1:', inline1Image, 'inline2:', inline2Image);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "headline": story.data.title,
+  "description": story.data.summary,
+  "datePublished": story.data.date.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Agatha Splint"
+  },
+  ...(featuredImage && {
+    "image": featuredImage
+  })
+};
+---
+
+<BaseLayout 
+  title={story.data.title}
+  description={story.data.summary}
+  ogType="article"
+  article={{
+    publishedTime: story.data.date.toISOString(),
+    section: storyTypeLabels[story.data.type],
+    tags: story.data.characters || []
+  }}
+  structuredData={structuredData}
+>
+  <article style="max-width: 900px; margin: 0 auto;">
+    <header style="margin-bottom: 2rem;">
+      <div style="color: #64748b; font-size: 0.9rem; margin-bottom: 0.5rem;">
+        {new Date(story.data.date).toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        })}
+      </div>
+      
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-family: Georgia, serif;">{story.data.title}</h1>
+      
+      <div style="display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">
+        {storyTypeLabels[story.data.type]}
+      </div>
+    </header>
+
+    <!-- Featured Image - Left aligned, max 500x500px -->
+    {featuredImage && (
+      <div style="float: left; margin: 0 2rem 1rem 0; max-width: 500px;">
+        <img 
+          src={featuredImage} 
+          alt={`Illustration for ${story.data.title} by Agatha Splint`}
+          style="width: 100%; max-width: 500px; height: auto; display: block; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+          loading="eager"
+        />
+        <div style="font-size: 0.85rem; color: #64748b; font-style: italic; margin-top: 0.5rem;">
+          Illustrated by Agatha Splint
+        </div>
+      </div>
+    )}
+    
+    <!-- Inline images are now embedded via <agatha-illustration> tags in MDX content -->
+
+    <div style="font-size: 1.125rem; line-height: 1.75; color: #1e293b; font-family: Georgia, serif;">
+      <Content />
+    </div>
+    
+    <!-- Inline illustrations are embedded via custom component in MDX -->
+    <script>
+      // Custom component for inline illustrations
+      class AgathaIllustration extends HTMLElement {
+        connectedCallback() {
+          const src = this.getAttribute('src');
+          const alt = this.getAttribute('alt') || 'Illustration by Agatha Splint';
+          const position = this.getAttribute('position') || 'center';
+          
+          let style = 'margin: 2rem 0; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);';
+          
+          if (position === 'left') {
+            style += ' float: left; margin-right: 2rem; max-width: 400px;';
+          } else if (position === 'right') {
+            style += ' float: right; margin-left: 2rem; max-width: 400px;';
+          } else {
+            style += ' width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; display: block;';
+          }
+          
+          this.innerHTML = `
+            <figure style="${style}">
+              <img src="${src}" alt="${alt}" style="width: 100%; height: auto; display: block; border-radius: 12px;" loading="lazy" />
+              <figcaption style="font-size: 0.85rem; color: #64748b; font-style: italic; text-align: center; margin-top: 0.5rem;">
+                ${alt}
+              </figcaption>
+            </figure>
+          `;
+        }
+      }
+      
+      if (!customElements.get('agatha-illustration')) {
+        customElements.define('agatha-illustration', AgathaIllustration);
+      }
+    </script>
+
+    {story.data.characters && story.data.characters.length > 0 && (
+      <section style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">👤 Featured Characters</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          {story.data.characters.map((char: string) => {
+            const slug = char.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return (
+              <a 
+                href={`/personer/${slug}`}
+                style="background: white; padding: 0.5rem 1rem; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); text-decoration: none; color: #3b82f6; transition: all 0.2s ease; display: inline-block;"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 2px rgba(0,0,0,0.05)';"
+              >
+                {char}
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    {story.data.locations && story.data.locations.length > 0 && (
+      <section style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">� Featured Locations</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          {story.data.locations.map((loc: string) => {
+            const slug = loc.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return (
+              <a 
+                href={`/steder/${slug}`}
+                style="background: white; padding: 0.5rem 1rem; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); text-decoration: none; color: #10b981; transition: all 0.2s ease; display: inline-block;"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 2px rgba(0,0,0,0.05)';"
+              >
+                {loc}
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <div style="margin-top: 2rem;">
+      <a href="/historier" style="color: #3b82f6; text-decoration: none;">← Back to all stories</a>
+    </div>
+  </article>
+</BaseLayout>

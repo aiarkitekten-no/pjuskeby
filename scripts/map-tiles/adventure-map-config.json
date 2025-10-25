@@ -1,0 +1,102 @@
+{
+  "version": 8,
+  "name": "Pjuskeby Adventure Map",
+  "metadata": {
+    "pjuskeby:type": "adventure-cartoon",
+    "pjuskeby:generated": "2025-10-21T09:02:09.289Z",
+    "pjuskeby:zoom-layers": 4
+  },
+  "center": [
+    10.72,
+    59.91
+  ],
+  "zoom": 13,
+  "sources": {
+    "world-overview": {
+      "type": "raster",
+      "tiles": [
+        "https://pjuskeby.org/map-tiles/world-overview/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 512,
+      "minzoom": 10,
+      "maxzoom": 11,
+      "attribution": "🎨 Adventure map generated with DALL-E for Pjuskeby"
+    },
+    "city-overview": {
+      "type": "raster",
+      "tiles": [
+        "https://pjuskeby.org/map-tiles/city-overview/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 512,
+      "minzoom": 12,
+      "maxzoom": 13,
+      "attribution": "🎨 Adventure map generated with DALL-E for Pjuskeby"
+    },
+    "district-view": {
+      "type": "raster",
+      "tiles": [
+        "https://pjuskeby.org/map-tiles/district-view/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 512,
+      "minzoom": 14,
+      "maxzoom": 15,
+      "attribution": "🎨 Adventure map generated with DALL-E for Pjuskeby"
+    },
+    "street-view": {
+      "type": "raster",
+      "tiles": [
+        "https://pjuskeby.org/map-tiles/street-view/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 512,
+      "minzoom": 16,
+      "maxzoom": 17,
+      "attribution": "🎨 Adventure map generated with DALL-E for Pjuskeby"
+    }
+  },
+  "layers": [
+    {
+      "id": "world-overview-layer",
+      "type": "raster",
+      "source": "world-overview",
+      "minzoom": 10,
+      "maxzoom": 11,
+      "paint": {
+        "raster-opacity": 1,
+        "raster-fade-duration": 300
+      }
+    },
+    {
+      "id": "city-overview-layer",
+      "type": "raster",
+      "source": "city-overview",
+      "minzoom": 12,
+      "maxzoom": 13,
+      "paint": {
+        "raster-opacity": 1,
+        "raster-fade-duration": 300
+      }
+    },
+    {
+      "id": "district-view-layer",
+      "type": "raster",
+      "source": "district-view",
+      "minzoom": 14,
+      "maxzoom": 15,
+      "paint": {
+        "raster-opacity": 1,
+        "raster-fade-duration": 300
+      }
+    },
+    {
+      "id": "street-view-layer",
+      "type": "raster",
+      "source": "street-view",
+      "minzoom": 16,
+      "maxzoom": 17,
+      "paint": {
+        "raster-opacity": 1,
+        "raster-fade-duration": 300
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "rumor-001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6567, 59.4367]
+      },
+      "properties": {
+        "id": "rumor-001",
+        "slug": "underground-cheese-factory",
+        "name": "Underground Cheese Factory",
+        "type": "rumor",
+        "category": "conspiracy",
+        "description": "Locals whisper about a secret underground cheese factory that only operates during thunderstorms.",
+        "reliability": "questionable",
+        "source": "Multiple anonymous cheese enthusiasts",
+        "first_reported": "2024-03-15",
+        "status": "unverified",
+        "believability": "moderately-implausible"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "rumor-002", 
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6589, 59.4323]
+      },
+      "properties": {
+        "id": "rumor-002",
+        "slug": "time-traveling-mailman",
+        "name": "Time-Traveling Mailman",
+        "type": "rumor",
+        "category": "temporal-anomaly",
+        "description": "Some residents claim the mailman delivers letters from the future and sometimes from the past.",
+        "reliability": "highly-dubious",
+        "source": "Mrs. Gertrude Timekeeper",
+        "first_reported": "2023-11-22",
+        "status": "ongoing-investigation",
+        "believability": "temporally-confusing"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "rumor-003",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6601, 59.4398]
+      },
+      "properties": {
+        "id": "rumor-003",
+        "slug": "singing-street-lamps",
+        "name": "Singing Street Lamps",
+        "type": "rumor",
+        "category": "musical-mystery", 
+        "description": "On foggy nights, the street lamps supposedly harmonize in a haunting melody.",
+        "reliability": "acoustically-suspicious",
+        "source": "Late-night dog walkers",
+        "first_reported": "2024-09-03",
+        "status": "seasonally-recurring",
+        "believability": "melodically-possible"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "rumor-004",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6534, 59.4301]
+      },
+      "properties": {
+        "id": "rumor-004", 
+        "slug": "parallel-dimension-portal",
+        "name": "Parallel Dimension Portal",
+        "type": "rumor",
+        "category": "interdimensional",
+        "description": "A portal to a parallel Pjuskeby where everything is exactly the same except the coffee is slightly better.",
+        "reliability": "dimensionally-untestable",
+        "source": "Caffeine-deprived philosophers",
+        "first_reported": "2024-01-08", 
+        "status": "coffee-related",
+        "believability": "caffeinated-logic"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "rumor-005",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6612, 59.4334]
+      },
+      "properties": {
+        "id": "rumor-005",
+        "slug": "invisible-cat-colony",
+        "name": "Invisible Cat Colony",
+        "type": "rumor",
+        "category": "feline-phenomenon",
+        "description": "A thriving colony of invisible cats that can only be detected by their purring and mysterious food bowl emptying.",
+        "reliability": "feline-logical",
+        "source": "Cat food store owner",
+        "first_reported": "2024-06-12",
+        "status": "purr-sistently-reported", 
+        "believability": "whisker-deep"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "rumor-006",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6578, 59.4389]
+      },
+      "properties": {
+        "id": "rumor-006",
+        "slug": "backwards-clock-tower",
+        "name": "Backwards Clock Tower",
+        "type": "rumor",
+        "category": "temporal",
+        "description": "The old clock tower allegedly runs backwards every third Thursday, causing minor time confusion.",
+        "reliability": "clockwork-dubious", 
+        "source": "Punctuality enthusiasts",
+        "first_reported": "2023-08-17",
+        "status": "time-sensitive",
+        "believability": "tick-tock-suspicious"
+      }
+    }
+  ]
+}

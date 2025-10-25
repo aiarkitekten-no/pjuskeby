@@ -1,0 +1,91 @@
+{
+  "id": "existing-id",
+  "slug": "dotty-mcflap",
+  "name": "Dotty McFlap",
+  "age": 69,
+  "birthdate": "1956-03-17",
+  "occupation": "Chief Glitter Technician & Carrot Choreographer",
+  "workplace": {
+    "name": "The Very Curious Café",
+    "slug": "the-very-curious-cafe",
+    "role": "Owner & Head of Emotional Catering"
+  },
+  "address": {
+    "street": "Snoreberry Lane",
+    "number": "42½",
+    "full": "42½ Snoreberry Lane, Pjuskeby"
+  },
+  "favorites": {
+    "places": [
+      {
+        "name": "Thinky Bay",
+        "slug": "thinky-bay",
+        "reason": "The gulls understand her philosophically"
+      },
+      {
+        "name": "Sardine Pier",
+        "slug": "sardine-pier",
+        "reason": "Where she first taught a fish to blink in Morse code"
+      },
+      {
+        "name": "Makeout Mountain",
+        "slug": "makeout-mountain",
+        "reason": "Not for smooching, but the echo there validates her yawning practice"
+      }
+    ]
+  },
+  "traits": [
+    "synchronised yawning",
+    "training carrots",
+    "glitter evangelism",
+    "emotional furniture mediation",
+    "competitive napping"
+  ],
+  "bio_short": "Replaced all her light bulbs with glitter",
+  "bio_full": "Dotty McFlap didn't arrive in Pjuskeby so much as she accidentally wandered through a particularly confusing Tuesday and decided the confusion suited her better than certainty ever had. That was forty-three years ago, when she was still called Dorothy and wore sensible cardigans that apologized for existing.\n\nNow? Now she's Dotty. And her cardigans have opinions.\n\nShe lives at 42½ Snoreberry Lane—a house number that shouldn't technically exist but does anyway, wedged between 42 and 43 like a hiccup in arithmetic. The lamppost outside her door yawns every evening at 6:47 PM, and Dotty always yawns back. It's only polite. They've been doing this for so long that once, when she had a cold and couldn't yawn properly, the lamppost brought her soup. It tasted like street light and sympathy.\n\nDotty's defining moment—the thing that made her *Dotty*—happened on a drizzly March morning when she realized her living room was too dim and too boring. So she unscrewed every single light bulb in her house and replaced them with glitter. Not glitter *bulbs*. Just... glitter. Handfuls of it, stuffed into the sockets, defying all reasonable expectations of how electricity or physics should behave.\n\nIt worked.\n\nNow her home glows like a disco ball had an emotional breakthrough. The walls shimmer. The shadows sparkle. Even her kettle winks when it boils. Visitors either leave enlightened or slightly adhesive. She considers both outcomes a success.\n\nShe owns and operates The Very Curious Café on the corner of Snoreberry Lane and Waffleknob Way, though \"operates\" might be generous. The café runs on vibes, apologies, and the occasional burst of accidental genius. The menu changes based on the mood of the tablecloths (they're very opinionated), and everything is served with a side of emotional validation. Dotty doesn't just serve coffee—she serves *experiences*. Sometimes they come with cake. Sometimes they come with a helpful push toward self-actualization.\n\nThe café's specialty? Synchronized Yawning Sessions. Every Thursday at 3 PM, Dotty leads a group of locals in a coordinated yawn-off. It started as a joke, but now it's a legitimate form of community therapy. People leave feeling lighter, if a little sleepy. The town doctor once prescribed it. Twice.\n\nDotty's other great passion—perhaps her truest calling—is training carrots. Not carrot-training in the agricultural sense, but actual *choreography*. She grows them in her back garden, hums to them daily, and teaches them to waltz. They're terrible dancers (no knees, you see), but they try. And that, Dotty insists, is what matters.\n\nShe once entered a carrot into the Pjuskeby Talent Show. It placed third. The judges said it had \"emotional range but questionable footwork.\" Dotty framed the certificate and hung it in the café. The carrot retired to a pot on the windowsill and now offers soft encouragement to nervous first-time customers.\n\n**What Dotty Loves:**\n\n- Glitter. All of it. In all contexts. She believes it is the physical manifestation of joy and has tried, unsuccessfully, to convince the mayor to pave Snoreberry Lane with it.\n- Yawning. Competitive, synchronized, accidental—doesn't matter. She treats yawning like an art form and has a scrapbook of her \"best yawns\" rated by emotional impact.\n- Her furniture. Especially her armchair, Gerald, who sulks when ignored but gives excellent advice during thunderstorms.\n- The moon. She's convinced it yawns too, just very slowly.\n- Carrots with ambition.\n- People who cry at toast. She finds it relatable.\n\n**What Dotty Hates:**\n\n- Overhead fluorescent lighting. It's \"aggressively beige\" and \"makes her soul feel corporate.\"\n- People who don't say hello to lampposts. \"Rude,\" she mutters. \"Just plain rude.\"\n- The concept of \"normal.\" She once threw a teacup at someone who used it unironically. The teacup apologized.\n- Perfectionism. She believes mistakes are where the glitter lives.\n- Birds that don't harmonize. She's had words with several magpies.\n\nDotty's best friend is a fern named Reginald who lives in her café and offers sarcastic commentary on customer behavior. Her worst enemy is a sock that went missing in 1994 and, she's convinced, is *still out there*, plotting.\n\nShe's been proposed to four times—twice by humans, once by a very charming ottoman, and once by the wind (she politely declined all of them, citing \"emotional availability concerns\").\n\nIf you meet Dotty, she'll offer you tea, a yawn, and possibly a carrot. She'll ask you what your lamppost's name is and look genuinely concerned if you don't know. She'll tell you that glitter is a vitamin and that sadness is just a sneeze that forgot to happen.\n\nAnd if you're lucky—if you're very, very lucky—she'll teach you to yawn in harmony.\n\nIt changes everything.",
+  "personality": {
+    "traits": [
+      "Eccentric but kind",
+      "Emotionally intuitive",
+      "Absurdly optimistic",
+      "Gentle chaos incarnate",
+      "Treats objects like friends"
+    ],
+    "quirks": [
+      "Talks to lampposts",
+      "Rates yawns by emotional depth",
+      "Believes glitter is medicinal",
+      "Names all furniture",
+      "Apologizes to vegetables before cooking"
+    ]
+  },
+  "relationships": {
+    "furniture": [
+      {
+        "name": "Gerald",
+        "type": "Armchair",
+        "status": "Best friend and advisor"
+      },
+      {
+        "name": "The Couch",
+        "type": "Sofa",
+        "status": "On strike, emotionally threadbare"
+      }
+    ],
+    "plants": [
+      {
+        "name": "Reginald",
+        "type": "Sarcastic fern",
+        "location": "The Very Curious Café"
+      },
+      {
+        "name": "Dancing Carrot #7",
+        "type": "Retired performer",
+        "status": "Offers encouragement to customers"
+      }
+    ]
+  },
+  "created_at": "2025-10-16T12:57:41.849Z",
+  "updated_at": "2025-10-17T13:35:00.000Z",
+  "status": "active"
+}

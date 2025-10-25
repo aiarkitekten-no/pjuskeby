@@ -1,0 +1,43 @@
+{
+  "id": "abdb1b06-6716-46b4-8e4b-8e04cfd79ab4",
+  "slug": "waffle-oracle",
+  "name": "Waffle Oracle",
+  "type": "business",
+  "address": "Unknown location",
+  "category": "Shop",
+  "description_short": "A unique business in Pjuskeby",
+  "description_full": "**[The Establishment]**\n\nNestled somewhere in the perpetually misty hinterlands of Pjuskeby—where the streets twist around in a manner only understandable to hedgehogs and the occasional lost philosopher—lies the Waffle Oracle. It's a shop, a sanctum, and a delightful enigma, though no one can pinpoint its exact location. The Waffle Oracle is infamous, or perhaps famous, for offering divinations through the intricate lacework of crispy, golden waffles. Founded by Oda Fogscroll, whose great claim to fame was predicting the exact year the Northern Lights would develop a taste for interpretive dance, the Waffle Oracle opened on the third Thursday of a January that might have been 1983 or perhaps, 1883. Temporal specifics aside, the establishment materialized when Oda mixed a particularly clairvoyant batter, and voilà, an enterprise was born.\n\nThe Oracle's origins are nearly as opaque as its waffles are transparent. Legend has it that Oda was guided to this venture by a particularly loquacious maple syrup bottle on a moonless night. Since that evening, the Waffle Oracle has been doling out delicious wisdom to those brave enough to hunt for its ever-shifting entrance.\n\n**[The Shop Interior]**\n\nUpon discovering the Waffle Oracle (usually by following a trail of syrupy aroma or whimsical whispers from the wind), one stumbles into an interior that defies conventional geography. The floor is made of shifting tiles that spell out cryptic messages in Old Norse, while the walls are adorned with sconces that flicker with giggling candle flames. The air is thick with the sweet scent of waffles mingled with a hint of mystical sage and perhaps just a dash of wonder.\n\nTiny, exuberant ferns perch on shelves, each trained to sing verses from the Eddas, while the ceiling—an enigmatic sky of twinkling fairy lights—shapeshifts into constellations that tell fortunes in ancient waffle runes. Aromatic steam wafts through the room, offering patrons the sensation of drifting through a dream as much as a shop. Every corner holds a different secret, a different wayward spark of magic, inviting customers to wander and discover.\n\n**[Signature Products/Services]**\n\nThe Waffle Oracle specializes in divinatory waffles, each one a unique fractal of destiny. Patrons order a Waffle of Fate (priced at 37.5 Norwegian krone), which is served with a side of sylvan sage butter and a cup of prophecy tea steeped with the leaves of the mystical Bjørnebær bush.\n\nEach waffle emerges as an intricate map of one's life woven into its crunchy texture. Regular customers include those seeking direction in love, career, or simply trying to locate their misplaced spectacles. The most famous service, however, remains the Seasonal Mystery Mouffle—a waffle that predicts the likelihood of discovering one's childhood sock collection.\n\n**[The Clientele]**\n\nShoppers are a delightful mix of the town's curious denizens, ranging from hopeful romantics seeking signs of future bliss, to absent-minded academics in need of answers (or at least a tasty distraction). Once, an entire family of rowboat-building trolls dropped by after accidentally drifting into town. Wide-eyed tourists from neighboring fjords often wander in, seeking not just a meal but a morsel of the extraordinary.\n\nPjuskeby residents have learned that the Waffle Oracle only appears to those who truly believe in the whimsical, or to those who are terribly lost—sometimes both. Patrons occasionally include ethereal beings or air sprites, hinted at by the occasional burst of giggles from nowhere in particular.\n\n**[Business Philosophy]**\n\nThe Waffle Oracle is a celebration of life's delightful unpredictability. Their motto—\"Every waffle tells a story\"—underpins every interaction. The shop believes in the power of serendipity and the charm of culinary clairvoyance, encouraging others to approach life with a sense of whimsy and wonder. Closely tied to the rhythms of nature, the Oracle's staff (comprising mainly of Oda, and a rather silent kettle named Gustav) view each waffle as a canvas for the cosmos to express its more poetic side.\n\n**[Local Reputation]**\n\nThe townspeople of Pjuskeby hold the Waffle Oracle in high, if slightly bemused, regard. It's been said by many that the shop's waffles have an uncanny way of setting right what was previously discombobulated. \"A truth wrapped in waffle is easier to swallow,\" claims Henrik the Cobbler, whose shoes have mysteriously started tying themselves ever since a visit to the Oracle.\n\nGossip insists that the shop once predicted the Great Herring Invasion of 1997—the townsfolk still chuckle about the days when fish flew through the air, and they say that the Oracle's waffles are the reason the herring quickly returned to the sea. Most importantly, the Waffle Oracle serves as a reminder that even in the most ordinary of places, magic is surely waiting to be found, if one only follows the right scent on the breeze.\n\nCONTACT_INFO=Ring the bell thrice, then sneeze like a walrus\nOPENING_HOURS=Mon-Fri: When rooster crows|Weekends: If you can find us|Tuesdays: Closed for existential contemplation\nSTATISTICS=Mysterious Occurrences:42|Troll Sightings:7|Giggles Per Day:23|Unexplained Phenomena:156\nFUN_FACTS=Once visited by a troll|WiFi password is \"WafflesArePortals123\"|Walls hum at 3:17 PM|Sometimes serves breakfast to time-travelers|Offers a discount for lost socks",
+  "specialties": [],
+  "established": "Unknown",
+  "contact_info": "Ring the bell thrice, then sneeze like a walrus",
+  "opening_hours": [
+    "Mon-Fri: When rooster crows",
+    "Weekends: If you can find us",
+    "Tuesdays: Closed for existential contemplation"
+  ],
+  "statistics": [
+    {
+      "label": "Mysterious Occurrences",
+      "value": "42"
+    },
+    {
+      "label": "Troll Sightings",
+      "value": "7"
+    },
+    {
+      "label": "Giggles Per Day",
+      "value": "23"
+    },
+    {
+      "label": "Unexplained Phenomena",
+      "value": "156"
+    }
+  ],
+  "fun_facts": [
+    "Once visited by a troll",
+    "WiFi password is \"WafflesArePortals123\"",
+    "Walls hum at 3:17 PM",
+    "Sometimes serves breakfast to time-travelers",
+    "Offers a discount for lost socks"
+  ]
+}

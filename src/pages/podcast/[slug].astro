@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchPodcastEpisodes, formatDuration } from '../../lib/podcast';
+
+export async function getStaticPaths() {
+  const episodes = await fetchPodcastEpisodes();
+  return episodes.map((episode) => ({
+    params: { slug: episode.slug },
+    props: { episode },
+  }));
+}
+
+const { episode } = Astro.props;
+
+const episodeStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  "name": episode.title,
+  "description": episode.description,
+  "datePublished": episode.pubDate.toISOString(),
+  "partOfSeries": {
+    "@type": "PodcastSeries",
+    "name": "Stories from Pjuskeby",
+    "url": "https://pjuskeby.org/podcast"
+  },
+  "associatedMedia": {
+    "@type": "MediaObject",
+    "contentUrl": episode.audioUrl,
+    "encodingFormat": "audio/mpeg"
+  }
+};
+
+if (episode.episodeNumber) {
+  episodeStructuredData.episodeNumber = episode.episodeNumber;
+}
+---
+
+<BaseLayout 
+  title={episode.title}
+  description={episode.description.substring(0, 155)}
+  canonical={`/podcast/${episode.slug}`}
+  ogType="article"
+  ogImage={episode.imageUrl}
+  article={{
+    publishedTime: episode.pubDate.toISOString(),
+    section: 'Podcast',
+    tags: ['podcast', 'audio story', 'Pjuskeby']
+  }}
+  structuredData={episodeStructuredData}
+>
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="/podcast" style="color: #3b82f6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ← Back to all episodes
+      </a>
+    </div>
+
+    <article style="background: white; padding: 3rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <header style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid #ecf0f1;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          {episode.episodeNumber && (
+            <span style="background: #3b82f6; color: white; padding: 0.35rem 0.75rem; border-radius: 4px; font-size: 0.875rem; font-weight: 600;">
+              EPISODE {episode.episodeNumber}
+            </span>
+          )}
+          <time datetime={episode.pubDate.toISOString()} style="color: #94a3b8; font-size: 1rem;">
+            {episode.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span style="color: #94a3b8;">•</span>
+          <span style="color: #94a3b8;">{formatDuration(episode.duration)}</span>
+        </div>
+
+        <h1 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: #1e293b;">
+          {episode.title}
+        </h1>
+
+        {episode.imageUrl && (
+          <img loading="lazy" 
+            src={episode.imageUrl} 
+            alt={episode.title}
+            style="width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin-bottom: 1.5rem;"
+          />
+        )}
+
+        <audio 
+          controls 
+          preload="metadata"
+          style="width: 100%;"
+        >
+          <source src={episode.audioUrl} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </header>
+
+      <div style="font-size: 1.1rem; line-height: 1.8; color: #334155;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Show Notes</h2>
+        <div style="white-space: pre-wrap;">
+          {episode.description}
+        </div>
+      </div>
+
+      <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #ecf0f1;">
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Subscribe to the Podcast</h3>
+          <p style="color: #64748b; margin-bottom: 1rem;">
+            Get new episodes automatically with your favorite podcast app:
+          </p>
+          <a 
+            href="https://api.substack.com/feed/podcast/5910955.rss"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f97316; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;"
+          >
+            <span style="font-size: 1.2rem;">📡</span> Subscribe via RSS
+          </a>
+        </div>
+      </footer>
+    </article>
+
+    <div style="margin-top: 2rem;">
+      <a href="/podcast" style="color: #3b82f6; text-decoration: none; font-weight: 600;">
+        ← Back to all episodes
+      </a>
+    </div>
+  </div>
+</BaseLayout>

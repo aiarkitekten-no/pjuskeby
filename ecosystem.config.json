@@ -1,0 +1,39 @@
+{
+  "apps": [{
+    "name": "pjuskeby-web",
+    "script": "dist/server/entry.mjs",
+    "cwd": "/var/www/vhosts/pjuskeby.org",
+    "instances": 1,
+    "exec_mode": "cluster",
+    "env": {
+      "NODE_ENV": "production",
+      "HOST": "127.0.0.1",
+      "PORT": "3100"
+    },
+    "error_file": "/var/www/vhosts/pjuskeby.org/logs/web-error.log",
+    "out_file": "/var/www/vhosts/pjuskeby.org/logs/web-out.log",
+    "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+    "autorestart": true,
+    "max_restarts": 10,
+    "min_uptime": "10s"
+  }, {
+    "name": "pjuskeby-api",
+    "script": "server/index.ts",
+    "cwd": "/var/www/vhosts/pjuskeby.org",
+    "interpreter": "node",
+    "interpreter_args": "--import tsx",
+    "instances": 1,
+    "exec_mode": "cluster",
+    "env": {
+      "NODE_ENV": "production",
+      "HOST": "127.0.0.1",
+      "PORT": "4100"
+    },
+    "error_file": "/var/www/vhosts/pjuskeby.org/logs/api-error.log",
+    "out_file": "/var/www/vhosts/pjuskeby.org/logs/api-out.log",
+    "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+    "autorestart": true,
+    "max_restarts": 10,
+    "min_uptime": "10s"
+  }]
+}

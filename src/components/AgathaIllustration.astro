@@ -1,0 +1,31 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  position?: 'left' | 'right' | 'center';
+}
+
+const { src, alt = 'Illustration by Agatha Splint', position = 'center' } = Astro.props;
+
+let figureStyle = 'margin: 2rem 0; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);';
+
+if (position === 'left') {
+  figureStyle += ' float: left; margin-right: 2rem; max-width: 400px;';
+} else if (position === 'right') {
+  figureStyle += ' float: right; margin-left: 2rem; max-width: 400px;';
+} else {
+  figureStyle += ' width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; display: block;';
+}
+---
+
+<figure style={figureStyle}>
+  <img 
+    src={src} 
+    alt={alt} 
+    style="width: 100%; height: auto; display: block; border-radius: 12px;" 
+    loading="lazy" 
+  />
+  <figcaption style="font-size: 0.85rem; color: #64748b; font-style: italic; text-align: center; margin-top: 0.5rem;">
+    {alt}
+  </figcaption>
+</figure>

@@ -1,0 +1,48 @@
+import { c as createComponent, r as renderComponent, b as renderTemplate, m as maybeRenderHead, F as Fragment, d as addAttribute } from '../chunks/astro/server_YlAN3CX0.mjs';
+import 'kleur/colors';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_CRd09uuf.mjs';
+import { f as fetchPodcastEpisodes, a as formatDuration } from '../chunks/podcast_CCVXjlIC.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Podcast = createComponent(async ($$result, $$props, $$slots) => {
+  const episodes = await fetchPodcastEpisodes();
+  const podcastStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "name": "Stories from Pjuskeby",
+    "description": "Audio stories and tales from the whimsical Norwegian coastal town of Pjuskeby",
+    "url": "https://pjuskeby.org/podcast",
+    "webFeed": "https://api.substack.com/feed/podcast/5910955.rss"
+  };
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Podcast", "description": "Listen to audio stories from Pjuskeby. New episodes exploring the characters and tales of our whimsical town.", "canonical": "/podcast", "structuredData": podcastStructuredData, "podcastRssFeed": "https://api.substack.com/feed/podcast/5910955.rss" }, { "default": async ($$result2) => renderTemplate` ${maybeRenderHead()}<div style="max-width: 900px; margin: 0 auto;"> <header style="text-align: center; margin-bottom: 3rem;"> <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">🎙️ Stories from Pjuskeby</h1> <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;">
+Audio stories and tales from our whimsical Norwegian town. Listen to character interviews, town events, and Agatha's diary entries.
+</p> <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"> <a href="https://api.substack.com/feed/podcast/5910955.rss" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f97316; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s;"> <span style="font-size: 1.2rem;">📡</span> Subscribe via RSS
+</a> </div> </header> ${episodes.length === 0 ? renderTemplate`<div style="background: white; padding: 3rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); text-align: center;"> <p style="font-size: 2rem; margin-bottom: 1rem;">🎧</p> <h2 style="margin-bottom: 1rem;">Episodes Coming Soon</h2> <p style="color: #64748b;">
+We're preparing audio stories from Pjuskeby. Subscribe to our RSS feed to get notified when new episodes are released!
+</p> </div>` : renderTemplate`${renderComponent($$result2, "Fragment", Fragment, {}, { "default": async ($$result3) => renderTemplate` <div style="margin-bottom: 2rem; text-align: center;"> <p style="color: #64748b;"> <strong>${episodes.length}</strong> episode${episodes.length !== 1 ? "s" : ""} available
+</p> </div> <div style="display: grid; gap: 2rem;"> ${episodes.map((episode, index) => renderTemplate`<article style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"> <div style="display: flex; gap: 1.5rem; align-items: start;"> ${episode.imageUrl && renderTemplate`<img loading="lazy"${addAttribute(episode.imageUrl, "src")}${addAttribute(episode.title, "alt")} style="width: 120px; height: 120px; border-radius: 8px; object-fit: cover;">`} <div style="flex: 1;"> <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;"> ${episode.episodeNumber && renderTemplate`<span style="background: #3b82f6; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem; font-weight: 600;">
+EP ${episode.episodeNumber} </span>`} <time${addAttribute(episode.pubDate.toISOString(), "datetime")} style="color: #94a3b8; font-size: 0.9rem;"> ${episode.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} </time> <span style="color: #94a3b8; font-size: 0.9rem;">
+• ${formatDuration(episode.duration)} </span> </div> <h2 style="font-size: 1.5rem; margin-bottom: 0.75rem;"> <a${addAttribute(`/podcast/${episode.slug}`, "href")} style="color: #1e293b; text-decoration: none;"> ${episode.title} </a> </h2> <p style="color: #64748b; line-height: 1.6; margin-bottom: 1rem;"> ${episode.description.substring(0, 200)}${episode.description.length > 200 ? "..." : ""} </p> <audio controls preload="metadata" style="width: 100%; margin-bottom: 0.75rem;"> <source${addAttribute(episode.audioUrl, "src")} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio> <a${addAttribute(`/podcast/${episode.slug}`, "href")} style="color: #3b82f6; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+View episode details →
+</a> </div> </div> </article>`)} </div> ` })}`} <section style="margin-top: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 8px; color: white; text-align: center;"> <h2 style="margin-bottom: 1rem; color: white;">Subscribe to the Podcast</h2> <p style="margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+Get new episodes delivered automatically. Subscribe with your favorite podcast app using our RSS feed.
+</p> <code style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem; display: inline-block;">
+https://api.substack.com/feed/podcast/5910955.rss
+</code> </section> </div> ` })}`;
+}, "/var/www/vhosts/pjuskeby.org/src/pages/podcast.astro", void 0);
+
+const $$file = "/var/www/vhosts/pjuskeby.org/src/pages/podcast.astro";
+const $$url = "/podcast";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Podcast,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

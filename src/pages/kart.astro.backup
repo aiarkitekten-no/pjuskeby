@@ -1,0 +1,456 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Kart over Pjuskeby">
+  <div class="map-container">
+    <div class="map-header">
+      <h1>🗺️ Kart over Pjuskeby</h1>
+      <p>Utforsk alle steder, gater, personer og bedrifter i vår lille, absurde verden</p>
+    </div>
+
+    <div class="map-controls">
+      <button class="control-btn active" data-layer="all">🌍 Alle</button>
+      <button class="control-btn" data-layer="places">📍 Steder</button>
+      <button class="control-btn" data-layer="streets">🛣️ Gater</button>
+      <button class="control-btn" data-layer="people">👥 Personer</button>
+      <button class="control-btn" data-layer="businesses">🏢 Bedrifter</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="map-legend">
+      <h3>Tegnforklaring</h3>
+      <div class="legend-item"><span class="legend-marker place"></span> Steder</div>
+      <div class="legend-item"><span class="legend-marker person"></span> Personer</div>
+      <div class="legend-item"><span class="legend-marker business"></span> Bedrifter</div>
+      <div class="legend-item"><span class="legend-line"></span> Gater</div>
+    </div>
+  </div>
+</BaseLayout>
+
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css">
+
+<style>
+  .map-container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .map-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+  }
+
+  .map-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .map-header p {
+    font-size: 1.1rem;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  .map-controls {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: white;
+    border-bottom: 2px solid #e2e8f0;
+    flex-wrap: wrap;
+  }
+
+  .control-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #475569;
+  }
+
+  .control-btn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .control-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+
+  #map {
+    width: 100%;
+    height: 600px;
+    background: #e0f2fe;
+    border-radius: 0 0 12px 12px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .map-legend {
+    position: absolute;
+    top: 160px;
+    right: 20px;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 150px;
+    z-index: 1000;
+  }
+
+  .map-legend h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #475569;
+  }
+
+  .legend-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .legend-marker.place {
+    background: #ef4444;
+  }
+
+  .legend-marker.person {
+    background: #3b82f6;
+  }
+
+  .legend-marker.business {
+    background: #22c55e;
+  }
+
+  .legend-line {
+    width: 24px;
+    height: 3px;
+    background: #f59e0b;
+    border-radius: 2px;
+  }
+
+  .maplibregl-popup-content {
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    max-width: 300px;
+  }
+
+  .maplibregl-popup-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1e293b;
+    font-size: 1.1rem;
+  }
+
+  .maplibregl-popup-content p {
+    margin: 0.25rem 0;
+    color: #475569;
+    font-size: 0.9rem;
+  }
+
+  .maplibregl-popup-content a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .maplibregl-popup-content a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .map-header h1 {
+      font-size: 1.8rem;
+    }
+
+    .map-controls {
+      justify-content: center;
+    }
+
+    .control-btn {
+      flex: 1 1 auto;
+      min-width: 100px;
+    }
+
+    #map {
+      height: 500px;
+    }
+
+    .map-legend {
+      position: static;
+      margin: 1rem;
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script is:inline src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
+
+<script is:inline>
+  // Wait for MapLibre to load
+  window.addEventListener('load', function() {
+  // Initialize map centered on Moss (Pjuskeby's location)
+  const map = new maplibregl.Map({
+    container: 'map',
+    style: {
+      version: 8,
+      sources: {
+        'carto-base': {
+          type: 'raster',
+          tiles: [
+            'https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+            'https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+            'https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png'
+          ],
+          tileSize: 256,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        }
+      },
+      layers: [
+        {
+          id: 'background',
+          type: 'background',
+          paint: {
+            'background-color': '#e8f4f8'
+          }
+        },
+        {
+          id: 'carto-base',
+          type: 'raster',
+          source: 'carto-base',
+          minzoom: 0,
+          maxzoom: 19
+        }
+      ]
+    },
+    center: [10.6578, 59.4344], // Moss coordinates
+    zoom: 13,
+    pitch: 0,
+    bearing: 0
+  });
+
+  // Add navigation controls
+  map.addControl(new maplibregl.NavigationControl(), 'top-left');
+  map.addControl(new maplibregl.FullscreenControl(), 'top-left');
+
+  // Load GeoJSON data and add to map
+  map.on('load', async () => {
+    try {
+      // Load all GeoJSON files
+      const [places, streets, people, businesses] = await Promise.all([
+        fetch('/geojson/places.geojson').then(r => r.json()),
+        fetch('/geojson/streets.geojson').then(r => r.json()),
+        fetch('/geojson/people.geojson').then(r => r.json()),
+        fetch('/geojson/businesses.geojson').then(r => r.json())
+      ]);
+
+      // Add sources
+      map.addSource('places', { type: 'geojson', data: places });
+      map.addSource('streets', { type: 'geojson', data: streets });
+      map.addSource('people', { type: 'geojson', data: people });
+      map.addSource('businesses', { type: 'geojson', data: businesses });
+
+      // Add street lines layer
+      map.addLayer({
+        id: 'streets-layer',
+        type: 'line',
+        source: 'streets',
+        paint: {
+          'line-color': '#f59e0b',
+          'line-width': 3,
+          'line-opacity': 0.8
+        }
+      });
+
+      // Add places layer
+      map.addLayer({
+        id: 'places-layer',
+        type: 'circle',
+        source: 'places',
+        paint: {
+          'circle-radius': 8,
+          'circle-color': '#ef4444',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff'
+        }
+      });
+
+      // Add people layer
+      map.addLayer({
+        id: 'people-layer',
+        type: 'circle',
+        source: 'people',
+        paint: {
+          'circle-radius': 7,
+          'circle-color': '#3b82f6',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff'
+        }
+      });
+
+      // Add businesses layer
+      map.addLayer({
+        id: 'businesses-layer',
+        type: 'circle',
+        source: 'businesses',
+        paint: {
+          'circle-radius': 7,
+          'circle-color': '#22c55e',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff'
+        }
+      });
+
+      // Add hover effect
+      ['places-layer', 'people-layer', 'businesses-layer'].forEach(layer => {
+        map.on('mouseenter', layer, () => {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', layer, () => {
+          map.getCanvas().style.cursor = '';
+        });
+      });
+
+      // Add click handlers with popups
+      map.on('click', 'places-layer', (e) => {
+        const props = e.features[0].properties;
+        new maplibregl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(`
+            <h3>📍 ${props.name}</h3>
+            <p><strong>Kategori:</strong> ${props.category}</p>
+            <p>${props.description}</p>
+            <a href="/steder/${props.slug}">Les mer →</a>
+          `)
+          .addTo(map);
+      });
+
+      map.on('click', 'people-layer', (e) => {
+        const props = e.features[0].properties;
+        new maplibregl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(`
+            <h3>👤 ${props.name}</h3>
+            <p><strong>Rolle:</strong> ${props.role}</p>
+            <p>${props.description}</p>
+            <a href="/personer/${props.slug}">Les mer →</a>
+          `)
+          .addTo(map);
+      });
+
+      map.on('click', 'businesses-layer', (e) => {
+        const props = e.features[0].properties;
+        new maplibregl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(`
+            <h3>🏢 ${props.name}</h3>
+            <p><strong>Type:</strong> ${props.business_type}</p>
+            <p>${props.description}</p>
+            <a href="/steder/${props.slug}">Les mer →</a>
+          `)
+          .addTo(map);
+      });
+
+      map.on('click', 'streets-layer', (e) => {
+        const props = e.features[0].properties;
+        new maplibregl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(`
+            <h3>🛣️ ${props.name}</h3>
+            <p>${props.description}</p>
+          `)
+          .addTo(map);
+      });
+
+      // Layer control buttons
+      const buttons = document.querySelectorAll('.control-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const layer = btn.dataset.layer;
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Toggle layer visibility
+          if (layer === 'all') {
+            map.setLayoutProperty('places-layer', 'visibility', 'visible');
+            map.setLayoutProperty('streets-layer', 'visibility', 'visible');
+            map.setLayoutProperty('people-layer', 'visibility', 'visible');
+            map.setLayoutProperty('businesses-layer', 'visibility', 'visible');
+          } else if (layer === 'places') {
+            map.setLayoutProperty('places-layer', 'visibility', 'visible');
+            map.setLayoutProperty('streets-layer', 'visibility', 'none');
+            map.setLayoutProperty('people-layer', 'visibility', 'none');
+            map.setLayoutProperty('businesses-layer', 'visibility', 'none');
+          } else if (layer === 'streets') {
+            map.setLayoutProperty('places-layer', 'visibility', 'none');
+            map.setLayoutProperty('streets-layer', 'visibility', 'visible');
+            map.setLayoutProperty('people-layer', 'visibility', 'none');
+            map.setLayoutProperty('businesses-layer', 'visibility', 'none');
+          } else if (layer === 'people') {
+            map.setLayoutProperty('places-layer', 'visibility', 'none');
+            map.setLayoutProperty('streets-layer', 'visibility', 'none');
+            map.setLayoutProperty('people-layer', 'visibility', 'visible');
+            map.setLayoutProperty('businesses-layer', 'visibility', 'none');
+          } else if (layer === 'businesses') {
+            map.setLayoutProperty('places-layer', 'visibility', 'none');
+            map.setLayoutProperty('streets-layer', 'visibility', 'none');
+            map.setLayoutProperty('people-layer', 'visibility', 'none');
+            map.setLayoutProperty('businesses-layer', 'visibility', 'visible');
+          }
+        });
+      });
+
+      // Fit bounds to show all features
+      const allFeatures = [
+        ...places.features,
+        ...people.features,
+        ...businesses.features
+      ];
+
+      if (allFeatures.length > 0) {
+        const bounds = new maplibregl.LngLatBounds();
+        allFeatures.forEach(feature => {
+          if (feature.geometry.type === 'Point') {
+            bounds.extend(feature.geometry.coordinates);
+          }
+        });
+        map.fitBounds(bounds, { padding: 50, maxZoom: 14 });
+      }
+
+    } catch (error) {
+      console.error('Error loading GeoJSON data:', error);
+    }
+  });
+  
+  }); // End of window.addEventListener('load')
+</script>

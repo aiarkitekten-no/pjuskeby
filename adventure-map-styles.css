@@ -1,0 +1,170 @@
+
+/* 🎨 Pjuskeby Adventure Map Styles */
+
+.adventure-map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: #87CEEB; /* Sky blue fallback */
+}
+
+/* Entity markers with adventure styling */
+.entity-marker {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.entity-marker:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+  z-index: 1000;
+}
+
+/* Adventure-style animations */
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes adventure-bob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Entity styling by type */
+.entity-person {
+  background: #3b82f6;
+  animation: gentle-pulse 3s infinite;
+}
+
+.entity-place {
+  background: #f59e0b;
+  animation: adventure-bob 4s infinite;
+}
+
+.entity-business {
+  background: #8b5cf6;
+  border-radius: 3px !important;
+}
+
+.entity-street {
+  background: #10b981;
+  border-radius: 0 !important;
+  height: 3px !important;
+}
+
+.entity-lake {
+  background: #0ea5e9;
+  border: 2px solid #0284c7;
+}
+
+/* Adventure map legend */
+.adventure-legend {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 248, 220, 0.95);
+  border: 3px solid #8B4513;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  font-family: 'Comic Sans MS', cursive;
+  min-width: 220px;
+  backdrop-filter: blur(5px);
+}
+
+.adventure-legend h3 {
+  margin: 0 0 15px 0;
+  color: #8B4513;
+  text-align: center;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #2E2E2E;
+}
+
+.legend-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Adventure tooltip */
+.adventure-tooltip {
+  background: rgba(255, 248, 220, 0.98);
+  border: 3px solid #8B4513;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 14px;
+  color: #2E2E2E;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  max-width: 300px;
+  backdrop-filter: blur(3px);
+}
+
+.adventure-tooltip h4 {
+  margin: 0 0 10px 0;
+  color: #8B4513;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Story links */
+.story-link {
+  color: #4FC3F7;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+}
+
+.story-link:hover {
+  color: #0ea5e9;
+  text-decoration: underline;
+}
+
+/* Loading animation */
+.map-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 18px;
+  color: #8B4513;
+  background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #8B4513;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

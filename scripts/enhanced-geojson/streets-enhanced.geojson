@@ -1,0 +1,678 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "enhanced": true,
+    "waterDetection": true,
+    "generatedAt": "2025-10-21T07:21:58.694Z",
+    "totalFeatures": 25,
+    "waterAreas": 3,
+    "coordinateWarnings": 0
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "0b335a11-be43-49ea-87f3-4ad221c2150d",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.632927408476476,
+            59.447352231383306
+          ],
+          [
+            10.633354281509304,
+            59.446247845968585
+          ]
+        ]
+      },
+      "properties": {
+        "id": "0b335a11-be43-49ea-87f3-4ad221c2150d",
+        "slug": "snoreberry-lane",
+        "name": "Snoreberry Lane",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "1c87ca0b-9b58-4002-a22e-65fda1ca3bc9",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.696863664240421,
+            59.4619663024323
+          ],
+          [
+            10.696196453900214,
+            59.46025599222302
+          ]
+        ]
+      },
+      "properties": {
+        "id": "1c87ca0b-9b58-4002-a22e-65fda1ca3bc9",
+        "slug": "picklewhiff-crescent",
+        "name": "Picklewhiff Crescent",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "3793d54f-0c7e-4190-a18c-fd9f2bf3302d",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.680771944338433,
+            59.459739418249015
+          ],
+          [
+            10.678849271851316,
+            59.46350155168055
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3793d54f-0c7e-4190-a18c-fd9f2bf3302d",
+        "slug": "twaddlefjord-terrace",
+        "name": "Twaddlefjord Terrace",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2635d0b1-cdc5-4da4-af05-00f0fd92ea11",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.69309983872517,
+            59.406023509554416
+          ],
+          [
+            10.694235145581924,
+            59.40548101658491
+          ]
+        ]
+      },
+      "properties": {
+        "id": "2635d0b1-cdc5-4da4-af05-00f0fd92ea11",
+        "slug": "gigglegum-grove",
+        "name": "Gigglegum Grove",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "14f4df89-1225-4d58-8de9-fab4c4f033a2",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.688747304219671,
+            59.44788350161432
+          ],
+          [
+            10.686663292263377,
+            59.45265458405754
+          ]
+        ]
+      },
+      "properties": {
+        "id": "14f4df89-1225-4d58-8de9-fab4c4f033a2",
+        "slug": "waffleknob-way",
+        "name": "Waffleknob Way",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "d1449413-66bb-424c-90c4-f32f5e5557f0",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.650266238416084,
+            59.44159594488257
+          ],
+          [
+            10.654931451113562,
+            59.4388918077058
+          ]
+        ]
+      },
+      "properties": {
+        "id": "d1449413-66bb-424c-90c4-f32f5e5557f0",
+        "slug": "cranklecorn-close",
+        "name": "Cranklecorn Close",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "320df7d4-bb5a-43ec-b551-cb94bff434d0",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.685649827584164,
+            59.44744573056597
+          ],
+          [
+            10.681504484854827,
+            59.45028915514374
+          ]
+        ]
+      },
+      "properties": {
+        "id": "320df7d4-bb5a-43ec-b551-cb94bff434d0",
+        "slug": "blubberblink-boulevard",
+        "name": "Blubberblink Boulevard",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "840bf91b-240b-4419-b8eb-d50cf4bc8933",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.690786738258831,
+            59.454003907695345
+          ],
+          [
+            10.68867518346043,
+            59.453732017398615
+          ]
+        ]
+      },
+      "properties": {
+        "id": "840bf91b-240b-4419-b8eb-d50cf4bc8933",
+        "slug": "muddlemoose-alley",
+        "name": "Muddlemoose Alley",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "5627d918-866e-4ed0-8033-cb21f18fb18f",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.629995235192464,
+            59.45365226364729
+          ],
+          [
+            10.630435848812425,
+            59.45861139829114
+          ]
+        ]
+      },
+      "properties": {
+        "id": "5627d918-866e-4ed0-8033-cb21f18fb18f",
+        "slug": "tinselspoon-street",
+        "name": "Tinselspoon Street",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c057fb8c-615d-4a62-b336-bd076ccc529f",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.633876586498312,
+            59.413361846261914
+          ],
+          [
+            10.631696729441247,
+            59.41751136965892
+          ]
+        ]
+      },
+      "properties": {
+        "id": "c057fb8c-615d-4a62-b336-bd076ccc529f",
+        "slug": "frostickle-path",
+        "name": "Frostickle Path",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "373b3817-c77d-4804-85b1-e33577c6808a",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.650645628674143,
+            59.439868381022855
+          ],
+          [
+            10.654242100415951,
+            59.439047370548856
+          ]
+        ]
+      },
+      "properties": {
+        "id": "373b3817-c77d-4804-85b1-e33577c6808a",
+        "slug": "splatterfjord-drive",
+        "name": "Splatterfjord Drive",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "211f3fa0-7a7a-483f-acf4-7f5dcd82e13e",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.672594522290657,
+            59.42183057176323
+          ],
+          [
+            10.671012417961931,
+            59.41698600651539
+          ]
+        ]
+      },
+      "properties": {
+        "id": "211f3fa0-7a7a-483f-acf4-7f5dcd82e13e",
+        "slug": "skiddleskarn-road",
+        "name": "Skiddleskarn Road",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "5fdcce5b-849a-4755-88da-3b95f8615dde",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.633074261399997,
+            59.42054970542466
+          ],
+          [
+            10.632479752774207,
+            59.42161669137193
+          ]
+        ]
+      },
+      "properties": {
+        "id": "5fdcce5b-849a-4755-88da-3b95f8615dde",
+        "slug": "gnomewobble-rise",
+        "name": "Gnomewobble Rise",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "f5ff2f04-6e33-4dad-bfba-b466a0fcca00",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.66846414154006,
+            59.46292024855664
+          ],
+          [
+            10.666086257267047,
+            59.46754357736176
+          ]
+        ]
+      },
+      "properties": {
+        "id": "f5ff2f04-6e33-4dad-bfba-b466a0fcca00",
+        "slug": "dinglehonk-hollow",
+        "name": "Dinglehonk Hollow",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c453682b-b9b5-4822-90c2-7cc187416455",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.678088176148819,
+            59.459342046614175
+          ],
+          [
+            10.679387449575334,
+            59.46340673844067
+          ]
+        ]
+      },
+      "properties": {
+        "id": "c453682b-b9b5-4822-90c2-7cc187416455",
+        "slug": "t-ysel-kka-loop",
+        "name": "Tøyseløkka Loop",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b95ef7a2-83cb-4094-8818-e3112bc97153",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.69726451868946,
+            59.44466116423784
+          ],
+          [
+            10.693449321098033,
+            59.448780630021545
+          ]
+        ]
+      },
+      "properties": {
+        "id": "b95ef7a2-83cb-4094-8818-e3112bc97153",
+        "slug": "burpleflop-terrace",
+        "name": "Burpleflop Terrace",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4adea0ed-820b-4b0b-be96-875fe7c2979e",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.625674059009478,
+            59.429881633758164
+          ],
+          [
+            10.629235454037289,
+            59.433630780705855
+          ]
+        ]
+      },
+      "properties": {
+        "id": "4adea0ed-820b-4b0b-be96-875fe7c2979e",
+        "slug": "fluffernut-field",
+        "name": "Fluffernut Field",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "01f6a579-7463-491f-9435-89d36a4dedfc",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.628519615467258,
+            59.41988918305799
+          ],
+          [
+            10.626289497134364,
+            59.41654547952817
+          ]
+        ]
+      },
+      "properties": {
+        "id": "01f6a579-7463-491f-9435-89d36a4dedfc",
+        "slug": "snorklebrock-road",
+        "name": "Snorklebrock Road",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ea9298d5-88f4-4a6a-a770-cd369983328e",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.666741296937778,
+            59.41345172274616
+          ],
+          [
+            10.663953073325718,
+            59.41826445078798
+          ]
+        ]
+      },
+      "properties": {
+        "id": "ea9298d5-88f4-4a6a-a770-cd369983328e",
+        "slug": "crumpetfoss-bend",
+        "name": "Crumpetfoss Bend",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "e6d27fc5-fced-4a79-98c2-e3541aff7b9c",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.684064344141824,
+            59.407287137926176
+          ],
+          [
+            10.688335032684249,
+            59.40434407375472
+          ]
+        ]
+      },
+      "properties": {
+        "id": "e6d27fc5-fced-4a79-98c2-e3541aff7b9c",
+        "slug": "wigglefang-way",
+        "name": "Wigglefang Way",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4c54ed06-8625-426f-a427-8c8bc1489faf",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.686462815178514,
+            59.43801444027578
+          ],
+          [
+            10.689500664364,
+            59.44208647304484
+          ]
+        ]
+      },
+      "properties": {
+        "id": "4c54ed06-8625-426f-a427-8c8bc1489faf",
+        "slug": "lurknuckle-trail",
+        "name": "Lurknuckle Trail",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "143669c4-3782-45ad-bb18-8ae8dda60eb9",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.684192459331255,
+            59.45509139640803
+          ],
+          [
+            10.680671980323908,
+            59.45073860620333
+          ]
+        ]
+      },
+      "properties": {
+        "id": "143669c4-3782-45ad-bb18-8ae8dda60eb9",
+        "slug": "yawnfjord-gate",
+        "name": "Yawnfjord Gate",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": true,
+        "waterDetected": true,
+        "mapStyle": {
+          "color": "#0ea5e9",
+          "borderColor": "#0284c7",
+          "icon": "🌊"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "34699796-02b7-4848-9d83-8a3818185a5b",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.674003751812533,
+            59.42142300730857
+          ],
+          [
+            10.670782499656806,
+            59.42287578082042
+          ]
+        ]
+      },
+      "properties": {
+        "id": "34699796-02b7-4848-9d83-8a3818185a5b",
+        "slug": "spongelund-circle",
+        "name": "Spongelund Circle",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b6871abc-91f9-45aa-92b8-aaf80dde0ece",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.630401848874909,
+            59.41772692892515
+          ],
+          [
+            10.632861508071674,
+            59.41589352324063
+          ]
+        ]
+      },
+      "properties": {
+        "id": "b6871abc-91f9-45aa-92b8-aaf80dde0ece",
+        "slug": "wobblekollen-lane",
+        "name": "Wobblekollen Lane",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c369b3e2-ab39-4408-98f8-9fc500090396",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.657211445333774,
+            59.4514686548167
+          ],
+          [
+            10.65657143551204,
+            59.44694450572003
+          ]
+        ]
+      },
+      "properties": {
+        "id": "c369b3e2-ab39-4408-98f8-9fc500090396",
+        "slug": "dizzledal-downs",
+        "name": "Dizzledal Downs",
+        "type": "street",
+        "status": "published",
+        "isWaterArea": false,
+        "waterDetected": false
+      }
+    }
+  ]
+}

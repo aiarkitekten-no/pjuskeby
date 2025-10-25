@@ -1,0 +1,34 @@
+{
+  "id": "c18bd814-c708-47f7-8b6f-5c8fb01231d6",
+  "slug": "horace-blibb",
+  "name": "Horace Blibb",
+  "age": 48,
+  "birthdate": "1977-07-04",
+  "gender": "male",
+  "occupation": "Pjuskeby Postal & Peculiarities",
+  "workplace": {
+    "name": "Pjuskeby Postal & Peculiarities",
+    "slug": "unknown",
+    "role": "Pjuskeby Postal & Peculiarities"
+  },
+  "address": {
+    "street": "Unknown Street",
+    "number": "1",
+    "full": "Unknown Street, Pjuskeby"
+  },
+  "favorites": {
+    "places": []
+  },
+  "traits": [
+    "competitive licking",
+    "collecting unposted postcards"
+  ],
+  "bio_short": "**Horace Blibb's Conundrum of Correspondence** Horace Blibb has been the master of mail at Pjuskeby Postal & Peculiarities for exactly 11,112 days, minus the occasional leap year he spends sorting his thoughts like parcels too cumbersome for their envelopes. The post office, a quaint establishment nestled between a bakery that sells dreams disguised as pastries and a cobbler who speaks fluent shoelace, is Horace's kingdom. Here, he has invented a theory known as \"Philatelic Hypnotism,\" which postulates that the delicate act of licking a stamp can reveal the hidden intentions of the sender. Horace claims each stamp has a soul,...",
+  "bio_full": "**Horace Blibb's Conundrum of Correspondence**  \nHorace Blibb has been the master of mail at Pjuskeby Postal & Peculiarities for exactly 11,112 days, minus the occasional leap year he spends sorting his thoughts like parcels too cumbersome for their envelopes. The post office, a quaint establishment nestled between a bakery that sells dreams disguised as pastries and a cobbler who speaks fluent shoelace, is Horace's kingdom. Here, he has invented a theory known as \"Philatelic Hypnotism,\" which postulates that the delicate act of licking a stamp can reveal the hidden intentions of the sender. Horace claims each stamp has a soul, a tiny universe of adhesive intuition that speaks to him when met with the right moisture and a whisper of the Norwegian wind. \n\n**The Undeliverable Dreams Collection**  \nAmong his many peculiar pastimes, Horace is especially fond of amassing a collection of unposted postcards. These are not ordinary postcards; each one is a forgotten vow, a story untold, and they all bear the same return address: \"To the Ones Who Wait.\" His collection includes a card from 1974 depicting a walrus in a top hat, intended for a lost lover who stole away with a circus, and another from 1998 that shows nothing but a single, lonely snowflake on a field of infinite blue. Horace finds solace in these neglected narratives, often pondering what it means to be a message undelivered. His favorite postcard, a crisp 1983 print of the Midnight Sun, carries only the enigmatic phrase: \"The answer is in the whisper of the stamps.\"  \n\n**The Envelope Ritual**  \nEvery dawn, precisely at 5:47 AM, Horace begins his ritual by placing exactly eight envelopes, each a different shade of gray, in a semicircle on his kitchen table. He then performs the \"Dance of the Post,\" an interpretive number involving brisk footwork and a finale where he balances a swift-footed snail named Fjørgyn on the tip of his nose. Fjørgyn, though slow in body, is quick in spirit and is believed by some in Pjuskeby to be the reincarnation of an ancient Norse postmaster. After the dance, Horace makes himself a cup of lavender-and-lichen tea, which he drinks while contemplating the ceiling tiles, fifty-nine in all, of his humble abode known as \"Blibb's Blink,\" because if you blink you might miss it.\n\n**What Horace Loves**  \nHorace adores the gentle chaos of a post office in full swing, the smell of fresh ink mingling with tales of unexpected journeys. He loves the laughter of dandelions, which he swears is identical to the sound of a thousand letters arriving safely at their destinations. His heart skips like stones on Frode's Fjord for the rare moments when a postcard thought lost turns up in the dustiest corner of the sorting room. Stamps, especially those from obscure lands or depicting something incredibly mundane like a potato or a dramatically reclining hen, warm his soul like an eternal fireplace.\n\n**What Horace Hates**  \nIf hatred were a letter, Horace would send it first-class to Mondays—the days the mail refuses to cooperate, letters find their addresses inadequate, and stamps stick where they ought not to. He has little patience for people who fold their letters in a manner unbefitting their content, or those who treat the act of correspondence as mere transaction rather than the art form it is. The sound of a misplaced mailbox—clanging in the wind like a bell announcing an empty promise—sets Horace's nerves on edge. And most of all, he detests the autopilot pens that scribble without sentiment, void of the emotional ink that makes a message worth its weight in words.\n\n**Horace's Legacy of Letters yet to Be**  \nIn his heart, Horace dreams of a future where every unsent postcard finds its rightful recipient, where each stamp tells its story and each envelope seals a destiny. Perhaps he will one day invent the world's first \"Emotionally Autonomous Mailbox,\" an invention that chooses the perfect moment to deliver a letter, ensuring its words are received only when most needed. Horace imagines a world where the language of letters becomes the universal tongue, and mailboxes sing the songs of old Norse legends. His deepest wish is to bequeath his collection of unposted postcards to the Pjuskeby Museum of Missed Connections, allowing others to discover the beauty in the messages that waited too long. As the clock in the post office ticks toward tomorrow, Horace Blibb continues to dream, knowing that every postage brings him one step closer to his vision of a more connected world.",
+  "personality": {
+    "traits": [
+      "competitive licking",
+      "collecting unposted postcards"
+    ]
+  }
+}

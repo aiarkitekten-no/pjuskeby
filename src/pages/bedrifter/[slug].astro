@@ -1,0 +1,401 @@
+---
+/* Pjuskeby Guardrails:
+   - Ingen placeholders. Ingen ubrukte exports.
+   - Følg koblinger.json for datakilder og relasjoner.
+   - All skriving til DB/FS logges i donetoday.json.
+   - Ved AI-generering: aldri publiser direkte; legg i drafts/.
+   - Ved valideringsfeil: returner 422, ikke "tøm felt".
+*/
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+import { existsSync } from 'fs';
+
+const { slug } = Astro.params;
+
+const businessData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/businesses.normalized.json'), 'utf-8')
+);
+
+const business = businessData.find((b: any) => b.slug === slug);
+
+if (!business) {
+  return Astro.redirect('/404');
+}
+
+// Load people data to find employees
+const peopleData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/people.normalized.json'), 'utf-8')
+);
+
+// Load streets data for address
+const streetsData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/streets.normalized.json'), 'utf-8')
+);
+
+// Load stories data to find mentions
+let storiesData: any[] = [];
+try {
+  const storiesPath = join(process.cwd(), 'content/data/stories.normalized.json');
+  if (existsSync(storiesPath)) {
+    storiesData = JSON.parse(await readFile(storiesPath, 'utf-8'));
+  }
+} catch (e) {
+  console.log('Stories not found');
+}
+
+// Try to load extended data if it exists
+let extendedData: any = {};
+try {
+  const extendedPath = join(process.cwd(), `content/data/${slug}-extended.json`);
+  if (existsSync(extendedPath)) {
+    extendedData = JSON.parse(await readFile(extendedPath, 'utf-8'));
+  }
+} catch (e) {
+  // No extended data, use basic data only
+}
+
+// Merge extended data with business data
+const fullBusiness = { ...business, ...extendedData };
+
+// Find employees (people who work at this business)
+const employees = peopleData.filter((p: any) => 
+  p.employer_id === business.id || 
+  (business.employees && business.employees.includes(p.id))
+);
+
+// Find street
+const street = business.street_id ? streetsData.find((s: any) => s.id === business.street_id) : null;
+
+// Find stories that mention this business
+const mentioningStories = storiesData.filter((story: any) => {
+  const mentions = story.mentions || [];
+  return mentions.some((m: any) => 
+    m.entity_id === business.id || 
+    (m.entity_slug === slug && m.entity_type === 'business')
+  );
+});
+
+// Use LLM-generated data or fallbacks
+const contactInfo = fullBusiness.contact_info || 'Send a raven';
+const openingHours = fullBusiness.opening_hours || [
+  "If the door is open, we're open. If it's closed... guess!",
+  "Weekends: When the sun feels like it",
+  "Tuesdays: Closed for contemplation"
+];
+const statistics = fullBusiness.statistics || [
+  { label: "Mysterious Occurrences", value: "42" },
+  { label: "Troll Sightings", value: "7" },
+  { label: "Customer Giggles/Day", value: "23" },
+  { label: "Unexplained Events", value: "156" }
+];
+const funFacts = fullBusiness.fun_facts || [
+  "Once visited by a troll (allegedly)",
+  "Walls hum at 3:17 PM daily",
+  "Best reviewed by forest creatures"
+];
+
+// Parse description_full into sections if it has markdown headings
+const sections: Array<{ title: string; content: string }> = [];
+if (fullBusiness.description_full) {
+  const parts = fullBusiness.description_full.split(/\*\*\[([^\]]+)\]\*\*/);
+  for (let i = 1; i < parts.length; i += 2) {
+    sections.push({
+      title: parts[i],
+      content: parts[i + 1]?.trim() || ''
+    });
+  }
+}
+
+const title = fullBusiness.name;
+const description = fullBusiness.description_short || fullBusiness.description || `${fullBusiness.name} - A business in Pjuskeby`;
+---
+
+<BaseLayout title={title} description={description}>
+  <style>
+    .business-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .business-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .business-name {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0 0 0.5rem 0;
+    }
+    
+    .business-category {
+      font-size: 1.2rem;
+      color: #64748b;
+    }
+    
+    .business-image {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .business-image img {
+      width: 100%;
+      display: block;
+    }
+    
+    .business-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    
+    @media (max-width: 968px) {
+      .business-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 1.5rem 0;
+    }
+    
+    .card-content {
+      color: #475569;
+      line-height: 1.8;
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #fbbf24;
+    }
+    
+    .info-box-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #92400e;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+    
+    .info-box-content {
+      color: #78350f;
+    }
+    
+    .info-box-link {
+      color: #1e40af;
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+      margin-top: 0.5rem;
+    }
+    
+    .info-box-link:hover {
+      text-decoration: underline;
+    }
+    
+    .employee-list, .story-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .employee-list li, .story-list li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .stat-card {
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      border: 2px solid #e2e8f0;
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #3b82f6;
+      margin: 0;
+    }
+    
+    .stat-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.3rem;
+    }
+  </style>
+
+  <div class="business-container">
+    <header class="business-header">
+      <h1 class="business-name">{fullBusiness.name}</h1>
+      {fullBusiness.category && (
+        <p class="business-category">{fullBusiness.category}</p>
+      )}
+    </header>
+
+    {fullBusiness.slug && (
+      <div class="business-image">
+        <img 
+          src={`/assets/agatha/business/${fullBusiness.slug}.png`}
+          alt={fullBusiness.name}
+          onerror="this.style.display='none'"
+        />
+      </div>
+    )}
+
+    <div class="business-grid">
+      <!-- LEFT COLUMN: Description -->
+      <div>
+        {sections.length > 0 ? (
+          sections.map((section) => (
+            <div class="card">
+              <h2 class="card-title">{section.title}</h2>
+              <div class="card-content">{section.content}</div>
+            </div>
+          ))
+        ) : fullBusiness.description_full ? (
+          <div class="card">
+            <h2 class="card-title">About This Business</h2>
+            <div class="card-content">{fullBusiness.description_full}</div>
+          </div>
+        ) : (
+          <div class="card">
+            <h2 class="card-title">About This Business</h2>
+            <p style="color: #94a3b8;">No description available yet.</p>
+          </div>
+        )}
+      </div>
+
+      <!-- RIGHT COLUMN: Info Boxes -->
+      <div>
+        {/* Address & Contact */}
+        <div class="info-box">
+          <h3 class="info-box-title">📍 Address & Contact</h3>
+          <div class="info-box-content">
+            {street ? (
+              <>
+                <strong>{street.name}</strong><br/>
+                <small style="color: #92400e;">Pjuskeby, Norway (probably)</small>
+              </>
+            ) : (
+              <p>Somewhere between here and there</p>
+            )}
+            <a href="/kart" class="info-box-link">View on Map →</a>
+            <hr style="border: none; border-top: 1px solid #fbbf24; margin: 1rem 0;" />
+            <p style="margin: 0.5rem 0;"><strong>How to reach us:</strong> {contactInfo}</p>
+          </div>
+        </div>
+
+        {/* Opening Hours */}
+        <div class="info-box">
+          <h3 class="info-box-title">🕐 Opening Hours</h3>
+          <div class="info-box-content">
+            <ul style="margin: 0; padding-left: 1rem; list-style: none;">
+              {openingHours.map((hour) => (
+                <li style="margin-bottom: 0.5rem;">• {hour}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* People Working Here */}
+        {employees.length > 0 && (
+          <div class="info-box">
+            <h3 class="info-box-title">👥 People Working Here ({employees.length})</h3>
+            <ul class="employee-list">
+              {employees.map((emp: any) => (
+                <li>
+                  <a href={`/personer/${emp.slug}`} class="info-box-link">
+                    {emp.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Stories Mentioning This Business */}
+        {mentioningStories.length > 0 && (
+          <div class="info-box">
+            <h3 class="info-box-title">📖 Featured in Stories ({mentioningStories.length})</h3>
+            <ul class="story-list">
+              {mentioningStories.slice(0, 5).map((story: any) => (
+                <li>
+                  <a href={`/historier/${story.slug}`} class="info-box-link">
+                    {story.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {mentioningStories.length > 5 && (
+              <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #92400e;">
+                ...and {mentioningStories.length - 5} more
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Quirky Statistics */}
+        <div class="info-box">
+          <h3 class="info-box-title">📊 Peculiar Statistics</h3>
+          <div class="stats-grid">
+            {statistics.map((stat) => (
+              <div class="stat-card">
+                <p class="stat-value">{stat.value}</p>
+                <p class="stat-label">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Fun Facts */}
+        <div class="info-box">
+          <h3 class="info-box-title">🎭 Fun Facts</h3>
+          <div class="info-box-content">
+            <ul style="margin: 0; padding-left: 1.5rem;">
+              {funFacts.map((fact) => (
+                <li>{fact}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="/bedrifter" style="color: #3b82f6; text-decoration: none; font-weight: 600;">
+        ← Back to all businesses
+      </a>
+    </div>
+  </div>
+</BaseLayout>

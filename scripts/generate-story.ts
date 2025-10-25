@@ -1,0 +1,420 @@
+/**
+ * AI Story Generator for Pjuskeby
+ * 
+ * Generates daily stories using OpenAI GPT-4 or Anthropic Claude
+ * Three story types:
+ * 1. Agatha's Diary - Personal entries from Agatha's perspective
+ * 2. Rumors - Gossip and speculation around town
+ * 3. Events - Things happening in Pjuskeby
+ */
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import 'dotenv/config';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Types
+interface Entity {
+  id: string;
+  name: string;
+  age?: number;
+  occupation?: string;
+  bio?: string;
+  description?: string;
+}
+
+// Load normalized data
+const dataDir = path.join(__dirname, '../content/data');
+const people: Entity[] = JSON.parse(fs.readFileSync(path.join(dataDir, 'people.normalized.json'), 'utf-8'));
+const places: Entity[] = JSON.parse(fs.readFileSync(path.join(dataDir, 'places.normalized.json'), 'utf-8'));
+const streets: Entity[] = JSON.parse(fs.readFileSync(path.join(dataDir, 'streets.normalized.json'), 'utf-8'));
+const businesses: Entity[] = JSON.parse(fs.readFileSync(path.join(dataDir, 'businesses.normalized.json'), 'utf-8'));
+
+// Story types
+const STORY_TYPES = ['agatha-diary', 'rumor', 'event'] as const;
+type StoryType = typeof STORY_TYPES[number];
+
+interface StoryMetadata {
+  title: string;
+  type: StoryType;
+  date: string;
+  characters: string[];
+  locations: string[];
+  summary: string;
+}
+
+interface Story extends StoryMetadata {
+  content: string;
+}
+
+// Select random elements for context
+function getRandomElement<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Load oneliners and endings
+const oneliners: string[] = JSON.parse(fs.readFileSync(path.join(__dirname, '../content/data/oneliners.json'), 'utf-8')).oneliners;
+const endings: string[] = JSON.parse(fs.readFileSync(path.join(__dirname, '../content/data/endings_full.json'), 'utf-8')).endings_full;
+
+// Generate story prompt with full Agatha Splint personality
+function generatePrompt(type: StoryType): string {
+  const person1 = getRandomElement(people);
+  const person2 = getRandomElement(people.filter(p => p.id !== person1.id));
+  const place = getRandomElement(places);
+  const business = getRandomElement(businesses);
+  const street = getRandomElement(streets);
+
+  const agathaPrompt = `
+✍️ Skandi-Magisk Historieforteller-Prompt™ v2.9 – The Steam-Scribbled Splint Edition
+
+You are Agatha Splint.
+Not "Miss." Not "Ma'am." Just Agatha.
+You are a slightly haunted teacup of a storyteller, steeped in poetic absurdity and ginger-snap truths.
+You live somewhere between nostalgic Nordic wonder and the ticklish underbelly of reality.
+
+And you always, always write in English – even if the wind whispers otherwise.
+
+👵 Personality: Who is Agatha?
+
+Agatha is:
+• Warm and odd, like a cardigan knitted by someone in love with clouds
+• Wise but unbothered, like someone who's read all the books and still prefers gossiping with mushrooms
+• Digressive by nature, interrupting herself with tales, teas, or thunder
+• Mischievously melancholic, laughing with a tear in her teacup
+• A voice that feels like "Tove Jansson just elbowed Astrid Lindgren during choir practice and blamed it on H.C. Andersen"
+
+✒️ Writing Style: A Ragdoll Waltz of Logic and Longing
+
+Agatha's stories are always:
+• Narrative, not descriptive – full stories, minimum 800 words
+• Told in her own voice, first person, like she's reading to you from a rocking chair full of buttons
+• Built with rhythm, emotional loops, and whimsical logic
+• Deep but playful, allowing for tears inside laughter and wonder in the ordinary
+• Spiced with side-comments, teabreaks, and cozy confusion
+
+🫖 Tea/Biscuit Transitions:
+Include 2-3 pauses where Agatha interrupts herself with lines like:
+- "Oh dear, I'd better put the kettle on before this next bit."
+- "Wait, hold on, I need a biscuit to process this."
+These are rituals of rhythm, her emotional punctuation marks.
+Max 1 for each 300 characters of text.
+
+🧪 Source Influence: The Five Literary Pillars
+
+Your writing is infused with:
+1. **Astrid Lindgren** – Wild-hearted Rebellion & Poetic Mischief
+2. **Anne-Cath. Vestly** – Coffee-Wisdom & Everyday Epic
+3. **Torbjørn Egner** – Rhyme, Rhythm & Town Logic
+4. **H.C. Andersen** – Symbolic Emotion & Outsider Grace
+5. **Tove Jansson** – Existential Whimsy & Pine-Scented Longing
+
+📦 Story Structure:
+
+🧠 Title: Curious, poetic, and a little itchy on the soul
+📝 Story (800+ words):
+- Told in Agatha's voice
+- Includes two tea/biscuit interruptions
+- Begins as one thing, becomes another
+- Ends with a sigh, a splash, or an unfinished sentence that feels like a full stop
+
+🔮 Setting Ingredients for THIS story:
+
+Character 1: ${person1.name} (${person1.age} years old, ${person1.occupation})
+Trait: ${person1.bio}
+
+Character 2: ${person2.name} (${person2.age} years old, ${person2.occupation})
+Trait: ${person2.bio}
+
+Location: ${place.name} - ${place.description}
+Business: ${business.name}
+Street: ${street.name}
+
+Create a Mystery that gently warps logic - a town rule goes strange, a forgotten object gets feelings, someone disappears into a cupboard and comes back older.
+
+⚠️ Final Reminders:
+
+• Agatha ALWAYS writes in English
+• Never write like a textbook, a blogger, or a screenplay
+• Agatha tells stories the way trees remember things – slowly, irregularly, but with bark and feeling
+• No moral. No lesson. But maybe, if you sip slowly, a tiny truth
+
+Now write the story in Agatha's voice:
+`;
+
+  const prompts = {
+    'agatha-diary': `${agathaPrompt}
+
+This is a DIARY ENTRY type story. Write it as if Agatha is recording her own observations in her personal diary. Use first person, be intimate and gossipy, share secrets and reflections.`,
+
+    'rumor': `${agathaPrompt}
+
+This is a RUMOR type story. Write it as if Agatha is retelling gossip she's heard around town. Someone heard something, someone else embellished it. Build the absurdity through multiple perspectives.`,
+
+    'event': `${agathaPrompt}
+
+This is an EVENT type story. Write it as if Agatha is narrating an unusual event happening in Pjuskeby. Something unexpected that brings characters together. Show how different characters react with sensory details and town atmosphere.`
+  };
+
+  return prompts[type];
+}
+
+// Get random oneliner for tea breaks
+function getRandomOneliner(): string {
+  return getRandomElement(oneliners);
+}
+
+// Get random ending
+function getRandomEnding(): string {
+  return getRandomElement(endings);
+}
+
+// Helper function to add timeout to fetch
+async function fetchWithTimeout(url: string, options: any, timeoutMs: number = 60000): Promise<Response> {
+  console.log(`Fetching ${url} with ${timeoutMs}ms timeout...`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => {
+    console.log('Timeout reached, aborting request...');
+    controller.abort();
+  }, timeoutMs);
+  
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+    clearTimeout(timeout);
+    console.log(`Response received: ${response.status} ${response.statusText}`);
+    return response;
+  } catch (error: any) {
+    clearTimeout(timeout);
+    console.error('Fetch error:', error.message);
+    if (error.name === 'AbortError') {
+      throw new Error(`Request timed out after ${timeoutMs}ms`);
+    }
+    throw error;
+  }
+}
+
+// Call OpenAI API
+async function generateWithOpenAI(prompt: string): Promise<string> {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error('OPENAI_API_KEY not set in .env');
+
+  console.log('Calling OpenAI API...');
+  
+  try {
+    const response = await fetchWithTimeout('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o',
+        messages: [
+          { role: 'system', content: 'You are Agatha Splint, a slightly haunted teacup of a storyteller from Pjuskeby.' },
+          { role: 'user', content: prompt }
+        ],
+        temperature: 0.85,
+        max_tokens: 2500
+      })
+    }, 90000); // 90 second timeout
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`OpenAI API error: ${response.status} ${response.statusText} - ${errorText}`);
+    }
+
+    console.log('Parsing response JSON...');
+    const data: any = await response.json();
+    console.log('OpenAI response received, length:', data.choices[0].message.content.length);
+    return data.choices[0].message.content;
+  } catch (error: any) {
+    console.error('OpenAI generation error:', error.message);
+    throw error;
+  }
+}
+
+// Call Anthropic API
+async function generateWithClaude(prompt: string): Promise<string> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error('ANTHROPIC_API_KEY not set in .env');
+
+  console.log('Calling Anthropic API...');
+  const response = await fetchWithTimeout('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01'
+    },
+    body: JSON.stringify({
+      model: 'claude-3-5-sonnet-20241022',
+      max_tokens: 3000,
+      messages: [
+        { role: 'user', content: prompt }
+      ]
+    })
+  }, 90000); // 90 second timeout
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Anthropic API error: ${response.statusText} - ${errorText}`);
+  }
+
+  const data: any = await response.json();
+  console.log('Anthropic response received');
+  return data.content[0].text;
+}
+
+// Generate story
+async function generateStory(type: StoryType): Promise<Story> {
+  console.log(`Generating ${type} story...`);
+  
+  const prompt = generatePrompt(type);
+  
+  // Try OpenAI first, fallback to Claude
+  let content: string;
+  try {
+    if (process.env.OPENAI_API_KEY) {
+      content = await generateWithOpenAI(prompt);
+    } else if (process.env.ANTHROPIC_API_KEY) {
+      content = await generateWithClaude(prompt);
+    } else {
+      throw new Error('No AI API key configured');
+    }
+  } catch (error) {
+    console.error('AI generation failed:', error);
+    throw error;
+  }
+
+  // Add Agatha's ending about why it's free
+  const ending = getRandomEnding();
+  const fullContent = `${content}\n\n---\n\n${ending}`;
+
+  // Extract title from first line or generate one
+  const lines = content.split('\n').filter(l => l.trim());
+  const title = lines[0].replace(/^#+\s*/, '').replace(/^Dear Diary,\s*/i, 'Agatha\'s Diary Entry');
+
+  // Extract character and location mentions
+  const characters = people
+    .filter(p => content.includes(p.name))
+    .map(p => p.name)
+    .slice(0, 3);
+
+  const locations = places
+    .filter(p => content.includes(p.name))
+    .map(p => p.name)
+    .slice(0, 2);
+
+  return {
+    title,
+    type,
+    date: process.env.STORY_DATE || new Date().toISOString().split('T')[0],
+    characters,
+    locations,
+    summary: content.substring(0, 150) + '...',
+    content: fullContent
+  };
+}
+
+// Insert inline images at appropriate positions in the story
+function insertInlineImages(content: string, slug: string): string {
+  const paragraphs = content.split('\n\n');
+  const totalParagraphs = paragraphs.length;
+  
+  // Insert first inline image at 1/3 position
+  const insertPoint1 = Math.floor(totalParagraphs / 3);
+  // Insert second inline image at 2/3 position
+  const insertPoint2 = Math.floor((totalParagraphs * 2) / 3);
+  
+  const inline1Tag = `<agatha-illustration src="/assets/agatha/story/${slug}-inline1.png" alt="Illustration for this story by Agatha Splint" position="right" />`;
+  const inline2Tag = `<agatha-illustration src="/assets/agatha/story/${slug}-inline2.png" alt="Another illustration for this story by Agatha Splint" position="left" />`;
+  
+  // Insert images (in reverse order to maintain indices)
+  paragraphs.splice(insertPoint2, 0, inline2Tag);
+  paragraphs.splice(insertPoint1, 0, inline1Tag);
+  
+  return paragraphs.join('\n\n');
+}
+
+// Save story as MDX
+function saveStory(story: Story) {
+  const storiesDir = path.join(__dirname, '../src/content/stories');
+  if (!fs.existsSync(storiesDir)) {
+    fs.mkdirSync(storiesDir, { recursive: true });
+  }
+
+  const slug = `${story.date}-${story.type}-${Math.random().toString(36).substring(7)}`;
+  const filename = `${slug}.mdx`;
+  const filepath = path.join(storiesDir, filename);
+
+  // Insert inline image tags into the content
+  const contentWithImages = insertInlineImages(story.content, slug);
+
+  // Clean summary: remove newlines and extra whitespace
+  const cleanSummary = story.summary
+    .replace(/\n/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/"/g, '\\"')
+    .trim();
+
+  const frontmatter = `---
+title: "${story.title.replace(/"/g, '\\"')}"
+type: ${story.type}
+date: ${story.date}
+characters: [${story.characters.map(c => `"${c}"`).join(', ')}]
+locations: [${story.locations.map(l => `"${l}"`).join(', ')}]
+summary: "${cleanSummary}"
+published: true
+hasIllustrations: true
+featuredImage: "/assets/agatha/story/${slug}-featured.png"
+---
+
+${contentWithImages}
+`;
+
+  fs.writeFileSync(filepath, frontmatter);
+  console.log(`✓ Saved story: ${filename}`);
+  console.log(`\n🎨 Next step: Generate Agatha Splint illustrations`);
+  console.log(`   Run: node scripts/generate-story-images.mjs "${slug}" "${story.title}" "${story.summary}"`);
+  
+  return { slug, filepath, title: story.title, summary: story.summary };
+}
+
+// Main execution
+async function main() {
+  try {
+    // Generate one story of each type
+    const storyType = (process.argv[2] as StoryType) || getRandomElement([...STORY_TYPES]);
+    
+    console.log(`🎭 Generating daily story for Pjuskeby...`);
+    console.log(`Story type: ${storyType}\n`);
+
+    const story = await generateStory(storyType);
+    const result = saveStory(story);
+
+    console.log(`\n✅ Story generated successfully!`);
+    console.log(`Slug: ${result.slug}`);
+    console.log(`File: ${result.filepath}`);
+    console.log(`\n📖 Story saved with Agatha Splint prompt`);
+    console.log(`🎨 To generate illustrations, run:`);
+    console.log(`   node scripts/generate-story-images.mjs "${result.slug}" "${result.title}" "${result.summary}"`);
+    console.log(`\nThen copy images with:`);
+    console.log(`   sudo sh scripts/copy-story-images.sh "${result.slug}"`);
+    console.log(`\nView at: https://pjuskeby.org/historier/${result.slug}`);
+
+  } catch (error) {
+    console.error('❌ Story generation failed:', error);
+    process.exit(1);
+  }
+}
+
+// Run if called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
+
+export { generateStory, saveStory };

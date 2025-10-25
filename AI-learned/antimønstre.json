@@ -1,6 +1,6 @@
 {
   "description": "Forbudte mønstre og anti-patterns som Copilot må unngå",
-  "updated": "2025-10-16T12:00:00Z",
+  "updated": "2025-10-17T06:45:00Z",
   "patterns": [
     {
       "id": 1,
@@ -85,6 +85,18 @@
         "comment.status = 'approved' // uten moderator-sjekk"
       ],
       "severity": "high"
+    },
+    {
+      "id": 9,
+      "pattern": "Starte server på opptatt port uten sjekk",
+      "why": "Port 4100 er allokert i koblinger.json, må sjekke om allerede i bruk før start",
+      "examples": [
+        "npm run api (when already running)",
+        "fastify.listen({ port: 4100 }) // uten EADDRINUSE handling",
+        "Starting background process without tracking PID"
+      ],
+      "severity": "high",
+      "fix": "Check if port is in use with 'netstat -tln | grep 4100' or 'lsof -i :4100' before starting server"
     }
   ]
 }

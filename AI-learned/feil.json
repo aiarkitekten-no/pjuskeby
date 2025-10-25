@@ -1,5 +1,16 @@
 {
   "description": "Ting som IKKE fungerer eller har feilet. Oppdateres ved problemer.",
-  "updated": "2025-10-16T12:00:00Z",
-  "items": []
+  "updated": "2025-10-17T06:45:00Z",
+  "items": [
+    {
+      "id": 1,
+      "date": "2025-10-17",
+      "issue": "Starting API server when already running causes EADDRINUSE error",
+      "context": "npm run api & started server in background (PID 771400), then attempted npm run api again",
+      "error": "Error: listen EADDRINUSE: address already in use 0.0.0.0:4100",
+      "root_cause": "Background process not tracked, attempted to start duplicate server on same port",
+      "fix": "Always check if port 4100 is in use before starting: netstat -tln | grep 4100 or lsof -i :4100",
+      "prevention": "Add port-check logic to npm run api script, or use process manager like PM2"
+    }
+  ]
 }

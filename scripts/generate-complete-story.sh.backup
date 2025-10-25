@@ -1,0 +1,68 @@
+#!/bin/sh
+# Complete workflow for generating an Agatha Splint story with illustrations
+# Usage: sh scripts/generate-complete-story.sh [story-type]
+# Story types: agatha-diary, rumor, event (random if not specified)
+
+set -e
+
+STORY_TYPE="${1:-}"
+PROJECT_DIR="/var/www/vhosts/pjuskeby.org"
+
+cd "$PROJECT_DIR"
+
+echo "🎭 Agatha Splint Story Generator"
+echo "================================"
+echo ""
+
+# Step 1: Generate story text with AI
+echo "📝 Step 1/4: Generating story with Agatha Splint prompt..."
+if [ -n "$STORY_TYPE" ]; then
+  STORY_OUTPUT=$(node --import tsx scripts/generate-story.ts "$STORY_TYPE" 2>&1)
+else
+  STORY_OUTPUT=$(node --import tsx scripts/generate-story.ts 2>&1)
+fi
+
+echo "$STORY_OUTPUT"
+
+# Extract slug from output
+SLUG=$(echo "$STORY_OUTPUT" | grep "Slug:" | sed 's/.*Slug: //')
+TITLE=$(echo "$STORY_OUTPUT" | grep -A1 "node scripts/generate-story-images.mjs" | tail -1 | cut -d'"' -f2)
+SUMMARY=$(echo "$STORY_OUTPUT" | grep -A1 "node scripts/generate-story-images.mjs" | tail -1 | cut -d'"' -f4)
+
+if [ -z "$SLUG" ]; then
+  echo "❌ Failed to extract story slug"
+  exit 1
+fi
+
+echo ""
+echo "✓ Story generated with slug: $SLUG"
+echo ""
+
+# Step 2: Generate illustrations
+echo "🎨 Step 2/4: Generating Agatha Splint illustrations (this takes ~60 seconds)..."
+node scripts/generate-story-images.mjs "$SLUG" "$TITLE" "$SUMMARY"
+
+echo ""
+echo "✓ Illustrations generated to /tmp/"
+echo ""
+
+# Step 3: Copy images to public (requires sudo)
+echo "📦 Step 3/4: Copying images to public directory..."
+echo "   (This requires sudo password)"
+sudo sh scripts/copy-story-images.sh "$SLUG"
+
+echo ""
+echo "✓ Images copied and permissions set"
+echo ""
+
+# Step 4: Build and deploy
+echo "🚀 Step 4/4: Building and deploying..."
+npm run build 2>&1 | tail -5
+cp -r dist/* httpdocs/
+pm2 restart pjuskeby-web --silent
+
+echo ""
+echo "✅ Complete! Story published with illustrations"
+echo ""
+echo "📖 View at: https://pjuskeby.org/historier/$SLUG"
+echo ""

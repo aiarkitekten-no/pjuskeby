@@ -1,0 +1,530 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "e4a523aa-2f3d-4058-963e-084cc244b398",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.65890736615355,
+          59.44364764871322
+        ]
+      },
+      "properties": {
+        "id": "e4a523aa-2f3d-4058-963e-084cc244b398",
+        "slug": "milly-wiggleflap",
+        "name": "Milly Wiggleflap",
+        "type": "person",
+        "age": 78,
+        "occupation": "The Pudding Forecast Centre",
+        "street_id": "c3355503-8070-40eb-99fb-25e05091d9b8",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "76f36cba-7ff2-456a-a748-995987bf155a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.678828698969951,
+          59.45129269308494
+        ]
+      },
+      "properties": {
+        "id": "76f36cba-7ff2-456a-a748-995987bf155a",
+        "slug": "boris-blundercheek",
+        "name": "Boris Blundercheek",
+        "type": "person",
+        "age": 63,
+        "occupation": "The Institute of Oops",
+        "street_id": "0fdcdccc-64c0-4649-9d6b-8762ca8abd25",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "683ee918-bced-46dc-b7e4-0065b090de56",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.683914958255892,
+          59.40927941784765
+        ]
+      },
+      "properties": {
+        "id": "683ee918-bced-46dc-b7e4-0065b090de56",
+        "slug": "franny-featherknees",
+        "name": "Franny Featherknees",
+        "type": "person",
+        "age": 42,
+        "occupation": "Sleepytime Sandwich Co.",
+        "street_id": "5c61ddd5-227c-4287-ac7d-591437f23fa0",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "5032aa48-0e1e-4751-97c3-cd09dc3f2531",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.645114715987402,
+          59.442106479225615
+        ]
+      },
+      "properties": {
+        "id": "5032aa48-0e1e-4751-97c3-cd09dc3f2531",
+        "slug": "nigel-noodlefork",
+        "name": "Nigel Noodlefork",
+        "type": "person",
+        "age": 54,
+        "occupation": "Department of Silly Implements",
+        "street_id": "8842b83b-f5fb-4f48-a353-0e040a6a6a17",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "e7630b44-a844-4e1c-9ae7-5d6142839964",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.639298581888504,
+          59.44448734685721
+        ]
+      },
+      "properties": {
+        "id": "e7630b44-a844-4e1c-9ae7-5d6142839964",
+        "slug": "dotty-mcflap",
+        "name": "Dotty McFlap",
+        "type": "person",
+        "age": 69,
+        "occupation": "The Very Curious Café",
+        "street_id": "ed1b9cd9-6426-4715-a845-40c546c55edb",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "a283c357-b185-43d5-a6cb-abcba124cb69",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.670462833007727,
+          59.42611219853244
+        ]
+      },
+      "properties": {
+        "id": "a283c357-b185-43d5-a6cb-abcba124cb69",
+        "slug": "waldo-picklethump",
+        "name": "Waldo Picklethump",
+        "type": "person",
+        "age": 58,
+        "occupation": "Echo & Co. Acoustic Consulting",
+        "street_id": "ea3f1b38-0022-44f9-936c-cb40927ce36b",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "db5493a8-53d3-479f-9e50-556d19ffc4cd",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.67182552935399,
+          59.450246992988305
+        ]
+      },
+      "properties": {
+        "id": "db5493a8-53d3-479f-9e50-556d19ffc4cd",
+        "slug": "tina-tumbletwig",
+        "name": "Tina Tumbletwig",
+        "type": "person",
+        "age": 47,
+        "occupation": "Time for Tea Therapy",
+        "street_id": "fd7135c5-3241-441a-b6e2-e2907d03f148",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b448a69e-b04e-465f-aae9-31f3f010012b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.680828146922458,
+          59.42074374456595
+        ]
+      },
+      "properties": {
+        "id": "b448a69e-b04e-465f-aae9-31f3f010012b",
+        "slug": "percy-snootwhistle",
+        "name": "Percy Snootwhistle",
+        "type": "person",
+        "age": 66,
+        "occupation": "The Slightly Odd Bank",
+        "street_id": "a894ad0f-512b-44ae-b62b-b5595b0185d4",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "f60a718c-719e-426d-9a9d-af10d4b497da",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.640436687919246,
+          59.435766271004084
+        ]
+      },
+      "properties": {
+        "id": "f60a718c-719e-426d-9a9d-af10d4b497da",
+        "slug": "lola-fizzletwig",
+        "name": "Lola Fizzletwig",
+        "type": "person",
+        "age": 38,
+        "occupation": "Wiggle & Sons Millinery",
+        "street_id": "c8f34907-1e96-4c7b-ba73-9a2882d5bf35",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6c6115db-333d-40cb-b6d2-9cad3d1d116e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.691624635800983,
+          59.42292612604062
+        ]
+      },
+      "properties": {
+        "id": "6c6115db-333d-40cb-b6d2-9cad3d1d116e",
+        "slug": "eustace-jumblebottom",
+        "name": "Eustace Jumblebottom",
+        "type": "person",
+        "age": 83,
+        "occupation": "Mayor of His Own Sofa",
+        "street_id": "e056a600-50da-44ec-845b-abc19e00941c",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "8d8df152-ea9f-4273-ac1d-64b2ed8cf77d",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.687257478428611,
+          59.42119304485022
+        ]
+      },
+      "properties": {
+        "id": "8d8df152-ea9f-4273-ac1d-64b2ed8cf77d",
+        "slug": "nora-bumblebash",
+        "name": "Nora Bumblebash",
+        "type": "person",
+        "age": 59,
+        "occupation": "The Aquarium of Forgotten Feelings",
+        "street_id": "731e188b-c0e7-4ed4-88b7-7c0426149bb2",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "8d1287c0-102e-442c-bbe6-42c19a71ee81",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.618519314651927,
+          59.41708883313378
+        ]
+      },
+      "properties": {
+        "id": "8d1287c0-102e-442c-bbe6-42c19a71ee81",
+        "slug": "gary-tiddlestack",
+        "name": "Gary Tiddlestack",
+        "type": "person",
+        "age": 50,
+        "occupation": "SnailSpeed Logistics",
+        "street_id": "93feb320-7ffa-48b5-8a40-6be312d9f20f",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "abe41232-b17e-40da-a446-2f7e5d07bd9a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.692593928683776,
+          59.444637344135955
+        ]
+      },
+      "properties": {
+        "id": "abe41232-b17e-40da-a446-2f7e5d07bd9a",
+        "slug": "hilda-spranklepuff",
+        "name": "Hilda Spranklepuff",
+        "type": "person",
+        "age": 61,
+        "occupation": "Pjuskeby Poetry Laundrette",
+        "street_id": "84ed5ba0-ab5b-4e52-ab59-d6fc7e09bd65",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "18baa995-3f92-4370-9cd8-2fa79082e6f3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.655100130860914,
+          59.41827910775211
+        ]
+      },
+      "properties": {
+        "id": "18baa995-3f92-4370-9cd8-2fa79082e6f3",
+        "slug": "oswald-crankwhistle",
+        "name": "Oswald Crankwhistle",
+        "type": "person",
+        "age": 67,
+        "occupation": "The Secret Raspberry Society",
+        "street_id": "de77f25c-fe74-4ea8-9639-7ca1daaa5df1",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "40c3ef56-e681-4c1d-a4f9-ab96b68b8954",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.628299653143722,
+          59.42979762590859
+        ]
+      },
+      "properties": {
+        "id": "40c3ef56-e681-4c1d-a4f9-ab96b68b8954",
+        "slug": "trixie-wobblethorpe",
+        "name": "Trixie Wobblethorpe",
+        "type": "person",
+        "age": 46,
+        "occupation": "Invisible Utensils Ltd.",
+        "street_id": "4ab03928-6f24-4d40-808b-6dcb51218d41",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "d1003e7f-cdc7-421d-9a72-25c4485e5a73",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.660831261133543,
+          59.434991226129306
+        ]
+      },
+      "properties": {
+        "id": "d1003e7f-cdc7-421d-9a72-25c4485e5a73",
+        "slug": "franklin-gloop",
+        "name": "Franklin Gloop",
+        "type": "person",
+        "age": 75,
+        "occupation": "Weatherproof Pudding Labs",
+        "street_id": "da89a342-efb6-4a2b-bdfe-3052efee90d9",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "a1eb64d0-88da-44a5-a82f-a15b084e5f8e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.675908460410225,
+          59.449393444808585
+        ]
+      },
+      "properties": {
+        "id": "a1eb64d0-88da-44a5-a82f-a15b084e5f8e",
+        "slug": "beatrix-fafflebloom",
+        "name": "Beatrix Fafflebloom",
+        "type": "person",
+        "age": 44,
+        "occupation": "Canine Contemplation Studio",
+        "street_id": "a7f47da7-be97-42c4-bbbf-68c50d3373fe",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "70b304ef-a64e-4a96-aa87-6ab3fff74ba7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.63937542478296,
+          59.43125296439689
+        ]
+      },
+      "properties": {
+        "id": "70b304ef-a64e-4a96-aa87-6ab3fff74ba7",
+        "slug": "clive-flumpington",
+        "name": "Clive Flumpington",
+        "type": "person",
+        "age": 70,
+        "occupation": "The Illuminated Bureau of Naming Things",
+        "street_id": "bcc5466b-5d1a-44fd-a90d-9872dfe97bc0",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "5feb5ac6-a138-40b1-8c3b-d274a67f4d21",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.643906885823368,
+          59.40933806984384
+        ]
+      },
+      "properties": {
+        "id": "5feb5ac6-a138-40b1-8c3b-d274a67f4d21",
+        "slug": "edna-snortwig",
+        "name": "Edna Snortwig",
+        "type": "person",
+        "age": 62,
+        "occupation": "Museum of Accidental Communication",
+        "street_id": "cf5625be-78b5-4b3f-89d7-dfa6edcf20cd",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ed9ed12f-dbd4-4515-b5a7-1761fd7c3928",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.656572508894492,
+          59.4069158719276
+        ]
+      },
+      "properties": {
+        "id": "ed9ed12f-dbd4-4515-b5a7-1761fd7c3928",
+        "slug": "benny-tootletoe",
+        "name": "Benny Tootletoe",
+        "type": "person",
+        "age": 39,
+        "occupation": "Institute for Fashion Ambiguity",
+        "street_id": "061f7042-b0a5-4cce-b058-81d5a6482ddb",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "b44b961f-2bed-401e-9032-aa9c63a6430a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.66573598114679,
+          59.462928886429296
+        ]
+      },
+      "properties": {
+        "id": "b44b961f-2bed-401e-9032-aa9c63a6430a",
+        "slug": "vera-scrumbleshine",
+        "name": "Vera Scrumbleshine",
+        "type": "person",
+        "age": 53,
+        "occupation": "The Spotless Nothing Co.",
+        "street_id": "edc72f40-e51a-4db7-9fe2-f410a798a807",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c18bd814-c708-47f7-8b6f-5c8fb01231d6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.686333818556875,
+          59.45979115529415
+        ]
+      },
+      "properties": {
+        "id": "c18bd814-c708-47f7-8b6f-5c8fb01231d6",
+        "slug": "horace-blibb",
+        "name": "Horace Blibb",
+        "type": "person",
+        "age": 48,
+        "occupation": "Pjuskeby Postal & Peculiarities",
+        "street_id": "cdd9c93c-8688-492e-88cb-8846f1985e4c",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "3fa7d2cb-3ce5-42ca-9116-cd76204cd2a8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.633032925699933,
+          59.4214457857564
+        ]
+      },
+      "properties": {
+        "id": "3fa7d2cb-3ce5-42ca-9116-cd76204cd2a8",
+        "slug": "winifred-drizzlebottom",
+        "name": "Winifred Drizzlebottom",
+        "type": "person",
+        "age": 68,
+        "occupation": "Wheystation Forecasting",
+        "street_id": "d89b961d-a2f0-427d-b3ff-73be6c48a855",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2847949c-0dd6-42f6-add1-85b3e208a92c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.650177177462771,
+          59.43226606562609
+        ]
+      },
+      "properties": {
+        "id": "2847949c-0dd6-42f6-add1-85b3e208a92c",
+        "slug": "reginald-plonksnort",
+        "name": "Reginald Plonksnort",
+        "type": "person",
+        "age": 60,
+        "occupation": "Symphony of Unintentional Sound",
+        "street_id": "72b374d3-cb92-4c09-81fa-627c26745a6b",
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6dac5202-ed90-4419-9179-adf75314e356",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.66594116997462,
+          59.4398696642163
+        ]
+      },
+      "properties": {
+        "id": "6dac5202-ed90-4419-9179-adf75314e356",
+        "slug": "daisy-fizzlefrump",
+        "name": "Daisy Fizzlefrump",
+        "type": "person",
+        "age": 36,
+        "occupation": "Department of Alternative Nautics",
+        "street_id": "e6b77c1b-5625-42e2-81c7-b997033d77c2",
+        "status": "active"
+      }
+    }
+  ]
+}

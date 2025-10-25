@@ -1,0 +1,603 @@
+═══════════════════════════════════════════════════════════════════════════════
+  PJUSKEBY STORY GENERATION WORKFLOW
+  How the Agatha Splint Story System Works
+═══════════════════════════════════════════════════════════════════════════════
+
+OVERVIEW
+────────
+The system generates daily AI-powered stories for the Pjuskeby website, featuring
+Agatha Splint's whimsical tales from a fictional Norwegian coastal town. Each 
+story includes narrative text, character/location mentions, and three illustrations.
+
+═══════════════════════════════════════════════════════════════════════════════
+COMPLETE WORKFLOW (Automated)
+═══════════════════════════════════════════════════════════════════════════════
+
+FILE: scripts/generate-complete-story.sh
+PURPOSE: Orchestrates the entire story generation pipeline from start to finish
+USAGE: sh scripts/generate-complete-story.sh [story-type] [date]
+
+WORKFLOW STEPS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 1: Generate Story Text (AI)                                           │
+│ ───────────────────────────────────────                                    │
+│ Calls: scripts/generate-story.ts                                           │
+│ Output: src/content/stories/YYYY-MM-DD-[type]-[random].mdx                 │
+│ Duration: 40-90 seconds                                                     │
+│ Details: Uses OpenAI GPT-4o or Anthropic Claude to generate 800+ word     │
+│          stories in Agatha Splint's voice with Nordic whimsy               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 2: Extract Metadata                                                   │
+│ ───────────────────────────                                                │
+│ Process: Parse MDX frontmatter for slug, title, excerpt                    │
+│ Data: Extracts characters and locations for mentions system                │
+│ Output: Variables used in subsequent steps                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 3: Generate Illustrations (AI)                                        │
+│ ─────────────────────────────────────                                      │
+│ Calls: scripts/generate-story-images.mjs                                   │
+│ Output: /tmp/[slug]-featured.png                                           │
+│         /tmp/[slug]-inline1.png                                            │
+│         /tmp/[slug]-inline2.png                                            │
+│ Duration: 60-120 seconds                                                    │
+│ Details: Uses Runware API (DALL-E backend) to generate three images:      │
+│   • featured: Hero/header image for story card                            │
+│   • inline1: Mid-story illustration (embedded via <agatha-illustration>)  │
+│   • inline2: End-story illustration (embedded via <agatha-illustration>)  │
+│ Style: Nordic whimsy, watercolor pastels, Tove Jansson-inspired           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 4: Copy Images to Public Directory                                    │
+│ ───────────────────────────────────────────                                │
+│ Calls: scripts/copy-story-images.sh [slug]                                 │
+│ Process: Uses scripts/sudo-wrapper.sh for elevated permissions             │
+│ Output: public/assets/agatha/story/[slug]-featured.png                     │
+│         public/assets/agatha/story/[slug]-inline1.png                      │
+│         public/assets/agatha/story/[slug]-inline2.png                      │
+│ Permissions: Sets owner to pjuskebysverden:psacln, chmod 644               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 5: Verify File Existence                                              │
+│ ──────────────────────────────                                             │
+│ Checks: MDX file in src/content/stories/                                   │
+│         Three PNG files in public/assets/agatha/story/                     │
+│ Retries: Up to 3 attempts with 5-second delays between checks              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 6: Build Astro Site                                                   │
+│ ─────────────────────────                                                  │
+│ Command: npm run build                                                     │
+│ Process: Astro SSR builds static assets and server routes                  │
+│ Output: dist/client/ (static assets including images)                      │
+│         dist/server/ (SSR server code)                                     │
+│ Duration: 5-8 seconds                                                       │
+│ Details: Processes MDX files, copies public/ to dist/client/,             │
+│          generates pages from src/pages/historier/[...slug].astro          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 7: Deploy to Production                                               │
+│ ─────────────────────────────                                              │
+│ Command: cp -r dist/* httpdocs/                                            │
+│ Process: Copies built files to Nginx document root                         │
+│ Output: httpdocs/client/ (accessible at https://pjuskeby.org/)            │
+│         httpdocs/server/ (Node.js server entry point)                      │
+│         httpdocs/assets/agatha/story/*.png (served images)                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 8: Restart Application Server                                         │
+│ ──────────────────────────────────                                         │
+│ Command: pm2 restart pjuskeby-web                                          │
+│ Process: Restarts Node.js server running Astro SSR                         │
+│ Port: 3100 (proxied by Nginx)                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Step 9: Verification                                                       │
+│ ──────────────────                                                         │
+│ Checks: Story appears at https://pjuskeby.org/historier/[slug]            │
+│         Story listed at https://pjuskeby.org/historier                     │
+│         Images return HTTP 200 (not 404)                                   │
+│         Character mentions link to /personer/[name]                        │
+│         Location mentions link to /steder/[place]                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+INDIVIDUAL COMPONENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. scripts/generate-story.ts
+────────────────────────────────
+PURPOSE: Generate story text using AI with Agatha Splint personality
+INPUT: Story type (agatha-diary | rumor | event), optional date
+OUTPUT: MDX file in src/content/stories/
+PROCESS:
+  • Loads normalized data from content/data/*.normalized.json
+    - people.normalized.json (characters with bios)
+    - places.normalized.json (locations with descriptions)
+    - streets.normalized.json (street names)
+    - businesses.normalized.json (shops and establishments)
+  • Selects random characters/locations for story context
+  • Builds Agatha Splint personality prompt (800+ words, Nordic whimsy)
+  • Calls OpenAI GPT-4o API (primary) or Anthropic Claude (fallback)
+  • Parses AI response to extract:
+    - Title
+    - Story content (with tea/biscuit interruptions)
+    - Character mentions
+    - Location mentions
+  • Generates slug: YYYY-MM-DD-[type]-[random 6-char ID]
+  • Creates MDX file with frontmatter:
+    ---
+    title: "Story Title"
+    type: agatha-diary | rumor | event
+    date: YYYY-MM-DD
+    characters: ["Name1", "Name2"]
+    locations: ["Place1", "Place2"]
+    summary: "First 150 characters..."
+    published: true
+    hasIllustrations: false (set to true after images generated)
+    featuredImage: "/assets/agatha/story/[slug]-featured.png"
+    ---
+  • Saves to: src/content/stories/YYYY-MM-DD-[type]-[random].mdx
+  • Outputs slug and metadata for next steps
+
+STORY TYPES:
+  • agatha-diary: Personal diary entry from Agatha's perspective
+  • rumor: Local gossip and town speculation
+  • event: Historical happenings in Pjuskeby
+
+AI PROVIDERS:
+  • Primary: OpenAI GPT-4o (env: OPENAI_API_KEY)
+  • Fallback: Anthropic Claude 3.5 Sonnet (env: ANTHROPIC_API_KEY)
+  • Timeout: 90 seconds with abort controller
+  • Temperature: 0.85 (for creative variation)
+  • Max tokens: 2500 (ensures ~800-1000 word stories)
+
+AGATHA SPLINT PERSONALITY:
+  • Warm and odd, like a cardigan knitted by someone in love with clouds
+  • Wise but unbothered, prefers gossiping with mushrooms
+  • Digressive by nature, interrupts herself with tales, teas, or thunder
+  • Mischievously melancholic, laughing with a tear in her teacup
+  • Voice inspired by: Tove Jansson, Astrid Lindgren, Anne-Cath. Vestly,
+    Torbjørn Egner, H.C. Andersen
+  • Writing style: Narrative (not descriptive), first person, rhythm,
+    emotional loops, whimsical logic
+  • Tea/biscuit transitions: 2-3 pauses per story for reflection
+
+
+2. scripts/generate-story-images.mjs
+────────────────────────────────────
+PURPOSE: Generate three AI illustrations for the story
+INPUT: Slug, title, excerpt
+OUTPUT: Three PNG files in /tmp/
+USAGE: node scripts/generate-story-images.mjs "[slug]" "[title]" "[excerpt]"
+PROCESS:
+  • Connects to Runware API (DALL-E backend via RUNWARE_API_KEY)
+  • Generates three images with Agatha Splint art style:
+    
+    FEATURED IMAGE (Hero/Header):
+    • Prompt: Main story scene, Nordic whimsy, watercolor pastels
+    • Size: 1024x1024 (square for story cards)
+    • Purpose: Thumbnail on /historier page, header on story page
+    • Style: Establishes story mood and setting
+    
+    INLINE IMAGE 1 (Mid-story):
+    • Prompt: Key story moment, supports narrative flow
+    • Size: 1024x1024
+    • Purpose: Embedded mid-story via <agatha-illustration> tag
+    • Position: After ~400 words, before climax
+    
+    INLINE IMAGE 2 (End-story):
+    • Prompt: Story resolution or emotional beat
+    • Size: 1024x1024
+    • Purpose: Embedded near end via <agatha-illustration> tag
+    • Position: After climax, before final reflection
+    
+  • Art style guidance:
+    - Nordic whimsy
+    - Soft watercolor pastels
+    - Tove Jansson Moomin-inspired
+    - Cozy, nostalgic atmosphere
+    - Gentle character designs
+    - Magical realism elements
+  
+  • Downloads images from Runware CDN
+  • Saves to: /tmp/[slug]-featured.png
+              /tmp/[slug]-inline1.png
+              /tmp/[slug]-inline2.png
+  • Reports file sizes and next steps (copy with sudo)
+
+IMAGE GENERATION API:
+  • Provider: Runware (DALL-E backend)
+  • Model: Auto-selected by Runware
+  • API Key: env.RUNWARE_API_KEY
+  • Output format: PNG
+  • Resolution: 1024x1024 (standard)
+
+
+3. scripts/copy-story-images.sh
+────────────────────────────────
+PURPOSE: Copy images from /tmp/ to public/ with proper permissions
+INPUT: Slug (e.g., "2025-10-23-agatha-diary-abc123")
+OUTPUT: Three PNG files in public/assets/agatha/story/
+USAGE: sh scripts/copy-story-images.sh [slug]
+PROCESS:
+  • Validates slug parameter provided
+  • Checks that three source files exist in /tmp/
+  • Creates target directory if needed: public/assets/agatha/story/
+  • For each image (featured, inline1, inline2):
+    - Calls scripts/sudo-wrapper.sh to copy with sudo privileges
+    - Sets ownership to pjuskebysverden:psacln
+    - Sets permissions to 644 (readable by web server)
+  • Verifies all three files copied successfully
+  • Displays file sizes
+  • Outputs reminder: "Run 'npm run build && cp -r dist/* httpdocs/'"
+
+WHY SUDO REQUIRED:
+  • Web server runs as user 'pjuskebysverden'
+  • Build process needs write access to public/
+  • Images must be owned by correct user/group for deployment
+  • sudo-wrapper.sh provides controlled elevation
+
+
+4. scripts/sudo-wrapper.sh
+──────────────────────────
+PURPOSE: Execute file operations with sudo (for image copying)
+INPUT: Command to execute (cp, chown, chmod)
+OUTPUT: File operations with elevated permissions
+SECURITY: Configured in /etc/sudoers for limited, specific commands
+PROCESS:
+  • Receives command from copy-story-images.sh
+  • Executes with sudo (no password required for configured user)
+  • Used for:
+    - Copying files to public/
+    - Setting ownership (chown)
+    - Setting permissions (chmod)
+
+
+5. src/content/stories/*.mdx
+─────────────────────────────
+PURPOSE: Story content files (Markdown + JSX)
+FORMAT: MDX (Markdown with JSX components)
+LOCATION: src/content/stories/YYYY-MM-DD-[type]-[random].mdx
+STRUCTURE:
+  ---
+  title: "Story Title"
+  type: agatha-diary | rumor | event
+  date: YYYY-MM-DD
+  characters: ["Character1", "Character2"]
+  locations: ["Location1", "Location2"]
+  summary: "Brief excerpt for story cards..."
+  published: true
+  hasIllustrations: true
+  featuredImage: "/assets/agatha/story/[slug]-featured.png"
+  ---
+  
+  Story content with narrative paragraphs...
+  
+  <agatha-illustration 
+    src="/assets/agatha/story/[slug]-inline1.png" 
+    alt="Illustration for this story" 
+    position="right" 
+  />
+  
+  More story content...
+  
+  <agatha-illustration 
+    src="/assets/agatha/story/[slug]-inline2.png" 
+    alt="Illustration for this story" 
+    position="left" 
+  />
+  
+  Final paragraphs and Agatha's signature sign-off...
+
+CUSTOM COMPONENTS:
+  • <agatha-illustration>: Inline image with text wrapping
+    - src: Image path (relative to public/)
+    - alt: Accessibility text
+    - position: "left" | "right" (text wrap direction)
+
+
+6. src/pages/historier/[...slug].astro
+───────────────────────────────────────
+PURPOSE: Dynamic route for rendering individual story pages
+INPUT: Slug from URL (e.g., /historier/2025-10-23-agatha-diary-abc123)
+OUTPUT: HTML page with story content, images, and mentions
+PROCESS:
+  • Astro SSR dynamic route (uses getStaticPaths for build)
+  • Loads story from content collection: getCollection('stories')
+  • Renders MDX content with:
+    - Featured image as hero/header
+    - Story text with inline images via <agatha-illustration>
+    - Character mentions as links to /personer/[character-id]
+    - Location mentions as links to /steder/[location-id]
+  • Layout includes:
+    - Story title (h1)
+    - Story type badge (Agatha's Diary | Town Rumors | Events)
+    - Date display
+    - Featured Characters section (linked)
+    - Featured Locations section (linked)
+    - Story content with inline illustrations
+  • Custom element <agatha-illustration> defined in page
+  • No hardcoded inline images (removed to prevent duplicates)
+
+MENTIONS SYSTEM:
+  • Characters array → links to /personer/[slug]
+  • Locations array → links to /steder/[slug]
+  • Generates "Featured Characters" and "Featured Locations" sections
+  • Uses normalized IDs from content/data/*.normalized.json
+
+
+7. src/pages/historier/index.astro
+───────────────────────────────────
+PURPOSE: Story listing page (all stories)
+URL: https://pjuskeby.org/historier
+OUTPUT: Grid of story cards sorted by date (newest first)
+CONTENT:
+  • Loads all stories: getCollection('stories', entry => entry.data.published)
+  • Sorts by date descending
+  • Displays story cards with:
+    - Featured image
+    - Story type badge
+    - Title (linked to story page)
+    - Date
+    - Excerpt/summary
+    - Character mentions
+    - Location mentions
+    - "Read full story →" link
+  • Responsive grid layout
+  • Hover effects (card lift, shadow increase)
+
+
+8. content/data/*.normalized.json
+──────────────────────────────────
+PURPOSE: Source data for story generation and mentions
+FILES:
+  • people.normalized.json: Characters with names, ages, occupations, bios
+  • places.normalized.json: Locations with names and descriptions
+  • streets.normalized.json: Street names in Pjuskeby
+  • businesses.normalized.json: Shops and establishments
+  
+FORMAT:
+  [
+    {
+      "id": "slug-identifier",
+      "name": "Display Name",
+      "description": "Details...",
+      ...additional fields
+    }
+  ]
+
+USAGE:
+  • Loaded by generate-story.ts for random selection in prompts
+  • Provides context for AI story generation
+  • Ensures consistency across stories
+  • Used by mentions system for linking
+
+
+9. public/assets/agatha/story/*.png
+────────────────────────────────────
+PURPOSE: Image storage location (pre-build)
+PROCESS:
+  • Images copied here from /tmp/ by copy-story-images.sh
+  • Astro build copies public/ → dist/client/ → httpdocs/
+  • Final location: httpdocs/assets/agatha/story/*.png
+  • Served by Nginx at: https://pjuskeby.org/assets/agatha/story/*.png
+
+FILE NAMING:
+  • [slug]-featured.png: Hero/header image
+  • [slug]-inline1.png: Mid-story illustration
+  • [slug]-inline2.png: End-story illustration
+
+
+10. dist/ and httpdocs/
+────────────────────────
+PURPOSE: Built and deployed application
+STRUCTURE:
+  dist/
+    client/        → Static assets, images, CSS, JS
+    server/        → SSR server code
+  
+  httpdocs/
+    client/        → Served by Nginx
+    server/        → Executed by PM2
+    assets/        → Images, fonts, etc.
+
+DEPLOYMENT FLOW:
+  npm run build       → Generates dist/
+  cp -r dist/* httpdocs/  → Deploys to web server
+  pm2 restart pjuskeby-web → Restarts Node.js server
+
+WEB SERVER:
+  • Nginx: Listens on port 80/443, serves static files from httpdocs/client/
+  • PM2: Runs Node.js server from httpdocs/server/, listens on port 3100
+  • Nginx proxies dynamic requests to PM2
+
+═══════════════════════════════════════════════════════════════════════════════
+STORY TYPES & CHARACTERISTICS
+═══════════════════════════════════════════════════════════════════════════════
+
+AGATHA-DIARY (Personal Diary Entries)
+─────────────────────────────────────
+Voice: First person, Agatha writing in her diary
+Tone: Reflective, whimsical, personal observations
+Content: Daily musings, encounters, philosophical tangents
+Length: 800-1000 words
+Tea breaks: 2-3 interruptions ("Oh dear, time for tea...")
+Signature: Often ends mid-thought or with a gentle sigh
+
+RUMOR (Town Gossip)
+───────────────────
+Voice: Agatha relating what she's heard around town
+Tone: Speculative, mischievous, community-focused
+Content: Local gossip, strange happenings, neighborhood speculation
+Length: 800-1000 words
+Tea breaks: 2-3 interruptions ("Wait, let me get a biscuit...")
+Signature: Often ends with more questions than answers
+
+EVENT (Historical Happenings)
+─────────────────────────────
+Voice: Agatha narrating town events
+Tone: Epic yet intimate, historical yet personal
+Content: Festivals, incidents, memorable moments in Pjuskeby
+Length: 800-1000 words
+Tea breaks: 2-3 interruptions ("This calls for stronger tea...")
+Signature: Often ties past to present with nostalgic wisdom
+
+═══════════════════════════════════════════════════════════════════════════════
+DAILY AUTOMATION (Intended)
+═══════════════════════════════════════════════════════════════════════════════
+
+CRON JOB (Not yet implemented)
+──────────────────────────────
+Schedule: Daily at 6:00 AM local time
+Command: cd /var/www/vhosts/pjuskeby.org && sh scripts/generate-complete-story.sh
+Process: Generates one random story type per day
+Fallback: Manual execution if automation fails
+
+CRON CONFIGURATION (Example):
+0 6 * * * cd /var/www/vhosts/pjuskeby.org && STORY_DATE=$(date +%Y-%m-%d) sh scripts/generate-complete-story.sh >> /var/log/pjuskeby-stories.log 2>&1
+
+═══════════════════════════════════════════════════════════════════════════════
+SUCCESS CRITERIA
+═══════════════════════════════════════════════════════════════════════════════
+
+A story generation is successful when:
+  ✓ MDX file exists in src/content/stories/
+  ✓ Three PNG files exist in public/assets/agatha/story/
+  ✓ Story appears at https://pjuskeby.org/historier/[slug]
+  ✓ Story listed at https://pjuskeby.org/historier
+  ✓ Featured image displays (HTTP 200)
+  ✓ Inline images display (HTTP 200)
+  ✓ Character mentions link to /personer/ pages
+  ✓ Location mentions link to /steder/ pages
+  ✓ Story text is 800+ words with Agatha's voice
+  ✓ No duplicate images appear
+  ✓ MDX renders correctly (no syntax errors)
+
+═══════════════════════════════════════════════════════════════════════════════
+DEPENDENCIES & ENVIRONMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+REQUIRED ENVIRONMENT VARIABLES (.env):
+  OPENAI_API_KEY=sk-...           # OpenAI API key for GPT-4o
+  ANTHROPIC_API_KEY=sk-ant-...    # Anthropic API key for Claude (fallback)
+  RUNWARE_API_KEY=...             # Runware API key for image generation
+
+REQUIRED NPM PACKAGES (package.json):
+  @astrojs/node               # Astro SSR adapter
+  astro                       # Astro framework
+  dotenv                      # Environment variable loading
+  tsx                         # TypeScript execution
+
+REQUIRED SYSTEM TOOLS:
+  node                        # Node.js v22+
+  npm                         # Package manager
+  pm2                         # Process manager
+  nginx                       # Web server
+  sudo                        # Elevated privileges (configured in sudoers)
+
+FILE PERMISSIONS:
+  Owner: pjuskebysverden
+  Group: psacln
+  Stories: 644 (rw-r--r--)
+  Images: 644 (rw-r--r--)
+  Scripts: 755 (rwxr-xr-x)
+
+═══════════════════════════════════════════════════════════════════════════════
+DIRECTORY STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+/var/www/vhosts/pjuskeby.org/
+  │
+  ├── scripts/
+  │   ├── generate-complete-story.sh      # Main orchestration script
+  │   ├── generate-story.ts               # AI story generation
+  │   ├── generate-story-images.mjs       # AI image generation
+  │   ├── copy-story-images.sh            # Image deployment
+  │   └── sudo-wrapper.sh                 # Privilege elevation
+  │
+  ├── src/
+  │   ├── content/
+  │   │   └── stories/
+  │   │       └── YYYY-MM-DD-[type]-[id].mdx  # Story files
+  │   └── pages/
+  │       └── historier/
+  │           ├── index.astro             # Story listing
+  │           └── [...slug].astro         # Story detail page
+  │
+  ├── content/
+  │   └── data/
+  │       ├── people.normalized.json      # Character data
+  │       ├── places.normalized.json      # Location data
+  │       ├── streets.normalized.json     # Street names
+  │       └── businesses.normalized.json  # Business data
+  │
+  ├── public/
+  │   └── assets/
+  │       └── agatha/
+  │           └── story/
+  │               └── [slug]-*.png        # Story images (pre-build)
+  │
+  ├── dist/                               # Built output (generated)
+  │   ├── client/
+  │   │   └── assets/
+  │   │       └── agatha/
+  │   │           └── story/
+  │   │               └── [slug]-*.png    # Story images (post-build)
+  │   └── server/
+  │
+  └── httpdocs/                           # Deployed (production)
+      ├── client/                         # Static files (Nginx)
+      │   └── assets/
+      │       └── agatha/
+      │           └── story/
+      │               └── [slug]-*.png    # Live images
+      └── server/                         # SSR server (PM2)
+
+═══════════════════════════════════════════════════════════════════════════════
+DATA FLOW VISUALIZATION
+═══════════════════════════════════════════════════════════════════════════════
+
+[Trigger: Manual or Cron]
+         ↓
+[generate-complete-story.sh]
+         ↓
+[generate-story.ts] → [OpenAI/Claude API]
+         ↓
+[MDX file created in src/content/stories/]
+         ↓
+[generate-story-images.mjs] → [Runware API]
+         ↓
+[PNG files in /tmp/]
+         ↓
+[copy-story-images.sh] → [sudo-wrapper.sh]
+         ↓
+[PNG files in public/assets/agatha/story/]
+         ↓
+[npm run build (Astro)]
+         ↓
+[dist/client/ and dist/server/]
+         ↓
+[cp dist/* httpdocs/]
+         ↓
+[pm2 restart pjuskeby-web]
+         ↓
+[Story live at https://pjuskeby.org/historier/[slug]]
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════════
+
+This describes the INTENDED workflow. Implementation details may vary, but this
+represents the ideal flow of story generation from AI prompt to live website.
+
+Last updated: 2025-10-23
