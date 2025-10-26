@@ -1,0 +1,112 @@
+{
+  "entries": [
+    {
+      "id": "timeline-rumor-1761488803713-2035",
+      "type": "rumor",
+      "date": "2025-10-26T14:26:43.713Z",
+      "title": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+      "description": "My cousin's neighbor swears they saw Clive Flumpington sneaking around Boingy Beach in the dead of night, sporting nothing but a polka-dotted swimsuit and a pair of mismatched flippers! They claim he was whispering sweet nothings to a particularly chatty seagull while juggling seaweed and moonbeams. Even more scandalous, he was reportedly selling tickets to an underwater opera featuring the Splashypaint Falls' symphony of frolicking fish. Trixie Wobblethorpe, clinging to her binoculars, insists she spotted Edna Snortwig there too, balancing on a sandcastle throne made of jelly beans, orchestrating the entire spectacle! Now, Pjuskeby's buzzing with speculation on whether this seaside soiree is an avant-garde art installation or just another night of whimsical chaos. Oh, the scandal of it all!",
+      "category": "scandal",
+      "credibility": 48,
+      "relatedEntities": {
+        "characters": [
+          "Clive Flumpington",
+          "Trixie Wobblethorpe",
+          "Edna Snortwig"
+        ],
+        "locations": [
+          "Boingy Beach",
+          "Splashypaint Falls"
+        ]
+      },
+      "metadata": {
+        "rumorId": "rumor-1761488803713-2035",
+        "interactions": {
+          "views": 0,
+          "confirmed": 0,
+          "debunked": 0,
+          "shared": 0
+        }
+      }
+    },
+    {
+      "id": "timeline-rumor-003-test",
+      "type": "rumor",
+      "date": "2025-01-17T09:00:00Z",
+      "title": "The Case of the Disappearing Garden Gnomes",
+      "description": "Between you and me, seventeen garden gnomes have vanished from Giggle Hillock in the past week. Not stolen - they're just GONE. No footprints, no broken ceramic, nothing. Gary Tiddlestack claims he saw one walking away last night, but he'd had a few pints at The Very Curious Café, so who knows?",
+      "category": "mystery",
+      "credibility": 45,
+      "relatedEntities": {
+        "characters": [
+          "Gary Tiddlestack"
+        ],
+        "locations": [
+          "Giggle Hillock"
+        ]
+      },
+      "metadata": {
+        "rumorId": "rumor-003-test",
+        "interactions": {
+          "views": 0,
+          "confirmed": 0,
+          "debunked": 0,
+          "shared": 0
+        }
+      }
+    },
+    {
+      "id": "timeline-rumor-002-test",
+      "type": "rumor",
+      "date": "2025-01-16T14:15:00Z",
+      "title": "Invisible Utensils Ltd. Under Investigation",
+      "description": "I saw it myself - three official-looking people with clipboards visited Invisible Utensils Ltd. yesterday afternoon. Trixie Wobblethorpe looked rather flustered. Not saying there's trouble, but I'm just saying what I observed. Draw your own conclusions.",
+      "category": "scandal",
+      "credibility": 78,
+      "relatedEntities": {
+        "characters": [
+          "Trixie Wobblethorpe"
+        ],
+        "locations": []
+      },
+      "metadata": {
+        "rumorId": "rumor-002-test",
+        "interactions": {
+          "views": 0,
+          "confirmed": 0,
+          "debunked": 0,
+          "shared": 0
+        }
+      }
+    },
+    {
+      "id": "timeline-rumor-001-test",
+      "type": "rumor",
+      "date": "2025-01-15T22:30:00Z",
+      "title": "Strange Lights Over Boingy Beach",
+      "description": "You didn't hear this from me, but three people swear they saw glowing orbs dancing over Boingy Beach last Tuesday night. One claims they heard giggling. Could be fairy lights, could be something weirder. Who knows in this town?",
+      "category": "sighting",
+      "credibility": 52,
+      "relatedEntities": {
+        "characters": [
+          "Clive Flumpington",
+          "Edna Snortwig"
+        ],
+        "locations": [
+          "Boingy Beach"
+        ]
+      },
+      "metadata": {
+        "rumorId": "rumor-001-test",
+        "interactions": {
+          "views": 1,
+          "confirmed": 0,
+          "debunked": 0,
+          "shared": 0
+        }
+      }
+    }
+  ],
+  "updated": "2025-10-26T14:40:28.172Z",
+  "totalEntries": 4
+}

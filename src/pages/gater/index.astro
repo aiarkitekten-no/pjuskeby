@@ -1,0 +1,43 @@
+---
+/* Pjuskeby Guardrails:
+   - Ingen placeholders. Ingen ubrukte exports.
+   - Følg koblinger.json for datakilder og relasjoner.
+   - All skriving til DB/FS logges i donetoday.json.
+   - Ved AI-generering: aldri publiser direkte; legg i drafts/.
+   - Ved valideringsfeil: returner 422, ikke "tøm felt".
+*/
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+const streetsData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/streets.normalized.json'), 'utf-8')
+);
+---
+
+<BaseLayout title="Streets" description="Explore the streets of Pjuskeby">
+  <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Streets in Pjuskeby</h1>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+    {streetsData.map((street: any) => (
+      <a href={`/gater/${street.slug}`} style="text-decoration: none; color: inherit;">
+        <article style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: transform 0.2s; cursor: pointer; height: 100%;">
+          <h2 style="color: #8b5cf6; margin: 0 0 0.5rem 0;">{street.name}</h2>
+          {street.description && (
+            <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">
+              {street.description.slice(0, 120)}{street.description.length > 120 ? '...' : ''}
+            </p>
+          )}
+        </article>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+</style>

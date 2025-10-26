@@ -1,0 +1,61 @@
+{
+  "seeds": [
+    {
+      "id": "seed-from-rumor-001-test",
+      "type": "rumor-inspired",
+      "title": "Story idea: Strange Lights Over Boingy Beach",
+      "premise": "Based on the sighting rumor about Clive Flumpington, Edna Snortwig, explore what really happened at Boingy Beach.",
+      "characters": [
+        "Clive Flumpington",
+        "Edna Snortwig"
+      ],
+      "locations": [
+        "Boingy Beach"
+      ],
+      "mood": "whimsical",
+      "credibilityHook": "Or is it all just nonsense?",
+      "generatedFrom": {
+        "rumorId": "rumor-001-test",
+        "trendingScore": 0,
+        "date": "2025-10-26T14:40:28.168Z"
+      }
+    },
+    {
+      "id": "seed-from-rumor-002-test",
+      "type": "rumor-inspired",
+      "title": "Story idea: Invisible Utensils Ltd. Under Investigation",
+      "premise": "Based on the scandal rumor about Trixie Wobblethorpe, explore what really happened at undefined.",
+      "characters": [
+        "Trixie Wobblethorpe"
+      ],
+      "locations": [],
+      "mood": "dramatic",
+      "credibilityHook": "This might actually be true...",
+      "generatedFrom": {
+        "rumorId": "rumor-002-test",
+        "trendingScore": 0,
+        "date": "2025-10-26T14:40:28.168Z"
+      }
+    },
+    {
+      "id": "seed-from-rumor-003-test",
+      "type": "rumor-inspired",
+      "title": "Story idea: The Case of the Disappearing Garden Gnomes",
+      "premise": "Based on the mystery rumor about Gary Tiddlestack, explore what really happened at Giggle Hillock.",
+      "characters": [
+        "Gary Tiddlestack"
+      ],
+      "locations": [
+        "Giggle Hillock"
+      ],
+      "mood": "mysterious",
+      "credibilityHook": "Or is it all just nonsense?",
+      "generatedFrom": {
+        "rumorId": "rumor-003-test",
+        "trendingScore": 0,
+        "date": "2025-10-26T14:40:28.168Z"
+      }
+    }
+  ],
+  "generated": "2025-10-26T14:40:28.169Z"
+}

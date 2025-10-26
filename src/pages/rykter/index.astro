@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RumourFeed from '../../components/RumourFeed.astro';
+import rumorsData from '../../content/data/rumors.normalized.json';
+
+const pageTitle = '📰 Rykter i Pjuskeby';
+const pageDescription = 'Siste rykter, skvaldring og spekulasjoner fra byens hjørner og kroker.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <!-- Header -->
+    <header style="text-align: center; margin-bottom: 3rem;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #1e293b;">
+        📰 Rykter i Pjuskeby
+      </h1>
+      <p style="font-size: 1.125rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+        Hør hva folk hvisker i gatene, mumler på kafeer, og spekulerer over hekker.
+        Ikke alt er sant, men alt er interessant.
+      </p>
+    </header>
+
+    <!-- Stats Bar -->
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div>
+          <div style="font-size: 2rem; font-weight: bold;">{rumorsData.metadata.totalRumors}</div>
+          <div style="font-size: 0.875rem; opacity: 0.9;">Totalt Rykter</div>
+        </div>
+        <div>
+          <div style="font-size: 2rem; font-weight: bold;">{rumorsData.metadata.categories.sighting}</div>
+          <div style="font-size: 0.875rem; opacity: 0.9;">👁️ Observasjoner</div>
+        </div>
+        <div>
+          <div style="font-size: 2rem; font-weight: bold;">{rumorsData.metadata.categories.scandal}</div>
+          <div style="font-size: 0.875rem; opacity: 0.9;">😱 Skandaler</div>
+        </div>
+        <div>
+          <div style="font-size: 2rem; font-weight: bold;">{rumorsData.metadata.categories.mystery}</div>
+          <div style="font-size: 0.875rem; opacity: 0.9;">🔍 Mysterier</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+      <a href="/rykter/statistikk" style="padding: 0.75rem 1.5rem; background: white; color: #3b82f6; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem;">
+        📊 Statistikk & Trender
+      </a>
+      <a href="/rykter/arkiv/1" style="padding: 0.75rem 1.5rem; background: white; color: #8b5cf6; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem;">
+        📚 Bla gjennom arkiv
+      </a>
+    </div>
+
+    <!-- Info Box -->
+    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+      <p style="margin: 0; color: #92400e;">
+        <strong>💡 Husk:</strong> Rykter er ikke nødvendigvis sanne. 
+        Troverdighetspoeng viser hvor pålitelig kilden er (høyere er bedre).
+        Bruk din egen dømmekraft! 🧐
+      </p>
+    </div>
+
+    <!-- Rumour Feed -->
+    <RumourFeed rumors={rumorsData.rumors} categories={rumorsData.categories} sourceArchetypes={rumorsData.sourceArchetypes} />
+
+    <!-- Footer -->
+    <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b;">
+      <p style="margin-bottom: 0.5rem;">
+        Har du hørt noe interessant? Rykter genereres automatisk hver natt kl. 03:00.
+      </p>
+      <p style="font-size: 0.875rem;">
+        <a href="/historier" style="color: #3b82f6; text-decoration: none;">📚 Les offisielle historier</a>
+        •
+        <a href="/kart" style="color: #3b82f6; text-decoration: none;">🗺️ Se kart</a>
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  a[href^="/rykter/"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+  }
+  
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2rem !important;
+    }
+    
+    .quick-links {
+      flex-direction: column;
+    }
+  }
+</style>

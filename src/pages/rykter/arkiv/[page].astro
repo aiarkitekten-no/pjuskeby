@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export async function getStaticPaths() {
+  const rumorsData = JSON.parse(
+    await readFile(join(process.cwd(), 'content/data/rumors.normalized.json'), 'utf-8')
+  );
+  
+  const RUMORS_PER_PAGE = 10;
+  const totalPages = Math.ceil(rumorsData.rumors.length / RUMORS_PER_PAGE);
+  
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) },
+    props: { totalPages }
+  }));
+}
+
+const { page } = Astro.params;
+const { totalPages } = Astro.props;
+const currentPage = parseInt(page || '1', 10);
+
+// Read all rumors
+const rumorsData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/rumors.normalized.json'), 'utf-8')
+);
+
+const RUMORS_PER_PAGE = 10;
+
+// Sort by date (newest first)
+const sortedRumors = [...rumorsData.rumors].sort((a, b) => 
+  new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+);
+
+// Paginate
+const start = (currentPage - 1) * RUMORS_PER_PAGE;
+const end = start + RUMORS_PER_PAGE;
+const paginatedRumors = sortedRumors.slice(start, end);
+
+// Get category emoji
+function getCategoryEmoji(category: string): string {
+  const emojiMap: Record<string, string> = {
+    sighting: '👁️',
+    scandal: '💥',
+    mystery: '🔍',
+    announcement: '📢',
+    theory: '🤔'
+  };
+  return emojiMap[category] || '📰';
+}
+
+// Get source emoji
+function getSourceEmoji(sourceType: string): string {
+  const emojiMap: Record<string, string> = {
+    gossip: '💬',
+    skeptic: '🤨',
+    conspiracist: '🕵️',
+    bystander: '👤'
+  };
+  return emojiMap[sourceType] || '📝';
+}
+
+// Format date
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('no-NO', { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric' 
+  });
+}
+---
+
+<BaseLayout 
+  title={`Arkiv (Side ${currentPage}) | Pjuskeby Rykter`}
+  description="Bla gjennom alle rykter i Pjuskeby"
+>
+  <div style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+    <!-- Header -->
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 2.5rem; font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">
+        📚 Rykter Arkiv
+      </h1>
+      <p style="color: #64748b; font-size: 1.125rem;">
+        Side {currentPage} av {totalPages} • {sortedRumors.length} totalt rykter
+      </p>
+    </div>
+
+    <!-- Pagination (Top) -->
+    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem;">
+      {currentPage > 1 && (
+        <a 
+          href={`/rykter/arkiv/${currentPage - 1}`}
+          style="padding: 0.5rem 1rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;"
+        >
+          ← Forrige
+        </a>
+      )}
+      
+      {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+        <a
+          href={`/rykter/arkiv/${pageNum}`}
+          style={`padding: 0.5rem 1rem; ${pageNum === currentPage ? 'background: #1e293b; color: white;' : 'background: #f1f5f9; color: #64748b;'} text-decoration: none; border-radius: 6px; font-weight: 600;`}
+        >
+          {pageNum}
+        </a>
+      ))}
+      
+      {currentPage < totalPages && (
+        <a 
+          href={`/rykter/arkiv/${currentPage + 1}`}
+          style="padding: 0.5rem 1rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;"
+        >
+          Neste →
+        </a>
+      )}
+    </div>
+
+    <!-- Rumors List -->
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      {paginatedRumors.map(rumor => (
+        <article style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;">
+          <a href={`/rykter/${rumor.id}`} style="display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; text-decoration: none; color: inherit;">
+            <!-- Image -->
+            <div style="background: #f1f5f9; overflow: hidden;">
+              {rumor.imageUrl && (
+                <img 
+                  src={rumor.imageUrl} 
+                  alt={rumor.title}
+                  loading="lazy"
+                  style="width: 100%; height: 100%; object-fit: cover;"
+                />
+              )}
+            </div>
+            
+            <!-- Content -->
+            <div style="padding: 1.5rem 1.5rem 1.5rem 0;">
+              <!-- Meta -->
+              <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span style="padding: 0.25rem 0.75rem; background: #e0e7ff; color: #4338ca; border-radius: 9999px; font-size: 0.875rem; font-weight: 600;">
+                  {getCategoryEmoji(rumor.category)} {rumor.category}
+                </span>
+                <span style="padding: 0.25rem 0.75rem; background: #fef3c7; color: #92400e; border-radius: 9999px; font-size: 0.875rem; font-weight: 600;">
+                  {getSourceEmoji(rumor.sourceType)} {rumor.sourceType}
+                </span>
+                <span style="padding: 0.25rem 0.75rem; background: #f1f5f9; color: #64748b; border-radius: 9999px; font-size: 0.875rem;">
+                  📅 {formatDate(rumor.createdAt)}
+                </span>
+              </div>
+              
+              <!-- Title -->
+              <h2 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">
+                {rumor.title}
+              </h2>
+              
+              <!-- Content excerpt -->
+              <p style="color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
+                {rumor.content.substring(0, 150)}...
+              </p>
+              
+              <!-- Stats -->
+              <div style="display: flex; gap: 1.5rem; font-size: 0.875rem; color: #64748b;">
+                <span>👁️ {rumor.interactions?.views || 0} visninger</span>
+                <span>✅ {rumor.interactions?.confirmed || 0} bekreftet</span>
+                <span>❌ {rumor.interactions?.debunked || 0} avkreftet</span>
+                <span>🔗 {rumor.interactions?.shared || 0} delt</span>
+              </div>
+              
+              <!-- Credibility -->
+              <div style="margin-top: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                  <span style="font-size: 0.875rem; color: #64748b;">Troverdighet:</span>
+                  <span style="font-weight: 700; color: #1e293b;">{rumor.credibility}%</span>
+                </div>
+                <div style="height: 4px; background: #e2e8f0; border-radius: 9999px; overflow: hidden;">
+                  <div style={`width: ${rumor.credibility}%; height: 100%; background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981); transition: width 0.3s;`}></div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <!-- Pagination (Bottom) -->
+    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
+      {currentPage > 1 && (
+        <a 
+          href={`/rykter/arkiv/${currentPage - 1}`}
+          style="padding: 0.5rem 1rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;"
+        >
+          ← Forrige
+        </a>
+      )}
+      
+      {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+        <a
+          href={`/rykter/arkiv/${pageNum}`}
+          style={`padding: 0.5rem 1rem; ${pageNum === currentPage ? 'background: #1e293b; color: white;' : 'background: #f1f5f9; color: #64748b;'} text-decoration: none; border-radius: 6px; font-weight: 600;`}
+        >
+          {pageNum}
+        </a>
+      ))}
+      
+      {currentPage < totalPages && (
+        <a 
+          href={`/rykter/arkiv/${currentPage + 1}`}
+          style="padding: 0.5rem 1rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;"
+        >
+          Neste →
+        </a>
+      )}
+    </div>
+
+    <!-- Back link -->
+    <div style="margin-top: 3rem; text-align: center;">
+      <a href="/rykter" style="display: inline-block; padding: 0.75rem 1.5rem; background: #64748b; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+        ← Tilbake til Rykter
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+  }
+  
+  @media (max-width: 640px) {
+    article a {
+      grid-template-columns: 1fr !important;
+    }
+    
+    article img {
+      height: 200px !important;
+    }
+  }
+</style>

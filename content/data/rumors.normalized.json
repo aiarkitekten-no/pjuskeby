@@ -1,0 +1,280 @@
+{
+  "version": "1.0.0",
+  "lastGenerated": null,
+  "metadata": {
+    "totalRumors": 4,
+    "categories": {
+      "sighting": 1,
+      "scandal": 2,
+      "mystery": 1
+    },
+    "sourceTypes": {
+      "gossip": 3,
+      "skeptic": 1
+    },
+    "lastGenerated": "2025-10-26T14:26:45.715Z"
+  },
+  "sourceArchetypes": {
+    "gossip": {
+      "name": "The Gossip",
+      "credibilityRange": [
+        40,
+        60
+      ],
+      "personality": "Loves drama, embellishes details, always 'heard it from someone who knows'",
+      "voicePatterns": [
+        "You didn't hear this from me, but...",
+        "Between you and me...",
+        "My cousin's neighbor swears...",
+        "I'm not one to spread rumors, but..."
+      ]
+    },
+    "skeptic": {
+      "name": "The Skeptic",
+      "credibilityRange": [
+        70,
+        85
+      ],
+      "personality": "Dry, factual, dismissive of nonsense, cites 'observations'",
+      "voicePatterns": [
+        "I saw it myself...",
+        "The facts are clear...",
+        "Don't believe the hype, but...",
+        "I'm just saying what I observed..."
+      ]
+    },
+    "conspiracist": {
+      "name": "The Conspiracist",
+      "credibilityRange": [
+        25,
+        45
+      ],
+      "personality": "Connects unrelated dots, sees patterns everywhere, passionate",
+      "voicePatterns": [
+        "They don't want you to know...",
+        "Wake up! This is clearly...",
+        "It all connects if you think about it...",
+        "The evidence is there if you look..."
+      ]
+    },
+    "bystander": {
+      "name": "The Bystander",
+      "credibilityRange": [
+        55,
+        75
+      ],
+      "personality": "Casual observer, not emotionally invested, matter-of-fact",
+      "voicePatterns": [
+        "I happened to notice...",
+        "Was just passing by when...",
+        "Not sure if it matters, but...",
+        "Might be nothing, but..."
+      ]
+    }
+  },
+  "categories": {
+    "sighting": {
+      "name": "Sighting",
+      "description": "Someone or something spotted somewhere unusual",
+      "icon": "👁️",
+      "color": "#3b82f6"
+    },
+    "scandal": {
+      "name": "Scandal",
+      "description": "Questionable behavior, social faux pas, or minor controversy",
+      "icon": "😱",
+      "color": "#ef4444"
+    },
+    "mystery": {
+      "name": "Mystery",
+      "description": "Unexplained events, strange occurrences, puzzling situations",
+      "icon": "🔍",
+      "color": "#8b5cf6"
+    },
+    "announcement": {
+      "name": "Announcement",
+      "description": "Upcoming events, changes, or news (possibly exaggerated)",
+      "icon": "📢",
+      "color": "#f59e0b"
+    },
+    "theory": {
+      "name": "Theory",
+      "description": "Speculation about why something happened or what's really going on",
+      "icon": "💭",
+      "color": "#06b6d4"
+    }
+  },
+  "rumors": [
+    {
+      "id": "rumor-001-test",
+      "title": "Strange Lights Over Boingy Beach",
+      "category": "sighting",
+      "sourceType": "gossip",
+      "sourceName": "Anonymous Local",
+      "credibility": 52,
+      "date": "2025-01-15T22:30:00Z",
+      "content": "You didn't hear this from me, but three people swear they saw glowing orbs dancing over Boingy Beach last Tuesday night. One claims they heard giggling. Could be fairy lights, could be something weirder. Who knows in this town?",
+      "characters": [
+        "Clive Flumpington",
+        "Edna Snortwig"
+      ],
+      "locations": [
+        "Boingy Beach"
+      ],
+      "mentions": [
+        {
+          "type": "person",
+          "name": "Clive Flumpington",
+          "slug": "clive-flumpington"
+        },
+        {
+          "type": "person",
+          "name": "Edna Snortwig",
+          "slug": "edna-snortwig"
+        },
+        {
+          "type": "place",
+          "name": "Boingy Beach",
+          "slug": "boingy-beach"
+        }
+      ],
+      "references": [],
+      "interactions": {
+        "views": 1,
+        "confirmed": 0,
+        "debunked": 0,
+        "shared": 0
+      },
+      "published": true,
+      "imageUrl": "/assets/agatha/place/boingy-beach.png"
+    },
+    {
+      "id": "rumor-002-test",
+      "title": "Invisible Utensils Ltd. Under Investigation",
+      "category": "scandal",
+      "sourceType": "skeptic",
+      "sourceName": "Concerned Citizen",
+      "credibility": 78,
+      "date": "2025-01-16T14:15:00Z",
+      "content": "I saw it myself - three official-looking people with clipboards visited Invisible Utensils Ltd. yesterday afternoon. Trixie Wobblethorpe looked rather flustered. Not saying there's trouble, but I'm just saying what I observed. Draw your own conclusions.",
+      "characters": [
+        "Trixie Wobblethorpe"
+      ],
+      "locations": [],
+      "businesses": [
+        "Invisible Utensils Ltd."
+      ],
+      "mentions": [
+        {
+          "type": "person",
+          "name": "Trixie Wobblethorpe",
+          "slug": "trixie-wobblethorpe"
+        }
+      ],
+      "references": [],
+      "interactions": {
+        "views": 0,
+        "confirmed": 0,
+        "debunked": 0,
+        "shared": 0
+      },
+      "published": true,
+      "imageUrl": "/assets/agatha/person/dotty-mcflap.png"
+    },
+    {
+      "id": "rumor-003-test",
+      "title": "The Case of the Disappearing Garden Gnomes",
+      "category": "mystery",
+      "sourceType": "gossip",
+      "sourceName": "Worried Gardener",
+      "credibility": 45,
+      "date": "2025-01-17T09:00:00Z",
+      "content": "Between you and me, seventeen garden gnomes have vanished from Giggle Hillock in the past week. Not stolen - they're just GONE. No footprints, no broken ceramic, nothing. Gary Tiddlestack claims he saw one walking away last night, but he'd had a few pints at The Very Curious Café, so who knows?",
+      "characters": [
+        "Gary Tiddlestack"
+      ],
+      "locations": [
+        "Giggle Hillock"
+      ],
+      "businesses": [
+        "The Very Curious Café"
+      ],
+      "mentions": [
+        {
+          "type": "person",
+          "name": "Gary Tiddlestack",
+          "slug": "gary-tiddlestack"
+        },
+        {
+          "type": "place",
+          "name": "Giggle Hillock",
+          "slug": "giggle-hillock"
+        }
+      ],
+      "references": [],
+      "interactions": {
+        "views": 0,
+        "confirmed": 0,
+        "debunked": 0,
+        "shared": 0
+      },
+      "published": true,
+      "imageUrl": "/assets/agatha/place/whisper-swamp.png"
+    },
+    {
+      "id": "rumor-1761488803713-2035",
+      "title": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+      "category": "scandal",
+      "sourceType": "gossip",
+      "sourceName": "Anonymous",
+      "credibility": 48,
+      "date": "2025-10-26T14:26:43.713Z",
+      "content": "My cousin's neighbor swears they saw Clive Flumpington sneaking around Boingy Beach in the dead of night, sporting nothing but a polka-dotted swimsuit and a pair of mismatched flippers! They claim he was whispering sweet nothings to a particularly chatty seagull while juggling seaweed and moonbeams. Even more scandalous, he was reportedly selling tickets to an underwater opera featuring the Splashypaint Falls' symphony of frolicking fish. Trixie Wobblethorpe, clinging to her binoculars, insists she spotted Edna Snortwig there too, balancing on a sandcastle throne made of jelly beans, orchestrating the entire spectacle! Now, Pjuskeby's buzzing with speculation on whether this seaside soiree is an avant-garde art installation or just another night of whimsical chaos. Oh, the scandal of it all!",
+      "characters": [
+        "Clive Flumpington",
+        "Trixie Wobblethorpe",
+        "Edna Snortwig"
+      ],
+      "locations": [
+        "Boingy Beach",
+        "Splashypaint Falls"
+      ],
+      "mentions": [
+        {
+          "type": "person",
+          "name": "Clive Flumpington",
+          "slug": "clive-flumpington"
+        },
+        {
+          "type": "person",
+          "name": "Trixie Wobblethorpe",
+          "slug": "trixie-wobblethorpe"
+        },
+        {
+          "type": "person",
+          "name": "Edna Snortwig",
+          "slug": "edna-snortwig"
+        },
+        {
+          "type": "place",
+          "name": "Boingy Beach",
+          "slug": "boingy-beach"
+        },
+        {
+          "type": "place",
+          "name": "Splashypaint Falls",
+          "slug": "splashypaint-falls"
+        }
+      ],
+      "references": [],
+      "interactions": {
+        "views": 9,
+        "confirmed": 0,
+        "debunked": 0,
+        "shared": 0
+      },
+      "published": true,
+      "imageUrl": "/assets/agatha/person/dotty-mcflap.png"
+    }
+  ]
+}

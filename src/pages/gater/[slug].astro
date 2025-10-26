@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+import { existsSync } from 'fs';
+
+const { slug } = Astro.params;
+
+const streetsData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/streets.normalized.json'), 'utf-8')
+);
+
+const street = streetsData.find((s: any) => s.slug === slug);
+
+if (!street) {
+  return Astro.redirect('/404');
+}
+
+// Try to load extended data if it exists
+let extendedData: any = {};
+try {
+  const extendedPath = join(process.cwd(), `content/data/${slug}-extended.json`);
+  if (existsSync(extendedPath)) {
+    extendedData = JSON.parse(await readFile(extendedPath, 'utf-8'));
+  }
+} catch (e) {
+  // No extended data
+}
+
+// Merge extended data with street data
+const fullStreet = { ...street, ...extendedData };
+
+// Load people data to find residents
+const peopleData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/people.normalized.json'), 'utf-8')
+);
+
+// Load businesses data
+const businessesData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/businesses.normalized.json'), 'utf-8')
+);
+
+// Find people and businesses on this street
+const residents = peopleData.filter((p: any) => 
+  p.street && p.street.toLowerCase().includes(street.name.toLowerCase())
+);
+
+const businesses = businessesData.filter((b: any) => 
+  b.street && b.street.toLowerCase().includes(street.name.toLowerCase())
+);
+
+const title = fullStreet.name;
+const description = fullStreet.description || `Explore ${fullStreet.name} in Pjuskeby`;
+---
+
+<BaseLayout title={title} description={description}>
+  <style>
+    .street-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .street-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .street-name {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0;
+    }
+    
+    .street-image {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      border-radius: 16px;
+      display: block;
+    }
+    
+    .street-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    
+    @media (max-width: 968px) {
+      .street-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 1.5rem 0;
+    }
+    
+    .info-section {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #fbbf24;
+    }
+    
+    .info-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #92400e;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+    
+    .entity-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .entity-list li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .entity-link {
+      color: #1e40af;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .entity-link:hover {
+      text-decoration: underline;
+    }
+    
+    .empty-state {
+      color: #78350f;
+      font-style: italic;
+    }
+  </style>
+
+  <div class="street-container">
+    <div class="street-header">
+      {fullStreet.slug && (
+        <img 
+          src={`/assets/agatha/street/${fullStreet.slug}.png`}
+          alt={fullStreet.name}
+          class="street-image"
+          onerror="this.style.display='none'"
+        />
+      )}
+      <h1 class="street-name">{fullStreet.name}</h1>
+    </div>
+
+    <div class="street-content">
+      <!-- LEFT COLUMN: Description -->
+      <div>
+        {fullStreet.description ? (
+          <div class="card">
+            <h2 class="card-title">About This Street</h2>
+            <p style="color: #475569; line-height: 1.8;">{fullStreet.description}</p>
+          </div>
+        ) : (
+          <div class="card">
+            <h2 class="card-title">About This Street</h2>
+            <p style="color: #94a3b8;">No description available yet.</p>
+          </div>
+        )}
+      </div>
+
+      <!-- RIGHT COLUMN: Info Boxes -->
+      <div>
+        {/* Businesses on this street */}
+        {businesses.length > 0 && (
+          <div class="info-section">
+            <h3 class="info-title">🏪 Businesses ({businesses.length})</h3>
+            <ul class="entity-list">
+              {businesses.map((business: any) => (
+                <li>
+                  <a href={`/bedrifter/${business.slug}`} class="entity-link">
+                    {business.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Residents */}
+        {residents.length > 0 && (
+          <div class="info-section">
+            <h3 class="info-title">👥 Residents ({residents.length})</h3>
+            <ul class="entity-list">
+              {residents.map((person: any) => (
+                <li>
+                  <a href={`/personer/${person.slug}`} class="entity-link">
+                    {person.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Empty state */}
+        {businesses.length === 0 && residents.length === 0 && (
+          <div class="info-section">
+            <div class="empty-state">
+              {street.name} is still quite a quiet street. Perhaps something exciting will happen here soon?
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="/gater" style="color: #8b5cf6; text-decoration: none; font-weight: 600;">
+        ← Back to all streets
+      </a>
+    </div>
+  </div>
+</BaseLayout>

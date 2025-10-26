@@ -1,0 +1,244 @@
+---
+import RumourCard from './RumourCard.astro';
+
+interface Props {
+  rumors: any[];
+  categories: any;
+  sourceArchetypes: any;
+}
+
+const { rumors, categories, sourceArchetypes } = Astro.props;
+
+// Sort rumors by date (newest first)
+const sortedRumors = [...rumors].sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<div class="rumour-feed">
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter-group">
+      <label for="category-filter">Kategori:</label>
+      <select id="category-filter" class="filter-select">
+        <option value="all">Alle kategorier</option>
+        {Object.entries(categories).map(([key, cat]: [string, any]) => (
+          <option value={key}>{cat.icon} {cat.name}</option>
+        ))}
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="sort-filter">Sorter:</label>
+      <select id="sort-filter" class="filter-select">
+        <option value="trending">🔥 Mest populære</option>
+        <option value="date-desc">Nyeste først</option>
+        <option value="date-asc">Eldste først</option>
+        <option value="credibility-desc">Høyest troverdighet</option>
+        <option value="credibility-asc">Lavest troverdighet</option>
+      </select>
+    </div>
+
+    <div class="filter-group search-group">
+      <label for="search-filter">Søk:</label>
+      <input 
+        type="text" 
+        id="search-filter" 
+        class="search-input" 
+        placeholder="Søk i rykter..."
+      />
+    </div>
+  </div>
+
+  <!-- Rumour Cards -->
+  <div class="rumour-cards" id="rumour-cards">
+    {sortedRumors.map(rumor => (
+      <RumourCard 
+        rumor={rumor} 
+        category={categories[rumor.category]} 
+        archetype={sourceArchetypes[rumor.sourceType]}
+      />
+    ))}
+  </div>
+
+  <!-- No Results Message -->
+  <div id="no-results" style="display: none; text-align: center; padding: 3rem; color: #64748b;">
+    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔍</p>
+    <p>Ingen rykter funnet med de filtrene.</p>
+  </div>
+</div>
+
+<style>
+  .rumour-feed {
+    margin-top: 2rem;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-group {
+    grid-column: 1 / -1;
+  }
+
+  .filter-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+  }
+
+  .filter-select,
+  .search-input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+
+  .filter-select:focus,
+  .search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .rumour-cards {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .filters {
+      grid-template-columns: 1fr;
+    }
+
+    .search-group {
+      grid-column: 1;
+    }
+  }
+</style>
+
+<script>
+  // Trending score calculation (matching server-side algorithm)
+  function calculateTrendingScore(rumor: any): number {
+    const now = new Date();
+    const rumorDate = new Date(rumor.date);
+    const ageInDays = (now.getTime() - rumorDate.getTime()) / (1000 * 60 * 60 * 24);
+    
+    const { views = 0, confirmed = 0, debunked = 0, shared = 0 } = rumor.interactions || {};
+    
+    const score = 
+      (views * 0.3) +
+      (confirmed * 2) +
+      (debunked * -1) +
+      (shared * 3) +
+      (ageInDays * -0.5);
+    
+    return Math.max(0, score);
+  }
+
+  // Client-side filtering and sorting
+  const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
+  const sortFilter = document.getElementById('sort-filter') as HTMLSelectElement;
+  const searchFilter = document.getElementById('search-filter') as HTMLInputElement;
+  const cardsContainer = document.getElementById('rumour-cards');
+  const noResults = document.getElementById('no-results');
+
+  // Store original cards
+  let allCards = Array.from(cardsContainer?.querySelectorAll('.rumour-card') || []);
+
+  function applyFilters() {
+    const category = categoryFilter?.value || 'all';
+    const sort = sortFilter?.value || 'date-desc';
+    const search = searchFilter?.value.toLowerCase() || '';
+
+    let visibleCards = [...allCards];
+
+    // Category filter
+    if (category !== 'all') {
+      visibleCards = visibleCards.filter(card => 
+        card.getAttribute('data-category') === category
+      );
+    }
+
+    // Search filter
+    if (search) {
+      visibleCards = visibleCards.filter(card => {
+        const title = card.getAttribute('data-title')?.toLowerCase() || '';
+        const content = card.getAttribute('data-content')?.toLowerCase() || '';
+        return title.includes(search) || content.includes(search);
+      });
+    }
+
+    // Sort
+    visibleCards.sort((a, b) => {
+      const dateA = new Date(a.getAttribute('data-date') || 0).getTime();
+      const dateB = new Date(b.getAttribute('data-date') || 0).getTime();
+      const credA = parseInt(a.getAttribute('data-credibility') || '0');
+      const credB = parseInt(b.getAttribute('data-credibility') || '0');
+
+      switch (sort) {
+        case 'trending': {
+          // Calculate trending scores
+          const scoreA = calculateTrendingScore({
+            date: a.getAttribute('data-date'),
+            interactions: {
+              views: parseInt(a.getAttribute('data-views') || '0'),
+              confirmed: parseInt(a.getAttribute('data-confirmed') || '0'),
+              debunked: parseInt(a.getAttribute('data-debunked') || '0'),
+              shared: parseInt(a.getAttribute('data-shared') || '0')
+            }
+          });
+          const scoreB = calculateTrendingScore({
+            date: b.getAttribute('data-date'),
+            interactions: {
+              views: parseInt(b.getAttribute('data-views') || '0'),
+              confirmed: parseInt(b.getAttribute('data-confirmed') || '0'),
+              debunked: parseInt(b.getAttribute('data-debunked') || '0'),
+              shared: parseInt(b.getAttribute('data-shared') || '0')
+            }
+          });
+          return scoreB - scoreA;
+        }
+        case 'date-desc': return dateB - dateA;
+        case 'date-asc': return dateA - dateB;
+        case 'credibility-desc': return credB - credA;
+        case 'credibility-asc': return credA - credB;
+        default: return 0;
+      }
+    });
+
+    // Update display
+    if (cardsContainer) {
+      cardsContainer.innerHTML = '';
+      visibleCards.forEach(card => cardsContainer.appendChild(card));
+    }
+
+    // Show/hide no results message
+    if (noResults) {
+      noResults.style.display = visibleCards.length === 0 ? 'block' : 'none';
+    }
+    if (cardsContainer) {
+      cardsContainer.style.display = visibleCards.length === 0 ? 'none' : 'grid';
+    }
+  }
+
+  // Add event listeners
+  categoryFilter?.addEventListener('change', applyFilters);
+  sortFilter?.addEventListener('change', applyFilters);
+  searchFilter?.addEventListener('input', applyFilters);
+</script>

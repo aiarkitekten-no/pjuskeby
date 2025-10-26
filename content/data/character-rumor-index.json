@@ -1,0 +1,63 @@
+{
+  "characters": {
+    "Clive Flumpington": [
+      {
+        "rumorId": "rumor-001-test",
+        "rumorTitle": "Strange Lights Over Boingy Beach",
+        "category": "sighting",
+        "credibility": 52,
+        "date": "2025-01-15T22:30:00Z"
+      },
+      {
+        "rumorId": "rumor-1761488803713-2035",
+        "rumorTitle": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+        "category": "scandal",
+        "credibility": 48,
+        "date": "2025-10-26T14:26:43.713Z"
+      }
+    ],
+    "Edna Snortwig": [
+      {
+        "rumorId": "rumor-001-test",
+        "rumorTitle": "Strange Lights Over Boingy Beach",
+        "category": "sighting",
+        "credibility": 52,
+        "date": "2025-01-15T22:30:00Z"
+      },
+      {
+        "rumorId": "rumor-1761488803713-2035",
+        "rumorTitle": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+        "category": "scandal",
+        "credibility": 48,
+        "date": "2025-10-26T14:26:43.713Z"
+      }
+    ],
+    "Trixie Wobblethorpe": [
+      {
+        "rumorId": "rumor-002-test",
+        "rumorTitle": "Invisible Utensils Ltd. Under Investigation",
+        "category": "scandal",
+        "credibility": 78,
+        "date": "2025-01-16T14:15:00Z"
+      },
+      {
+        "rumorId": "rumor-1761488803713-2035",
+        "rumorTitle": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+        "category": "scandal",
+        "credibility": 48,
+        "date": "2025-10-26T14:26:43.713Z"
+      }
+    ],
+    "Gary Tiddlestack": [
+      {
+        "rumorId": "rumor-003-test",
+        "rumorTitle": "The Case of the Disappearing Garden Gnomes",
+        "category": "mystery",
+        "credibility": 45,
+        "date": "2025-01-17T09:00:00Z"
+      }
+    ]
+  },
+  "updated": "2025-10-26T14:40:28.170Z",
+  "totalCharacters": 4
+}

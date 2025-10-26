@@ -1,0 +1,1121 @@
+{
+  "project": "Pjuskeby Rumour Feed System",
+  "version": "1.0",
+  "created": "2025-10-26",
+  "overview": {
+    "description": "Facebook-lignende feed for AI-genererte rykter fra innbyggerne i Pjuskeby",
+    "daily_generation": "7 nye rykter hver natt kl 03:00",
+    "features_included": [
+      "Metadata og troverdighet (#1)",
+      "Kilde-typer og personligheter (#2)",
+      "Rykte-kategorier (#3)",
+      "Koblinger og referanser (#4)",
+      "Historisk arkiv (#5)",
+      "Feed-layout (#6)",
+      "Kort-design (#7)",
+      "Interaktive elementer (klikk) (#8)",
+      "Kart-visualisering (#9)",
+      "Dedikert side (#10)",
+      "Nattlig batch (#11)",
+      "Prompt engineering (#12)",
+      "Bilde-generering (#13)",
+      "Kontekst-bevissthet (#15)",
+      "Cross-ref til historier (#16)",
+      "Påvirkning på profiler (#17)",
+      "Bedrifts-integrasjon (#18)",
+      "GeoJSON auto-update (#19)",
+      "Story-seed generering (#20)",
+      "Deling (#22)",
+      "Stats (#23)",
+      "Database (#25)",
+      "API endpoints (#26)",
+      "Caching (#27)",
+      "Image optimization (#28)",
+      "Mobile-first (#29)",
+      "Rykte-økologi (#30)",
+      "Mytologisk konsistens (#32)",
+      "Humor-nivåer (#33)",
+      "Analytics (#35)",
+      "Newsletter (#38)",
+      "Sesongbegivenheter (#39)"
+    ]
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Foundation & Data Model",
+      "duration": "Dag 1-2",
+      "risk_level": "LOW",
+      "description": "Etabler datastruktur uten å påvirke eksisterende systemer",
+      "ai_learned": {
+        "read_before": [
+          "pjuskeby-system-reference.md",
+          "story-generation-fixes-2025-10-23.md",
+          "peoplemaker.json"
+        ],
+        "write_after": "rumour-system-phase1.md"
+      },
+      "tasks": [
+        {
+          "id": "1.1",
+          "feature": "#25 - Database design",
+          "description": "Utvid eksisterende content struktur for rykter",
+          "files_to_create": [
+            "content/data/rumors.normalized.json"
+          ],
+          "files_to_modify": [
+            "src/content/config.ts (utvid rumor schema)"
+          ],
+          "schema": {
+            "id": "UUID",
+            "slug": "string (auto-generert)",
+            "title": "string (kort rykte-tittel)",
+            "content": "string (rykte-tekst, 50-200 ord)",
+            "source": {
+              "type": "enum: gossip, skeptic, conspiracist, bystander",
+              "name": "string (karakternavn eller 'Anonymous')",
+              "avatar": "string (path til AI-generert avatar)"
+            },
+            "category": "enum: sighting, scandal, mystery, announcement, theory",
+            "credibility": "number (0-100)",
+            "status": "enum: active, debunked, confirmed, archived",
+            "locations": "array<string> (slugs)",
+            "mentions": {
+              "people": "array<string> (slugs)",
+              "businesses": "array<string> (slugs)",
+              "places": "array<string> (slugs)"
+            },
+            "references": "array<string> (andre rykte-IDs)",
+            "date": "ISO date",
+            "image": "string (path)",
+            "views": "number",
+            "reactions": {
+              "confirmed": "number",
+              "debunked": "number",
+              "shared": "number"
+            },
+            "trending": "boolean",
+            "seasonal": "string|null (christmas, halloween, easter)"
+          },
+          "validation": "Verifiser at eksisterende stories ikke påvirkes",
+          "rollback": "Kun nye filer, lett å slette"
+        },
+        {
+          "id": "1.2",
+          "feature": "#1 - Metadata og troverdighet",
+          "description": "Implementer credibility-system",
+          "implementation": "Legg til credibility-score basert på kilde-type",
+          "rules": {
+            "gossip": "40-60% credibility",
+            "skeptic": "70-85% credibility",
+            "conspiracist": "10-30% credibility",
+            "bystander": "60-75% credibility"
+          }
+        },
+        {
+          "id": "1.3",
+          "feature": "#2 - Kilde-typer",
+          "description": "Definer 4 kilde-arketyper med personligheter",
+          "sources": [
+            {
+              "type": "gossip",
+              "description": "The Town Gossip - vet alt om alle",
+              "style": "Dramatisk, overdriver, bruker mange utropstegn",
+              "reliability": "Middels - ofte riktig men overdriver detaljer"
+            },
+            {
+              "type": "skeptic",
+              "description": "The Skeptic - tviler på alt mystisk",
+              "style": "Tørr, saklig, krever bevis",
+              "reliability": "Høy - grundig research"
+            },
+            {
+              "type": "conspiracist",
+              "description": "The Conspiracist - ser sammenhenger overalt",
+              "style": "Spennende, mange spørsmålstegn, 'Tenk selv!'",
+              "reliability": "Lav - ofte helt feil men underholdende"
+            },
+            {
+              "type": "bystander",
+              "description": "The Innocent Bystander - så noe tilfeldig",
+              "style": "Usikker, 'Jeg tror jeg så...', naiv",
+              "reliability": "Middels-høy - ærlig men kanskje misforstått"
+            }
+          ]
+        },
+        {
+          "id": "1.4",
+          "feature": "#3 - Kategorier",
+          "description": "Implementer 5 rykte-kategorier",
+          "categories": {
+            "sighting": "Huldra/nisse/troll observasjoner",
+            "scandal": "Sladder om innbyggere/bedrifter",
+            "mystery": "Uforklarte hendelser i byen",
+            "announcement": "Falske 'breaking news'",
+            "theory": "Konspirasjonsteori om Pjuskeby"
+          }
+        },
+        {
+          "id": "1.5",
+          "feature": "#4 - Koblinger",
+          "description": "System for å referere til andre rykter",
+          "implementation": "references array med rykte-IDs, auto-link i tekst"
+        }
+      ],
+      "deliverables": [
+        "rumors.normalized.json (tom struktur)",
+        "Utvidet content/config.ts",
+        "Dokumentasjon av datamodell"
+      ],
+      "testing": [
+        "Manuelt lag 2-3 test-rykter",
+        "Verifiser at eksisterende stories fortsatt fungerer",
+        "Valider JSON schema"
+      ],
+      "success_criteria": [
+        "Alle eksisterende sider fungerer som før",
+        "Test-rykter kan leses fra JSON",
+        "Ingen breaking changes i content system"
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Basic UI & Feed Display",
+      "duration": "Dag 3-4",
+      "risk_level": "LOW",
+      "description": "Lag grunnleggende visning av rykter uten backend-generering",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase1.md",
+          "streets-system.md"
+        ],
+        "write_after": "rumour-system-phase2.md"
+      },
+      "tasks": [
+        {
+          "id": "2.1",
+          "feature": "#10 - Dedikert side",
+          "description": "Lag /rykter hovedside",
+          "files_to_create": [
+            "src/pages/rykter/index.astro",
+            "src/components/RumourCard.astro",
+            "src/components/RumourFeed.astro"
+          ],
+          "layout": {
+            "hero": "Dagens hotteste rykte (trending=true)",
+            "feed": "Chronological list av alle rykter",
+            "filters": "Kategori-filter (sighting, scandal, etc.)",
+            "sidebar": "Stats og trending topics"
+          }
+        },
+        {
+          "id": "2.2",
+          "feature": "#6 - Feed-layout",
+          "description": "Implementer feed med filter og sortering",
+          "features": [
+            "Filter på kategori",
+            "Sort by: Nyeste, Mest trolige, Trending",
+            "Infinite scroll (start med 20 rykter)",
+            "Search bar (client-side filter)"
+          ]
+        },
+        {
+          "id": "2.3",
+          "feature": "#7 - Kort-design",
+          "description": "Design RumourCard komponent",
+          "elements": [
+            "Kilde-avatar og navn",
+            "Timestamp (relative: '2 timer siden')",
+            "Rykte-tittel (bold)",
+            "Content (trunkert til 150 tegn med 'Les mer')",
+            "Kategori-badge (farge-kodet)",
+            "Credibility-meter (visuell bar)",
+            "Thumbnail av bilde",
+            "Reactions preview (👀 123, ✓ 45, ✗ 12)"
+          ],
+          "styling": "Pjuskeby-stil, hygge farger, runde hjørner"
+        },
+        {
+          "id": "2.4",
+          "feature": "#29 - Mobile-first",
+          "description": "Responsive design",
+          "breakpoints": {
+            "mobile": "< 640px - Full bredde kort",
+            "tablet": "640-1024px - 2 kolonner",
+            "desktop": "> 1024px - Feed + sidebar"
+          }
+        }
+      ],
+      "deliverables": [
+        "/rykter side fungerer",
+        "RumourCard viser test-data pent",
+        "Filter og sort fungerer",
+        "Mobil-vennlig"
+      ],
+      "testing": [
+        "Test på mobil/tablet/desktop",
+        "Verifiser at hovedmeny ikke påvirkes",
+        "Sjekk at /historier fortsatt fungerer"
+      ],
+      "success_criteria": [
+        "Siden vises korrekt på alle enheter",
+        "Test-rykter rendres pent",
+        "Ingen impact på andre sider"
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Navigation & Menu Integration",
+      "duration": "Dag 5",
+      "risk_level": "MEDIUM",
+      "description": "Legg til 'Rumours' i hovedmeny - PASS PÅ EKSISTERENDE MENY",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase2.md",
+          "Gjeldende BaseLayout.astro"
+        ],
+        "write_after": "rumour-system-phase3.md"
+      },
+      "tasks": [
+        {
+          "id": "3.1",
+          "description": "Legg til 'Rumours' i navigasjon",
+          "files_to_modify": [
+            "src/layouts/BaseLayout.astro"
+          ],
+          "implementation": "Legg til mellom 'Stories' og 'People' (eller annen passende plass)",
+          "icon": "💬 eller 🗣️",
+          "validation": "KRITISK: Test at alle eksisterende meny-linker fungerer",
+          "rollback_plan": "Backup av BaseLayout.astro før endring"
+        }
+      ],
+      "testing": [
+        "Klikk på ALLE meny-items",
+        "Test på mobil (hamburger-meny)",
+        "Verifiser active state på /rykter",
+        "Sjekk at styling er konsistent"
+      ],
+      "success_criteria": [
+        "Rumours-link vises i meny",
+        "Alle eksisterende links fungerer",
+        "Active state fungerer korrekt",
+        "Mobil-meny fungerer"
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Map Integration",
+      "duration": "Dag 6-7",
+      "risk_level": "MEDIUM",
+      "description": "Vis rykter på kartet - IKKE ødelegg eksisterende kart-funksjonalitet",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase3.md",
+          "Gjeldende kart.astro kode"
+        ],
+        "write_after": "rumour-system-phase4.md"
+      },
+      "tasks": [
+        {
+          "id": "4.1",
+          "feature": "#19 - GeoJSON auto-update",
+          "description": "Script som konverterer rumors.normalized.json → rumors.geojson",
+          "files_to_create": [
+            "scripts/generate-rumors-geojson.ts"
+          ],
+          "logic": [
+            "Les rumors.normalized.json",
+            "For hvert rykte: extract locations array",
+            "Lookup coordinates fra places/streets/people GeoJSON",
+            "Generer Point feature per location mention",
+            "Skriv til public/geojson/rumors.geojson"
+          ]
+        },
+        {
+          "id": "4.2",
+          "feature": "#9 - Kart-visualisering",
+          "description": "Legg til rumour layer i kartet",
+          "files_to_modify": [
+            "src/pages/kart.astro (eller tilsvarende kart-fil)"
+          ],
+          "implementation": {
+            "icon": "💬 snakkeboble",
+            "color_by_category": {
+              "sighting": "#FFD700 (gull)",
+              "scandal": "#FF6B6B (rød)",
+              "mystery": "#9B59B6 (lilla)",
+              "announcement": "#3498DB (blå)",
+              "theory": "#2ECC71 (grønn)"
+            },
+            "popup": "Vis tittel, source, credibility, 'Les mer' link",
+            "animation": "Pulserende på trending rykter"
+          },
+          "validation": "KRITISK: Test at people/places/businesses layers fortsatt fungerer"
+        },
+        {
+          "id": "4.3",
+          "description": "Legg til Rumours i kart-filter",
+          "implementation": "Toggle for å vise/skjule rumour layer",
+          "default": "På (synlig)"
+        }
+      ],
+      "testing": [
+        "Test at ALLE eksisterende kart-layers fungerer",
+        "Klikk på people/places/businesses - verifiser popups",
+        "Toggle rumours on/off",
+        "Test på ulike zoom-nivåer",
+        "Sjekk clustering (hvis mange rykter)"
+      ],
+      "success_criteria": [
+        "Rykter vises korrekt på kartet",
+        "Eksisterende layers uendret",
+        "Filter fungerer",
+        "Ingen JavaScript errors"
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Interactive Elements & Engagement",
+      "duration": "Dag 8-9",
+      "risk_level": "LOW",
+      "description": "Legg til klikk-funksjoner (reactions, share, etc.)",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase4.md"
+        ],
+        "write_after": "rumour-system-phase5.md"
+      },
+      "tasks": [
+        {
+          "id": "5.1",
+          "feature": "#8 - Interaktive elementer",
+          "description": "Klikk-funksjoner på hvert rykte",
+          "buttons": [
+            {
+              "label": "Jeg hørte det også! ✓",
+              "action": "Increment reactions.confirmed",
+              "effect": "Øk credibility +2%"
+            },
+            {
+              "label": "Tull og tøys ✗",
+              "action": "Increment reactions.debunked",
+              "effect": "Reduser credibility -2%"
+            },
+            {
+              "label": "Del videre ↗",
+              "action": "Increment reactions.shared",
+              "effect": "Øk views counter"
+            }
+          ],
+          "storage": "LocalStorage for å tracke brukerens klikk (unngå spam)"
+        },
+        {
+          "id": "5.2",
+          "feature": "#22 - Deling",
+          "description": "Share-funksjonalitet",
+          "implementation": [
+            "Copy link button (permalink til rykte)",
+            "Share på Twitter/Facebook (Web Share API)",
+            "Embed code for bloggers"
+          ]
+        },
+        {
+          "id": "5.3",
+          "feature": "#26 - API endpoints",
+          "description": "Backend for reactions",
+          "files_to_create": [
+            "src/pages/api/rumors/[id]/react.ts"
+          ],
+          "endpoints": [
+            "POST /api/rumors/:id/react - body: {type: 'confirmed'|'debunked'|'shared'}",
+            "GET /api/rumors/trending - returnerer topp 10 trending"
+          ]
+        }
+      ],
+      "deliverables": [
+        "Reactions fungerer (med LocalStorage protection)",
+        "Share-knapper fungerer",
+        "API endpoints responderer korrekt"
+      ],
+      "testing": [
+        "Klikk alle reaction-knapper",
+        "Test spam-protection (klikk 10 ganger raskt)",
+        "Test share-funksjoner",
+        "Verifiser at endringer lagres i JSON"
+      ],
+      "success_criteria": [
+        "Reactions oppdaterer counters",
+        "Credibility score endres",
+        "Share fungerer på mobil/desktop",
+        "API respons < 200ms"
+      ]
+    },
+    {
+      "phase": 6,
+      "name": "AI Generation - Prompt Engineering",
+      "duration": "Dag 10-11",
+      "risk_level": "MEDIUM",
+      "description": "Lag LLM prompts for rykte-generering - TEST GRUNDIG før produksjon",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase5.md",
+          "automated-story-generation-workflow.md"
+        ],
+        "write_after": "rumour-system-phase6.md"
+      },
+      "tasks": [
+        {
+          "id": "6.1",
+          "feature": "#12 - Prompt engineering",
+          "description": "Lag prompts for hver kilde-type",
+          "files_to_create": [
+            "scripts/prompts/rumor-gossip.txt",
+            "scripts/prompts/rumor-skeptic.txt",
+            "scripts/prompts/rumor-conspiracist.txt",
+            "scripts/prompts/rumor-bystander.txt"
+          ],
+          "prompt_structure": {
+            "system": "Du er [kilde-type] i Pjuskeby, en norsk småby med magi",
+            "context": "Injiser detaljer om byen: karakterer, bedrifter, steder",
+            "task": "Skriv et kort rykte (50-200 ord)",
+            "style": "Bevar [kilde-type] sin stemme og personlighet",
+            "constraints": [
+              "Norsk småby-stemning",
+              "Satirisk og humoristisk",
+              "Nevn 1-3 eksisterende entiteter",
+              "Inkluder 0-1 mytologisk vesen",
+              "Ingen upassende innhold"
+            ]
+          }
+        },
+        {
+          "id": "6.2",
+          "feature": "#33 - Humor-nivåer",
+          "description": "Balansering av humor i prompts",
+          "guidelines": [
+            "20% mild humor (subtil observasjon)",
+            "50% medium humor (morsomt scenario)",
+            "30% absurd humor (helt tøv)",
+            "Unngå gjentakende vitser",
+            "Variert absurditetsnivå"
+          ]
+        },
+        {
+          "id": "6.3",
+          "feature": "#32 - Mytologisk konsistens",
+          "description": "Database av norske mytevesener",
+          "files_to_create": [
+            "content/data/mythology.json"
+          ],
+          "creatures": [
+            {
+              "name": "Huldra",
+              "description": "Vakker kvinne med kuhale",
+              "habitat": "Skog, nær bekker",
+              "behavior": "Lokker menn, lurer",
+              "seasons": "Vår, sommer",
+              "credibility_modifier": "+10% (ofte rapportert)"
+            },
+            {
+              "name": "Nisse",
+              "description": "Liten gnome med rød lue",
+              "habitat": "Låver, boliger",
+              "behavior": "Hjelper hvis du gir grøt, lurer hvis du glemmer",
+              "seasons": "Hele året, mest aktiv ved jul",
+              "credibility_modifier": "+20% (velkjent)"
+            },
+            {
+              "name": "Troll",
+              "description": "Store, steiner i sollys",
+              "habitat": "Fjell, under broer",
+              "behavior": "Gretten, samler skatter",
+              "seasons": "Vår, høst (unngår sol)",
+              "credibility_modifier": "-5% (sjeldent sett)"
+            },
+            {
+              "name": "Nøkk",
+              "description": "Vannånd, ofte som hvit hest",
+              "habitat": "Fosser, dype vann",
+              "behavior": "Lokker folk til vannet",
+              "seasons": "Sommer (når folk bader)",
+              "credibility_modifier": "0% (blandet troverdighet)"
+            }
+          ]
+        },
+        {
+          "id": "6.4",
+          "description": "Test-generering",
+          "implementation": "Manuell test: generer 10 rykter med GPT-4o",
+          "validation": [
+            "Kvalitetssjekk: Er de morsomme?",
+            "Konsistens: Følger de kilde-personlighet?",
+            "Referanser: Nevner de ekte karakterer/steder?",
+            "Lengde: 50-200 ord?",
+            "Tone: Passer til Pjuskeby?"
+          ]
+        }
+      ],
+      "deliverables": [
+        "4 prompt-filer (en per kilde-type)",
+        "mythology.json database",
+        "10 test-genererte rykter for review"
+      ],
+      "testing": [
+        "Manuell review av alle 10 test-rykter",
+        "A/B test ulike prompts",
+        "Sjekk at AI ikke lager upassende innhold"
+      ],
+      "success_criteria": [
+        "80%+ av test-rykter er akseptable",
+        "Kilde-personligheter er distinkte",
+        "Ingen NSFW eller upassende innhold",
+        "Mytologiske vesener er konsistente"
+      ]
+    },
+    {
+      "phase": 7,
+      "name": "Image Generation",
+      "duration": "Dag 12-13",
+      "risk_level": "MEDIUM",
+      "description": "AI-genererte bilder for rykter - bruk Runware SDK som i streets",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase6.md",
+          "streets-system.md (for bilde-generering)"
+        ],
+        "write_after": "rumour-system-phase7.md"
+      },
+      "tasks": [
+        {
+          "id": "7.1",
+          "feature": "#13 - Bilde-generering",
+          "description": "Script for å generere bilder basert på rykte",
+          "files_to_create": [
+            "scripts/generate-rumor-image.mjs"
+          ],
+          "based_on": "scripts/generate-street-image.mjs",
+          "implementation": {
+            "input": "Rykte-tekst + kategori + nevnte entities",
+            "prompt_template": "Pjuskeby illustration: [rykte-sammendrag], Norwegian small-town style, whimsical, [mytologisk vesen hvis relevant], painterly, soft colors, hygge atmosphere",
+            "size": "1024x768",
+            "model": "Deliberate V2",
+            "output": "public/assets/agatha/rumor/[slug].png"
+          }
+        },
+        {
+          "id": "7.2",
+          "feature": "#28 - Image optimization",
+          "description": "WebP konvertering og optimalisering",
+          "process": [
+            "Generer PNG med Runware",
+            "Konverter til WebP (mindre filstørrelse)",
+            "Generer thumbnails (400x300 for feed)",
+            "Lazy loading i feed"
+          ],
+          "files_to_create": [
+            "scripts/optimize-rumor-images.ts"
+          ]
+        },
+        {
+          "id": "7.3",
+          "description": "Fallback system",
+          "implementation": "Hvis AI-generering feiler → bruk placeholder-bilde",
+          "placeholder": "Generic 💬 snakkeboble-illustrasjon"
+        }
+      ],
+      "deliverables": [
+        "Image generation script fungerer",
+        "WebP optimization pipeline",
+        "10 test-bilder generert"
+      ],
+      "testing": [
+        "Generer bilder for alle 10 test-rykter",
+        "Verifiser at stil matcher Pjuskeby aesthetic",
+        "Test fallback hvis API feiler",
+        "Sjekk filstørrelser (WebP < PNG)"
+      ],
+      "success_criteria": [
+        "Bilder genereres på < 30 sekunder",
+        "Stil er konsistent med eksisterende illustrasjoner",
+        "WebP konvertering fungerer",
+        "Fallback fungerer ved feil"
+      ]
+    },
+    {
+      "phase": 8,
+      "name": "Nightly Batch Generation",
+      "duration": "Dag 14-15",
+      "risk_level": "HIGH",
+      "description": "Automatisk generering av 7 rykter hver natt - GRUNDIG TESTING",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase7.md",
+          "automated-story-generation-workflow.md"
+        ],
+        "write_after": "rumour-system-phase8.md"
+      },
+      "tasks": [
+        {
+          "id": "8.1",
+          "feature": "#11 - Nattlig batch",
+          "description": "Cron job for rykte-generering",
+          "files_to_create": [
+            "scripts/generate-daily-rumors.ts"
+          ],
+          "schedule": "03:00 hver natt",
+          "process": [
+            "1. Velg 7 tilfeldige kilde-typer (mix av alle 4)",
+            "2. For hver kilde:",
+            "   - Velg tilfeldig kategori",
+            "   - Velg 1-3 entities å nevne (person/business/place)",
+            "   - Generer rykte med LLM",
+            "   - Generer bilde med Runware",
+            "   - Assign location basert på nevnte entities",
+            "3. Oppdater rumors.normalized.json",
+            "4. Regenerer rumors.geojson",
+            "5. Rebuild Astro (hvis nødvendig)",
+            "6. PM2 restart (hvis nødvendig)"
+          ],
+          "error_handling": [
+            "Hvis LLM feiler → retry 2x, deretter skip",
+            "Hvis bilde-gen feiler → bruk placeholder",
+            "Logger alle errors til logs/rumor-generation.log",
+            "Email/Slack varsel ved kritiske feil"
+          ]
+        },
+        {
+          "id": "8.2",
+          "feature": "#15 - Kontekst-bevissthet",
+          "description": "Sesong- og event-basert generering",
+          "implementation": {
+            "check_date": "Er det spesiell sesong? (jul, påske, halloween)",
+            "adjust_prompts": "Injiser sesong-kontekst i LLM prompts",
+            "mythology_preference": "Jul → mer nisser, Halloween → mer troll/spøkelser",
+            "recent_stories": "Les siste 3 publiserte Agatha-historier → generer relaterte rykter"
+          }
+        },
+        {
+          "id": "8.3",
+          "feature": "#30 - Rykte-økologi",
+          "description": "Arkivering av gamle rykter",
+          "rules": [
+            "Rykter > 30 dager → status = 'archived'",
+            "Archived rykter fjernes fra hovedfeed",
+            "Bevares i arkiv-seksjonen",
+            "Topp 10% høyest credibility → status = 'confirmed' (blir 'legender')",
+            "Bunn 10% credibility → status = 'debunked'"
+          ]
+        },
+        {
+          "id": "8.4",
+          "description": "DRY RUN MODE",
+          "implementation": "Første 7 dager: Kjør i test-mode (generer men publiser ikke automatisk)",
+          "manual_review": "Manuell godkjenning av rykter før de går live",
+          "gradual_rollout": "Dag 1-3: 2 rykter/dag, Dag 4-7: 5 rykter/dag, Dag 8+: 7 rykter/dag"
+        }
+      ],
+      "deliverables": [
+        "Cron job konfigurert",
+        "Batch generation script fungerer",
+        "Error logging implementert",
+        "Dry run mode fungerer"
+      ],
+      "testing": [
+        "KRITISK: Kjør dry run i 7 dager",
+        "Manually review ALLE genererte rykter",
+        "Test error handling (simuler API failures)",
+        "Verifiser at cron ikke krasjer andre jobs",
+        "Monitor server resources under generering"
+      ],
+      "success_criteria": [
+        "Dry run produserer 7 godkjente rykter daglig",
+        "Ingen server-kræsj under generering",
+        "Error logging fungerer",
+        "Manual review prosess etablert"
+      ]
+    },
+    {
+      "phase": 9,
+      "name": "Cross-Integration & References",
+      "duration": "Dag 16-17",
+      "risk_level": "MEDIUM",
+      "description": "Koble rykter til resten av systemet - IKKE ødelegg eksisterende sider",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase8.md",
+          "Gjeldende person/business/place template-filer"
+        ],
+        "write_after": "rumour-system-phase9.md"
+      },
+      "tasks": [
+        {
+          "id": "9.1",
+          "feature": "#16 - Cross-ref til historier",
+          "description": "Link rykter ↔ historier",
+          "implementation": [
+            "Når ny Agatha-historie publiseres → generer 2-3 relaterte rykter",
+            "På historiesider: Vis 'Rykter om denne historien' seksjon",
+            "På rykte-detaljside: Link til original historie hvis relevant"
+          ],
+          "files_to_modify": [
+            "src/pages/historier/[...slug].astro (legg til rumor-seksjonen)"
+          ],
+          "validation": "KRITISK: Test at historiesider fortsatt fungerer"
+        },
+        {
+          "id": "9.2",
+          "feature": "#17 - Påvirkning på profiler",
+          "description": "Vis rykter på karakter-profiler",
+          "files_to_modify": [
+            "src/pages/personer/[slug].astro"
+          ],
+          "implementation": "Ny seksjon nederst: 'Rykter om [person]'",
+          "filter": "Vis kun rykter hvor person nevnes i mentions.people array"
+        },
+        {
+          "id": "9.3",
+          "feature": "#18 - Bedrifts-integrasjon",
+          "description": "Vis rykter på bedrifts-profiler",
+          "files_to_modify": [
+            "src/pages/bedrifter/[slug].astro"
+          ],
+          "implementation": "Tilsvarende som personer"
+        },
+        {
+          "id": "9.4",
+          "feature": "#20 - Story-seed generering",
+          "description": "Bruk populære rykter som idé til nye historier",
+          "implementation": [
+            "Ukentlig rapport: Topp 5 mest delte/kommenterte rykter",
+            "Manual review: Velg ut rykter som kan bli fullverdige historier",
+            "Agatha 'investigates' ryktet → skriv ny historie"
+          ],
+          "automation": "Halvautomatisk - AI foreslår, menneske godkjenner"
+        }
+      ],
+      "deliverables": [
+        "Rykter vises på person-profiler",
+        "Rykter vises på bedrifts-profiler",
+        "Historie → rykte koblingen fungerer",
+        "Story-seed rapport genereres"
+      ],
+      "testing": [
+        "Test ALLE person-profiler (minimum 10 tilfeldige)",
+        "Test ALLE bedrifts-profiler",
+        "Test historie-sider med og uten relaterte rykter",
+        "Verifiser at ingen eksisterende innhold forsvinner"
+      ],
+      "success_criteria": [
+        "Alle profil-sider fungerer",
+        "Rykter-seksjoner vises korrekt",
+        "Links mellom rykter og historier fungerer",
+        "Ingen breaking changes"
+      ]
+    },
+    {
+      "phase": 10,
+      "name": "Archive, Stats & Polish",
+      "duration": "Dag 18-19",
+      "risk_level": "LOW",
+      "description": "Arkiv, statistikk og finpuss",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase9.md"
+        ],
+        "write_after": "rumour-system-phase10.md"
+      },
+      "tasks": [
+        {
+          "id": "10.1",
+          "feature": "#5 - Historisk arkiv",
+          "description": "Arkiv-side for gamle rykter",
+          "files_to_create": [
+            "src/pages/rykter/arkiv.astro"
+          ],
+          "layout": {
+            "monthly_archive": "Vis rykter gruppert per måned",
+            "greatest_hits": "Hall of Fame - topp 20 mest troverdige",
+            "worst_lies": "Hall of Shame - topp 20 minst troverdige (morsomt)"
+          }
+        },
+        {
+          "id": "10.2",
+          "feature": "#23 - Stats",
+          "description": "Statistikk-side",
+          "files_to_create": [
+            "src/pages/rykter/stats.astro"
+          ],
+          "metrics": [
+            "Total rykter generert",
+            "Rykter per kategori (pie chart)",
+            "Mest nevnte personer",
+            "Mest nevnte steder",
+            "Troverdighet over tid (line chart)",
+            "Top 10 mest delte rykter",
+            "Mytologiske observasjoner (bar chart)"
+          ]
+        },
+        {
+          "id": "10.3",
+          "feature": "#35 - Analytics",
+          "description": "Backend tracking",
+          "files_to_create": [
+            "scripts/analyze-rumors.ts"
+          ],
+          "tracking": [
+            "Views per rykte",
+            "Reaction rates",
+            "Share rates",
+            "Engagement score (combo av alt over)",
+            "Trending algorithm (basert på engagement siste 24t)"
+          ]
+        },
+        {
+          "id": "10.4",
+          "feature": "#27 - Caching",
+          "description": "Performance optimalisering",
+          "implementation": [
+            "Cache dagens rykter i Redis (hvis tilgjengelig)",
+            "Static generation av arkiv-sider (bygges hver natt)",
+            "CDN for bilder (hvis mulig)",
+            "Lazy load bilder i feed"
+          ]
+        }
+      ],
+      "deliverables": [
+        "Arkiv-side fungerer",
+        "Stats-side viser metrics",
+        "Analytics tracking implementert",
+        "Caching optimaliserer performance"
+      ],
+      "testing": [
+        "Test arkiv med > 100 rykter (simulate old data)",
+        "Verifiser at stats er nøyaktige",
+        "Performance test: Feed load time < 2s",
+        "Cache invalidation fungerer"
+      ],
+      "success_criteria": [
+        "Arkiv navigerbart",
+        "Stats visualiseres pent",
+        "Feed loader raskt (< 2s)",
+        "Analytics data akkurat"
+      ]
+    },
+    {
+      "phase": 11,
+      "name": "Seasonal & Newsletter",
+      "duration": "Dag 20",
+      "risk_level": "LOW",
+      "description": "Sesong-features og newsletter - nice-to-have",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-phase10.md"
+        ],
+        "write_after": "rumour-system-complete.md"
+      },
+      "tasks": [
+        {
+          "id": "11.1",
+          "feature": "#39 - Sesongbegivenheter",
+          "description": "Spesielle rykter for høytider",
+          "seasons": {
+            "christmas": {
+              "dates": "1. des - 6. jan",
+              "extra_rumors": 3,
+              "theme": "Nisser, julegaver, julebord-skandaler",
+              "mythology_boost": "Nisse +50% appearance rate"
+            },
+            "easter": {
+              "dates": "Påskeuken",
+              "extra_rumors": 2,
+              "theme": "Påskeegg-mysterier, vår-observasjoner",
+              "mythology_boost": "Huldra +30% (våren)"
+            },
+            "halloween": {
+              "dates": "25. okt - 1. nov",
+              "extra_rumors": 3,
+              "theme": "Spøkelser, troll, grøssere",
+              "mythology_boost": "Troll +40%, drauger +50%"
+            },
+            "midsummer": {
+              "dates": "20-25. juni",
+              "extra_rumors": 2,
+              "theme": "Midsommar magi, huldra-sightings",
+              "mythology_boost": "Huldra +60%"
+            }
+          }
+        },
+        {
+          "id": "11.2",
+          "feature": "#38 - Newsletter",
+          "description": "Ukentlig ryktebrev",
+          "files_to_create": [
+            "scripts/generate-rumor-newsletter.ts",
+            "templates/rumor-newsletter.html"
+          ],
+          "schedule": "Hver søndag kl 10:00",
+          "content": [
+            "Ukens 7 rykter",
+            "Trending rykte med bilde",
+            "Stats: Mest delte, mest troverdige",
+            "Teaser: Kommende historier basert på rykter"
+          ],
+          "delivery": "Email (hvis email-system eksisterer) eller generer HTML-side"
+        }
+      ],
+      "deliverables": [
+        "Sesong-logikk implementert",
+        "Newsletter-template fungerer"
+      ],
+      "testing": [
+        "Manuelt sett dato til jul → verifiser ekstra nisser",
+        "Test newsletter-generering",
+        "Sjekk at sesongrykter er passende"
+      ],
+      "success_criteria": [
+        "Sesongvariasjon fungerer",
+        "Newsletter ser pen ut",
+        "Ingen bugs i sesong-switching"
+      ]
+    },
+    {
+      "phase": 12,
+      "name": "Production Rollout & Monitoring",
+      "duration": "Dag 21+",
+      "risk_level": "MEDIUM",
+      "description": "Live deployment og overvåking",
+      "ai_learned": {
+        "read_before": [
+          "rumour-system-complete.md",
+          "Alle tidligere phase docs"
+        ],
+        "write_after": "rumour-system-production.md"
+      },
+      "tasks": [
+        {
+          "id": "12.1",
+          "description": "Gradvis rollout",
+          "week_1": "2 rykter/dag, manual review før publisering",
+          "week_2": "5 rykter/dag, spot-check review",
+          "week_3": "7 rykter/dag, automated med logging",
+          "monitoring": [
+            "Server CPU/RAM under generering",
+            "API response times",
+            "Error rates",
+            "User engagement metrics"
+          ]
+        },
+        {
+          "id": "12.2",
+          "description": "Feedback loop",
+          "implementation": [
+            "Samle bruker-reaksjoner (confirmed/debunked)",
+            "Adjust LLM prompts basert på høy-scoring rykter",
+            "Tweak credibility algoritme hvis nødvendig",
+            "Monitor for problematisk innhold"
+          ]
+        },
+        {
+          "id": "12.3",
+          "description": "Backup og rollback plan",
+          "backups": [
+            "Daily backup av rumors.normalized.json",
+            "Weekly backup av genererte bilder",
+            "Database snapshot før hver større endring"
+          ],
+          "rollback": [
+            "Hvis kritisk feil: Disable cron job umiddelbart",
+            "Restore fra backup",
+            "Investigate issue",
+            "Fix og redeploy"
+          ]
+        },
+        {
+          "id": "12.4",
+          "description": "Dokumentasjon",
+          "files_to_create": [
+            "AI-learned/rumour-system-complete.md"
+          ],
+          "content": [
+            "Komplett oversikt over ryktesystemet",
+            "Hvordan legge til nye kilde-typer",
+            "Hvordan tweake prompts",
+            "Troubleshooting guide",
+            "Performance tuning tips",
+            "Future enhancement ideas"
+          ]
+        }
+      ],
+      "deliverables": [
+        "System live i produksjon",
+        "Monitoring dashboard setup",
+        "Komplett dokumentasjon i AI-learned/",
+        "Rollback plan tested"
+      ],
+      "testing": [
+        "Load testing: Simuler 1000 concurrent users",
+        "Stress test: Kjør 50 rykter generering samtidig",
+        "Failure scenarios: Kill API mid-generation",
+        "Monitor i 7 dager kontinuerlig"
+      ],
+      "success_criteria": [
+        "Systemet kjører stabilt i 7 dager",
+        "< 0.1% error rate",
+        "User engagement > baseline (set threshold)",
+        "No complaints about quality",
+        "Dokumentasjon komplett"
+      ]
+    }
+  ],
+  "risk_mitigation": {
+    "database_corruption": "Daily backups, validation før skriving",
+    "api_failures": "Retry logic, fallbacks, error logging",
+    "poor_quality_content": "Manual review periode, adjustable prompts",
+    "breaking_existing_features": "Extensive testing hver fase, rollback plan",
+    "server_overload": "Rate limiting på generering, caching, monitoring",
+    "inappropriate_content": "AI content filters, manual review, blacklist"
+  },
+  "dependencies": {
+    "external_apis": [
+      "OpenAI GPT-4o (for tekst)",
+      "Runware SDK (for bilder)"
+    ],
+    "internal_systems": [
+      "Astro content collections",
+      "GeoJSON generation pipeline",
+      "PM2 process manager",
+      "Existing kart.astro map system"
+    ]
+  },
+  "estimated_costs": {
+    "llm_per_rumor": "$0.02 - $0.04",
+    "image_per_rumor": "$0.10 - $0.15",
+    "daily_7_rumors": "$0.84 - $1.33",
+    "monthly": "$25.20 - $39.90",
+    "yearly": "$302.40 - $478.80"
+  },
+  "timeline_summary": {
+    "phase_1_2": "Foundation (Dag 1-4) - LOW RISK",
+    "phase_3_4": "UI & Map (Dag 5-7) - MEDIUM RISK",
+    "phase_5": "Interactivity (Dag 8-9) - LOW RISK",
+    "phase_6_7": "AI Generation (Dag 10-13) - MEDIUM RISK",
+    "phase_8": "Automation (Dag 14-15) - HIGH RISK (dry run required)",
+    "phase_9": "Integration (Dag 16-17) - MEDIUM RISK",
+    "phase_10_11": "Polish (Dag 18-20) - LOW RISK",
+    "phase_12": "Production (Dag 21+) - MEDIUM RISK",
+    "total_dev_time": "21 dager + monitoring",
+    "with_testing_buffer": "25-30 dager"
+  },
+  "go_live_checklist": [
+    "✓ Alle 12 faser fullført",
+    "✓ Dry run kjørt i minimum 7 dager",
+    "✓ Manual review av minimum 50 genererte rykter",
+    "✓ Performance testing passed",
+    "✓ Backup system verified",
+    "✓ Rollback plan tested",
+    "✓ Monitoring dashboard aktiv",
+    "✓ Dokumentasjon komplett i AI-learned/",
+    "✓ Alle eksisterende features fungerer",
+    "✓ No critical bugs in backlog"
+  ]
+}

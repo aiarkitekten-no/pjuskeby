@@ -753,7 +753,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         addClusterLayers('people', '#3b82f6', '👤');
         addClusterLayers('businesses', '#22c55e', '🏢');
         addClusterLayers('events', '#8b5cf6', '🎉');
-        addClusterLayers('rumors', '#f59e0b', '👁️');
+        
+        // Rumors with dynamic category colors
+        map.addLayer({
+          id: 'rumors-clusters',
+          type: 'circle',
+          source: 'rumors',
+          filter: ['has', 'point_count'],
+          paint: {
+            'circle-color': '#f59e0b',
+            'circle-radius': [
+              'step',
+              ['get', 'point_count'],
+              15, 10, 20, 30, 25
+            ],
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+          }
+        });
+
+        map.addLayer({
+          id: 'rumors-layer',
+          type: 'circle',
+          source: 'rumors',
+          filter: ['!', ['has', 'point_count']],
+          paint: {
+            'circle-radius': 8,
+            'circle-color': [
+              'match',
+              ['get', 'category'],
+              'sighting', '#3b82f6',
+              'scandal', '#ef4444',
+              'mystery', '#8b5cf6',
+              'announcement', '#f59e0b',
+              'theory', '#06b6d4',
+              '#f59e0b' // default
+            ],
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+          }
+        });
 
         // Enhanced popup creation with related stories (Phase 10 requirement)
         async function createEnhancedPopup(feature, lngLat) {
@@ -780,12 +819,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <p><strong>Attendance:</strong> ${props.attendance}</p>
             `;
           } else if (entityType === 'rumor') {
+            const credColor = props.credibility >= 70 ? '#10b981' : props.credibility >= 50 ? '#f59e0b' : '#ef4444';
             popupHTML = `
-              <h3>👁️ ${props.name}</h3>
+              <h3>${props.icon || '�'} ${props.title}</h3>
               <p><strong>Category:</strong> ${props.category}</p>
-              <p>${props.description}</p>
-              <p><strong>Reliability:</strong> ${props.reliability}</p>
-              <p><strong>Source:</strong> ${props.source}</p>
+              <p style="font-size: 0.9rem; color: #64748b; margin: 0.75rem 0;">${props.content}</p>
+              <div style="margin: 0.75rem 0;">
+                <strong>Credibility:</strong>
+                <div style="background: #e2e8f0; height: 8px; border-radius: 999px; overflow: hidden; margin-top: 0.25rem;">
+                  <div style="width: ${props.credibility}%; height: 100%; background: ${credColor};"></div>
+                </div>
+                <span style="font-size: 0.8rem; color: ${credColor}; font-weight: bold;">${props.credibility}%</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #64748b;"><strong>Source:</strong> ${props.sourceName} (${props.sourceType})</p>
+              <a href="/rykter#${props.slug}" style="color: #3b82f6;">View all rumors →</a>
             `;
           } else if (entityType === 'person') {
             popupHTML = `

@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Blubber & Crumb",
+    "slug": "blubber-crumb",
+    "description": "Locals swear the food is better if you cry while ordering.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "invisible pies and regret-flavored muffins",
+    "about": "Locals swear the food is better if you cry while ordering."
+  },
+  {
+    "name": "The Sock Exchange",
+    "slug": "the-sock-exchange",
+    "description": "Open 24/7 except on days that end in ‘y’.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "left socks, mismatched dreams, and static electricity",
+    "about": "Open 24/7 except on days that end in ‘y’."
+  },
+  {
+    "name": "Krumplehorn Mechanics",
+    "slug": "krumplehorn-mechanics",
+    "description": "Free earplugs with every repair.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "vehicles that go backwards when you brake",
+    "about": "Free earplugs with every repair."
+  },
+  {
+    "name": "Waffle Oracle",
+    "slug": "waffle-oracle",
+    "description": "All prophecies come with syrup.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "waffles that predict the future (badly)",
+    "about": "All prophecies come with syrup."
+  },
+  {
+    "name": "Moody Gnome Studios",
+    "slug": "moody-gnome-studios",
+    "description": "The gnomes glare if you haggle.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "emotional garden statues and passive-aggressive windchimes",
+    "about": "The gnomes glare if you haggle."
+  },
+  {
+    "name": "Crankle & Bop",
+    "slug": "crankle-bop",
+    "description": "Specialists in instruments nobody requested.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "musical spoons, dramatic tambourines, jazz wind",
+    "about": "Specialists in instruments nobody requested."
+  },
+  {
+    "name": "Granny's Sneezing Powder Emporium",
+    "slug": "grannys-sneezing-powder-emporium",
+    "description": "Guaranteed to ruin silence.",
+    "description_short": "Guaranteed to ruin silence.",
+    "category": "Shop",
+    "products": "sneeze glitter, scented confusion, itchy mysteries",
+    "about": "Guaranteed to ruin silence."
+  },
+  {
+    "name": "The Toad Bakery",
+    "slug": "the-toad-bakery",
+    "description": "Every 7th loaf explodes (for luck).",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "lumpy bread and emotionally unstable scones",
+    "about": "Every 7th loaf explodes (for luck)."
+  },
+  {
+    "name": "Chair Whisperers Inc.",
+    "slug": "chair-whisperers-inc",
+    "description": "Also offers couple’s therapy for sofas.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "chairs that respond to compliments",
+    "about": "Also offers couple’s therapy for sofas."
+  },
+  {
+    "name": "Bumblebelly Ink",
+    "slug": "bumblebelly-ink",
+    "description": "Their bestsellers are banned by logic.",
+    "description_short": "Their bestsellers are banned by logic.",
+    "category": "Shop",
+    "products": "books that argue with you",
+    "about": "Their bestsellers are banned by logic."
+  },
+  {
+    "name": "Sir Poke-a-Lot's Petting Zoo",
+    "slug": "sir-poke-a-lots-petting-zoo",
+    "description": "Visitors must sign a giggle waiver.",
+    "description_short": "Visitors must sign a giggle waiver.",
+    "category": "Shop",
+    "products": "feisty hedgehogs and surprisingly cuddly ducks",
+    "about": "Visitors must sign a giggle waiver."
+  },
+  {
+    "name": "The Flap & Wiggle Theatre",
+    "slug": "the-flap-wiggle-theatre",
+    "description": "No refunds. Ever.",
+    "description_short": "No refunds. Ever.",
+    "category": "Shop",
+    "products": "unscripted musicals and interpretive sighing",
+    "about": "No refunds. Ever."
+  },
+  {
+    "name": "Teacup Engineering Ltd.",
+    "slug": "teacup-engineering-ltd",
+    "description": "ISO certified in nonsense since 1987.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "structurally sound teacups and edible bridges",
+    "about": "ISO certified in nonsense since 1987."
+  },
+  {
+    "name": "Myrtle’s Suspicious Soup",
+    "slug": "myrtle-s-suspicious-soup",
+    "description": "Mystery guaranteed, ingredients not.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "soups that change flavor mid-slurp",
+    "about": "Mystery guaranteed, ingredients not."
+  },
+  {
+    "name": "Pants & Philosophy",
+    "slug": "pants-philosophy",
+    "description": "Buy one pair, get an identity crisis free.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "existential trousers and socks that question reality",
+    "about": "Buy one pair, get an identity crisis free."
+  },
+  {
+    "name": "The Department of Lost Echoes",
+    "slug": "the-department-of-lost-echoes",
+    "description": "Echoes recycled ethically and with flair.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "reclaimed whispers and second-hand yells",
+    "about": "Echoes recycled ethically and with flair."
+  },
+  {
+    "name": "Whisker Bazaar",
+    "slug": "whisker-bazaar",
+    "description": "Facial hair sold by temperament.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "beard decorations and purring moustaches",
+    "about": "Facial hair sold by temperament."
+  },
+  {
+    "name": "Tinkle & Snort Plumbing",
+    "slug": "tinkle-snort-plumbing",
+    "description": "Every leak is a musical opportunity.",
+    "description_short": "A unique business in Pjuskeby",
+    "category": "Shop",
+    "products": "pipes that sing under pressure",
+    "about": "Every leak is a musical opportunity."
+  },
+  {
+    "name": "Lumpy’s Cloud Storage",
+    "slug": "lumpy-s-cloud-storage",
+    "description": "May rain when opened.",
+    "description_short": "May rain when opened.",
+    "category": "Shop",
+    "products": "actual clouds in jars",
+    "about": "May rain when opened."
+  },
+  {
+    "name": "Oopsie's Fine Dining",
+    "slug": "oopsies-fine-dining",
+    "description": "Every dish comes with a story (and a helmet).",
+    "description_short": "Every dish comes with a story (and a helmet).",
+    "category": "Shop",
+    "products": "meals cooked by accident",
+    "about": "Every dish comes with a story (and a helmet)."
+  },
+  {
+    "name": "Professor Quibble’s Hatorium",
+    "slug": "professor-quibble-s-hatorium",
+    "description": "The hats choose you.",
+    "description_short": "The hats choose you.",
+    "category": "Shop",
+    "products": "hats that argue with mirrors",
+    "about": "The hats choose you."
+  },
+  {
+    "name": "Fizzletuft Spa & Screaming",
+    "slug": "fizzletuft-spa-screaming",
+    "description": "The only spa where slippers bite back.",
+    "description_short": "The only spa where slippers bite back.",
+    "category": "Shop",
+    "products": "therapeutic yelling and cucumber-based confusion",
+    "about": "The only spa where slippers bite back."
+  },
+  {
+    "name": "The Slightly Haunted Hardware Store",
+    "slug": "the-slightly-haunted-hardware-store",
+    "description": "Ask for Greg. He might be a ghost.",
+    "description_short": "Ask for Greg. He might be a ghost.",
+    "category": "Shop",
+    "products": "tools that whisper your secrets",
+    "about": "Ask for Greg. He might be a ghost."
+  },
+  {
+    "name": "Snailmail Speedways",
+    "slug": "snailmail-speedways",
+    "description": "Guaranteed delivery within one lunar cycle.",
+    "description_short": "Guaranteed delivery within one lunar cycle.",
+    "category": "Shop",
+    "products": "express courier service (delivered by snails)",
+    "about": "Guaranteed delivery within one lunar cycle."
+  },
+  {
+    "name": "Twirlybean Coffee & Chaos",
+    "slug": "twirlybean-coffee-chaos",
+    "description": "Known for their 9-minute-long coffee screams.",
+    "description_short": "Known for their 9-minute-long coffee screams.",
+    "category": "Shop",
+    "products": "espresso that makes you speak backwards",
+    "about": "Known for their 9-minute-long coffee screams."
+  }
+]

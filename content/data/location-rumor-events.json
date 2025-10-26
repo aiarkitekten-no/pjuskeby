@@ -1,0 +1,69 @@
+{
+  "locations": {
+    "Boingy Beach": [
+      {
+        "id": "event-rumor-001-test",
+        "type": "rumor-event",
+        "title": "Strange Lights Over Boingy Beach",
+        "description": "You didn't hear this from me, but three people swear they saw glowing orbs dancing over Boingy Beach last Tuesday night. One claims they heard giggling. Could be fairy lights, could be something weird...",
+        "category": "sighting",
+        "credibility": 52,
+        "date": "2025-01-15T22:30:00Z",
+        "rumorId": "rumor-001-test",
+        "involvedCharacters": [
+          "Clive Flumpington",
+          "Edna Snortwig"
+        ]
+      },
+      {
+        "id": "event-rumor-1761488803713-2035",
+        "type": "rumor-event",
+        "title": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+        "description": "My cousin's neighbor swears they saw Clive Flumpington sneaking around Boingy Beach in the dead of night, sporting nothing but a polka-dotted swimsuit and a pair of mismatched flippers! They claim he ...",
+        "category": "scandal",
+        "credibility": 48,
+        "date": "2025-10-26T14:26:43.713Z",
+        "rumorId": "rumor-1761488803713-2035",
+        "involvedCharacters": [
+          "Clive Flumpington",
+          "Trixie Wobblethorpe",
+          "Edna Snortwig"
+        ]
+      }
+    ],
+    "Giggle Hillock": [
+      {
+        "id": "event-rumor-003-test",
+        "type": "rumor-event",
+        "title": "The Case of the Disappearing Garden Gnomes",
+        "description": "Between you and me, seventeen garden gnomes have vanished from Giggle Hillock in the past week. Not stolen - they're just GONE. No footprints, no broken ceramic, nothing. Gary Tiddlestack claims he sa...",
+        "category": "mystery",
+        "credibility": 45,
+        "date": "2025-01-17T09:00:00Z",
+        "rumorId": "rumor-003-test",
+        "involvedCharacters": [
+          "Gary Tiddlestack"
+        ]
+      }
+    ],
+    "Splashypaint Falls": [
+      {
+        "id": "event-rumor-1761488803713-2035",
+        "type": "rumor-event",
+        "title": "My cousin's neighbor swears they saw Clive Flumpington sneak...",
+        "description": "My cousin's neighbor swears they saw Clive Flumpington sneaking around Boingy Beach in the dead of night, sporting nothing but a polka-dotted swimsuit and a pair of mismatched flippers! They claim he ...",
+        "category": "scandal",
+        "credibility": 48,
+        "date": "2025-10-26T14:26:43.713Z",
+        "rumorId": "rumor-1761488803713-2035",
+        "involvedCharacters": [
+          "Clive Flumpington",
+          "Trixie Wobblethorpe",
+          "Edna Snortwig"
+        ]
+      }
+    ]
+  },
+  "updated": "2025-10-26T14:40:28.171Z",
+  "totalLocations": 3
+}

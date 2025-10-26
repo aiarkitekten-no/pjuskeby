@@ -1,0 +1,423 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+// In SSR mode, fetch data directly from the slug
+const { slug } = Astro.params;
+
+// Read rumors data
+const rumorsData = JSON.parse(
+  await readFile(join(process.cwd(), 'content/data/rumors.normalized.json'), 'utf-8')
+);
+
+const rumor = rumorsData.rumors.find((r: any) => r.id === slug);
+
+if (!rumor) {
+  return Astro.redirect('/404');
+}
+
+const category = rumorsData.categories?.[rumor.category] || { 
+  icon: '📰', 
+  name: rumor.category, 
+  color: '#f59e0b',
+  description: '' 
+};
+const archetype = rumorsData.sourceArchetypes?.[rumor.sourceType] || {
+  name: rumor.sourceType,
+  credibilityRange: [40, 60],
+  personality: 'Unknown source type'
+};
+
+// Format date
+const date = new Date(rumor.date);
+const formattedDate = date.toLocaleDateString('nb-NO', { 
+  day: 'numeric', 
+  month: 'long', 
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+});
+
+// Credibility color
+function getCredibilityColor(credibility: number) {
+  if (credibility >= 70) return '#10b981';
+  if (credibility >= 50) return '#f59e0b';
+  return '#ef4444';
+}
+
+const credibilityColor = getCredibilityColor(rumor.credibility);
+
+// Find related rumors (same category or mentions)
+const relatedRumors = rumorsData.rumors
+  .filter(r => r.id !== rumor.id && (
+    r.category === rumor.category ||
+    r.characters?.some(c => rumor.characters?.includes(c)) ||
+    r.locations?.some(l => rumor.locations?.includes(l))
+  ))
+  .slice(0, 3);
+
+// SEO metadata
+const pageUrl = `https://pjuskeby.org/rykter/${rumor.id}`;
+const imageUrl = rumor.imageUrl ? `https://pjuskeby.org${rumor.imageUrl}` : 'https://pjuskeby.org/assets/agatha/place/giggle-hillock.png';
+const description = rumor.content.substring(0, 155) + '...';
+---
+
+<BaseLayout 
+  title={`${rumor.title} | Rykter`}
+  description={description}
+>
+  <!-- SEO Meta Tags -->
+  <meta slot="head" property="og:type" content="article" />
+  <meta slot="head" property="og:title" content={rumor.title} />
+  <meta slot="head" property="og:description" content={description} />
+  <meta slot="head" property="og:url" content={pageUrl} />
+  <meta slot="head" property="og:image" content={imageUrl} />
+  <meta slot="head" property="og:image:alt" content={rumor.title} />
+  <meta slot="head" property="article:published_time" content={rumor.createdAt} />
+  <meta slot="head" property="article:author" content={rumor.source} />
+  <meta slot="head" property="article:section" content={rumor.category} />
+  
+  <meta slot="head" name="twitter:card" content="summary_large_image" />
+  <meta slot="head" name="twitter:title" content={rumor.title} />
+  <meta slot="head" name="twitter:description" content={description} />
+  <meta slot="head" name="twitter:image" content={imageUrl} />
+  
+  <link slot="head" rel="canonical" href={pageUrl} />
+  <div style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+    <!-- Back link -->
+    <div style="margin-bottom: 2rem;">
+      <a href="/rykter" style="color: #3b82f6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ← Tilbake til rykter
+      </a>
+    </div>
+
+    <!-- Main rumor card -->
+    <article style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+      <!-- Image (if available) -->
+      {rumor.imageUrl && (
+        <div style="margin-bottom: 2rem; border-radius: 8px; overflow: hidden;">
+          <img 
+            src={rumor.imageUrl} 
+            alt={rumor.title}
+            loading="lazy"
+            style="width: 100%; height: auto; max-height: 400px; object-fit: cover;"
+          />
+        </div>
+      )}
+      
+      <!-- Category badge -->
+      <div style={`display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; background-color: ${category.color}15; color: ${category.color};`}>
+        <span>{category.icon}</span>
+        <span>{category.name}</span>
+      </div>
+
+      <!-- Title -->
+      <h1 style="font-size: 2rem; font-weight: 700; color: #1e293b; margin: 0 0 1rem 0; line-height: 1.3;">
+        {rumor.title}
+      </h1>
+
+      <!-- Meta -->
+      <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.875rem; color: #64748b; margin-bottom: 2rem;">
+        <time datetime={rumor.date}>
+          🕒 {formattedDate}
+        </time>
+      </div>
+
+      <!-- Content -->
+      <div style="font-size: 1.125rem; line-height: 1.8; color: #334155; margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border-left: 4px solid {category.color};">
+        <p style="margin: 0;">{rumor.content}</p>
+      </div>
+
+      <!-- Credibility section -->
+      <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 600; color: #1e293b; margin: 0 0 1rem 0;">
+          📊 Troverdighetsanalyse
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.875rem; font-weight: 600; color: #475569;">Troverdighet</span>
+            <span style={`font-size: 1.25rem; font-weight: 700; color: ${credibilityColor};`}>
+              {rumor.credibility}%
+            </span>
+          </div>
+          <div style="background: #e2e8f0; height: 12px; border-radius: 999px; overflow: hidden;">
+            <div style={`width: ${rumor.credibility}%; height: 100%; background: ${credibilityColor}; transition: width 0.3s ease;`}></div>
+          </div>
+        </div>
+
+        <div style="display: grid; gap: 1rem;">
+          <div>
+            <strong style="color: #475569;">Kilde:</strong>
+            <span style="color: #64748b; margin-left: 0.5rem;">{rumor.sourceName}</span>
+          </div>
+          <div>
+            <strong style="color: #475569;">Kildetype:</strong>
+            <span style="color: #64748b; margin-left: 0.5rem;">{archetype.name}</span>
+          </div>
+          <div>
+            <strong style="color: #475569;">Typisk troverdighet:</strong>
+            <span style="color: #64748b; margin-left: 0.5rem;">
+              {archetype.credibilityRange[0]}-{archetype.credibilityRange[1]}%
+            </span>
+          </div>
+          <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; border-left: 3px solid #f59e0b;">
+            <p style="margin: 0; color: #92400e; font-size: 0.875rem;">
+              <strong>💡 Om kilden:</strong> {archetype.personality}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentions -->
+      {(rumor.characters?.length > 0 || rumor.locations?.length > 0) && (
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 600; color: #1e293b; margin: 0 0 1rem 0;">
+            🔗 Nevnt i ryktet
+          </h2>
+          
+          {rumor.characters && rumor.characters.length > 0 && (
+            <div style="margin-bottom: 1rem;">
+              <strong style="color: #475569;">👤 Personer:</strong>
+              <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                {rumor.mentions
+                  .filter((m: any) => m.type === 'person')
+                  .map((m: any) => (
+                    <a 
+                      href={`/personer/${m.slug}`} 
+                      style="padding: 0.5rem 1rem; background: white; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: #3b82f6; transition: all 0.2s ease;"
+                    >
+                      {m.name}
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          )}
+          
+          {rumor.locations && rumor.locations.length > 0 && (
+            <div>
+              <strong style="color: #475569;">📍 Steder:</strong>
+              <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                {rumor.mentions
+                  .filter((m: any) => m.type === 'place')
+                  .map((m: any) => (
+                    <a 
+                      href={`/steder/${m.slug}`} 
+                      style="padding: 0.5rem 1rem; background: white; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: #10b981; transition: all 0.2s ease;"
+                    >
+                      {m.name}
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- Map link if has location -->
+      {rumor.locations && rumor.locations.length > 0 && (
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.125rem;">🗺️ Se på kartet</h3>
+          <p style="margin: 0 0 1rem 0; opacity: 0.9; font-size: 0.875rem;">
+            Dette ryktet er knyttet til spesifikke steder i Pjuskeby
+          </p>
+          <a 
+            href="/kart" 
+            style="display: inline-block; padding: 0.75rem 1.5rem; background: white; color: #667eea; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.2s ease;"
+          >
+            Åpne kart →
+          </a>
+        </div>
+      )}
+
+      <!-- Interactive buttons -->
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
+        <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem; font-weight: 600;">
+          Hva tenker du?
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button 
+            id="btn-confirm"
+            data-rumor-id={rumor.id}
+            data-reaction="confirmed"
+            style="flex: 1; min-width: 140px; padding: 0.75rem 1.5rem; background: #10b98115; color: #10b981; border: 2px solid #10b981; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s;"
+          >
+            <span>✅</span>
+            <span>Sant</span>
+            <span id="count-confirmed" style="background: #10b981; color: white; padding: 0.125rem 0.5rem; border-radius: 999px; font-size: 0.75rem;">
+              {rumor.interactions.confirmed}
+            </span>
+          </button>
+          
+          <button 
+            id="btn-debunk"
+            data-rumor-id={rumor.id}
+            data-reaction="debunked"
+            style="flex: 1; min-width: 140px; padding: 0.75rem 1.5rem; background: #ef444415; color: #ef4444; border: 2px solid #ef4444; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s;"
+          >
+            <span>❌</span>
+            <span>Usant</span>
+            <span id="count-debunked" style="background: #ef4444; color: white; padding: 0.125rem 0.5rem; border-radius: 999px; font-size: 0.75rem;">
+              {rumor.interactions.debunked}
+            </span>
+          </button>
+          
+          <button 
+            id="btn-share"
+            data-rumor-id={rumor.id}
+            data-reaction="shared"
+            style="flex: 1; min-width: 140px; padding: 0.75rem 1.5rem; background: #3b82f615; color: #3b82f6; border: 2px solid #3b82f6; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s;"
+          >
+            <span>🔗</span>
+            <span>Del</span>
+            <span id="count-shared" style="background: #3b82f6; color: white; padding: 0.125rem 0.5rem; border-radius: 999px; font-size: 0.75rem;">
+              {rumor.interactions.shared}
+            </span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related rumors -->
+    {relatedRumors.length > 0 && (
+      <section style="margin-top: 3rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1.5rem;">
+          🔍 Relaterte rykter
+        </h2>
+        <div style="display: grid; gap: 1rem;">
+          {relatedRumors.map(related => {
+            const relatedCategory = rumorsData.categories[related.category];
+            const relatedCredColor = getCredibilityColor(related.credibility);
+            return (
+              <a 
+                href={`/rykter/${related.id}`}
+                style="display: block; background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; transition: all 0.2s ease;"
+              >
+                <div style={`display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; background-color: ${relatedCategory.color}15; color: ${relatedCategory.color};`}>
+                  <span>{relatedCategory.icon}</span>
+                  <span>{relatedCategory.name}</span>
+                </div>
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: #1e293b; margin: 0 0 0.5rem 0;">
+                  {related.title}
+                </h3>
+                <p style="font-size: 0.875rem; color: #64748b; margin: 0 0 0.75rem 0; line-height: 1.5;">
+                  {related.content.substring(0, 120)}...
+                </p>
+                <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.75rem;">
+                  <span style={`color: ${relatedCredColor}; font-weight: 600;`}>
+                    {related.credibility}% troverdighet
+                  </span>
+                  <span style="color: #94a3b8;">•</span>
+                  <span style="color: #64748b;">{related.sourceType}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Footer actions -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; text-align: center;">
+      <a 
+        href="/rykter" 
+        style="display: inline-block; padding: 0.75rem 1.5rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.2s ease;"
+      >
+        Se alle rykter
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  a:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+  
+  button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  // Track view on page load
+  const rumorId = document.querySelector('[data-rumor-id]')?.getAttribute('data-rumor-id');
+  
+  if (rumorId) {
+    fetch(`/api/rumors/${rumorId}/view`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }).catch(err => console.error('Failed to track view:', err));
+  }
+  
+  // Handle reaction buttons
+  const reactionButtons = document.querySelectorAll('button[data-reaction]');
+  
+  reactionButtons.forEach(button => {
+    button.addEventListener('click', async (e) => {
+      const btn = e.currentTarget as HTMLButtonElement;
+      const rumorId = btn.getAttribute('data-rumor-id');
+      const reactionType = btn.getAttribute('data-reaction');
+      
+      if (!rumorId || !reactionType) return;
+      
+      // Disable button during request
+      btn.disabled = true;
+      
+      try {
+        const response = await fetch(`/api/rumors/${rumorId}/react`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ reactionType })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          
+          // Update all counts with animation
+          if (data.interactions) {
+            Object.entries(data.interactions).forEach(([type, count]) => {
+              const countElement = document.getElementById(`count-${type}`);
+              if (countElement) {
+                countElement.style.transform = 'scale(1.3)';
+                countElement.textContent = String(count);
+                setTimeout(() => {
+                  countElement.style.transform = 'scale(1)';
+                }, 200);
+              }
+            });
+          }
+          
+          // Visual feedback
+          btn.style.background = btn.style.borderColor + '40';
+          setTimeout(() => {
+            btn.style.background = btn.style.borderColor + '15';
+          }, 300);
+        } else {
+          console.error('Failed to register reaction');
+        }
+      } catch (error) {
+        console.error('Error registering reaction:', error);
+      } finally {
+        // Re-enable button after short delay
+        setTimeout(() => {
+          btn.disabled = false;
+        }, 1000);
+      }
+    });
+  });
+</script>
