@@ -5,8 +5,10 @@
 
 cd /var/www/vhosts/pjuskeby.org || exit 1
 
-# Load environment
-export $(grep -v '^#' .env | xargs)
+# Ensure OpenAI API key is available
+if [ -f .env ]; then
+  export $(grep "^OPENAI_API_KEY=" .env | xargs)
+fi
 
 # Select random story type
 TYPES=("agatha-diary" "rumor" "event")
@@ -32,19 +34,23 @@ if [ -n "$SLUG" ]; then
   # Generate images
   node scripts/generate-story-images.mjs "$SLUG" "$TITLE" "$SUMMARY" >> logs/story-generation.log 2>&1
   
-  # Copy images to public and httpdocs
-  sh scripts/copy-story-images.sh "$SLUG" >> logs/story-generation.log 2>&1
-  
-  # Fix ownership on httpdocs images for nginx
-  chown pjuskebysverden:psacln "httpdocs/assets/agatha/story/${SLUG}"-*.png 2>/dev/null || true
+  # Copy images to all locations using sudo-wrapper
+  bash scripts/copy-story-images.sh "$SLUG" >> logs/story-generation.log 2>&1
   
   echo "$(date): Images generated and copied for $SLUG" >> logs/story-generation.log
 fi
 
+# Fix permissions before build (using sudo-wrapper)
+echo "$(date): Fixing permissions..." >> logs/story-generation.log
+sudo scripts/sudo-wrapper.sh fix-permissions dist >> logs/story-generation.log 2>&1
+
 # Rebuild Astro site
 npm run build >> logs/story-generation.log 2>&1
 
+# Sync to httpdocs
+rsync -av --delete dist/ httpdocs/ --exclude=assets >> logs/story-generation.log 2>&1
+
 # Restart PM2 web process to pick up new content
-pm2 restart pjuskeby-web >> logs/story-generation.log 2>&1
+pm2 restart pjuskeby >> logs/story-generation.log 2>&1
 
 echo "$(date): Story generation complete" >> logs/story-generation.log

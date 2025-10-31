@@ -1339,7 +1339,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             locations.push(found);
             
             // Create simple popup for each entity
-            const icon = mention.type === 'person' ? '👤' : mention.type === 'place' ? '📍' : '🏢';
+            const icon = mention.type === 'person' ? '👤' : mention.type === 'place' ? '📍' : mention.type === 'street' ? '🛣️' : '🏢';
             const popupHTML = `<h3>${icon} ${mention.name}</h3>`;
             
             const popup = new maplibregl.Popup({

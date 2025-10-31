@@ -16,10 +16,14 @@ import { readFile } from 'fs/promises';
 
 const RUNWARE_API_KEY = 'gE5ASqormxPzAbpLPBGOPZ6ftToGFVp3';
 
-// Agatha Splint illustration style base
-const ILLUSTRATION_STYLE = 'hand-drawn watercolor illustration in Nordic children\'s book style (Tove Jansson, Torbjørn Egner, Anne-Cath Vestly, H.C. Andersen, Astrid Lindgren), warm hues, playful layout, emotional cues, whimsical details, gentle absurdity';
+// Agatha Splint illustration style - authentic Nordic whimsy with essential stickman character
+const BASE_STYLE = 'Hand-drawn watercolor illustration in authentic Agatha Splint style: warm autumn colors (ochre, burnt sienna, sage green, cream), soft pencil outlines, Nordic children\'s book aesthetic (Tove Jansson, Torbjørn Egner, Anne-Cath Vestly), gentle watercolor washes, whimsical characters with round faces and simple features, cozy nostalgic atmosphere, quirky absurd details';
 
-const AGATHA_SIGNATURE = 'handwritten signature "Agatha Splint" in elegant script bottom-right corner';
+const STICKMAN_ELEMENT = 'ESSENTIAL: Include a tiny quirky stick figure character somewhere in the scene - could be peeking from behind objects, interacting playfully with main elements, making their own little drawing, waving, running, or doing something unexpectedly funny; stick figure should be simple line-drawn with personality';
+
+const SIGNATURE_REQUIREMENT = 'Handwritten signature "Agatha Splint" in elegant cursive script in the lower right corner, clearly visible with proper bleed margins';
+
+const TECHNICAL_SPECS = 'No other text except signature; ensure all elements including signature are within safe margins; 1024x1024 composition';
 
 /**
  * Generate three illustrations for a story
@@ -36,7 +40,7 @@ async function generateStoryImages(storySlug, storyTitle, storyExcerpt) {
   try {
     // 1. FEATURED IMAGE - The opening scene
     console.log('\n📸 Generating featured image (hero)...');
-    const featuredPrompt = `${ILLUSTRATION_STYLE}; opening scene from "${storyTitle}"; ${storyExcerpt}; main character in focus; warm Nordic light; one strange impossible detail; tiny stickman character peeking from corner holding teacup; emotion: curious wonder; ${AGATHA_SIGNATURE}; no other text`;
+    const featuredPrompt = `${BASE_STYLE}. Scene: Opening moment from "${storyTitle}" - ${storyExcerpt}. Main character prominently featured with gentle expression, warm Nordic autumn light filtering through, one subtly impossible or whimsical detail (floating object, peculiar perspective, dreamlike element). ${STICKMAN_ELEMENT}. ${SIGNATURE_REQUIREMENT}. Emotion: curious wonder and gentle anticipation. ${TECHNICAL_SPECS}`;
 
     const featuredResult = await runware.requestImages({
       positivePrompt: featuredPrompt,
@@ -44,8 +48,8 @@ async function generateStoryImages(storySlug, storyTitle, storyExcerpt) {
       numberResults: 1,
       height: 1024,
       width: 1024,
-      steps: 20,
-      CFGScale: 7,
+      steps: 25,
+      CFGScale: 7.5,
       scheduler: 'FlowMatchEulerDiscreteScheduler',
       seedImage: undefined,
       maskImage: undefined,
@@ -87,7 +91,7 @@ async function generateStoryImages(storySlug, storyTitle, storyExcerpt) {
 
     // 2. FIRST INLINE IMAGE - Mid-story moment
     console.log('\n📸 Generating first inline illustration...');
-    const inline1Prompt = `${ILLUSTRATION_STYLE}; scene from middle of story "${storyTitle}"; characters interacting; ${storyExcerpt}; one absurd detail prominent; tiny stickman character hiding behind object; emotion: playful tension; ${AGATHA_SIGNATURE}; no other text`;
+    const inline1Prompt = `${BASE_STYLE}. Scene: Mid-story moment from "${storyTitle}" - characters interacting, ${storyExcerpt}. Show playful interaction or dialogue between characters, warm cozy interior or charming outdoor setting, one absurd or delightfully odd detail prominently visible. ${STICKMAN_ELEMENT} perhaps hiding behind an object or observing the scene. ${SIGNATURE_REQUIREMENT}. Emotion: playful tension and gentle humor. ${TECHNICAL_SPECS}`;
 
     const inline1Result = await runware.requestImages({
       positivePrompt: inline1Prompt,
@@ -95,8 +99,8 @@ async function generateStoryImages(storySlug, storyTitle, storyExcerpt) {
       numberResults: 1,
       height: 1024,
       width: 1024,
-      steps: 20,
-      CFGScale: 7,
+      steps: 25,
+      CFGScale: 7.5,
       scheduler: 'FlowMatchEulerDiscreteScheduler',
       seedImage: undefined,
       maskImage: undefined,
@@ -137,7 +141,7 @@ async function generateStoryImages(storySlug, storyTitle, storyExcerpt) {
 
     // 3. SECOND INLINE IMAGE - Closing/resolution scene
     console.log('\n📸 Generating second inline illustration...');
-    const inline2Prompt = `${ILLUSTRATION_STYLE}; closing scene from "${storyTitle}"; resolution or lingering mystery; ${storyExcerpt}; emotional reflection; tiny stickman character sitting contentedly with teacup; emotion: gentle melancholy wonder; ${AGATHA_SIGNATURE}; no other text`;
+    const inline2Prompt = `${BASE_STYLE}. Scene: Closing moment from "${storyTitle}" - resolution or lingering mystery, ${storyExcerpt}. Character in quiet reflection or gentle triumph, soft evening/twilight atmosphere, emotional warmth with hint of melancholy or wonder. ${STICKMAN_ELEMENT} sitting contentedly or waving goodbye. ${SIGNATURE_REQUIREMENT}. Emotion: gentle melancholic wonder and cozy satisfaction. ${TECHNICAL_SPECS}`;
 
     const inline2Result = await runware.requestImages({
       positivePrompt: inline2Prompt,
@@ -145,8 +149,8 @@ async function generateStoryImages(storySlug, storyTitle, storyExcerpt) {
       numberResults: 1,
       height: 1024,
       width: 1024,
-      steps: 20,
-      CFGScale: 7,
+      steps: 25,
+      CFGScale: 7.5,
       scheduler: 'FlowMatchEulerDiscreteScheduler',
       seedImage: undefined,
       maskImage: undefined,

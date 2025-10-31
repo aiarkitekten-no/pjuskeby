@@ -387,6 +387,7 @@ Write ONLY the street description text, no preamble.`;
       type: 'street',
       description_short: entity.bio || entity.description || `A memorable street in Pjuskeby`,
       description_full: bioFull,
+      description: bioFull,
       characteristics: entity.traits || [],
       connects: entity.connects || []
     };

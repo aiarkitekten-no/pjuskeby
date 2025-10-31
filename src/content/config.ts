@@ -19,7 +19,7 @@ const storiesCollection = defineCollection({
     summary: z.string(),
     published: z.boolean().default(true),
     featuredImage: z.string().optional(), // Path to featured image
-    hasIllustrations: z.boolean().default(false), // Whether story has Agatha Splint illustrations
+    hasIllustrations: z.boolean().default(true), // Whether story has Agatha Splint illustrations (default: true for autonomy)
   }),
 });
 

@@ -51,6 +51,20 @@ const businesses = businessesData.filter((b: any) =>
 
 const title = fullStreet.name;
 const description = fullStreet.description || `Explore ${fullStreet.name} in Pjuskeby`;
+
+// Format street description (convert simple markdown to HTML)
+const formatDescription = (text: string) => {
+  if (!text) return "";
+  return text
+    .replace(/\*\*\[([^\]]+)\]\*\*/g, '<h3 style="color: #1e293b; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem;">$1</h3>')
+    .replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n\n/g, '</p><p style="color: #475569; line-height: 1.8; margin-bottom: 1rem;">')
+    .replace(/\n/g, ' ');
+};
+
+const formattedDescription = fullStreet.description 
+  ? '<div style="color: #475569; line-height: 1.8;"><p style="margin-bottom: 1rem;">' + formatDescription(fullStreet.description) + '</p></div>' 
+  : '';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -170,7 +184,7 @@ const description = fullStreet.description || `Explore ${fullStreet.name} in Pju
         {fullStreet.description ? (
           <div class="card">
             <h2 class="card-title">About This Street</h2>
-            <p style="color: #475569; line-height: 1.8;">{fullStreet.description}</p>
+            <div set:html={formattedDescription}></div>
           </div>
         ) : (
           <div class="card">

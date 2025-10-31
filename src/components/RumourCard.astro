@@ -96,6 +96,38 @@ const credibilityColor = getCredibilityColor(rumor.credibility);
           }
         </div>
       )}
+      {rumor.mentions && rumor.mentions.filter((m: any) => m.type === "street").length > 0 && (
+        <div class="mention-group">
+          <strong>🛣️  Gater:</strong>
+          {rumor.mentions
+            .filter((m: any) => m.type === "street")
+            .map((m: any, index: number) => (
+              <>
+                <a href={`/gater/${m.slug}`} class="mention-link">
+                  {m.name}
+                </a>
+                {index < rumor.mentions.filter((x: any) => x.type === "street").length - 1 ? ", " : ""}
+              </>
+            ))
+          }
+        </div>
+      )}
+      {rumor.mentions && rumor.mentions.filter((m: any) => m.type === "business").length > 0 && (
+        <div class="mention-group">
+          <strong>🏢 Bedrifter:</strong>
+          {rumor.mentions
+            .filter((m: any) => m.type === "business")
+            .map((m: any, index: number) => (
+              <>
+                <a href={`/bedrifter/${m.slug}`} class="mention-link">
+                  {m.name}
+                </a>
+                {index < rumor.mentions.filter((x: any) => x.type === "business").length - 1 ? ", " : ""}
+              </>
+            ))
+          }
+        </div>
+      )}
     </div>
   )}
 

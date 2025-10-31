@@ -231,7 +231,7 @@ else
         log ""
         
         # Run with real-time output and capture exit code
-        npx tsx scripts/generate-street-profile.ts "$SLUG"
+        node scripts/generate-biography.mjs "$SLUG" "street"
         PROFILE_EXIT_CODE=$?
         
         if [ $PROFILE_EXIT_CODE -ne 0 ]; then
@@ -240,12 +240,12 @@ else
         
         log ""
         
-        # Move from content/data to temp location for consistency with other entity types
-        if [ ! -f "content/data/${SLUG}-extended.json" ]; then
-            error "❌ Extended JSON not found at content/data/${SLUG}-extended.json after generation"
+        # generate-biography.mjs writes to /tmp/ - move it to our temp location
+        if [ ! -f "/tmp/${SLUG}-extended.json" ]; then
+            error "❌ Extended JSON not found at /tmp/${SLUG}-extended.json after generation"
         fi
         
-        cp "content/data/${SLUG}-extended.json" "$TEMP_EXTENDED"
+        cp "/tmp/${SLUG}-extended.json" "$TEMP_EXTENDED"
     else
         log "Using OpenAI GPT-4 to generate 1000-1200 word biography"
         log "Reference: Milly Wiggleflap ($REFERENCE_WORD_COUNT words)"

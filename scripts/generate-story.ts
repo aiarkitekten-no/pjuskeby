@@ -17,12 +17,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Types
 interface Entity {
-  id: string;
+  id?: string;
+  slug?: string;
   name: string;
   age?: number;
   occupation?: string;
   bio?: string;
   description?: string;
+  description_short?: string;
 }
 
 // Load normalized data
@@ -61,10 +63,26 @@ const endings: string[] = JSON.parse(fs.readFileSync(path.join(__dirname, '../co
 // Generate story prompt with full Agatha Splint personality
 function generatePrompt(type: StoryType): string {
   const person1 = getRandomElement(people);
-  const person2 = getRandomElement(people.filter(p => p.id !== person1.id));
+  const person2 = getRandomElement(people.filter(p => p.slug !== person1?.slug));
   const place = getRandomElement(places);
   const business = getRandomElement(businesses);
   const street = getRandomElement(streets);
+
+  // Debug: Check if any entity is undefined
+  if (!person1 || !person2 || !place || !business || !street) {
+    console.error('❌ Missing entity data:', { 
+      person1: person1?.name, 
+      person2: person2?.name, 
+      place: place?.name, 
+      business: business?.name, 
+      street: street?.name,
+      peopleCount: people.length,
+      placesCount: places.length,
+      businessesCount: businesses.length,
+      streetsCount: streets.length
+    });
+    throw new Error('One or more required entities are undefined');
+  }
 
   const agathaPrompt = `
 ✍️ Skandi-Magisk Historieforteller-Prompt™ v2.9 – The Steam-Scribbled Splint Edition
